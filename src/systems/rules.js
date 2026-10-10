@@ -6,6 +6,8 @@ import * as M from './missions.js';
 import * as Inv from './inventory.js';
 import { unlockLex } from './lexicon.js';
 import { fmt } from './text.js';
+import { level as skillLevel, addXp } from './skills.js';
+import { addBuff } from './buffs.js';
 
 export const STAT_NAMES = {
   dignitas: 'Dignitas', caesariani: 'Caesarianer', optimates: 'Optimaten', fides: 'Vertrauen des Herrn',
@@ -40,7 +42,9 @@ export function checkCond(c) {
       case 'need': if (!cmp(s.needs[v[0]] ?? 0, v[1], v[2])) return false; break;
       case 'hour': if (!(s.time.hour >= v[0] && s.time.hour < v[1])) return false; break;
       case 'night': if (isNight(s.time.hour) !== v) return false; break;
-      case 'skill': if ((s.skills[v[0]]?.wins || 0) < v[1]) return false; break;
+      case 'skill':   // Alias: Minispiel-Routine
+      case 'routine': if ((s.mg[v[0]]?.wins || 0) < v[1]) return false; break;
+      case 'level': if (skillLevel(v[0]) < v[1]) return false; break;
       case 'rentDue': if (!s.rent || (s.time.day >= s.rent.due) !== v) return false; break;
       case 'atHome': if ((G.game.map && G.game.map.id === s.home.map) !== v) return false; break;
       case 'map': if (!G.game.map || G.game.map.id !== v) return false; break;
@@ -92,6 +96,9 @@ export function applyEffects(list, ctx = {}) {
       case 'hours': G.game.passHours(v); break;
       case 'toast': G.ui.toast(fmt(v)); break;
       case 'payRent': G.game.payRent(); break;
+      case 'xp': for (const [n, a] of Object.entries(v)) addXp(n, a); break;
+      case 'buff': addBuff(v.id, v.name, v.hours, v.fx); G.ui.toast(`✦ ${v.name} (${v.hours} Std.)`, 'stat'); break;
+      case 'activity': ctx.after = { type: 'activity', id: v }; break;
       case 'auto': G.game.autoMinigame(v, e.opts || {}); break;
       case 'minigame': ctx.after = { type: 'minigame', game: v, then: e.then, opts: e.opts || {} }; break;
       case 'shop': ctx.after = { type: 'shop', id: v }; break;

@@ -256,6 +256,40 @@ try {
     return true;
   });
 
+  // ---------- Freiwillige Aktivitäten ----------
+  await runScenario('plebs', async () => {
+    const { G, game, talk } = window.__rv;
+    const Act = await import('/src/systems/activities.js');
+    G.state.time.hour = 2;
+    G.state.sk.schreiben = 80;
+    const m0 = G.state.money, xp0 = G.state.sk.schreiben;
+    if (Act.blockReason('abschreiben')) return `Abschreiben blockiert: ${Act.blockReason('abschreiben')}`;
+    Act.run('abschreiben', false);
+    await new Promise((r) => setTimeout(r, 900));
+    if (G.state.money <= m0 || G.state.sk.schreiben <= xp0) return `Abschreiben ohne Wirkung (Geld ${m0}->${G.state.money})`;
+    G.state.time.hour = 2;
+    Act.run('unterricht', false);
+    await new Promise((r) => setTimeout(r, 900));
+    if (!G.state.lex.schule) return 'Unterricht hat kein Lexikon freigeschaltet';
+    G.state.time.hour = 2; G.state.sk.schreiben = 0;
+    if (!Act.blockReason('abschreiben')) return 'Abschreiben trotz fehlender Fertigkeit möglich';
+    return true;
+  });
+  await runScenario('nobilis', async () => {
+    const Act = await import('/src/systems/activities.js');
+    return Act.blockReason('abschreiben') ? true : 'Adel darf nicht abschreiben';
+  });
+  await runScenario('servus', async () => {
+    const { G } = window.__rv;
+    const Act = await import('/src/systems/activities.js');
+    G.state.time.hour = 3;
+    if (!Act.blockReason('reden_hoeren')) return 'Sklave hat tagsüber ohne Auftrag frei';
+    G.state.time.hour = 10;
+    const r = Act.blockReason('reden_hoeren');
+    return r && r.includes('keine Zeit') ? 'Sklave hat abends keine freie Zeit' : true;
+  });
+  await press('KeyC'); await sleep(300); await shot(page, '60-charakter'); await press('Escape');
+
   // Schlafen & Speichern
   await ev(() => { const g = window.__rv.game; g.state.time.hour = 10; g.sleep(); });
   await sleep(2000);

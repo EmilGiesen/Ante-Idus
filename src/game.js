@@ -1,7 +1,7 @@
 // Spielablauf: Szenen, Kartenwechsel, Interaktion, Zeit, Schlaf, Ohnmacht, Diebe, Zielmarkierungen
 import { G } from './core/ctx.js';
 import { TILE, RENT_INTERVAL, AUTOMATE_AFTER } from './core/config.js';
-import { newState, saveGame, loadGame, tileToPx } from './core/state.js';
+import { newState, saveGame, loadGame, tileToPx, migrateState } from './core/state.js';
 import { advanceClock, advanceHours, ambientLight, isNight } from './core/time.js';
 import { dateOfPlayedDay, formatRoman, formatGerman } from './core/calendar.js';
 import { formatMoney } from './core/util.js';
@@ -16,6 +16,7 @@ import * as Inv from './systems/inventory.js';
 import { checkCond, changeMoney, changeStat } from './systems/rules.js';
 import { unlockLex } from './systems/lexicon.js';
 import { MINIGAMES, AUTO_RESULTS } from './minigames/index.js';
+import * as Act from './systems/activities.js';
 
 const GLYPH = {
   '!': ['1', '1', '1', '0', '1'],
@@ -92,6 +93,7 @@ export class Game {
   }
 
   setupState(state) {
+    migrateState(state, G.data);
     this.state = state;
     G.state = state;
     const cls = G.data.classes[state.cls];
@@ -157,6 +159,7 @@ export class Game {
     if (input.wasPressed('log')) { G.ui.panels.show('log'); return; }
     if (input.wasPressed('lexicon')) { G.ui.panels.show('lexicon'); return; }
     if (input.wasPressed('map')) { G.ui.panels.show('map'); return; }
+    if (input.wasPressed('char')) { G.ui.panels.show('char'); return; }
 
     const { gained, newDay } = advanceClock(s.time, dt);
     if (updateNeeds(gained, p.sprinting)) { this.faint(); return; }
@@ -330,6 +333,7 @@ export class Game {
       }
       if (it.type === 'sign') { dlg.say(null, ['Aufgemalter Hinweis (Spielhilfe – echte Straßenschilder gab es in Rom nicht):', it.text], 'narr'); unlockLex('orientierung'); return; }
       if (it.type === 'travel') { G.ui.panels.show('travel', { from: it.station }); return; }
+      if (it.type === 'activity') { Act.offer(it.id); return; }
       const node = it.dialogue || `obj_${it.type}`;
       if (G.data.dialogues[node]) dlg.start(node);
       return;
@@ -359,6 +363,7 @@ export class Game {
   runAfter(after, npc) {
     if (after.type === 'shop') { G.ui.panels.show('shop', { id: after.id, npc }); return; }
     if (after.type === 'sleep') { this.sleep(); return; }
+    if (after.type === 'activity') { Act.offer(after.id, npc); return; }
     if (after.type === 'minigame') {
       const opts = { ...after.opts };
       if (!opts.app && npc) opts.app = npc.app;
@@ -385,11 +390,11 @@ export class Game {
       s.vars.mg_price = r.price;
       s.vars.mg_saved = (opts.budget || r.fair) - r.price;
     }
-    s.skills[name] ||= { wins: 0, plays: 0 };
-    s.skills[name].plays++;
+    s.mg[name] ||= { wins: 0, plays: 0 };
+    s.mg[name].plays++;
     if (r.success) {
-      s.skills[name].wins++;
-      if (s.skills[name].wins === AUTOMATE_AFTER && AUTO_RESULTS[name]) G.ui.toast('Du hast Routine! Künftig kannst du diese Arbeit auch „routiniert erledigen“.', 'stat');
+      s.mg[name].wins++;
+      if (s.mg[name].wins === AUTOMATE_AFTER && AUTO_RESULTS[name]) G.ui.toast('Du hast Routine! Künftig kannst du diese Arbeit auch „routiniert erledigen“.', 'stat');
     }
     if (opts.hours !== 0) this.passHours(opts.hours ?? 0.75);
     s.needs.energy = Math.max(0, s.needs.energy - (opts.energy ?? 6));

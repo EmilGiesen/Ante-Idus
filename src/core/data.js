@@ -9,6 +9,8 @@ const FILES = {
   shops: new URL('../data/shops.json', import.meta.url),
   map_rom: new URL('../data/map_rom.json', import.meta.url),
   interiors: new URL('../data/interiors.json', import.meta.url),
+  skills: new URL('../data/skills.json', import.meta.url),
+  activities: new URL('../data/activities.json', import.meta.url),
 };
 
 export async function loadData() {

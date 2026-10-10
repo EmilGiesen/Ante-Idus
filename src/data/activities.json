@@ -1,0 +1,75 @@
+{
+ "abschreiben": {
+  "name": "Schriftrollen abschreiben",
+  "where": "Buchladen am Argiletum",
+  "desc": "Im Argiletum sitzen die Buchhändler. Gegen Lohn kopierst du Texte auf Papyrus – Buchstabe für Buchstabe, ohne Fehler.",
+  "cls": [
+   "plebs",
+   "servus"
+  ],
+  "deny": {
+   "nobilis": "Abschreiben ist Arbeit für Sklaven und Freigelassene – nicht für jemanden aus deinem Haus."
+  },
+  "req": {
+   "level": [
+    "schreiben",
+    2
+   ]
+  },
+  "reqText": "Dafür musst du besser lesen und schreiben können (Lesen & Schreiben, Stufe 2). Unterricht gibt es in der Schule am Forum.",
+  "hours": [
+   0.5,
+   10
+  ],
+  "closed": "Der Buchladen hat geschlossen.",
+  "duration": 2,
+  "energy": 8,
+  "dirt": 1,
+  "skill": "schreiben",
+  "xp": 18,
+  "pay": {
+   "base": 10,
+   "perLevel": 0.1
+  },
+  "lex": "buecher",
+  "verb": "Abschreiben"
+ },
+ "unterricht": {
+  "name": "Unterricht beim Grammaticus",
+  "where": "Schule an der Basilica Aemilia",
+  "desc": "Ein Lehrer unterrichtet unter dem Vordach: Lesen, Schreiben, Dichtung, ein wenig Rhetorik. Wer bezahlt, darf mitlernen.",
+  "cost": 4,
+  "hours": [
+   1,
+   7
+  ],
+  "closed": "Der Unterricht findet vormittags statt.",
+  "duration": 1.5,
+  "energy": 4,
+  "skill": "schreiben",
+  "xp": 25,
+  "xpExtra": {
+   "rhetorik": 6
+  },
+  "lex": "schule",
+  "verb": "Zuhören und lernen"
+ },
+ "reden_hoeren": {
+  "name": "Den Rednern zuhören",
+  "where": "Rostra",
+  "desc": "Von der Rednertribüne sprechen Magistrate und Anwälte zum Volk. Wer genau zuhört, lernt, wie man Menschen überzeugt.",
+  "hours": [
+   1,
+   9
+  ],
+  "closed": "Gerade spricht niemand.",
+  "duration": 1,
+  "energy": 2,
+  "daily": true,
+  "dailyText": "Für heute hast du genug Reden gehört.",
+  "skill": "rhetorik",
+  "xp": 20,
+  "lex": "rostra",
+  "verb": "Zuhören"
+ }
+}

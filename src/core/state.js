@@ -1,6 +1,23 @@
 // Spielzustand (vollständig serialisierbar) sowie Speichern/Laden via localStorage
 import { SAVE_KEY, RENT_INTERVAL, TILE } from './config.js';
 
+// Startfertigkeiten je Klasse: Stufe → Erfahrungspunkte
+export function startSkills(cls, data) {
+  const t = data.skills.thresholds;
+  const out = {};
+  for (const [id, lvl] of Object.entries(data.skills.start[cls] || {})) out[id] = lvl > 0 ? t[lvl - 1] : 0;
+  return out;
+}
+
+// Ältere Spielstände an neue Felder anpassen
+export function migrateState(s, data) {
+  if (s.skills && !s.mg) { s.mg = s.skills; delete s.skills; }
+  s.mg ||= {};
+  s.sk ||= startSkills(s.cls, data);
+  s.buffs ||= [];
+  return s;
+}
+
 export const tileToPx = (tx, ty) => ({ x: tx * TILE + 8, y: ty * TILE + 14 });
 
 export function newState(cls, gender, name, data) {
@@ -21,7 +38,9 @@ export function newState(cls, gender, name, data) {
     lex: {},
     stats: { ...c.stats },
     rel: {},
-    skills: {},
+    sk: startSkills(cls, data),   // Fertigkeiten (Erfahrungspunkte)
+    mg: {},                        // Minispiel-Statistik (Erfolge für Routine)
+    buffs: [],
     rent: cls === 'plebs' ? { due: RENT_INTERVAL, amount: c.rent || 80 } : null,
     home: { map: c.home.map, at: c.home.at },
     light: null,

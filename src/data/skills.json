@@ -1,0 +1,91 @@
+{
+ "thresholds": [
+  30,
+  80,
+  150,
+  250,
+  380,
+  540,
+  740,
+  980,
+  1260,
+  1600
+ ],
+ "list": {
+  "handwerk": {
+   "name": "Handwerk & Arbeit",
+   "desc": "Lasten tragen, bauen, backen.",
+   "perks": {
+    "2": "+10 % Lohn bei Tagelohn",
+    "4": "Routine schon nach 2 Erfolgen",
+    "6": "+30 % Lohn bei Tagelohn"
+   }
+  },
+  "handel": {
+   "name": "Handel",
+   "desc": "Kaufen, verkaufen, feilschen.",
+   "perks": {
+    "2": "Händler zahlen mehr für deine Waren",
+    "4": "Händler sind beim Feilschen geduldiger",
+    "6": "Großhandel am Emporium"
+   }
+  },
+  "fischen": {
+   "name": "Fischen",
+   "desc": "Angeln am Tiber.",
+   "perks": {
+    "2": "Aale beißen an",
+    "4": "Der berühmte Wolfsbarsch (lupus Tiberinus)",
+    "6": "Fische kämpfen weniger"
+   }
+  },
+  "kochen": {
+   "name": "Kochen",
+   "desc": "Römische Gerichte zubereiten.",
+   "perks": {
+    "2": "Rezept: Moretum",
+    "3": "Rezept: Patina",
+    "5": "Gerichte sättigen mehr"
+   }
+  },
+  "gaertnern": {
+   "name": "Gärtnern",
+   "desc": "Kräuter und Gemüse ziehen.",
+   "perks": {
+    "2": "Schnelleres Wachstum",
+    "4": "Größere Ernte"
+   }
+  },
+  "rhetorik": {
+   "name": "Rhetorik",
+   "desc": "Überzeugend reden.",
+   "perks": {
+    "2": "Neue Antworten in Gesprächen",
+    "4": "Bessere Preise beim Feilschen",
+    "6": "Reden auf der Volksversammlung"
+   }
+  },
+  "schreiben": {
+   "name": "Lesen & Schreiben",
+   "desc": "Lesen, schreiben, rechnen.",
+   "perks": {
+    "1": "Wandinschriften lesen",
+    "2": "Abschreiben im Argiletum",
+    "4": "Briefe für andere schreiben"
+   }
+  }
+ },
+ "start": {
+  "nobilis": {
+   "schreiben": 3,
+   "rhetorik": 2
+  },
+  "plebs": {
+   "handwerk": 1,
+   "schreiben": 1
+  },
+  "servus": {
+   "handwerk": 1
+  }
+ }
+}

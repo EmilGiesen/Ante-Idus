@@ -34,7 +34,7 @@ export function setupTouch(root) {
     sprint.classList.toggle('on', input.touchSprint);
   });
   const acts = el('div', { class: 'tacts' }, act('E', 'interact', 'big'), sprint);
-  const menu = el('div', { class: 'tmenu' }, act('I', 'inventory'), act('L', 'log'), act('K', 'lexicon'), act('M', 'map'), act('☰', 'menu'));
+  const menu = el('div', { class: 'tmenu' }, act('I', 'inventory'), act('C', 'char'), act('L', 'log'), act('K', 'lexicon'), act('M', 'map'), act('☰', 'menu'));
   const wrap = el('div', { class: 'touch hidden' }, pad, acts, menu);
   root.append(wrap);
   return wrap;

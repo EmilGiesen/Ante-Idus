@@ -329,7 +329,7 @@ for (const [name, gx, gy, lex] of gates) {
 B('carcer', 103, 79, 4, 5, { name: 'Carcer (Tullianum)', lex: 'carcer', info: 'Der Carcer, Roms Staatsgefängnis am Fuß des Kapitols. Gefangene warten hier auf ihr Urteil – oder ihre Hinrichtung.' });
 B('temple', 109, 77, 6, 7, { name: 'Tempel der Concordia', lex: 'concordia', style: { cols: 4 }, door: { dx: 3, dialogue: 'door_concordia' } });
 B('curia', 116, 73, 6, 7, { name: 'Curia Cornelia', lex: 'curia', info: 'Die Curia Cornelia, das Versammlungshaus des Senats. Faustus Sulla ließ sie nach dem Brand von 52 v. Chr. neu errichten.' });
-B('rostra', 115, 82, 6, 2, { name: 'Rostra', lex: 'rostra', onRoad: true, info: 'Die Rostra, die Rednertribüne am Comitium – geschmückt mit den bronzenen Schiffsschnäbeln erbeuteter Kriegsschiffe.' });
+B('rostra', 115, 82, 6, 2, { name: 'Rostra', lex: 'rostra', onRoad: true, interact: { type: 'activity', id: 'reden_hoeren' } });
 B('shrine', 122, 80, 1, 2, { name: 'Ianus-Tor', lex: 'ianus', info: 'Der Durchgang des Ianus Geminus. Seine Türen stehen offen – das heißt: Rom ist im Krieg.' });
 B('basilica', 128, 77, 16, 7, { name: 'Basilica Aemilia', lex: 'basilicae', info: 'Die Basilica Aemilia: Gerichte, Händler und Geldwechsler unter einem Dach.',
   door: { dx: 8, to: 'basilica_aemilia', planned: true, label: 'Basilica Aemilia' } });
@@ -490,6 +490,17 @@ for (const [x, y, w, v] of [[160, 148, 2, 'altar'], [174, 146, 3, 'drum'], [180,
   D('tomb', x, y, w, w, { name: 'Grabmal', lex: 'via_appia', style: { variant: v }, info: 'Grabmäler säumen die Straßen vor der Stadt – Bestattungen innerhalb der Mauern sind verboten.' });
 }
 trees([160, 140, 40, 30], 10, ['cypress', 'pine'], 22, ['.', 'l', ',']);
+
+// =====================================================================
+// 15b. Orte für freiwillige Aktivitäten (activities.json)
+// =====================================================================
+function actAt(kind, x, y, w, h, id, extra = {}) {
+  const p = nearFree(x, y, w, h, 6);
+  if (!p) { warnings.push(`Aktivität ${id}: kein Platz bei ${x},${y}`); return; }
+  D(kind, p[0], p[1], w, h, { ...extra, interact: { type: 'activity', id } });
+}
+actAt('stall', 129, 75, 3, 1, 'abschreiben', { name: 'Buchladen', style: { goods: 'scrolls', awning: '#7a2230' } });
+actAt('bench', 131, 84, 1, 1, 'unterricht', { name: 'Schulbank' });
 
 // =====================================================================
 // 16. Wegweiser, Sänften, Anker, Zonen, Bereiche

@@ -28,7 +28,7 @@ export class Hud {
     this.goal = el('div', { class: 'hud-goal' });
     this.mini = el('canvas', { class: 'minimap px', width: 140, height: 104, title: 'Stadtplan: M' });
     this.right = el('div', { class: 'hud-box hud-right' }, this.zone, this.goal, this.mini);
-    this.keys = el('div', { class: 'hud-keys' }, 'E sprechen/benutzen · Shift sprinten · I Inventar · L Logbuch · K Lexikon · M Stadtplan · Esc Menü');
+    this.keys = el('div', { class: 'hud-keys' }, 'E sprechen/benutzen · Shift sprinten · I Inventar · C Charakter · L Logbuch · K Lexikon · M Stadtplan · Esc Menü');
     this.root = el('div', { class: 'hud hidden' }, this.left, this.right, this.keys);
     root.append(this.root);
     this.t = 0;

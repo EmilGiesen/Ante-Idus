@@ -970,6 +970,32 @@
     "Plinius, Naturgeschichte 36,100",
     "CIL VI 1305 (Inschrift am Pons Fabricius)"
    ]
+  },
+  "buecher": {
+   "title": "Bücher und Buchhändler",
+   "cat": "alltag",
+   "text": [
+    "Bücher sind Papyrusrollen, Buchstabe für Buchstabe von Hand kopiert – oft von gebildeten Sklaven (librarii). Buchhändler sitzen unter anderem im Argiletum.",
+    "Ciceros Freund Atticus ließ von seinen Sklaven Bücher abschreiben und verbreitete so auch Ciceros Werke."
+   ],
+   "sources": [
+    "Cornelius Nepos, Atticus 13",
+    "Cicero, Briefe an Atticus 13,23",
+    "Martial 1,3 und 1,117 (spätere Erwähnung des Argiletum)"
+   ]
+  },
+  "schule": {
+   "title": "Schule und Unterricht",
+   "cat": "gesellschaft",
+   "text": [
+    "Kinder lernen beim Elementarlehrer (litterator) Lesen, Schreiben und Rechnen, oft unter einem Vordach am Forum. Danach folgen der grammaticus (Sprache, Dichtung) und der rhetor (Redekunst).",
+    "Eine allgemeine Schulpflicht gibt es nicht; wer zahlen kann, lässt unterrichten. Viele Lehrer sind Freigelassene griechischer Herkunft."
+   ],
+   "sources": [
+    "Sueton, Über die Grammatiker",
+    "Quintilian, Ausbildung des Redners 1",
+    "Horaz, Satiren 1,6,71–78"
+   ]
   }
  }
 }

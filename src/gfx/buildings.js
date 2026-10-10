@@ -286,6 +286,7 @@ const KINDS = {
       veg: ['#5f9a3a', '#e07a2a', '#d8c060', '#8a3a6a'], bread: ['#c98a3a', '#e0b060'],
       fish: ['#9ab0c0', '#c8d8e0', '#8a5a2a'], oil: ['#c9b23a', '#e0d070', '#a8743f'],
       cheese: ['#f0d880', '#e8c860', '#f4eedc'], lamps: ['#b06a3a', '#c9a24a', '#8a4a2a'],
+      scrolls: ['#e8dcc0', '#c9b089', '#8a5a32'], tools: ['#8a8690', '#6b4426', '#b0603a'], cloth: ['#a3392c', '#2e6da4', '#d8cfb4'],
     }[st.goods] || ['#c98a3a', '#5b6b2a', '#7a2230'];
     for (let i = 0; i < Math.floor(W / 3); i++) {
       const gx = X + 1 + i * 3, gy = Y + 1 + (i % 2);

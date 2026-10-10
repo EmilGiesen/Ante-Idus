@@ -6,7 +6,8 @@
   "food": {
    "satiety": 25
   },
-  "desc": "Rundes Brot mit acht Kerben, wie man es in Pompeji gefunden hat."
+  "desc": "Rundes Brot mit acht Kerben, wie man es in Pompeji gefunden hat.",
+  "cat": "food"
  },
  "puls": {
   "name": "Puls (Getreidebrei)",
@@ -16,7 +17,8 @@
   "food": {
    "satiety": 30
   },
-  "desc": "Brei aus Emmer oder Weizen – das Alltagsessen der einfachen Leute."
+  "desc": "Brei aus Emmer oder Weizen – das Alltagsessen der einfachen Leute.",
+  "cat": "food"
  },
  "lentes": {
   "name": "Linseneintopf",
@@ -27,7 +29,8 @@
    "satiety": 38,
    "health": 2
   },
-  "desc": "Heiß aus dem Dolium des Thermopoliums."
+  "desc": "Heiß aus dem Dolium des Thermopoliums.",
+  "cat": "food"
  },
  "olivae": {
   "name": "Oliven",
@@ -37,7 +40,8 @@
   "food": {
    "satiety": 10
   },
-  "desc": "Eingelegte Oliven aus Picenum."
+  "desc": "Eingelegte Oliven aus Picenum.",
+  "cat": "food"
  },
  "caseus": {
   "name": "Käse",
@@ -46,7 +50,8 @@
   "food": {
    "satiety": 15
   },
-  "desc": "Fester Schafskäse vom Land."
+  "desc": "Fester Schafskäse vom Land.",
+  "cat": "food"
  },
  "ova": {
   "name": "Eier",
@@ -55,7 +60,8 @@
   "food": {
    "satiety": 14
   },
-  "desc": "Gekochte Eier – ab ovo, vom Ei an, begann jedes Gastmahl."
+  "desc": "Gekochte Eier – ab ovo, vom Ei an, begann jedes Gastmahl.",
+  "cat": "food"
  },
  "ficus": {
   "name": "Getrocknete Feigen",
@@ -66,7 +72,8 @@
    "satiety": 10,
    "energy": 3
   },
-  "desc": "Süß und lange haltbar."
+  "desc": "Süß und lange haltbar.",
+  "cat": "food"
  },
  "mel": {
   "name": "Honig",
@@ -77,7 +84,8 @@
    "satiety": 8,
    "energy": 6
   },
-  "desc": "Das Süßungsmittel der Antike – Zucker kennt man nicht."
+  "desc": "Das Süßungsmittel der Antike – Zucker kennt man nicht.",
+  "cat": "food"
  },
  "vinum": {
   "name": "Landwein",
@@ -88,14 +96,16 @@
    "satiety": 4,
    "energy": 6
   },
-  "desc": "Einfacher Wein, mit Wasser verdünnt getrunken."
+  "desc": "Einfacher Wein, mit Wasser verdünnt getrunken.",
+  "cat": "food"
  },
  "vinum_bonum": {
   "name": "Falerner Wein",
   "icon": "amphora",
   "c": "#5a1020",
   "price": 32,
-  "desc": "Der berühmteste Wein Italiens, aus Kampanien."
+  "desc": "Der berühmteste Wein Italiens, aus Kampanien.",
+  "cat": "good"
  },
  "posca": {
   "name": "Posca",
@@ -106,71 +116,82 @@
    "energy": 5,
    "satiety": 2
   },
-  "desc": "Wasser mit Essig – erfrischend und billig."
+  "desc": "Wasser mit Essig – erfrischend und billig.",
+  "cat": "food"
  },
  "garum": {
   "name": "Garum",
   "icon": "jar",
   "c": "#8a5a2a",
   "price": 12,
-  "desc": "Fermentierte Fischsauce – kräftig, salzig und überall beliebt."
+  "desc": "Fermentierte Fischsauce – kräftig, salzig und überall beliebt.",
+  "cat": "good"
  },
  "ostrea": {
   "name": "Austern",
   "icon": "shell",
   "price": 20,
-  "desc": "Austern vom Lucriner See – ein Luxus für Reiche."
+  "desc": "Austern vom Lucriner See – ein Luxus für Reiche.",
+  "cat": "food"
  },
  "oleum": {
   "name": "Olivenöl",
   "icon": "jug",
   "c": "#c9b23a",
   "price": 4,
-  "desc": "Öl aus Venafrum, für Küche, Lampe und Körperpflege."
+  "desc": "Öl aus Venafrum, für Küche, Lampe und Körperpflege.",
+  "cat": "good"
  },
  "lucerna": {
   "name": "Öllampe (lucerna)",
   "icon": "lamp",
   "price": 4,
   "light": 50,
-  "desc": "Eine Tonlampe. Benutzen: anzünden – nachts siehst du mehr und lockst weniger Diebe an."
+  "desc": "Eine Tonlampe. Benutzen: anzünden – nachts siehst du mehr und lockst weniger Diebe an.",
+  "cat": "tool"
  },
  "fax": {
   "name": "Fackel",
   "icon": "torch",
   "price": 3,
   "light": 76,
-  "desc": "Eine Pechfackel. Hell, aber rußig."
+  "desc": "Eine Pechfackel. Hell, aber rußig.",
+  "cat": "tool"
  },
  "frumentum": {
   "name": "Getreide (5 Modii)",
   "icon": "sack",
   "quest": true,
-  "desc": "Die monatliche Getreideration: rund 33 kg Weizen."
+  "desc": "Die monatliche Getreideration: rund 33 kg Weizen.",
+  "cat": "quest"
  },
  "hydria": {
   "name": "Wasserkrug (voll)",
   "icon": "jar",
   "c": "#b0603a",
   "quest": true,
-  "desc": "Ein schwerer Krug mit frischem Brunnenwasser."
+  "desc": "Ein schwerer Krug mit frischem Brunnenwasser.",
+  "cat": "quest"
  },
  "tabellae": {
   "name": "Versiegelte Wachstafeln",
   "icon": "tablet",
   "quest": true,
-  "desc": "Ein Brief deines Herrn an den Bankier Sextus Fadius. Das Siegel darf nicht brechen."
+  "desc": "Ein Brief deines Herrn an den Bankier Sextus Fadius. Das Siegel darf nicht brechen.",
+  "cat": "quest"
  },
  "tabellae_resp": {
   "name": "Antwort des Bankiers",
   "icon": "tablet",
   "quest": true,
-  "desc": "Die Antwort des Sextus Fadius an Quintus Fabius Rufus."
+  "desc": "Die Antwort des Sextus Fadius an Quintus Fabius Rufus.",
+  "cat": "quest"
  },
  "cesta": {
   "name": "Einkaufskorb (Brot & Öl)",
   "icon": "basket",
   "quest": true,
-  "desc": "Brot und Öl für den Haushalt des Fabius."
+  "desc": "Brot und Öl für den Haushalt des Fabius.",
+  "cat": "quest"
  }
 }

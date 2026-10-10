@@ -222,7 +222,10 @@
    "name": "Rostra",
    "lex": "rostra",
    "onRoad": true,
-   "info": "Die Rostra, die Rednertribüne am Comitium – geschmückt mit den bronzenen Schiffsschnäbeln erbeuteter Kriegsschiffe."
+   "interact": {
+    "type": "activity",
+    "id": "reden_hoeren"
+   }
   },
   {
    "kind": "shrine",
@@ -4121,6 +4124,34 @@
    "w": 1,
    "h": 1,
    "seed": 527438
+  },
+  {
+   "kind": "stall",
+   "x": 129,
+   "y": 75,
+   "w": 3,
+   "h": 1,
+   "name": "Buchladen",
+   "style": {
+    "goods": "scrolls",
+    "awning": "#7a2230"
+   },
+   "interact": {
+    "type": "activity",
+    "id": "abschreiben"
+   }
+  },
+  {
+   "kind": "bench",
+   "x": 131,
+   "y": 84,
+   "w": 1,
+   "h": 1,
+   "name": "Schulbank",
+   "interact": {
+    "type": "activity",
+    "id": "unterricht"
+   }
   },
   {
    "kind": "litter",

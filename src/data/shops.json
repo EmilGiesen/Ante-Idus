@@ -49,7 +49,12 @@
    {
     "id": "fax"
    }
-  ]
+  ],
+  "buys": [
+   "good",
+   "olivae"
+  ],
+  "sellFactor": 0.55
  },
  "verecunda": {
   "name": "Stand der Verecunda",
@@ -68,7 +73,11 @@
    {
     "id": "mel"
    }
-  ]
+  ],
+  "buys": [
+   "food"
+  ],
+  "sellFactor": 0.45
  },
  "mago": {
   "name": "Weinstand des Mago",
@@ -84,7 +93,12 @@
    {
     "id": "vinum_bonum"
    }
-  ]
+  ],
+  "buys": [
+   "good",
+   "vinum"
+  ],
+  "sellFactor": 0.55
  },
  "thais": {
   "name": "Fischstand der Thais",
@@ -97,6 +111,11 @@
    {
     "id": "ostrea"
    }
-  ]
+  ],
+  "buys": [
+   "fish",
+   "garum"
+  ],
+  "sellFactor": 0.55
  }
 }

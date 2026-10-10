@@ -42,6 +42,21 @@ export class DialogBox {
     this.showPage();
   }
 
+  // Dialog aus Code (z. B. Aktivitäten): Optionen dürfen eine Funktion fn haben
+  custom(node, npc) {
+    this.npc = npc || null;
+    if (npc) npc.talking = true;
+    this.open = true;
+    this.box.classList.remove('hidden');
+    this.node = node;
+    this.nodeId = null;
+    this.pages = Array.isArray(node.text) ? node.text : [node.text];
+    this.page = 0;
+    this.pending = null;
+    this.optList = node.opts || [];
+    this.showPage();
+  }
+
   openNode(id) {
     const D = G.data.dialogues;
     let node = D[id];
@@ -134,6 +149,7 @@ export class DialogBox {
   choose(i) {
     const o = this.optList[i];
     if (!o) return;
+    if (o.fn) { this.close(); o.fn(); return; }
     const after = applyEffects(o.do).after;
     if (after) { this.close(after); return; }
     if (o.go) this.openNode(o.go);

@@ -3,7 +3,8 @@ import { readFileSync } from 'node:fs';
 import { buildExterior, buildInterior } from '../src/world/mapgen.js';
 
 const load = (n) => JSON.parse(readFileSync(new URL(`../src/data/${n}.json`, import.meta.url), 'utf8'));
-const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors'].map((n) => [n, load(n)]));
+const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities'].map((n) => [n, load(n)]));
+const MINIGAMES = ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice', 'race'];
 const errors = [];
 const warn = [];
 const err = (m) => errors.push(m);
@@ -163,6 +164,24 @@ for (const [id, m] of Object.entries(D.missions)) {
   });
 }
 for (const [id, s] of Object.entries(D.shops)) for (const it of s.items) if (!D.items[it.id]) err(`Laden ${id}: Gegenstand ${it.id} fehlt`);
+// Aktivitäten
+for (const [id, a] of Object.entries(D.activities)) {
+  if (a.skill && !D.skills.list[a.skill]) err(`Aktivität ${id}: Fertigkeit ${a.skill} fehlt`);
+  for (const sk of Object.keys(a.xpExtra || {})) if (!D.skills.list[sk]) err(`Aktivität ${id}: Fertigkeit ${sk} fehlt`);
+  if (a.minigame && !MINIGAMES.includes(a.minigame)) err(`Aktivität ${id}: Minispiel ${a.minigame} unbekannt`);
+  if (a.lex) { usedLex.add(a.lex); if (!lex[a.lex]) err(`Aktivität ${id}: Lexikon ${a.lex} fehlt`); }
+  for (const it of [...Object.keys(a.needs || {}), ...Object.keys(a.consumes || {}), ...(a.gives || []).map((g) => g.id)]) if (!D.items[it]) err(`Aktivität ${id}: Gegenstand ${it} fehlt`);
+  checkCond(a.req, `Aktivität ${id}`);
+  checkEff(a.do, `Aktivität ${id}`);
+}
+for (const o of [...D.map_rom.buildings, ...D.map_rom.deco]) {
+  if (o.interact?.type === 'activity') {
+    if (!D.activities[o.interact.id]) err(`Kartenobjekt ${o.name || o.kind}: Aktivität ${o.interact.id} fehlt`);
+    else if (!canReachAdj('rom', o.x, o.y) && !canReachAdj('rom', o.x + o.w - 1, o.y + o.h - 1)) err(`Aktivität ${o.interact.id}: Ort nicht erreichbar`);
+  }
+}
+for (const it of Object.values(D.items)) if (!it.cat) err(`Gegenstand ${it.name}: Kategorie fehlt`);
+
 // Lexikon: Kategorien und Freischaltung
 const cats = new Set(D.lexicon.categories.map((c) => c.id));
 for (const [id, e] of Object.entries(lex)) {

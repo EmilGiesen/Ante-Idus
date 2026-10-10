@@ -8,13 +8,24 @@ import * as M from '../systems/missions.js';
 import { fmt } from '../systems/text.js';
 import { lexCount } from '../systems/lexicon.js';
 import { changeMoney } from '../systems/rules.js';
-import { formatMoney as fm } from '../core/util.js';
+import { level, progress, skillDefs } from '../systems/skills.js';
+import { activeBuffs, hoursLeft, buffFx } from '../systems/buffs.js';
+
+// Verkaufspreis eines Gegenstands in einem Laden (Handel-Stufe und Boni erhöhen ihn)
+export function sellPrice(shop, id) {
+  const def = Inv.itemDef(id);
+  if (def.quest || !def.price) return 0;
+  const cats = shop.buys || [];
+  if (!cats.includes(def.cat) && !cats.includes(id)) return 0;
+  const f = (shop.sellFactor ?? 0.5) * (1 + 0.04 * level('handel') + buffFx('handel'));
+  return Math.max(1, Math.round(def.price * f));
+}
 
 const TITLES = {
   inventory: 'Inventar', log: 'Logbuch', lexicon: 'Schriftrolle des Wissens', menu: 'Menü', shop: 'Laden', help: 'Steuerung',
-  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)',
+  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)', char: 'Charakter',
 };
-const HOTKEY = { inventory: 'inventory', log: 'log', lexicon: 'lexicon', map: 'map' };
+const HOTKEY = { inventory: 'inventory', log: 'log', lexicon: 'lexicon', map: 'map', char: 'char' };
 
 export class Panels {
   constructor(root) {
@@ -198,7 +209,7 @@ export class Panels {
     const rows = [
       ['WASD / Pfeiltasten', 'Laufen'], ['Shift (gedrückt)', 'Sprinten (kostet Energie)'], ['E', 'Sprechen, untersuchen, benutzen'],
       ['Leertaste / Enter', 'Bestätigen, im Minispiel handeln'], ['1–5', 'Antwort im Dialog wählen'], ['I', 'Inventar'], ['L', 'Logbuch'],
-      ['K', 'Lexikon (Schriftrolle des Wissens)'], ['M', 'Stadtplan'], ['Esc', 'Menü / Fenster schließen'],
+      ['K', 'Lexikon (Schriftrolle des Wissens)'], ['C', 'Charakter: Fertigkeiten, Boni'], ['M', 'Stadtplan'], ['Esc', 'Menü / Fenster schließen'],
     ];
     this.body.append(el('table', { class: 'keys' }, rows.map(([k, v]) => el('tr', {}, el('td', {}, el('kbd', {}, k)), el('td', {}, v)))),
       el('p', { class: 'muted small' }, 'Auf Touch-Geräten erscheinen Steuerkreuz und Knöpfe am Bildschirmrand.'));
@@ -210,6 +221,13 @@ export class Panels {
     const shop = G.data.shops[this.arg.id];
     const s = G.state;
     this.body.append(el('p', { class: 'muted' }, fmt(shop.text || '')), el('p', { class: 'money-line' }, `Dein Geld: ${formatMoney(s.money)}`));
+    const tab = this.arg.tab || 'buy';
+    if (shop.buys) {
+      this.body.append(el('div', { class: 'row tabs' },
+        el('button', { class: `btn small${tab === 'buy' ? '' : ' ghost'}`, onclick: () => { this.arg.tab = 'buy'; this.sel = 0; this.render(); } }, 'Kaufen'),
+        el('button', { class: `btn small${tab === 'sell' ? '' : ' ghost'}`, onclick: () => { this.arg.tab = 'sell'; this.sel = 0; this.render(); } }, 'Verkaufen')));
+    }
+    if (tab === 'sell') { this.renderSell(shop); return; }
     const list = el('div', { class: 'shop-list' });
     shop.items.forEach((entry, i) => {
       const def = Inv.itemDef(entry.id);
@@ -230,6 +248,51 @@ export class Panels {
       this.nav.push(buy);
     });
     this.body.append(list);
+  }
+
+  renderSell(shop) {
+    const list = el('div', { class: 'shop-list' });
+    const items = Inv.list().filter((it) => sellPrice(shop, it.id) > 0);
+    if (!items.length) list.append(el('p', { class: 'muted' }, 'Du hast nichts, was dieser Händler kaufen würde.'));
+    items.forEach((it, i) => {
+      const price = sellPrice(shop, it.id);
+      const sell = () => {
+        if (Inv.count(it.id) < 1) return;
+        Inv.remove(it.id, 1);
+        changeMoney(price);
+        G.state.vars.sold = (G.state.vars.sold || 0) + price;
+        this.render();
+      };
+      list.append(el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}` },
+        pixelCanvas(getIcon(it.def), 2), el('div', { class: 'grow' }, el('b', {}, `${it.def.name} (${it.n}×)`), el('small', {}, it.def.desc || '')),
+        el('span', { class: 'price' }, shortMoney(price)),
+        el('button', { class: 'btn small', onclick: sell }, 'Verkaufen')));
+      this.nav.push(sell);
+    });
+    this.body.append(list);
+  }
+
+  // ---------- Charakter ----------
+  render_char() {
+    const s = G.state;
+    const cls = G.data.classes[s.cls];
+    this.body.append(el('p', {}, el('b', {}, s.name), ` – ${s.gender === 'f' ? cls.title_f : cls.title_m}`));
+    this.body.append(el('h3', {}, 'Fertigkeiten'));
+    const grid = el('div', { class: 'skill-grid' });
+    for (const [id, def] of Object.entries(skillDefs())) {
+      const l = level(id);
+      const next = def.perks && Object.entries(def.perks).find(([k]) => Number(k) > l);
+      grid.append(el('div', { class: 'skill' },
+        el('div', { class: 'row' }, el('b', {}, def.name), el('span', { class: 'tag' }, `Stufe ${l}`)),
+        el('div', { class: 'bar' }, el('i', { style: { width: `${Math.round(progress(id) * 100)}%` } })),
+        el('small', { class: 'muted' }, next ? `Stufe ${next[0]}: ${next[1]}` : def.desc)));
+    }
+    this.body.append(grid);
+    this.body.append(el('h3', {}, 'Aktive Boni'));
+    const buffs = activeBuffs();
+    if (!buffs.length) this.body.append(el('p', { class: 'muted' }, 'Keine. Opfergaben in Tempeln oder gutes Essen geben zeitlich begrenzte Boni.'));
+    for (const b of buffs) this.body.append(el('p', {}, `✦ ${b.name} – noch etwa ${Math.ceil(hoursLeft(b))} Std.`));
+    if (this.extraChar) this.extraChar(this.body);
   }
 
   // ---------- Stadtplan ----------
@@ -269,7 +332,7 @@ export class Panels {
     const from = rom.stations.find((x) => x.id === this.arg.from);
     const cost = g.travelCost();
     const why = g.canTravel();
-    this.body.append(el('p', {}, cost ? `Die Träger bringen dich für ${fm(cost)} an einen der Sammelplätze. Die Fahrt dauert etwas.` : 'Die Sänftenträger deines Hauses bringen dich, wohin du willst.'));
+    this.body.append(el('p', {}, cost ? `Die Träger bringen dich für ${formatMoney(cost)} an einen der Sammelplätze. Die Fahrt dauert etwas.` : 'Die Sänftenträger deines Hauses bringen dich, wohin du willst.'));
     if (why) this.body.append(el('p', { class: 'warnline' }, why));
     const list = el('div', { class: 'shop-list' });
     rom.stations.filter((x) => x !== from).forEach((st, i) => {
