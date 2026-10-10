@@ -1,0 +1,183 @@
+{
+ "nobilis": {
+  "label": "Adel",
+  "title_m": "junger Patrizier",
+  "title_f": "junge Patrizierin",
+  "tagline": "Senatorenkind vom Palatin – reich, aber unter politischem Druck.",
+  "startText": "Domus der Valerier auf dem Palatin, mit Haussklaven",
+  "goalShort": "Dignitas mehren, Verbündete gewinnen",
+  "limits": "Jedes Wort wird beobachtet – Caesarianer oder Optimaten?",
+  "goal": "Mehre die Dignitas (das Ansehen) deines Hauses. Dein Vater, der Senator Lucius Valerius, ist auf seinem Landgut in Kampanien – du vertrittst die Familie in Rom. Positioniere dich klug zwischen Caesars Anhängern und den Optimaten.",
+  "money": 1600,
+  "needs": {
+   "satiety": 85,
+   "energy": 95,
+   "health": 100,
+   "hygiene": 90
+  },
+  "inventory": {
+   "lucerna": 1
+  },
+  "stats": {
+   "dignitas": 20,
+   "caesariani": 0,
+   "optimates": 0
+  },
+  "start": {
+   "map": "domus_valeria",
+   "at": [
+    3,
+    12
+   ]
+  },
+  "home": {
+   "map": "domus_valeria",
+   "at": [
+    3,
+    12
+   ]
+  },
+  "intro": "intro_nobilis",
+  "names": {
+   "m": "Gaius Valerius",
+   "f": "Valeria"
+  },
+  "app": {
+   "m": {
+    "skin": "#e8b88f",
+    "hair": "#3d2817",
+    "style": "short",
+    "dress": "toga",
+    "color": "#f1ece0"
+   },
+   "f": {
+    "skin": "#f1c9a5",
+    "hair": "#5a3a1e",
+    "style": "bun",
+    "dress": "stola",
+    "color": "#b8506a",
+    "color2": "#e3c27a"
+   }
+  }
+ },
+ "plebs": {
+  "label": "Plebejer",
+  "title_m": "Plebejer",
+  "title_f": "Plebejerin",
+  "tagline": "Ein Leben in der Subura – wenig Geld, viel Lärm, große Träume.",
+  "startText": "Mietzimmer im 3. Stock einer Insula in der Subura",
+  "goalShort": "Aufsteigen, einen eigenen Laden eröffnen, die Familie versorgen",
+  "limits": "Die Miete muss bezahlt werden – jeden Monat.",
+  "goal": "Versorge deine Familie, bezahle die Miete und arbeite dich nach oben – eines Tages willst du einen eigenen Laden eröffnen.",
+  "money": 32,
+  "rent": 60,
+  "needs": {
+   "satiety": 60,
+   "energy": 90,
+   "health": 95,
+   "hygiene": 60
+  },
+  "inventory": {
+   "panis": 1
+  },
+  "stats": {
+   "familia": 10,
+   "vicinia": 5
+  },
+  "start": {
+   "map": "insula_arria",
+   "at": [
+    2,
+    2
+   ]
+  },
+  "home": {
+   "map": "insula_arria",
+   "at": [
+    2,
+    2
+   ]
+  },
+  "intro": "intro_plebs",
+  "names": {
+   "m": "Marcus Lollius",
+   "f": "Lollia"
+  },
+  "app": {
+   "m": {
+    "skin": "#d9a47a",
+    "hair": "#2b1d14",
+    "style": "curly",
+    "dress": "tunic",
+    "color": "#a5764b"
+   },
+   "f": {
+    "skin": "#e8b88f",
+    "hair": "#3d2817",
+    "style": "bun",
+    "dress": "dress",
+    "color": "#6f7d5a",
+    "color2": "#c9a03a"
+   }
+  }
+ },
+ "servus": {
+  "label": "Sklave / Sklavin",
+  "title_m": "Sklave",
+  "title_f": "Sklavin",
+  "tagline": "Im Haushalt eines reichen Römers – unfrei, aber mit einem Ziel.",
+  "startText": "Haushalt des Quintus Fabius Rufus auf dem Palatin",
+  "goalShort": "Peculium sparen, Vertrauen gewinnen, Freilassung erreichen",
+  "limits": "Den Palatin darfst du nur mit Auftrag verlassen.",
+  "goal": "Gewinne das Vertrauen deines Herrn, spare jede Münze für dein Peculium – und erreiche eines Tages die Freilassung (manumissio).",
+  "money": 6,
+  "needs": {
+   "satiety": 55,
+   "energy": 80,
+   "health": 90,
+   "hygiene": 55
+  },
+  "inventory": {},
+  "stats": {
+   "fides": 20
+  },
+  "start": {
+   "map": "domus_fabia",
+   "at": [
+    19,
+    12
+   ]
+  },
+  "home": {
+   "map": "domus_fabia",
+   "at": [
+    19,
+    11
+   ]
+  },
+  "intro": "intro_servus",
+  "names": {
+   "m": "Dama",
+   "f": "Phyllis"
+  },
+  "app": {
+   "m": {
+    "skin": "#f1c9a5",
+    "hair": "#c9a35a",
+    "style": "short",
+    "dress": "worker",
+    "color": "#8c7a5c",
+    "barefoot": true
+   },
+   "f": {
+    "skin": "#f1c9a5",
+    "hair": "#a0662e",
+    "style": "long",
+    "dress": "dress",
+    "color": "#9a8a6a",
+    "color2": "#7a6248",
+    "barefoot": true
+   }
+  }
+ }
+}

@@ -1,0 +1,1985 @@
+{
+ "id": "rom",
+ "name": "Roma",
+ "w": 128,
+ "h": 96,
+ "base": "grass",
+ "seed": 4646,
+ "ops": [
+  {
+   "op": "rect",
+   "tile": "water",
+   "r": [
+    0,
+    0,
+    6,
+    44
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "water",
+   "r": [
+    0,
+    44,
+    8,
+    30
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "water",
+   "r": [
+    0,
+    74,
+    6,
+    22
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "mud",
+   "r": [
+    6,
+    0,
+    1,
+    44
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "mud",
+   "r": [
+    8,
+    44,
+    1,
+    30
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "mud",
+   "r": [
+    6,
+    74,
+    1,
+    22
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "grass",
+   "r": [
+    2,
+    60,
+    3,
+    8
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "bridge",
+   "r": [
+    5,
+    63,
+    3,
+    2
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "field",
+   "r": [
+    7,
+    0,
+    34,
+    18
+   ],
+   "only": [
+    "grass"
+   ]
+  },
+  {
+   "op": "plateau",
+   "r": [
+    17,
+    18,
+    23,
+    27
+   ],
+   "face": 2
+  },
+  {
+   "op": "rect",
+   "tile": "stairs",
+   "r": [
+    38,
+    36,
+    3,
+    2
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "plaza",
+   "r": [
+    21,
+    31,
+    14,
+    3
+   ]
+  },
+  {
+   "op": "plateau",
+   "r": [
+    44,
+    54,
+    43,
+    26
+   ],
+   "face": 2
+  },
+  {
+   "op": "rect",
+   "tile": "stairs",
+   "r": [
+    78,
+    53,
+    3,
+    3
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "stairs",
+   "r": [
+    46,
+    77,
+    2,
+    4
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "stairs",
+   "r": [
+    85,
+    66,
+    3,
+    2
+   ]
+  },
+  {
+   "op": "line",
+   "tile": "paved",
+   "pts": [
+    [
+     79,
+     56
+    ],
+    [
+     79,
+     66
+    ],
+    [
+     52,
+     66
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "dirt",
+   "pts": [
+    [
+     52,
+     66
+    ],
+    [
+     47,
+     66
+    ],
+    [
+     47,
+     76
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "dirt",
+   "pts": [
+    [
+     79,
+     66
+    ],
+    [
+     84,
+     66
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "rect",
+   "tile": "dirt",
+   "r": [
+    24,
+    80,
+    96,
+    16
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "sand",
+   "r": [
+    32,
+    84,
+    80,
+    9
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "dirt",
+   "r": [
+    9,
+    46,
+    35,
+    34
+   ],
+   "only": [
+    "grass"
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "plaza",
+   "r": [
+    10,
+    52,
+    16,
+    12
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "dirt",
+   "r": [
+    44,
+    12,
+    15,
+    17
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "plaza",
+   "r": [
+    45,
+    22,
+    13,
+    6
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "plaza",
+   "r": [
+    58,
+    19,
+    12,
+    9
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "forum",
+   "r": [
+    43,
+    38,
+    32,
+    8
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "plaza",
+   "r": [
+    43,
+    46,
+    34,
+    6
+   ],
+   "only": [
+    "grass"
+   ]
+  },
+  {
+   "op": "line",
+   "tile": "paved",
+   "pts": [
+    [
+     41,
+     36
+    ],
+    [
+     78,
+     36
+    ],
+    [
+     86,
+     41
+    ],
+    [
+     127,
+     41
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "paved",
+   "pts": [
+    [
+     41,
+     35
+    ],
+    [
+     41,
+     14
+    ],
+    [
+     30,
+     8
+    ],
+    [
+     8,
+     8
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "paved",
+   "pts": [
+    [
+     44,
+     52
+    ],
+    [
+     84,
+     52
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "paved",
+   "pts": [
+    [
+     64,
+     46
+    ],
+    [
+     64,
+     52
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "paved",
+   "pts": [
+    [
+     45,
+     46
+    ],
+    [
+     45,
+     52
+    ],
+    [
+     38,
+     58
+    ],
+    [
+     26,
+     58
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "dirt",
+   "pts": [
+    [
+     42,
+     53
+    ],
+    [
+     42,
+     80
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "paved",
+   "pts": [
+    [
+     71,
+     36
+    ],
+    [
+     71,
+     22
+    ],
+    [
+     78,
+     22
+    ]
+   ],
+   "w": 3
+  },
+  {
+   "op": "line",
+   "tile": "paved",
+   "pts": [
+    [
+     78,
+     22
+    ],
+    [
+     127,
+     15
+    ]
+   ],
+   "w": 3
+  },
+  {
+   "op": "line",
+   "tile": "cobble",
+   "pts": [
+    [
+     100,
+     20
+    ],
+    [
+     100,
+     0
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "dirt",
+   "pts": [
+    [
+     88,
+     42
+    ],
+    [
+     88,
+     80
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "dirt",
+   "pts": [
+    [
+     26,
+     58
+    ],
+    [
+     26,
+     60
+    ],
+    [
+     12,
+     60
+    ],
+    [
+     12,
+     65
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "dirt",
+   "pts": [
+    [
+     47,
+     29
+    ],
+    [
+     49,
+     29
+    ],
+    [
+     49,
+     36
+    ]
+   ],
+   "w": 1
+  },
+  {
+   "op": "line",
+   "tile": "cobble",
+   "pts": [
+    [
+     78,
+     31
+    ],
+    [
+     127,
+     31
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "cobble",
+   "pts": [
+    [
+     78,
+     22
+    ],
+    [
+     78,
+     33
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "cobble",
+   "pts": [
+    [
+     89,
+     21
+    ],
+    [
+     89,
+     33
+    ]
+   ],
+   "w": 2
+  },
+  {
+   "op": "line",
+   "tile": "cobble",
+   "pts": [
+    [
+     103,
+     18
+    ],
+    [
+     103,
+     25
+    ]
+   ],
+   "w": 3
+  },
+  {
+   "op": "line",
+   "tile": "cobble",
+   "pts": [
+    [
+     114,
+     17
+    ],
+    [
+     114,
+     31
+    ]
+   ],
+   "w": 1
+  },
+  {
+   "op": "rect",
+   "tile": "plaza",
+   "r": [
+    99,
+    25,
+    9,
+    8
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "garden",
+   "r": [
+    64,
+    59,
+    3,
+    4
+   ]
+  },
+  {
+   "op": "rect",
+   "tile": "garden",
+   "r": [
+    62,
+    76,
+    6,
+    1
+   ]
+  }
+ ],
+ "buildings": [
+  {
+   "kind": "temple",
+   "x": 43,
+   "y": 30,
+   "w": 6,
+   "h": 6,
+   "name": "Tempel der Concordia",
+   "lex": "concordia",
+   "style": {
+    "cols": 4
+   },
+   "door": {
+    "dx": 3,
+    "dialogue": "door_concordia"
+   }
+  },
+  {
+   "kind": "curia",
+   "x": 50,
+   "y": 29,
+   "w": 6,
+   "h": 7,
+   "name": "Curia",
+   "lex": "curia",
+   "info": "Die Curia, das Versammlungshaus des Senats. Nach dem Brand von 52 v. Chr. wurde sie neu gebaut – doch der Senat tagt auch oft in Tempeln."
+  },
+  {
+   "kind": "basilica",
+   "x": 57,
+   "y": 30,
+   "w": 13,
+   "h": 6,
+   "name": "Basilica Aemilia",
+   "lex": "basilicae",
+   "info": "Die Basilica Aemilia: Hier verhandeln Gerichte, Händler und Geldwechsler. Lucius Aemilius Paullus lässt sie gerade prächtig erneuern."
+  },
+  {
+   "kind": "shrine",
+   "x": 73,
+   "y": 34,
+   "w": 1,
+   "h": 2,
+   "name": "Ianus-Tor",
+   "lex": "ianus",
+   "info": "Der Durchgang des Ianus Geminus. Seine Türen stehen offen – das heißt: Rom ist im Krieg. Geschlossen waren sie seit Jahrhunderten kaum."
+  },
+  {
+   "kind": "rostra",
+   "x": 50,
+   "y": 38,
+   "w": 6,
+   "h": 2,
+   "name": "Rostra",
+   "lex": "rostra",
+   "info": "Die Rostra, die Rednertribüne – geschmückt mit den bronzenen Schiffsschnäbeln erbeuteter Kriegsschiffe."
+  },
+  {
+   "kind": "temple",
+   "x": 41,
+   "y": 39,
+   "w": 6,
+   "h": 6,
+   "name": "Tempel des Saturn",
+   "lex": "saturn",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Saturntempel. In seinem Podium liegt das Aerarium, die Staatskasse Roms."
+  },
+  {
+   "kind": "stall",
+   "x": 59,
+   "y": 41,
+   "w": 3,
+   "h": 1,
+   "name": "Getreideausgabe",
+   "style": {
+    "goods": "bread",
+    "awning": "#d4a017"
+   },
+   "info": "Ein Tisch der Getreideverwaltung. Hier wird die Getreideration ausgegeben."
+  },
+  {
+   "kind": "stall",
+   "x": 63,
+   "y": 38,
+   "w": 2,
+   "h": 1,
+   "name": "Wechseltisch",
+   "style": {
+    "goods": "lamps",
+    "awning": "#2e6da4"
+   },
+   "info": "Der Tisch eines Bankiers (argentarius)."
+  },
+  {
+   "kind": "statue",
+   "x": 47,
+   "y": 42,
+   "w": 1,
+   "h": 1,
+   "name": "Ehrenstatue",
+   "info": "Eine Ehrenstatue. Auf dem Forum stehen Dutzende davon – Feldherren, Redner, Wohltäter."
+  },
+  {
+   "kind": "statue",
+   "x": 69,
+   "y": 42,
+   "w": 1,
+   "h": 1,
+   "name": "Ehrenstatue",
+   "style": {
+    "color": "#d8d0c0"
+   },
+   "info": "Eine marmorne Ehrenstatue eines verdienten Bürgers."
+  },
+  {
+   "kind": "basilica",
+   "x": 48,
+   "y": 46,
+   "w": 15,
+   "h": 5,
+   "name": "Basilica Iulia",
+   "lex": "basilicae",
+   "style": {
+    "build": true,
+    "stone": "#ece4cc"
+   },
+   "info": "Die Basilica Iulia – Caesars neuer Prachtbau, noch eingerüstet. Sie soll in diesem Jahr geweiht werden, obwohl sie nicht fertig ist."
+  },
+  {
+   "kind": "temple",
+   "x": 66,
+   "y": 45,
+   "w": 6,
+   "h": 6,
+   "name": "Tempel von Castor und Pollux",
+   "lex": "forum_romanum",
+   "style": {
+    "cols": 5
+   },
+   "info": "Der Tempel der Dioskuren Castor und Pollux. Auf seinem Podium werden auch Reden gehalten."
+  },
+  {
+   "kind": "temple_round",
+   "x": 73,
+   "y": 45,
+   "w": 4,
+   "h": 4,
+   "name": "Tempel der Vesta",
+   "lex": "vesta",
+   "light": [
+    2,
+    2,
+    46
+   ],
+   "info": "Der runde Vestatempel. Drinnen hüten die Vestalinnen das ewige Feuer Roms – es darf nie erlöschen."
+  },
+  {
+   "kind": "domus",
+   "x": 73,
+   "y": 39,
+   "w": 5,
+   "h": 4,
+   "name": "Regia",
+   "lex": "vesta",
+   "style": {
+    "color": "#e8dcc0"
+   },
+   "info": "Die Regia, uraltes Amtsgebäude des Pontifex maximus – heute ist das Caesar."
+  },
+  {
+   "kind": "domus",
+   "x": 78,
+   "y": 44,
+   "w": 7,
+   "h": 6,
+   "name": "Domus Publica",
+   "lex": "domus_publica",
+   "style": {
+    "color": "#efe6d0",
+    "socle": "#7a2f22"
+   },
+   "door": {
+    "dx": 3,
+    "dialogue": "door_domuspublica"
+   },
+   "light": [
+    3,
+    6,
+    30
+   ]
+  },
+  {
+   "kind": "temple_round",
+   "x": 62,
+   "y": 20,
+   "w": 4,
+   "h": 4,
+   "name": "Tholos des Macellum",
+   "lex": "macellum",
+   "style": {
+    "roof": "#b5532f"
+   },
+   "info": "Der Rundbau in der Mitte des Macellum, des großen Lebensmittelmarkts."
+  },
+  {
+   "kind": "stall",
+   "x": 59,
+   "y": 25,
+   "w": 3,
+   "h": 1,
+   "name": "Stand des Phileros",
+   "style": {
+    "goods": "oil",
+    "awning": "#3f7f3f"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 66,
+   "y": 25,
+   "w": 3,
+   "h": 1,
+   "name": "Stand der Verecunda",
+   "style": {
+    "goods": "cheese",
+    "awning": "#d4a017"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 66,
+   "y": 21,
+   "w": 3,
+   "h": 1,
+   "name": "Stand des Mago",
+   "style": {
+    "goods": "wine",
+    "awning": "#8e44ad"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 59,
+   "y": 21,
+   "w": 3,
+   "h": 1,
+   "name": "Stand der Thais",
+   "style": {
+    "goods": "fish",
+    "awning": "#2e6da4"
+   }
+  },
+  {
+   "kind": "amphorae",
+   "x": 69,
+   "y": 23,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "crates",
+   "x": 58,
+   "y": 23,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "temple_build",
+   "x": 48,
+   "y": 13,
+   "w": 7,
+   "h": 8,
+   "name": "Tempel der Venus Genetrix (im Bau)",
+   "lex": "forum_iulium",
+   "style": {
+    "cols": 8
+   },
+   "info": "Hier entsteht Caesars neues Forum mit dem Tempel der Venus Genetrix – der Göttin, von der seine Familie abzustammen behauptet."
+  },
+  {
+   "kind": "crane",
+   "x": 55,
+   "y": 15,
+   "w": 2,
+   "h": 2,
+   "name": "Tretradkran",
+   "lex": "forum_iulium",
+   "info": "Ein Tretradkran: Arbeiter laufen im Rad und heben so tonnenschwere Steinblöcke."
+  },
+  {
+   "kind": "stones",
+   "x": 45,
+   "y": 18,
+   "w": 2,
+   "h": 2
+  },
+  {
+   "kind": "stones",
+   "x": 56,
+   "y": 19,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "kind": "drums",
+   "x": 45,
+   "y": 14,
+   "w": 3,
+   "h": 1
+  },
+  {
+   "kind": "stones",
+   "x": 52,
+   "y": 22,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "kind": "scaffold",
+   "x": 44,
+   "y": 22,
+   "w": 1,
+   "h": 3
+  },
+  {
+   "kind": "scaffold",
+   "x": 44,
+   "y": 13,
+   "w": 1,
+   "h": 3
+  },
+  {
+   "kind": "temple",
+   "x": 22,
+   "y": 21,
+   "w": 12,
+   "h": 9,
+   "name": "Tempel des Iuppiter Optimus Maximus",
+   "lex": "kapitol",
+   "style": {
+    "cols": 6
+   },
+   "info": "Der größte Tempel Roms: Iuppiter, Iuno und Minerva werden hier gemeinsam verehrt. Hierher ziehen Triumphzüge."
+  },
+  {
+   "kind": "temple",
+   "x": 34,
+   "y": 19,
+   "w": 5,
+   "h": 5,
+   "name": "Tempel der Iuno Moneta",
+   "lex": "geld",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel der Iuno Moneta auf der Arx. In der Nähe werden Münzen geprägt – daher kommt unser Wort „Moneten“."
+  },
+  {
+   "kind": "tabularium",
+   "x": 29,
+   "y": 36,
+   "w": 6,
+   "h": 6,
+   "name": "Tabularium",
+   "lex": "kapitol",
+   "info": "Das Tabularium, das Staatsarchiv. Hier lagern Gesetze und Verträge auf Bronzetafeln."
+  },
+  {
+   "kind": "altar",
+   "x": 27,
+   "y": 32,
+   "w": 2,
+   "h": 1,
+   "name": "Altar",
+   "light": [
+    1,
+    0,
+    30
+   ],
+   "info": "Ein Opferaltar vor dem Iuppitertempel."
+  },
+  {
+   "kind": "temple",
+   "x": 11,
+   "y": 53,
+   "w": 4,
+   "h": 6,
+   "name": "Tempel des Portunus",
+   "lex": "velabrum",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel des Portunus, des Gottes der Häfen – der Tiberhafen liegt gleich nebenan."
+  },
+  {
+   "kind": "temple_round",
+   "x": 17,
+   "y": 55,
+   "w": 4,
+   "h": 4,
+   "name": "Rundtempel des Hercules Victor",
+   "lex": "hercules",
+   "info": "Der Rundtempel des Hercules Victor – aus griechischem Marmor, eine Seltenheit in Rom."
+  },
+  {
+   "kind": "altar",
+   "x": 22,
+   "y": 57,
+   "w": 2,
+   "h": 1,
+   "name": "Ara Maxima",
+   "lex": "hercules",
+   "light": [
+    1,
+    0,
+    32
+   ],
+   "info": "Die Ara Maxima, der uralte Altar des Hercules. Hier opfern Händler ein Zehntel ihres Gewinns."
+  },
+  {
+   "kind": "horrea",
+   "x": 9,
+   "y": 66,
+   "w": 6,
+   "h": 5,
+   "name": "Horrea (Lagerhallen)",
+   "lex": "tiber",
+   "info": "Lagerhallen für Getreide, Wein und Öl, die über den Tiber nach Rom kommen."
+  },
+  {
+   "kind": "horrea",
+   "x": 9,
+   "y": 72,
+   "w": 6,
+   "h": 5,
+   "name": "Horrea (Lagerhallen)",
+   "lex": "tiber",
+   "info": "Lagerhallen am Fluss. Sackträger schleppen hier den ganzen Tag Waren."
+  },
+  {
+   "kind": "temple",
+   "x": 2,
+   "y": 61,
+   "w": 3,
+   "h": 3,
+   "name": "Tempel des Aesculapius",
+   "lex": "tiber",
+   "style": {
+    "cols": 4
+   },
+   "info": "Auf der Tiberinsel steht der Tempel des Heilgottes Aesculapius. Kranke hoffen hier auf Genesung."
+  },
+  {
+   "kind": "crates",
+   "x": 15,
+   "y": 63,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "amphorae",
+   "x": 16,
+   "y": 64,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "amphorae",
+   "x": 9,
+   "y": 64,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "domus",
+   "x": 54,
+   "y": 58,
+   "w": 10,
+   "h": 7,
+   "name": "Domus der Valerier",
+   "style": {
+    "color": "#efe6d0"
+   },
+   "door": {
+    "dx": 5,
+    "to": "domus_valeria",
+    "if": {
+     "cls": "nobilis"
+    },
+    "deny": "deny_domus_valeria"
+   }
+  },
+  {
+   "kind": "domus",
+   "x": 68,
+   "y": 58,
+   "w": 10,
+   "h": 7,
+   "name": "Domus des Quintus Fabius Rufus",
+   "style": {
+    "color": "#e8d8b8",
+    "socle": "#5f7a52"
+   },
+   "door": {
+    "dx": 5,
+    "to": "domus_fabia",
+    "if": {
+     "cls": "servus"
+    },
+    "deny": "deny_domus_fabia"
+   }
+  },
+  {
+   "kind": "domus",
+   "x": 47,
+   "y": 57,
+   "w": 6,
+   "h": 6,
+   "name": "Haus des Cicero",
+   "style": {
+    "color": "#f2ead6"
+   },
+   "door": {
+    "dx": 3,
+    "dialogue": "door_cicero"
+   }
+  },
+  {
+   "kind": "domus",
+   "x": 81,
+   "y": 57,
+   "w": 5,
+   "h": 6,
+   "name": "Domus eines Senators",
+   "info": "Eine prächtige Domus. Auf dem Palatin wohnen die reichsten Familien Roms."
+  },
+  {
+   "kind": "domus",
+   "x": 70,
+   "y": 70,
+   "w": 8,
+   "h": 6,
+   "name": "Domus eines Ritters",
+   "style": {
+    "color": "#e3cfa8"
+   },
+   "info": "Das Haus eines wohlhabenden Ritters (eques). Die Fenster zur Straße sind klein – das Leben spielt sich im Inneren ab."
+  },
+  {
+   "kind": "temple",
+   "x": 49,
+   "y": 68,
+   "w": 6,
+   "h": 7,
+   "name": "Tempel der Magna Mater",
+   "lex": "magna_mater",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel der Großen Mutter Kybele. Ihre Priester, die Galli, kamen aus Phrygien."
+  },
+  {
+   "kind": "temple",
+   "x": 55,
+   "y": 69,
+   "w": 6,
+   "h": 6,
+   "name": "Tempel der Victoria",
+   "lex": "palatin",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel der Siegesgöttin Victoria."
+  },
+  {
+   "kind": "hut",
+   "x": 63,
+   "y": 72,
+   "w": 3,
+   "h": 3,
+   "name": "Casa Romuli",
+   "lex": "casa_romuli",
+   "info": "Die Hütte des Romulus – sorgfältig gepflegt und immer wieder erneuert. Hier soll Roms Gründer gewohnt haben."
+  },
+  {
+   "kind": "fountain",
+   "x": 66,
+   "y": 67,
+   "w": 2,
+   "h": 2,
+   "name": "Brunnen am Clivus Palatinus",
+   "lex": "aquaedukte",
+   "interact": {
+    "type": "fountain",
+    "dialogue": "fountain_palatin"
+   }
+  },
+  {
+   "kind": "insula",
+   "x": 80,
+   "y": 25,
+   "w": 8,
+   "h": 6,
+   "name": "Insula des Arrius",
+   "style": {
+    "color": "#d6a56f"
+   },
+   "door": {
+    "dx": 4,
+    "to": "insula_arria"
+   }
+  },
+  {
+   "kind": "insula",
+   "x": 91,
+   "y": 25,
+   "w": 6,
+   "h": 6,
+   "name": "Pistrinum des Felix",
+   "style": {
+    "color": "#e0c9a0"
+   },
+   "door": {
+    "dx": 3,
+    "to": "pistrinum"
+   },
+   "light": [
+    3,
+    5,
+    26
+   ]
+  },
+  {
+   "kind": "fountain",
+   "x": 102,
+   "y": 27,
+   "w": 2,
+   "h": 2,
+   "name": "Lacus der Subura",
+   "lex": "aquaedukte",
+   "interact": {
+    "type": "fountain",
+    "dialogue": "fountain_subura"
+   }
+  },
+  {
+   "kind": "shrine",
+   "x": 105,
+   "y": 26,
+   "w": 1,
+   "h": 2,
+   "name": "Compitum-Schrein",
+   "lex": "lararium",
+   "light": [
+    0,
+    1,
+    24
+   ],
+   "info": "Ein Schrein der Lares Compitales an der Straßenkreuzung. Die Nachbarschaft bringt hier kleine Opfer."
+  },
+  {
+   "kind": "thermopolium",
+   "x": 108,
+   "y": 25,
+   "w": 6,
+   "h": 6,
+   "name": "Thermopolium der Asellina",
+   "lex": "thermopolium",
+   "style": {
+    "color": "#c98a5e"
+   },
+   "light": [
+    3,
+    5,
+    40
+   ]
+  },
+  {
+   "kind": "insula",
+   "x": 115,
+   "y": 24,
+   "w": 6,
+   "h": 7,
+   "name": "Popina (Taverne)",
+   "style": {
+    "color": "#b8754e"
+   },
+   "light": [
+    3,
+    6,
+    36
+   ],
+   "info": "Eine Popina: Wein, Würfel, laute Lieder. Ehrbare Leute meiden sie – angeblich."
+  },
+  {
+   "kind": "carceres",
+   "x": 28,
+   "y": 81,
+   "w": 4,
+   "h": 15,
+   "name": "Carceres (Startboxen)",
+   "lex": "circus_maximus",
+   "info": "Die Startboxen der Rennwagen. Ein Tuch fällt – und die Gespanne stürmen los."
+  },
+  {
+   "kind": "circus_n",
+   "x": 32,
+   "y": 81,
+   "w": 20,
+   "h": 3
+  },
+  {
+   "kind": "circus_n",
+   "x": 54,
+   "y": 81,
+   "w": 18,
+   "h": 3
+  },
+  {
+   "kind": "circus_n",
+   "x": 74,
+   "y": 81,
+   "w": 18,
+   "h": 3
+  },
+  {
+   "kind": "circus_n",
+   "x": 94,
+   "y": 81,
+   "w": 18,
+   "h": 3
+  },
+  {
+   "kind": "circus_n",
+   "x": 112,
+   "y": 81,
+   "w": 4,
+   "h": 12
+  },
+  {
+   "kind": "circus_s",
+   "x": 32,
+   "y": 93,
+   "w": 84,
+   "h": 3
+  },
+  {
+   "kind": "spina",
+   "x": 44,
+   "y": 87,
+   "w": 56,
+   "h": 2,
+   "name": "Spina mit Metae",
+   "lex": "circus_maximus",
+   "info": "Die Spina, die Mittelbarriere. An ihren Enden stehen die Wendemarken (metae), auf einem Gestell zählen Eier die Runden."
+  },
+  {
+   "kind": "domus",
+   "x": 20,
+   "y": 3,
+   "w": 8,
+   "h": 5,
+   "name": "Villa Publica",
+   "lex": "marsfeld",
+   "style": {
+    "color": "#efe6d0"
+   },
+   "info": "Die Villa Publica: Hier arbeiten die Zensoren und hier werden Gesandte untergebracht."
+  }
+ ],
+ "fills": [
+  {
+   "op": "blocks",
+   "r": [
+    74,
+    0,
+    54,
+    36
+   ],
+   "kinds": [
+    "insula",
+    "insula",
+    "insula",
+    "insula",
+    "domus"
+   ],
+   "bw": [
+    5,
+    8
+   ],
+   "bh": [
+    4,
+    6
+   ],
+   "gap": 1,
+   "ground": "cobble"
+  },
+  {
+   "op": "blocks",
+   "r": [
+    26,
+    46,
+    16,
+    32
+   ],
+   "kinds": [
+    "insula",
+    "insula",
+    "horrea"
+   ],
+   "bw": [
+    5,
+    7
+   ],
+   "bh": [
+    4,
+    5
+   ],
+   "gap": 1,
+   "ground": "cobble"
+  },
+  {
+   "op": "blocks",
+   "r": [
+    80,
+    43,
+    47,
+    11
+   ],
+   "kinds": [
+    "domus",
+    "insula",
+    "domus"
+   ],
+   "bw": [
+    6,
+    9
+   ],
+   "bh": [
+    4,
+    5
+   ],
+   "gap": 1,
+   "ground": "dirt"
+  },
+  {
+   "op": "blocks",
+   "r": [
+    90,
+    57,
+    37,
+    22
+   ],
+   "kinds": [
+    "domus",
+    "domus",
+    "insula"
+   ],
+   "bw": [
+    7,
+    10
+   ],
+   "bh": [
+    5,
+    6
+   ],
+   "gap": 2,
+   "chance": 0.7
+  },
+  {
+   "op": "scatter",
+   "r": [
+    44,
+    54,
+    43,
+    24
+   ],
+   "n": 26,
+   "kinds": [
+    "pine",
+    "pine",
+    "cypress",
+    "bush"
+   ]
+  },
+  {
+   "op": "scatter",
+   "r": [
+    17,
+    18,
+    23,
+    25
+   ],
+   "n": 14,
+   "kinds": [
+    "pine",
+    "olive",
+    "bush"
+   ]
+  },
+  {
+   "op": "scatter",
+   "r": [
+    7,
+    0,
+    34,
+    17
+   ],
+   "n": 22,
+   "kinds": [
+    "pine",
+    "pine",
+    "cypress",
+    "olive"
+   ]
+  },
+  {
+   "op": "scatter",
+   "r": [
+    87,
+    55,
+    41,
+    25
+   ],
+   "n": 18,
+   "kinds": [
+    "pine",
+    "olive",
+    "cypress",
+    "bush"
+   ]
+  },
+  {
+   "op": "scatter",
+   "r": [
+    9,
+    46,
+    33,
+    33
+   ],
+   "n": 6,
+   "kinds": [
+    "olive",
+    "bush"
+   ]
+  },
+  {
+   "op": "scatter",
+   "r": [
+    2,
+    60,
+    3,
+    8
+   ],
+   "n": 2,
+   "kinds": [
+    "cypress"
+   ]
+  }
+ ],
+ "zones": [
+  {
+   "id": "palatin",
+   "name": "Palatin",
+   "sub": "Hügel der Reichen",
+   "r": [
+    44,
+    54,
+    43,
+    26
+   ],
+   "lex": "palatin",
+   "amb": 4,
+   "roles": [
+    "citizen",
+    "woman",
+    "slave",
+    "senator"
+   ],
+   "danger": 0.4
+  },
+  {
+   "id": "circus",
+   "name": "Circus Maximus",
+   "sub": "Rennbahn im Tal",
+   "r": [
+    24,
+    80,
+    96,
+    16
+   ],
+   "lex": "circus_maximus",
+   "amb": 6,
+   "roles": [
+    "citizen",
+    "child",
+    "worker",
+    "woman"
+   ],
+   "danger": 1
+  },
+  {
+   "id": "forum_iulium",
+   "name": "Forum Iulium",
+   "sub": "Caesars Baustelle",
+   "r": [
+    43,
+    11,
+    16,
+    18
+   ],
+   "lex": "forum_iulium",
+   "amb": 6,
+   "roles": [
+    "worker",
+    "worker",
+    "slave"
+   ],
+   "danger": 0.6
+  },
+  {
+   "id": "forum",
+   "name": "Forum Romanum",
+   "sub": "Herz der Republik",
+   "r": [
+    40,
+    18,
+    40,
+    36
+   ],
+   "lex": "forum_romanum",
+   "amb": 14,
+   "roles": [
+    "citizen",
+    "woman",
+    "senator",
+    "child",
+    "slave",
+    "citizen"
+   ],
+   "danger": 0.8
+  },
+  {
+   "id": "capitol",
+   "name": "Kapitol",
+   "sub": "Sitz des Iuppiter",
+   "r": [
+    17,
+    18,
+    23,
+    28
+   ],
+   "lex": "kapitol",
+   "amb": 3,
+   "roles": [
+    "citizen",
+    "woman",
+    "senator"
+   ],
+   "danger": 0.5
+  },
+  {
+   "id": "subura",
+   "name": "Subura",
+   "sub": "Enge Gassen, laute Nächte",
+   "r": [
+    74,
+    0,
+    54,
+    36
+   ],
+   "lex": "subura",
+   "amb": 16,
+   "roles": [
+    "citizen",
+    "woman",
+    "child",
+    "worker",
+    "slave"
+   ],
+   "danger": 1.6
+  },
+  {
+   "id": "velia",
+   "name": "Velia & Carinae",
+   "sub": "Wohnviertel am Forum",
+   "r": [
+    80,
+    36,
+    48,
+    20
+   ],
+   "amb": 5,
+   "roles": [
+    "citizen",
+    "woman",
+    "slave"
+   ],
+   "danger": 1
+  },
+  {
+   "id": "caelius",
+   "name": "Caelius",
+   "sub": "Gärten und Villen",
+   "r": [
+    87,
+    56,
+    41,
+    24
+   ],
+   "amb": 3,
+   "roles": [
+    "citizen",
+    "woman",
+    "slave"
+   ],
+   "danger": 0.8
+  },
+  {
+   "id": "velabrum",
+   "name": "Velabrum & Forum Boarium",
+   "sub": "Rindermarkt am Fluss",
+   "r": [
+    7,
+    44,
+    37,
+    36
+   ],
+   "lex": "velabrum",
+   "amb": 7,
+   "roles": [
+    "worker",
+    "citizen",
+    "woman",
+    "worker"
+   ],
+   "danger": 1.2
+  },
+  {
+   "id": "marsfeld",
+   "name": "Marsfeld (Rand)",
+   "sub": "Übungsplatz vor der Stadt",
+   "r": [
+    7,
+    0,
+    36,
+    18
+   ],
+   "lex": "marsfeld",
+   "amb": 4,
+   "roles": [
+    "citizen",
+    "child"
+   ],
+   "danger": 0.8
+  },
+  {
+   "id": "tiber",
+   "name": "Tiber",
+   "sub": "Roms Lebensader",
+   "r": [
+    0,
+    0,
+    9,
+    96
+   ],
+   "lex": "tiber",
+   "amb": 0,
+   "danger": 0.5
+  }
+ ],
+ "areas": {
+  "concordia": [
+   44,
+   36,
+   5,
+   2
+  ],
+  "frumentatio": [
+   57,
+   39,
+   6,
+   4
+  ],
+  "macellum": [
+   58,
+   19,
+   12,
+   9
+  ],
+  "argentarius": [
+   62,
+   36,
+   4,
+   3
+  ],
+  "lacus_subura": [
+   99,
+   25,
+   9,
+   8
+  ],
+  "lacus_palatin": [
+   64,
+   65,
+   6,
+   5
+  ]
+ },
+ "lights": [
+  [
+   102,
+   28,
+   30
+  ],
+  [
+   67,
+   68,
+   26
+  ],
+  [
+   46,
+   36,
+   26
+  ],
+  [
+   94,
+   31,
+   22
+  ],
+  [
+   84,
+   31,
+   22
+  ],
+  [
+   59,
+   65,
+   24
+  ],
+  [
+   73,
+   65,
+   24
+  ],
+  [
+   61,
+   24,
+   26
+  ],
+  [
+   67,
+   24,
+   26
+  ]
+ ],
+ "animals": [
+  {
+   "kind": "dog",
+   "color": "#8a6a44",
+   "r": [
+    76,
+    2,
+    48,
+    32
+   ],
+   "n": 3
+  },
+  {
+   "kind": "dog",
+   "color": "#3a3030",
+   "r": [
+    26,
+    46,
+    16,
+    30
+   ],
+   "n": 1
+  },
+  {
+   "kind": "dog",
+   "color": "#d8c8a8",
+   "r": [
+    50,
+    64,
+    30,
+    10
+   ],
+   "n": 1
+  },
+  {
+   "kind": "cat",
+   "color": "#c98a4a",
+   "r": [
+    43,
+    38,
+    30,
+    8
+   ],
+   "n": 2
+  },
+  {
+   "kind": "cat",
+   "color": "#7a7068",
+   "r": [
+    99,
+    25,
+    9,
+    8
+   ],
+   "n": 1
+  },
+  {
+   "kind": "chicken",
+   "color": "#f0ece0",
+   "r": [
+    10,
+    52,
+    16,
+    12
+   ],
+   "n": 4
+  },
+  {
+   "kind": "chicken",
+   "color": "#a8743f",
+   "r": [
+    99,
+    25,
+    9,
+    8
+   ],
+   "n": 2
+  }
+ ]
+}

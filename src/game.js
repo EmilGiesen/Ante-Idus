@@ -1,0 +1,568 @@
+// Spielablauf: Szenen, Kartenwechsel, Interaktion, Zeit, Schlaf, Ohnmacht, Diebe, Zielmarkierungen
+import { G } from './core/ctx.js';
+import { TILE, RENT_INTERVAL, AUTOMATE_AFTER } from './core/config.js';
+import { newState, saveGame, loadGame, tileToPx } from './core/state.js';
+import { advanceClock, advanceHours, ambientLight, isNight } from './core/time.js';
+import { dateOfPlayedDay, formatRoman, formatGerman } from './core/calendar.js';
+import { formatMoney } from './core/util.js';
+import { buildExterior, buildInterior } from './world/mapgen.js';
+import { renderMap } from './gfx/maprender.js';
+import { Renderer } from './gfx/renderer.js';
+import { Player } from './entities/player.js';
+import { NpcManager } from './entities/npcs.js';
+import { updateNeeds } from './systems/needs.js';
+import * as M from './systems/missions.js';
+import * as Inv from './systems/inventory.js';
+import { checkCond, changeMoney, changeStat } from './systems/rules.js';
+import { unlockLex } from './systems/lexicon.js';
+import { MINIGAMES, AUTO_RESULTS } from './minigames/index.js';
+
+const GLYPH = {
+  '!': ['1', '1', '1', '0', '1'],
+  '?': ['111', '001', '011', '000', '010'],
+  E: ['111', '100', '110', '100', '111'],
+};
+
+export class Game {
+  constructor(canvas) {
+    this.renderer = new Renderer(canvas);
+    this.maps = {};
+    this.mode = 'boot';
+    this.t = 0;
+    this.titleT = 0;
+    this.player = null;
+    this.focus = null;
+    this.markerT = 0;
+    this.slaveWarnT = 0;
+    this.lastZone = null;
+    this.mapById('rom');
+  }
+
+  // ---------- Karten ----------
+  mapById(id) {
+    if (this.maps[id]) return this.maps[id];
+    let map;
+    if (id === 'rom') map = buildExterior(G.data.map_rom);
+    else {
+      const def = G.data.interiors[id];
+      if (!def) throw new Error(`Unbekannte Karte: ${id}`);
+      map = buildInterior(id, def);
+    }
+    renderMap(map);
+    this.maps[id] = map;
+    return map;
+  }
+
+  isInside() { return !!this.map && this.map.interior; }
+
+  enterMap(id, x, y, dir) {
+    const s = this.state;
+    this.map = this.mapById(id);
+    s.map = id;
+    this.player.x = x; this.player.y = y;
+    if (dir) this.player.dir = dir;
+    this.npcs.enterMap(this.map);
+    this.renderer.follow(this.map, x, y, true);
+    this.lastZone = null;
+    if (this.map.interior) {
+      const def = G.data.interiors[id];
+      if (def.lex) unlockLex(def.lex);
+      if (s.home.map === id) this.save(false);
+    }
+    this.focus = null;
+  }
+
+  // ---------- Szenen ----------
+  showTitle() {
+    this.mode = 'title';
+    G.ui.setInGame(false);
+    G.ui.screens.title({
+      hasSave: !!loadGame(),
+      onNew: () => this.showCharSelect(),
+      onContinue: () => this.loadSaved(),
+      onHelp: () => { G.ui.screens.hide(); this.mode = 'titlehelp'; G.ui.panels.onClose = () => this.showTitle(); G.ui.panels.show('help'); },
+    });
+  }
+
+  showCharSelect() {
+    G.ui.screens.charSelect({
+      onBack: () => this.showTitle(),
+      onStart: (cls, gender, name) => this.newGame(cls, gender, name),
+    });
+  }
+
+  setupState(state) {
+    this.state = state;
+    G.state = state;
+    const cls = G.data.classes[state.cls];
+    this.player = new Player(cls.app[state.gender]);
+    this.player.dir = state.dir || 'down';
+    this.npcs = new NpcManager();
+    this.map = null;
+    G.ui.screens.hide();
+    G.ui.setInGame(true);
+    this.mode = 'play';
+  }
+
+  newGame(cls, gender, name) {
+    this.setupState(newState(cls, gender, name, G.data));
+    const s = this.state;
+    G.ui.fade(() => this.enterMap(s.map, s.x, s.y, 'down')).then(() => {
+      const d = dateOfPlayedDay(0);
+      G.ui.showBanner(formatRoman(d), formatGerman(d));
+      G.ui.dialog.start(G.data.classes[cls].intro);
+    });
+  }
+
+  loadSaved() {
+    const saved = loadGame();
+    if (!saved) { G.ui.toast('Kein Spielstand gefunden.', 'warn'); return; }
+    this.setupState(saved);
+    G.ui.fade(() => this.enterMap(saved.map, saved.x, saved.y, saved.dir)).then(() => {
+      G.ui.toast('Spielstand geladen.');
+    });
+  }
+
+  save(manual) {
+    const ok = saveGame(this.state);
+    if (manual) G.ui.toast(ok ? 'Spiel gespeichert.' : 'Speichern nicht möglich (Browser-Speicher gesperrt).', ok ? '' : 'warn');
+    return ok;
+  }
+
+  toTitle() {
+    G.ui.fade(() => { this.mode = 'title'; this.showTitle(); });
+  }
+
+  // ---------- Hauptschleife ----------
+  frame(dt) {
+    this.t += dt;
+    if (this.mode === 'title' || this.mode === 'titlehelp') {
+      G.ui.update(dt, G.input);
+      this.drawTitle(dt);
+      return;
+    }
+    if (this.mode !== 'play' || !this.map) return;
+    if (G.ui.isBlocking()) G.ui.update(dt, G.input);
+    else this.update(dt);
+    G.ui.hud.update(dt);
+    G.ui.syncTouch();
+    this.draw();
+  }
+
+  update(dt) {
+    const s = this.state, input = G.input, p = this.player;
+    s.playSeconds += dt;
+    if (input.wasPressed('menu')) { G.ui.panels.show('menu'); return; }
+    if (input.wasPressed('inventory')) { G.ui.panels.show('inventory'); return; }
+    if (input.wasPressed('log')) { G.ui.panels.show('log'); return; }
+    if (input.wasPressed('lexicon')) { G.ui.panels.show('lexicon'); return; }
+
+    const { gained, newDay } = advanceClock(s.time, dt);
+    if (updateNeeds(gained, p.sprinting)) { this.faint(); return; }
+    if (newDay) this.onNewDay();
+
+    const map = this.map;
+    const px = p.x, py = p.y;
+    p.update(dt, input, map, s.needs.energy > 3, (x, y) => this.npcBlock(x, y, px, py));
+
+    const tx = Math.floor(p.x / TILE), ty = Math.floor((p.y - 3) / TILE);
+    // Sklaven: Palatin nur mit Auftrag verlassen (wer schon draußen ist, darf zurücklaufen)
+    if (!map.interior && s.cls === 'servus' && !s.flags.freed && !M.hasPermit()) {
+      const z = map.zoneAt(tx, ty);
+      const pz = map.zoneAt(Math.floor(px / TILE), Math.floor((py - 3) / TILE));
+      const inside = (zz) => zz && zz.id === 'palatin';
+      if (inside(pz) && !inside(z)) {
+        p.x = px; p.y = py;
+        if (this.t > this.slaveWarnT) {
+          this.slaveWarnT = this.t + 4;
+          G.ui.toast('Ohne Auftrag darfst du den Palatin nicht verlassen. Der Verwalter Philo vergibt die Aufträge.', 'warn');
+          unlockLex('sklaverei');
+        }
+      } else if (!inside(z) && this.t > this.slaveWarnT) {
+        this.slaveWarnT = this.t + 12;
+        G.ui.toast('Dein Auftrag ist erledigt – kehr zum Haus auf dem Palatin zurück.', 'warn');
+      }
+    }
+    // Türen
+    const door = map.doors.get(map.key(Math.floor(p.x / TILE), Math.floor((p.y - 3) / TILE)));
+    if (door) { this.useDoor(door, px, py); return; }
+    // Viertel
+    if (!map.interior) {
+      const z = map.zoneAt(tx, ty);
+      if (z && z !== this.lastZone) {
+        if (this.lastZone) G.ui.showBanner(z.name, z.sub || '');
+        this.lastZone = z;
+        if (z.lex) unlockLex(z.lex);
+      }
+    }
+    M.checkAuto(map.id, tx, ty);
+    this.npcs.update(dt, p);
+    this.focus = this.findFocus();
+    if (input.wasPressed('interact') || input.wasPressed('action')) this.interact();
+    this.renderer.follow(map, p.x, p.y);
+    this.markerT -= dt;
+    if (this.markerT <= 0) {
+      this.markerT = 0.5;
+      for (const n of this.npcs.named) if (n.map === map.id) n.marker = M.npcMarker(n.id);
+    }
+    s.x = p.x; s.y = p.y; s.dir = p.dir;
+  }
+
+  npcBlock(x, y, px, py) {
+    for (const n of this.npcs.talkable()) {
+      if (n.moving && !n.talking) continue;
+      const d = Math.hypot(x - n.x, y - n.y);
+      if (d < 9 && d < Math.hypot(px - n.x, py - n.y)) return true;
+    }
+    return false;
+  }
+
+  useDoor(door, px, py) {
+    const s = this.state, p = this.player;
+    if (door.exit) {
+      const back = s.lastDoor && s.lastDoor.from === this.map.id ? s.lastDoor : null;
+      const def = G.data.interiors[this.map.id];
+      const tgt = back || (def.exitTo ? { map: 'rom', ...tileToPx(def.exitTo[0], def.exitTo[1]) } : null);
+      if (!tgt) { p.x = px; p.y = py; return; }
+      G.ui.fade(() => this.enterMap(tgt.map || 'rom', tgt.x, tgt.y, 'down'));
+      return;
+    }
+    if (door.if && !checkCond(door.if)) {
+      p.x = px; p.y = py + 4;
+      if (door.deny) G.ui.dialog.start(door.deny);
+      else G.ui.toast('Die Tür bleibt dir verschlossen.', 'warn');
+      return;
+    }
+    const target = door.to;
+    const def = G.data.interiors[target];
+    const spawn = def.spawns[door.spawn || 'entry'];
+    s.lastDoor = { from: target, map: this.map.id, ...tileToPx(door.x, door.y + 1) };
+    G.ui.fade(() => this.enterMap(target, spawn[0] * TILE + 8, spawn[1] * TILE + 14, 'up'));
+  }
+
+  // ---------- Interaktion ----------
+  findFocus() {
+    const p = this.player, map = this.map;
+    const dv = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] }[p.dir];
+    let best = null, bestD = 31;
+    for (const n of this.npcs.talkable()) {
+      const dx = n.x - p.x, dy = n.y - 4 - (p.y - 4);
+      const d = Math.hypot(dx, dy);
+      if (d >= bestD || d < 1) continue;
+      if ((dx * dv[0] + dy * dv[1]) / d < 0.55) continue;
+      best = n; bestD = d;
+    }
+    if (best) return { kind: 'npc', npc: best, x: best.x, y: best.y - 24 };
+    const fx = Math.floor((p.x + dv[0] * 10) / TILE), fy = Math.floor((p.y - 4 + dv[1] * 11) / TILE);
+    const it = map.interacts.get(map.key(fx, fy));
+    if (it && map.inside(fx, fy)) return { kind: 'obj', it, x: fx * TILE + 8, y: fy * TILE - 4 };
+    const b = map.buildingAt(fx, fy);
+    if (b && (b.info || b.dialogue)) return { kind: 'info', b, x: fx * TILE + 8, y: fy * TILE - 4 };
+    return null;
+  }
+
+  interact() {
+    const f = this.focus;
+    if (!f) return;
+    const dlg = G.ui.dialog;
+    if (f.kind === 'npc') {
+      const n = f.npc;
+      n.dir = { up: 'down', down: 'up', left: 'right', right: 'left' }[this.player.dir];
+      if (n.kind === 'named') dlg.start(n.def.dialogue, n);
+      else dlg.say(n, this.ambientLine(n));
+      return;
+    }
+    if (f.kind === 'obj') {
+      const it = f.it;
+      if (it.type === 'door') {
+        const d = it.door;
+        if (d.dialogue) dlg.start(d.dialogue);
+        else dlg.say(null, d.text || 'Die Tür ist verschlossen.', 'narr');
+        if (d.lex) unlockLex(d.lex);
+        return;
+      }
+      const node = it.dialogue || `obj_${it.type}`;
+      if (G.data.dialogues[node]) dlg.start(node);
+      return;
+    }
+    if (f.kind === 'info') {
+      const b = f.b;
+      if (b.dialogue) dlg.start(b.dialogue);
+      else dlg.say(null, [`${b.name}`, b.info], 'narr');
+      if (b.lex) unlockLex(b.lex);
+    }
+  }
+
+  ambientLine(n) {
+    const pools = G.data.dialogues._ambient;
+    const night = isNight(this.state.time.hour);
+    const pool = [].concat(
+      night ? pools.night || [] : [],
+      pools[n.role] || [],
+      n.zone ? pools[n.zone.id] || [] : [],
+      pools[`${this.state.cls}_hears`] || [],
+    );
+    const list = pool.length ? pool : pools.default;
+    return list[Math.floor(Math.random() * list.length)];
+  }
+
+  // Aktion nach einem Dialog (Minispiel, Laden, Schlaf)
+  runAfter(after, npc) {
+    if (after.type === 'shop') { G.ui.panels.show('shop', { id: after.id, npc }); return; }
+    if (after.type === 'sleep') { this.sleep(); return; }
+    if (after.type === 'minigame') {
+      const opts = { ...after.opts };
+      if (!opts.app && npc) opts.app = npc.app;
+      this.playMinigame(after.game, opts).then((r) => {
+        if (after.then && !r.aborted) G.ui.dialog.start(after.then, npc && npc.map === this.map.id ? npc : null);
+      });
+    }
+  }
+
+  playMinigame(name, opts = {}) {
+    const game = MINIGAMES[name];
+    return new Promise((resolve) => G.ui.mini.start(game, opts, resolve)).then((r) => {
+      if (!r.aborted) this.applyMinigameResult(name, r, opts);
+      return r;
+    });
+  }
+
+  applyMinigameResult(name, r, opts) {
+    const s = this.state;
+    s.vars.mg_score = r.score || 0;
+    s.vars.mg_pay = Math.round((r.pay || 0) * (opts.payMul || 1));
+    s.vars.mg_success = r.success ? 1 : 0;
+    if (r.price !== undefined) {
+      s.vars.mg_price = r.price;
+      s.vars.mg_saved = (opts.budget || r.fair) - r.price;
+    }
+    s.skills[name] ||= { wins: 0, plays: 0 };
+    s.skills[name].plays++;
+    if (r.success) {
+      s.skills[name].wins++;
+      if (s.skills[name].wins === AUTOMATE_AFTER && AUTO_RESULTS[name]) G.ui.toast('Du hast Routine! Künftig kannst du diese Arbeit auch „routiniert erledigen“.', 'stat');
+    }
+    if (opts.hours !== 0) this.passHours(opts.hours ?? 0.75);
+    s.needs.energy = Math.max(0, s.needs.energy - (opts.energy ?? 6));
+    s.needs.hygiene = Math.max(0, s.needs.hygiene - (opts.dirt ?? 4));
+  }
+
+  autoMinigame(name, opts = {}) {
+    const r = AUTO_RESULTS[name];
+    this.applyMinigameResult(name, { ...r, success: false }, { ...opts, hours: (opts.hours ?? 0.75) * 1.5 });
+    G.ui.toast('Routiniert erledigt – die Zeit vergeht.', '');
+  }
+
+  haggleBuy(shopId, itemId, price, npc) {
+    const def = Inv.itemDef(itemId);
+    this.playMinigame('haggle', { fair: price, label: def.name, app: npc ? npc.app : null, hours: 0.15, energy: 0, dirt: 0 }).then((r) => {
+      if (r.aborted) return;
+      if (this.state.money < r.price) { G.ui.toast('Dafür reicht dein Geld nicht.', 'cost'); return; }
+      changeMoney(-r.price);
+      Inv.add(itemId, 1);
+      unlockLex('preise');
+    });
+  }
+
+  // ---------- Zeit, Schlaf, Tageswechsel ----------
+  passHours(h) {
+    const newDay = advanceHours(this.state.time, h);
+    updateNeeds(h, false);
+    if (newDay) this.onNewDay();
+  }
+
+  onNewDay() {
+    const s = this.state;
+    const d = dateOfPlayedDay(s.time.day);
+    G.ui.showBanner(formatRoman(d), formatGerman(d));
+    unlockLex('kalender');
+    if (s.rent) {
+      if (s.time.day === s.rent.due) G.ui.toast(`Heute ist die Miete fällig: ${formatMoney(s.rent.amount)}. Zahle beim Verwalter Hilarus in der Insula.`, 'warn');
+      else if (s.time.day > s.rent.due + 1) { G.ui.toast('Deine Miete ist überfällig! Die Nachbarn reden schon.', 'warn'); changeStat('vicinia', -2); }
+    }
+    for (const [id, m] of Object.entries(s.missions)) {
+      const def = M.mdef(id);
+      if (m.status === 'active' && def.daily) M.abandonMission(id);
+    }
+  }
+
+  sleep() {
+    const s = this.state;
+    G.ui.fade(() => {
+      const h = s.time.hour;
+      this.passHours(24 - h + 0.3);
+      s.needs.energy = 100;
+      s.needs.health = Math.min(100, s.needs.health + 15);
+      s.needs.satiety = Math.max(5, s.needs.satiety - 10);
+      s.needs.hygiene = Math.max(0, s.needs.hygiene - 4);
+      s.light = null;
+      this.npcs.enterMap(this.map);
+      this.save(false);
+    }, 600).then(() => G.ui.toast('Du hast geschlafen. Ein neuer Tag beginnt. (Gespeichert)'));
+  }
+
+  faint() {
+    const s = this.state;
+    const lost = s.cls === 'servus' ? 0 : Math.floor(s.money * 0.1);
+    G.ui.fade(() => {
+      const home = s.home;
+      const pos = tileToPx(home.at[0], home.at[1]);
+      this.passHours(24 - s.time.hour + 0.5);
+      s.needs.energy = 70; s.needs.health = 45; s.needs.satiety = Math.max(s.needs.satiety, 35); s.needs.hygiene = Math.max(s.needs.hygiene, 25);
+      s.money -= lost;
+      if (s.cls === 'servus') changeStat('fides', -3, true);
+      this.enterMap(home.map, pos.x, pos.y, 'down');
+    }, 800).then(() => {
+      G.ui.dialog.say(null, [
+        'Dir wird schwarz vor Augen …',
+        `Du kommst zu Hause wieder zu dir.${lost ? ` Jemand hat dir ${formatMoney(lost)} abgenommen.` : ''} Achte auf Essen, Schlaf und Gesundheit!`,
+      ], 'narr');
+    });
+  }
+
+  payRent() {
+    const s = this.state;
+    if (!s.rent) return;
+    if (s.money < s.rent.amount) { G.ui.toast('Du hast nicht genug Geld für die Miete.', 'warn'); return; }
+    changeMoney(-s.rent.amount);
+    s.rent.due = Math.max(s.rent.due, s.time.day) + RENT_INTERVAL;
+    changeStat('vicinia', 1);
+  }
+
+  // ---------- Diebe ----------
+  onThiefSpawn() {
+    if (!this.state.flags.thiefWarned) {
+      this.state.flags.thiefWarned = true;
+      G.ui.toast('Ein Schatten löst sich aus einer Gasse … Lauf weg (Shift)! Nachts ist Rom gefährlich.', 'warn');
+      unlockLex('nacht');
+    }
+  }
+
+  onThiefCatch() {
+    const s = this.state;
+    if (s.money <= 0) { G.ui.toast('Ein Dieb durchsucht dich – und findet nichts.', 'warn'); return; }
+    const amount = Math.max(1, Math.floor(s.money * 0.2));
+    s.money -= amount;
+    G.ui.toast(`Ein Dieb hat dir ${formatMoney(amount)} gestohlen!`, 'cost');
+  }
+
+  // ---------- Zeichnen ----------
+  draw() {
+    const s = this.state;
+    const map = this.map;
+    const light = map.interior ? interiorLight(s.time.hour) : ambientLight(s.time.hour);
+    const lights = [...map.lights];
+    const pr = s.light ? (G.data.items[s.light].light || 40) : map.interior ? 34 : 26;
+    lights.push({ x: this.player.x, y: this.player.y - 8, r: pr, warm: !!s.light, flicker: !!s.light });
+    const ents = [...this.npcs.list(), this.player];
+    this.renderer.draw(map, ents, light, lights, this.t, s.time.hour, (ctx, cam) => this.drawMarkers(ctx, cam));
+  }
+
+  drawMarkers(ctx, cam) {
+    const t = this.t;
+    for (const n of this.npcs.named) {
+      if (n.map !== this.map.id || !n.marker) continue;
+      bubble(ctx, n.x - cam.x, n.y - cam.y - 30 + Math.round(Math.sin(t * 4) * 1.5), n.marker, n.marker === '!' ? '#f2c14e' : '#7fd0ff');
+    }
+    if (this.focus) bubble(ctx, this.focus.x - cam.x, this.focus.y - cam.y - (this.focus.kind === 'npc' && this.focus.npc.marker ? 18 : 0), 'E', '#f4eedc');
+    this.drawObjectiveArrow(ctx, cam);
+  }
+
+  drawObjectiveArrow(ctx, cam) {
+    const s = this.state;
+    if (!s.tracked) return;
+    let tgt = M.targetOf(s.tracked);
+    if (!tgt) return;
+    const map = this.map;
+    let lift = 30;
+    if (tgt.map === map.id && Math.hypot(tgt.x - this.player.x, tgt.y - this.player.y) < 24) return;
+    if (tgt.map === map.id && M.currentStep(s.tracked).target.npc) lift = 46;
+    if (tgt.map !== map.id) {
+      if (map.interior) {
+        const k = [...map.doors.keys()][0];
+        if (k === undefined) return;
+        tgt = { x: (k % map.w) * 16 + 8, y: Math.floor(k / map.w) * 16 + 8 };
+      } else {
+        const door = [...map.doors.values()].find((d) => d.to === tgt.map);
+        if (!door) return;
+        tgt = { x: door.x * 16 + 8, y: door.y * 16 + 10 };
+      }
+    }
+    const { vw, vh } = this.renderer;
+    const sx = tgt.x - cam.x, sy = tgt.y - cam.y - lift;
+    const t = this.t;
+    if (sx > 8 && sx < vw - 8 && sy > 8 && sy < vh - 8) {
+      const bob = Math.round(Math.sin(t * 5) * 2);
+      arrowDown(ctx, Math.round(sx), Math.round(sy - 6 + bob));
+      return;
+    }
+    const cx = vw / 2, cy = vh / 2;
+    const ang = Math.atan2(sy - cy, sx - cx);
+    const r = Math.min(vw, vh) / 2 - 14;
+    const ex = cx + Math.cos(ang) * r, ey = cy + Math.sin(ang) * r;
+    ctx.save();
+    ctx.translate(Math.round(ex), Math.round(ey));
+    ctx.rotate(ang);
+    ctx.fillStyle = '#2b1b12';
+    ctx.beginPath(); ctx.moveTo(8, 0); ctx.lineTo(-5, -6); ctx.lineTo(-2, 0); ctx.lineTo(-5, 6); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#f2c14e';
+    ctx.beginPath(); ctx.moveTo(6, 0); ctx.lineTo(-4, -4); ctx.lineTo(-1, 0); ctx.lineTo(-4, 4); ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+
+  drawTitle(dt) {
+    const map = this.mapById('rom');
+    this.titleT += dt;
+    const path = [[60, 42], [52, 22], [66, 62], [96, 22], [62, 88], [24, 60]];
+    const seg = (this.titleT / 14) % path.length;
+    const i = Math.floor(seg), f = seg - i;
+    const a = path[i], b = path[(i + 1) % path.length];
+    const e = f * f * (3 - 2 * f);
+    const x = (a[0] + (b[0] - a[0]) * e) * 16, y = (a[1] + (b[1] - a[1]) * e) * 16;
+    this.renderer.follow(map, x, y, true);
+    this.renderer.draw(map, [], ambientLight(10.9), map.lights, this.t, 10.9);
+  }
+
+  // ---------- Debug/Test-Schnittstelle ----------
+  debugTeleport(mapId, tx, ty) {
+    const p = tileToPx(tx, ty);
+    this.enterMap(mapId, p.x, p.y, 'down');
+  }
+}
+
+function interiorLight(h) {
+  const l = ambientLight(h);
+  return { dark: l.dark * 0.6, tint: l.tint ? [l.tint[0], l.tint[1], l.tint[2], l.tint[3] * 0.6] : [255, 200, 140, 0.05] };
+}
+
+function bubble(ctx, x, y, glyph, color) {
+  x = Math.round(x); y = Math.round(y);
+  const g = GLYPH[glyph];
+  const w = g[0].length, bw = w + 4, left = x - Math.ceil(bw / 2);
+  ctx.fillStyle = '#2b1b12';
+  ctx.fillRect(left - 1, y - 4, bw + 2, 11);
+  ctx.fillStyle = color;
+  ctx.fillRect(left, y - 3, bw, 9);
+  ctx.fillStyle = '#2b1b12';
+  const ox = x - Math.floor(w / 2);
+  g.forEach((row, ry) => [...row].forEach((c, rx) => { if (c === '1') ctx.fillRect(ox + rx, y - 1 + ry, 1, 1); }));
+  ctx.fillStyle = color;
+  ctx.fillRect(x - 1, y + 6, 3, 1);
+  ctx.fillRect(x, y + 7, 1, 1);
+}
+
+function arrowDown(ctx, x, y) {
+  ctx.fillStyle = '#2b1b12';
+  ctx.fillRect(x - 4, y - 5, 9, 4);
+  ctx.fillRect(x - 6, y - 1, 13, 2);
+  ctx.fillRect(x - 4, y + 1, 9, 2);
+  ctx.fillRect(x - 2, y + 3, 5, 2);
+  ctx.fillRect(x - 1, y + 5, 3, 1);
+  ctx.fillStyle = '#f2c14e';
+  ctx.fillRect(x - 3, y - 4, 7, 3);
+  ctx.fillRect(x - 5, y - 1, 11, 1);
+  ctx.fillRect(x - 3, y, 7, 2);
+  ctx.fillRect(x - 1, y + 2, 3, 2);
+  ctx.fillRect(x, y + 4, 1, 1);
+}
+

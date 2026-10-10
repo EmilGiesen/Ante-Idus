@@ -1,0 +1,350 @@
+{
+ "salutatio_1": {
+  "title": "Die morgendliche Salutatio",
+  "cls": [
+   "nobilis"
+  ],
+  "giver": "hermes",
+  "noAbandon": true,
+  "summary": "Jeden Morgen kommen Klienten ins Atrium, um das Haus zu grüßen und um Hilfe zu bitten. Empfange sie in den ersten Stunden des Tages.",
+  "steps": [
+   {
+    "text": "Sprich mit Hermes im Atrium (Hora I–III)",
+    "target": {
+     "npc": "hermes"
+    }
+   },
+   {
+    "text": "Empfange den Schuster Lucius",
+    "target": {
+     "npc": "cliens_lucius"
+    }
+   },
+   {
+    "text": "Empfange den Freigelassenen Gnaeus",
+    "target": {
+     "npc": "cliens_gnaeus"
+    }
+   },
+   {
+    "text": "Empfange den Lehrer Aulus",
+    "target": {
+     "npc": "cliens_aulus"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "stat": {
+     "dignitas": 3
+    }
+   },
+   {
+    "lex": "salutatio"
+   }
+  ]
+ },
+ "senatus_1": {
+  "title": "Sitzung im Concordia-Tempel",
+  "cls": [
+   "nobilis"
+  ],
+  "giver": "hermes",
+  "req": {
+   "done": "salutatio_1"
+  },
+  "summary": "Der Senat tagt im Tempel der Concordia am Forum. Hör an der offenen Tür zu – und finde heraus, wo das Haus der Valerier steht.",
+  "hint": "Hermes, der Nomenklator, weiß von einer Senatssitzung.",
+  "steps": [
+   {
+    "text": "Geh zum Tempel der Concordia am Forum",
+    "target": {
+     "area": "concordia"
+    },
+    "auto": {
+     "area": "concordia"
+    }
+   },
+   {
+    "text": "Hör an der Tempeltür zu (E, Hora II–VIII)",
+    "target": {
+     "area": "concordia"
+    }
+   },
+   {
+    "text": "Sprich mit Rubrius Pollio (Caesarianer) oder Atilius Serranus (Optimat)",
+    "target": {
+     "npc": "rubrius"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "stat": {
+     "dignitas": 2
+    }
+   },
+   {
+    "lex": "caesar"
+   }
+  ]
+ },
+ "convivium_1": {
+  "title": "Vorbereitungen für ein Gastmahl",
+  "cls": [
+   "nobilis"
+  ],
+  "giver": "syra",
+  "summary": "Syra, die Köchin, braucht Garum und Falerner Wein für ein Gastmahl. Beides gibt es im Macellum nördlich des Forums.",
+  "hint": "Syra in der Küche braucht Hilfe für ein Gastmahl.",
+  "steps": [
+   {
+    "text": "Kaufe Garum bei Thais im Macellum",
+    "target": {
+     "npc": "thais"
+    },
+    "auto": {
+     "item": "garum"
+    }
+   },
+   {
+    "text": "Kaufe Falerner Wein bei Mago im Macellum",
+    "target": {
+     "npc": "mago"
+    },
+    "auto": {
+     "item": "vinum_bonum"
+    }
+   },
+   {
+    "text": "Bring beides zu Syra in die Küche",
+    "target": {
+     "npc": "syra"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "stat": {
+     "dignitas": 2
+    }
+   },
+   {
+    "lex": "garum"
+   }
+  ]
+ },
+ "frumentatio_1": {
+  "title": "Getreide für die Familie",
+  "cls": [
+   "plebs"
+  ],
+  "giver": "tertia",
+  "summary": "Die monatliche Getreideration ist kostenlos – aber nur, wer auf der Liste steht, bekommt sie.",
+  "hint": "Deine Mutter Tertia hat eine Aufgabe für dich.",
+  "steps": [
+   {
+    "text": "Lass dich von Hilarus, dem Verwalter der Insula, bestätigen",
+    "target": {
+     "npc": "hilarus"
+    }
+   },
+   {
+    "text": "Hol die Getreideration am Forum ab (vormittags)",
+    "target": {
+     "npc": "frumentarius"
+    }
+   },
+   {
+    "text": "Bring das Getreide zu Tertia",
+    "target": {
+     "npc": "tertia"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "stat": {
+     "familia": 5
+    }
+   }
+  ],
+  "questItems": [
+   "frumentum"
+  ]
+ },
+ "aqua_1": {
+  "title": "Wasser für Vettia",
+  "cls": [
+   "plebs"
+  ],
+  "giver": "vettia",
+  "repeat": true,
+  "summary": "Die alte Witwe Vettia schafft die Treppen nicht mehr. Hol ihr Wasser vom öffentlichen Brunnen.",
+  "hint": "Die Nachbarin Vettia braucht täglich Wasser.",
+  "steps": [
+   {
+    "text": "Fülle einen Krug am Lacus auf dem Platz der Subura (E)",
+    "target": {
+     "area": "lacus_subura"
+    }
+   },
+   {
+    "text": "Bring Vettia den vollen Krug",
+    "target": {
+     "npc": "vettia"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "stat": {
+     "vicinia": 1
+    }
+   }
+  ],
+  "questItems": [
+   "hydria"
+  ]
+ },
+ "pistor_1": {
+  "title": "Arbeit beim Bäcker",
+  "cls": [
+   "plebs"
+  ],
+  "giver": "felix",
+  "repeat": true,
+  "perDay": 2,
+  "summary": "Felix der Bäcker sucht eine Aushilfe. Bezahlt wird nach Leistung – bis zu zwei Schichten am Tag.",
+  "hint": "Felix im Pistrinum sucht Hilfe am Ofen.",
+  "steps": [
+   {
+    "text": "Backe Brot an Felix' Ofen",
+    "target": {
+     "npc": "felix"
+    }
+   }
+  ],
+  "reward": []
+ },
+ "servus_aqua": {
+  "title": "Wasser für die Küche",
+  "cls": [
+   "servus"
+  ],
+  "giver": "philo",
+  "noAbandon": true,
+  "summary": "Philo, der Verwalter, schickt dich mit einem Krug zum Brunnen am Clivus Palatinus.",
+  "steps": [
+   {
+    "text": "Fülle einen Krug am Brunnen vor dem Haus (E)",
+    "target": {
+     "area": "lacus_palatin"
+    }
+   },
+   {
+    "text": "Bring den Krug zu Lyde in die Küche",
+    "target": {
+     "npc": "lyde"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "stat": {
+     "fides": 2
+    }
+   }
+  ],
+  "questItems": [
+   "hydria"
+  ]
+ },
+ "servus_mercatus": {
+  "title": "Einkauf im Macellum",
+  "cls": [
+   "servus"
+  ],
+  "giver": "philo",
+  "permit": true,
+  "noAbandon": true,
+  "req": {
+   "done": "servus_aqua"
+  },
+  "summary": "Kaufe mit 16 Assen aus der Hauskasse Brot und Öl bei Phileros im Macellum. Mit diesem Auftrag darfst du den Palatin verlassen.",
+  "hint": "Philo hat einen Einkauf für dich.",
+  "steps": [
+   {
+    "text": "Geh zum Macellum nördlich des Forums",
+    "target": {
+     "area": "macellum"
+    },
+    "auto": {
+     "area": "macellum"
+    }
+   },
+   {
+    "text": "Feilsche bei Phileros um Brot und Öl",
+    "target": {
+     "npc": "phileros"
+    }
+   },
+   {
+    "text": "Bring den Korb zu Philo",
+    "target": {
+     "npc": "philo"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "lex": "macellum"
+   }
+  ],
+  "questItems": [
+   "cesta"
+  ]
+ },
+ "servus_nuntius": {
+  "title": "Eine Nachricht für den Bankier",
+  "cls": [
+   "servus"
+  ],
+  "giver": "fabius",
+  "permit": true,
+  "noAbandon": true,
+  "req": {
+   "done": "servus_aqua"
+  },
+  "summary": "Dein Herr schickt dich mit versiegelten Wachstafeln zum Bankier Sextus Fadius auf dem Forum.",
+  "hint": "Dein Herr Quintus Fabius Rufus will dich sprechen.",
+  "onStart": [
+   {
+    "give": "tabellae"
+   }
+  ],
+  "steps": [
+   {
+    "text": "Bring die Wachstafeln zu Sextus Fadius auf dem Forum",
+    "target": {
+     "npc": "argentarius"
+    }
+   },
+   {
+    "text": "Bring die Antwort zu Quintus Fabius Rufus",
+    "target": {
+     "npc": "fabius"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "lex": "geld"
+   }
+  ],
+  "questItems": [
+   "tabellae",
+   "tabellae_resp"
+  ]
+ }
+}

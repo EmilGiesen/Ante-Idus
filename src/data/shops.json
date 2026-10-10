@@ -1,0 +1,102 @@
+{
+ "felix": {
+  "name": "Pistrinum des Felix",
+  "text": "Frisches Brot, noch warm aus dem Ofen.",
+  "items": [
+   {
+    "id": "panis"
+   },
+   {
+    "id": "puls"
+   }
+  ]
+ },
+ "asellina": {
+  "name": "Thermopolium der Asellina",
+  "text": "Heißes Essen für die Straße – man isst im Stehen oder nimmt es mit.",
+  "items": [
+   {
+    "id": "lentes"
+   },
+   {
+    "id": "puls"
+   },
+   {
+    "id": "ova"
+   },
+   {
+    "id": "posca"
+   },
+   {
+    "id": "vinum"
+   }
+  ]
+ },
+ "phileros": {
+  "name": "Stand des Phileros",
+  "text": "Oliven, Öl und Lampen.",
+  "haggle": true,
+  "items": [
+   {
+    "id": "olivae"
+   },
+   {
+    "id": "oleum"
+   },
+   {
+    "id": "lucerna"
+   },
+   {
+    "id": "fax"
+   }
+  ]
+ },
+ "verecunda": {
+  "name": "Stand der Verecunda",
+  "text": "Käse, Eier, Feigen und Honig vom Land.",
+  "haggle": true,
+  "items": [
+   {
+    "id": "caseus"
+   },
+   {
+    "id": "ova"
+   },
+   {
+    "id": "ficus"
+   },
+   {
+    "id": "mel"
+   }
+  ]
+ },
+ "mago": {
+  "name": "Weinstand des Mago",
+  "text": "Wein aus Kampanien – für jeden Geldbeutel.",
+  "haggle": true,
+  "items": [
+   {
+    "id": "vinum"
+   },
+   {
+    "id": "posca"
+   },
+   {
+    "id": "vinum_bonum"
+   }
+  ]
+ },
+ "thais": {
+  "name": "Fischstand der Thais",
+  "text": "Garum und Austern.",
+  "haggle": true,
+  "items": [
+   {
+    "id": "garum"
+   },
+   {
+    "id": "ostrea"
+   }
+  ]
+ }
+}

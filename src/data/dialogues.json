@@ -1,0 +1,2759 @@
+{
+ "intro_nobilis": {
+  "text": [
+   "Rom, im Frühjahr des Jahres 708 nach Gründung der Stadt – 46 v. Chr. Caesar führt in Afrika Krieg gegen die letzten Anhänger des Pompeius.",
+   "Du bist {g:der Sohn|die Tochter} des Senators Lucius Valerius. Dein Vater weilt auf seinem Landgut in Kampanien – du vertrittst das Haus auf dem Palatin.",
+   "Jeden Morgen kommen Klienten zur Salutatio, um das Haus zu grüßen. Hermes, euer Nomenklator, wartet im Atrium.",
+   "Tipp: Figuren mit „!“ haben Angebote für dich, „?“ gehört zu deinem aktuellen Ziel. Der goldene Pfeil zeigt den Weg. L = Logbuch, K = Lexikon."
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "start": "salutatio_1"
+   },
+   {
+    "lex": [
+     "roma_stadt",
+     "horae"
+    ]
+   }
+  ]
+ },
+ "intro_plebs": {
+  "text": [
+   "Rom, im Frühjahr 46 v. Chr. Vielleicht eine Million Menschen drängen sich in der Stadt – genau gezählt hat sie niemand.",
+   "Du lebst mit deiner Mutter Tertia in einem winzigen Zimmer im dritten Stock einer Insula in der Subura. Das Geld ist knapp, und bald ist die Miete fällig.",
+   "Sprich mit deiner Mutter – sie weiß, was heute zu tun ist.",
+   "Tipp: Figuren mit „!“ haben Angebote für dich, „?“ gehört zu deinem aktuellen Ziel. Der goldene Pfeil zeigt den Weg. L = Logbuch, K = Lexikon."
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "lex": [
+     "roma_stadt",
+     "horae"
+    ]
+   }
+  ]
+ },
+ "intro_servus": {
+  "text": [
+   "Rom, im Frühjahr 46 v. Chr. Ein großer Teil der Menschen in der Stadt ist unfrei – Forscher schätzen: etwa jeder vierte bis fünfte.",
+   "Vor sechs Jahren eroberten Caesars Legionen dein Dorf in Gallien. Auf dem Sklavenmarkt kaufte dich Quintus Fabius Rufus. Deinen alten Namen benutzt hier niemand mehr – man nennt dich {name}.",
+   "Du gehörst nun zu seinem Haushalt auf dem Palatin. Ohne Auftrag darfst du den Hügel nicht verlassen. Doch du sparst jede Münze für dein Peculium – und hoffst auf den Tag der Freilassung.",
+   "Der Verwalter Philo erwartet dich im Atrium. Tipp: „!“ = Angebot, „?“ = aktuelles Ziel, goldener Pfeil = Weg. L = Logbuch, K = Lexikon."
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "lex": [
+     "roma_stadt",
+     "sklaverei",
+     "horae"
+    ]
+   }
+  ]
+ },
+ "hermes": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "salutatio_1",
+      0
+     ],
+     "hour": [
+      0,
+      3.5
+     ]
+    },
+    "go": "hermes_sal0"
+   },
+   {
+    "if": {
+     "step": [
+      "salutatio_1",
+      0
+     ]
+    },
+    "go": "hermes_sal_late"
+   },
+   {
+    "if": {
+     "mission": "salutatio_1",
+     "hour": [
+      3.5,
+      24
+     ]
+    },
+    "go": "hermes_sal_late"
+   },
+   {
+    "if": {
+     "mission": "salutatio_1"
+    },
+    "go": "hermes_sal_hint"
+   },
+   {
+    "if": {
+     "canStart": "senatus_1"
+    },
+    "go": "hermes_senat_offer"
+   },
+   {
+    "go": "hermes_hello"
+   }
+  ]
+ },
+ "hermes_sal0": {
+  "text": [
+   "Salve, {g:junger Herr|junge Herrin}! Die Klienten warten schon im Atrium – wie jeden Morgen.",
+   "Ich flüstere dir ihre Namen zu, so wie ich es bei deinem Vater tue. Das ist meine Aufgabe als Nomenklator."
+  ],
+  "opts": [
+   {
+    "t": "Wer ist heute da?",
+    "go": "hermes_sal0b",
+    "do": [
+     {
+      "advance": "salutatio_1"
+     },
+     {
+      "lex": "nomenclator"
+     }
+    ]
+   }
+  ]
+ },
+ "hermes_sal0b": {
+  "text": "Lucius, der Schuster aus dem Argiletum. Gnaeus Popillius, der Freigelassene. Und Aulus, der Lehrer. Empfange sie, bevor die dritte Stunde vorüber ist."
+ },
+ "hermes_sal_late": {
+  "text": "Die Klienten sind für heute gegangen – die Salutatio findet nur in den ersten Morgenstunden statt. Morgen früh kommen sie wieder."
+ },
+ "hermes_sal_hint": {
+  "text": "Empfange die Klienten, einen nach dem anderen. Wem du hilfst, der ist dir später treu – auch bei Wahlen."
+ },
+ "hermes_senat_offer": {
+  "text": [
+   "Noch etwas: Heute tritt der Senat im Tempel der Concordia zusammen. Man sagt, ein Bote aus Afrika sei eingetroffen.",
+   "{g:Senatorensöhne hören an der offenen Tür zu – so lernen sie, wie Politik gemacht wird.|Frauen haben im Senat keine Stimme. Aber an der offenen Tür hört jeder zu – und dein Vater braucht Nachrichten.}"
+  ],
+  "opts": [
+   {
+    "t": "Ich gehe hin.",
+    "do": [
+     {
+      "start": "senatus_1"
+     }
+    ]
+   },
+   {
+    "t": "Später vielleicht."
+   }
+  ]
+ },
+ "hermes_hello": {
+  "text": "Brauchst du etwas? Ich kenne jeden Namen in Rom, der für dieses Haus wichtig ist – das ist mein Beruf.",
+  "opts": [
+   {
+    "t": "Wie ist die Lage in der Stadt?",
+    "go": "hermes_news"
+   },
+   {
+    "t": "Warum muss ich eigentlich diese Toga tragen?",
+    "go": "hermes_toga"
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ]
+ },
+ "hermes_toga": {
+  "text": "Weil nur römische Bürger sie tragen dürfen! Sie ist schwer und unpraktisch, gewiss – aber wer sie trägt, zeigt, wer er ist. {g:Du bist ein Valerier.|Du trägst die Stola einer Valeria – nicht weniger ehrwürdig.}",
+  "do": [
+   {
+    "lex": "kleidung"
+   }
+  ]
+ },
+ "hermes_news": {
+  "switch": [
+   {
+    "if": {
+     "done": "senatus_1"
+    },
+    "go": "hermes_news2"
+   },
+   {
+    "go": "hermes_news1"
+   }
+  ]
+ },
+ "hermes_news1": {
+  "text": "Caesar ist in Afrika. Die Anhänger des Pompeius haben sich dort um Metellus Scipio und Cato gesammelt. Die halbe Stadt wartet auf Nachricht – die andere Hälfte fürchtet sie.",
+  "do": [
+   {
+    "lex": "caesar"
+   }
+  ]
+ },
+ "hermes_news2": {
+  "text": "Vierzig Tage Dankfest! So viele hat noch kein Feldherr bekommen. Wer jetzt nicht zu Caesar steht, muss vorsichtig sein."
+ },
+ "syra": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "convivium_1",
+      2
+     ],
+     "item": "garum"
+    },
+    "go": "syra_conv_check"
+   },
+   {
+    "if": {
+     "mission": "convivium_1"
+    },
+    "go": "syra_conv_hint"
+   },
+   {
+    "if": {
+     "canStart": "convivium_1"
+    },
+    "go": "syra_offer"
+   },
+   {
+    "go": "syra_hello"
+   }
+  ]
+ },
+ "syra_conv_check": {
+  "switch": [
+   {
+    "if": {
+     "item": "vinum_bonum"
+    },
+    "go": "syra_conv_done"
+   },
+   {
+    "go": "syra_conv_hint"
+   }
+  ]
+ },
+ "syra_offer": {
+  "text": [
+   "Gut, dass du kommst! Deine Mutter will bald Freunde des Hauses zu einem Gastmahl einladen.",
+   "Mir fehlen zwei Dinge: gutes Garum und ein Krug Falerner. Beides gibt es im Macellum nördlich des Forums – Garum bei Thais, Wein bei Mago."
+  ],
+  "opts": [
+   {
+    "t": "Ich besorge es.",
+    "do": [
+     {
+      "start": "convivium_1"
+     },
+     {
+      "lex": "convivium"
+     }
+    ]
+   },
+   {
+    "t": "Schick doch einen Sklaven.",
+    "go": "syra_refuse"
+   }
+  ]
+ },
+ "syra_refuse": {
+  "text": "Natürlich, wie du willst. Aber die Händler betrügen Sklaven gern – und deine Mutter wünscht, dass du dich selbst kümmerst. Es geht um das Ansehen des Hauses.",
+  "opts": [
+   {
+    "t": "Also gut, ich gehe.",
+    "do": [
+     {
+      "start": "convivium_1"
+     },
+     {
+      "lex": "convivium"
+     }
+    ]
+   },
+   {
+    "t": "Später."
+   }
+  ]
+ },
+ "syra_conv_hint": {
+  "text": "Garum bei Thais, Falerner bei Mago – beide im Macellum. Lass dich nicht übers Ohr hauen!"
+ },
+ "syra_conv_done": {
+  "text": "Wunderbar! Das Garum riecht kräftig – genau richtig. Und echter Falerner!",
+  "next": "syra_conv_done2",
+  "do": [
+   {
+    "take": "garum"
+   },
+   {
+    "take": "vinum_bonum"
+   },
+   {
+    "advance": "convivium_1"
+   }
+  ]
+ },
+ "syra_conv_done2": {
+  "text": "Wenn dein Vater zurück ist, richten wir ein richtiges Convivium aus: drei Liegen, neun Gäste, sieben Gänge. Du wirst sehen."
+ },
+ "syra_hello": {
+  "text": "Die Küche ist mein Reich. Wenn du Hunger hast, sag es nur.",
+  "opts": [
+   {
+    "t": "Ich habe Hunger.",
+    "go": "syra_eat",
+    "do": [
+     {
+      "need": {
+       "satiety": 35
+      }
+     },
+     {
+      "today": "meal_syra"
+     }
+    ],
+    "if": {
+     "notToday": "meal_syra"
+    }
+   },
+   {
+    "t": "Woher kommst du eigentlich?",
+    "go": "syra_story"
+   },
+   {
+    "t": "Danke, Syra."
+   }
+  ]
+ },
+ "syra_eat": {
+  "text": "Hier – Puls mit Bohnen und ein Stück Käse. Nicht fein, aber es macht satt."
+ },
+ "syra_story": {
+  "text": "Aus Antiochia in Syrien. Ich war noch ein Kind, als man mich verkauft hat. Das ist lange her … Die Küche hier ist jetzt mein Leben."
+ },
+ "aemilia": {
+  "text": [
+   "{name}, mein Kind. Dein Vater schreibt aus Kampanien, er bleibt dort, bis die Lage klar ist.",
+   "Sei klug: In Zeiten wie diesen kann ein falsches Wort ein Haus ruinieren – und ein richtiges es retten."
+  ],
+  "opts": [
+   {
+    "t": "Auf welcher Seite steht Vater?",
+    "go": "aemilia_side"
+   },
+   {
+    "t": "Ich bin vorsichtig, Mutter."
+   }
+  ]
+ },
+ "aemilia_side": {
+  "text": "Auf der Seite seiner Familie. Er hat nicht für Pompeius gekämpft, und Caesar hat ihn in Ruhe gelassen. Caesar begnadigt seine Gegner – clementia nennt er das. Aber wie lange noch?",
+  "do": [
+   {
+    "lex": "caesar"
+   }
+  ]
+ },
+ "cliens_lucius": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "salutatio_1",
+      1
+     ]
+    },
+    "go": "lucius_sal"
+   },
+   {
+    "if": {
+     "mission": "salutatio_1"
+    },
+    "go": "client_wait"
+   },
+   {
+    "go": "lucius_hello"
+   }
+  ]
+ },
+ "client_wait": {
+  "text": "Ich warte, bis ich an der Reihe bin. So gehört es sich."
+ },
+ "lucius_hello": {
+  "text": "Ave! Ich wollte dem Haus nur meine Aufwartung machen. Mögen die Götter euch gewogen sein."
+ },
+ "lucius_sal": {
+  "text": [
+   "Ave, {g:Herr|Herrin}! Lucius, euer ergebener Klient. Ich habe ein Problem: Mein Nachbar behauptet, meine Werkstatt stehe auf seinem Grund.",
+   "Er hat einen Advokaten. Ich habe nur meine Ahle und meine Ehre. Kannst du mir helfen?"
+  ],
+  "opts": [
+   {
+    "t": "Ich bitte einen befreundeten Advokaten, dich zu vertreten.",
+    "go": "lucius_thanks",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 2
+      }
+     },
+     {
+      "rel": {
+       "cliens_lucius": 5
+      }
+     },
+     {
+      "advance": "salutatio_1"
+     },
+     {
+      "lex": "cliens"
+     }
+    ]
+   },
+   {
+    "t": "Hier sind zwei Denare für deine Kosten.",
+    "go": "lucius_thanks2",
+    "do": [
+     {
+      "money": -32
+     },
+     {
+      "stat": {
+       "dignitas": 1
+      }
+     },
+     {
+      "rel": {
+       "cliens_lucius": 3
+      }
+     },
+     {
+      "advance": "salutatio_1"
+     },
+     {
+      "lex": "cliens"
+     }
+    ],
+    "if": {
+     "money": 32
+    }
+   },
+   {
+    "t": "Darum kann ich mich jetzt nicht kümmern.",
+    "go": "lucius_sad",
+    "do": [
+     {
+      "stat": {
+       "dignitas": -1
+      }
+     },
+     {
+      "advance": "salutatio_1"
+     },
+     {
+      "lex": "cliens"
+     }
+    ]
+   }
+  ]
+ },
+ "lucius_thanks": {
+  "text": "Die Götter mögen dich segnen! Wenn du je Sandalen brauchst – oder Stimmen bei einer Wahl –, Lucius ist für dich da."
+ },
+ "lucius_thanks2": {
+  "text": "Großzügig wie dein Vater! Das werde ich nicht vergessen."
+ },
+ "lucius_sad": {
+  "text": "Ich verstehe … Ich komme ein andermal wieder."
+ },
+ "cliens_gnaeus": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "salutatio_1",
+      2
+     ]
+    },
+    "go": "gnaeus_sal"
+   },
+   {
+    "if": {
+     "mission": "salutatio_1"
+    },
+    "go": "client_wait"
+   },
+   {
+    "go": "gnaeus_hello"
+   }
+  ]
+ },
+ "gnaeus_hello": {
+  "text": "Salve! Am Hafen erzählt man sich jeden Tag neue Geschichten aus Afrika. Ich halte die Ohren offen."
+ },
+ "gnaeus_sal": {
+  "text": [
+   "Salve! Gnaeus Popillius, Freigelassener – deine Familie war immer gut zu mir.",
+   "Ich bringe Neuigkeiten vom Hafen: Ein Schiff aus Utica erzählt von einer großen Schlacht in Afrika. Bei Thapsus, sagen sie. Mehr weiß noch niemand."
+  ],
+  "opts": [
+   {
+    "t": "Halte die Ohren offen und berichte mir.",
+    "go": "gnaeus_ok",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 1
+      }
+     },
+     {
+      "rel": {
+       "cliens_gnaeus": 3
+      }
+     },
+     {
+      "lex": "thapsus"
+     },
+     {
+      "advance": "salutatio_1"
+     }
+    ]
+   },
+   {
+    "t": "Hier, ein Denar für deine Mühe – erzähl mir alles, was du hörst.",
+    "go": "gnaeus_ok2",
+    "do": [
+     {
+      "money": -16
+     },
+     {
+      "stat": {
+       "dignitas": 2
+      }
+     },
+     {
+      "rel": {
+       "cliens_gnaeus": 5
+      }
+     },
+     {
+      "lex": "thapsus"
+     },
+     {
+      "advance": "salutatio_1"
+     }
+    ],
+    "if": {
+     "money": 16
+    }
+   }
+  ]
+ },
+ "gnaeus_ok": {
+  "text": "Das werde ich. Ein Freigelassener hört mehr als ein Senator – uns beachtet ja niemand."
+ },
+ "gnaeus_ok2": {
+  "text": "Zu gütig! Ich werde dein Ohr am Hafen sein."
+ },
+ "cliens_aulus": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "salutatio_1",
+      3
+     ]
+    },
+    "go": "aulus_sal"
+   },
+   {
+    "if": {
+     "mission": "salutatio_1"
+    },
+    "go": "client_wait"
+   },
+   {
+    "go": "aulus_hello"
+   }
+  ]
+ },
+ "aulus_hello": {
+  "text": "Salve. Meine Schüler lernen gerade die Reden des Cicero auswendig – eine harte Schule!"
+ },
+ "aulus_sal": {
+  "text": [
+   "Salve. Aulus Licinius, Lehrer für Grammatik und Rhetorik. Ich unterrichte Söhne aus guten Häusern.",
+   "Ich bitte nur um eine Empfehlung – ein Wort von dir an deine Freunde, dass ich ein guter Lehrer bin."
+  ],
+  "opts": [
+   {
+    "t": "Gern empfehle ich dich.",
+    "go": "aulus_ok",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 1
+      }
+     },
+     {
+      "rel": {
+       "cliens_aulus": 3
+      }
+     },
+     {
+      "advance": "salutatio_1"
+     }
+    ]
+   },
+   {
+    "t": "Erst will ich sehen, was du kannst: Was macht eine gute Rede aus?",
+    "go": "aulus_test"
+   }
+  ]
+ },
+ "aulus_test": {
+  "text": "Eine Rede soll belehren, erfreuen und bewegen – docere, delectare, movere. So lehrt es Cicero. Wer nur gefällt, ist ein Schauspieler; wer nur belehrt, ein Langweiler.",
+  "opts": [
+   {
+    "t": "Überzeugt. Ich empfehle dich.",
+    "go": "aulus_ok",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 2
+      }
+     },
+     {
+      "rel": {
+       "cliens_aulus": 5
+      }
+     },
+     {
+      "lex": "cicero"
+     },
+     {
+      "advance": "salutatio_1"
+     }
+    ]
+   }
+  ]
+ },
+ "aulus_ok": {
+  "text": "Danke! Eine Empfehlung aus diesem Haus öffnet viele Türen."
+ },
+ "door_concordia": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "senatus_1",
+      1
+     ],
+     "hour": [
+      1,
+      8
+     ]
+    },
+    "go": "senate_1"
+   },
+   {
+    "if": {
+     "step": [
+      "senatus_1",
+      1
+     ]
+    },
+    "go": "senate_closed"
+   },
+   {
+    "go": "concordia_info"
+   }
+  ]
+ },
+ "concordia_info": {
+  "text": [
+   "Der Tempel der Concordia, der Göttin der Eintracht.",
+   "Hier tagt der Senat häufig. Heute sind die Türen verschlossen."
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "lex": "concordia"
+   }
+  ]
+ },
+ "senate_closed": {
+  "text": "Die Bronzetüren sind geschlossen. Der Senat tagt am Vormittag – komm zwischen Hora II und Hora VIII wieder.",
+  "who": "narr"
+ },
+ "senate_1": {
+  "text": [
+   "Die Bronzetüren des Tempels stehen offen. Drinnen sitzen die Senatoren auf Bänken, draußen drängen sich Neugierige – und du mittendrin.",
+   "Der Konsul erhebt sich. Es ist Marcus Aemilius Lepidus, Caesars Mitkonsul in diesem Jahr."
+  ],
+  "who": "narr",
+  "next": "senate_2"
+ },
+ "senate_2": {
+  "text": "Patres conscripti! Ein Brief des Diktators: Bei Thapsus in Africa wurden Metellus Scipio und König Juba vernichtend geschlagen!",
+  "name": "Konsul M. Aemilius Lepidus",
+  "next": "senate_3"
+ },
+ "senate_3": {
+  "text": "Jubel brandet auf – aber nicht überall. Einige Senatoren starren schweigend auf den Boden.",
+  "who": "narr",
+  "next": "senate_4"
+ },
+ "senate_4": {
+  "text": "Ich beantrage ein Dankfest für die Götter – vierzig Tage lang! Mehr, als je einem Feldherrn bewilligt wurde.",
+  "name": "Ein Senator",
+  "next": "senate_5"
+ },
+ "senate_5": {
+  "text": [
+   "Der Antrag wird angenommen. Man spricht auch davon, Caesar für zehn Jahre zum Diktator zu ernennen.",
+   "Als die Sitzung endet, bemerkst du zwei Senatoren vor dem Tempel, die zu dir herübersehen: Gaius Rubrius Pollio, ein Caesarianer, und Publius Atilius Serranus, ein Optimat."
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "advance": "senatus_1"
+   },
+   {
+    "lex": [
+     "senat",
+     "thapsus",
+     "concordia"
+    ]
+   }
+  ]
+ },
+ "rubrius": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "senatus_1",
+      2
+     ]
+    },
+    "go": "rubrius_pos"
+   },
+   {
+    "if": {
+     "cls": "nobilis"
+    },
+    "go": "rubrius_hello_nob"
+   },
+   {
+    "go": "rubrius_hello"
+   }
+  ]
+ },
+ "rubrius_hello": {
+  "text": "Mach Platz, Bürger. Ein Senator hat es eilig."
+ },
+ "rubrius_hello_nob": {
+  "text": "Salve! Grüß deinen Vater von mir, wenn er zurück ist. Rom braucht jetzt Männer, die anpacken."
+ },
+ "rubrius_pos": {
+  "text": [
+   "Ah, {g:der junge Valerius|die junge Valeria}! Du hast die Sitzung gehört? Vierzig Tage Dankfest – Caesar hat es verdient.",
+   "Die Zeit der alten Streitereien ist vorbei. Wer jetzt zu Caesar steht, wird nicht vergessen. Wie steht dein Haus zu ihm?"
+  ],
+  "opts": [
+   {
+    "t": "Das Haus der Valerier steht hinter Caesar.",
+    "go": "rubrius_pleased",
+    "do": [
+     {
+      "stat": {
+       "caesariani": 6,
+       "optimates": -3,
+       "dignitas": 1
+      }
+     },
+     {
+      "advance": "senatus_1"
+     }
+    ]
+   },
+   {
+    "t": "Wir ehren Caesars Sieg – und die Rechte des Senats.",
+    "go": "rubrius_neutral",
+    "do": [
+     {
+      "stat": {
+       "caesariani": 2,
+       "optimates": 2,
+       "dignitas": 2
+      }
+     },
+     {
+      "advance": "senatus_1"
+     }
+    ]
+   },
+   {
+    "t": "Ein Dankfest für einen Sieg über Römer? Mir gefällt das nicht.",
+    "go": "rubrius_cold",
+    "do": [
+     {
+      "stat": {
+       "caesariani": -4,
+       "optimates": 4
+      }
+     },
+     {
+      "advance": "senatus_1"
+     }
+    ]
+   }
+  ]
+ },
+ "rubrius_pleased": {
+  "text": "Kluge Worte. Ich werde es Balbus erzählen – er schreibt Caesar regelmäßig.",
+  "do": [
+   {
+    "lex": "optimaten"
+   }
+  ]
+ },
+ "rubrius_neutral": {
+  "text": "Diplomatisch. Wie dein Vater. Nun – die Zeit wird zeigen, wohin du gehörst.",
+  "do": [
+   {
+    "lex": "optimaten"
+   }
+  ]
+ },
+ "rubrius_cold": {
+  "text": "Vorsicht, junger Freund. Caesar vergibt viel. Aber nicht alles.",
+  "do": [
+   {
+    "lex": "optimaten"
+   }
+  ]
+ },
+ "atilius": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "senatus_1",
+      2
+     ]
+    },
+    "go": "atilius_pos"
+   },
+   {
+    "if": {
+     "cls": "nobilis"
+    },
+    "go": "atilius_hello_nob"
+   },
+   {
+    "go": "atilius_hello"
+   }
+  ]
+ },
+ "atilius_hello": {
+  "text": "Hm. Geh deiner Wege."
+ },
+ "atilius_hello_nob": {
+  "text": "Die Republik braucht junge Leute mit Rückgrat. Vergiss das nicht."
+ },
+ "atilius_pos": {
+  "text": [
+   "Du warst an der Tür, ich habe dich gesehen. Ein Diktator, der sich vierzig Tage Dankfest beschließen lässt – für einen Sieg über Römer!",
+   "Cato hält in Utica aus, heißt es. Wo steht das Haus der Valerier, wenn es um die Freiheit geht?"
+  ],
+  "opts": [
+   {
+    "t": "Bei der Republik und ihren Gesetzen.",
+    "go": "atilius_pleased",
+    "do": [
+     {
+      "stat": {
+       "optimates": 6,
+       "caesariani": -3,
+       "dignitas": 1
+      }
+     },
+     {
+      "advance": "senatus_1"
+     }
+    ]
+   },
+   {
+    "t": "Bei Rom – Caesar hat den Krieg nun einmal gewonnen.",
+    "go": "atilius_cold",
+    "do": [
+     {
+      "stat": {
+       "optimates": -3,
+       "caesariani": 3
+      }
+     },
+     {
+      "advance": "senatus_1"
+     }
+    ]
+   },
+   {
+    "t": "Wir halten uns aus dem Streit heraus.",
+    "go": "atilius_neutral",
+    "do": [
+     {
+      "stat": {
+       "dignitas": -1
+      }
+     },
+     {
+      "advance": "senatus_1"
+     }
+    ]
+   }
+  ]
+ },
+ "atilius_pleased": {
+  "text": "Gut. Es gibt noch Männer in diesem Senat, die wissen, was libertas bedeutet. Wir sprechen uns wieder.",
+  "do": [
+   {
+    "lex": "optimaten"
+   }
+  ]
+ },
+ "atilius_cold": {
+  "text": "So denken jetzt viele. Bequem ist es ja.",
+  "do": [
+   {
+    "lex": "optimaten"
+   }
+  ]
+ },
+ "atilius_neutral": {
+  "text": "Heraushalten? In einem Bürgerkrieg gibt es kein Draußen, junger Freund.",
+  "do": [
+   {
+    "lex": "optimaten"
+   }
+  ]
+ },
+ "praeco": {
+  "text": [
+   "Hört, Quiriten! Die Getreideausgabe findet am Vormittag statt, vor der Basilica Aemilia!",
+   "Und: Wer Unrat aus dem Fenster kippt, haftet für den Schaden!"
+  ],
+  "opts": [
+   {
+    "t": "Gibt es Neuigkeiten aus Afrika?",
+    "go": "praeco_news"
+   },
+   {
+    "t": "Warum tragen manche Männer so strahlend weiße Togen?",
+    "go": "praeco_toga"
+   },
+   {
+    "t": "Danke."
+   }
+  ]
+ },
+ "praeco_toga": {
+  "text": "Das sind Kandidaten für die nächsten Wahlen! Die toga candida ist mit Kreide geweißt – daher kommt das Wort „Kandidat“. Senatoren erkennst du an den Purpurstreifen.",
+  "do": [
+   {
+    "lex": "kleidung"
+   }
+  ]
+ },
+ "praeco_news": {
+  "switch": [
+   {
+    "if": {
+     "done": "senatus_1"
+    },
+    "go": "praeco_news2"
+   },
+   {
+    "go": "praeco_news1"
+   }
+  ]
+ },
+ "praeco_news1": {
+  "text": "Gerüchte, nichts als Gerüchte! Ein Sieg, sagen die einen, eine Niederlage, die anderen. Sobald der Senat etwas beschließt, rufe ich es aus – das ist mein Beruf."
+ },
+ "praeco_news2": {
+  "text": "Der Senat hat ein Dankfest von vierzig Tagen beschlossen – für Caesars Sieg bei Thapsus! Opfert den Göttern, Quiriten!",
+  "do": [
+   {
+    "lex": "thapsus"
+   }
+  ]
+ },
+ "frumentarius": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "frumentatio_1",
+      1
+     ]
+    },
+    "go": "frum_give"
+   },
+   {
+    "if": {
+     "cls": "plebs",
+     "done": "frumentatio_1"
+    },
+    "go": "frum_again"
+   },
+   {
+    "if": {
+     "cls": "plebs"
+    },
+    "go": "frum_nolist"
+   },
+   {
+    "go": "frum_hello"
+   }
+  ]
+ },
+ "frum_hello": {
+  "text": "Hier wird das Getreide der Res publica verteilt – an eingetragene Bürger. Fünf Modii im Monat, kostenlos.",
+  "do": [
+   {
+    "lex": "frumentatio"
+   }
+  ]
+ },
+ "frum_nolist": {
+  "text": "Ohne Bestätigung deines Hausverwalters kann ich niemanden eintragen. Ordnung muss sein!",
+  "do": [
+   {
+    "lex": "frumentatio"
+   }
+  ]
+ },
+ "frum_again": {
+  "text": "Deine Ration für diesen Monat hast du schon. Der Nächste!"
+ },
+ "frum_give": {
+  "text": [
+   "Name? … {name}, Subura, Insula des Arrius. Der Verwalter hat bestätigt. Gut.",
+   "Fünf Modii Weizen, wie es das Gesetz des Clodius bestimmt. Der Nächste!"
+  ],
+  "do": [
+   {
+    "give": "frumentum"
+   },
+   {
+    "advance": "frumentatio_1"
+   },
+   {
+    "lex": "frumentatio"
+   }
+  ]
+ },
+ "argentarius": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "servus_nuntius",
+      0
+     ],
+     "item": "tabellae"
+    },
+    "go": "arg_nuntius"
+   },
+   {
+    "go": "arg_hello"
+   }
+  ]
+ },
+ "arg_hello": {
+  "text": [
+   "Sextus Fadius, argentarius. Ich wechsle Münzen, verwahre Geld und vermittle Kredite.",
+   "Seit dem Bürgerkrieg sind alle verschuldet. Caesar hat verfügt, dass bereits gezahlte Zinsen von den Schulden abgezogen werden – gut für Schuldner, schlecht für mich."
+  ],
+  "opts": [
+   {
+    "t": "Wie funktioniert dein Geschäft?",
+    "go": "arg_more",
+    "do": [
+     {
+      "lex": "argentarii"
+     }
+    ]
+   },
+   {
+    "t": "Leb wohl."
+   }
+  ]
+ },
+ "arg_more": {
+  "text": "Wir sitzen in den Tabernae am Forum. Ein guter Bankier kennt jeden Schuldner in Rom – und weiß, wer bald pleite ist.",
+  "do": [
+   {
+    "lex": "geld"
+   }
+  ]
+ },
+ "arg_nuntius": {
+  "text": [
+   "Ah, die Tafeln von Quintus Fabius Rufus. Das Siegel ist unversehrt – gut.",
+   "Warte … Hier ist meine Antwort. Sag deinem Herrn: Der Zinssatz bleibt, wie besprochen."
+  ],
+  "do": [
+   {
+    "take": "tabellae"
+   },
+   {
+    "give": "tabellae_resp"
+   },
+   {
+    "advance": "servus_nuntius"
+   },
+   {
+    "lex": "argentarii"
+   }
+  ]
+ },
+ "phileros": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "servus_mercatus",
+      1
+     ]
+    },
+    "go": "phil_slave"
+   },
+   {
+    "go": "phil_hello"
+   }
+  ]
+ },
+ "phil_hello": {
+  "text": "Oliven aus Picenum, Öl aus Venafrum – das beste Öl Italiens! Und Lampen für die Nacht. Was darf's sein?",
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "phileros"
+     }
+    ]
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ],
+  "do": [
+   {
+    "lex": "macellum"
+   }
+  ]
+ },
+ "phil_slave": {
+  "text": [
+   "Ein Sklave aus dem Haus des Fabius! Brot und Öl für den Haushalt? Für dich – ein Sonderpreis …",
+   "Na, dann lass uns handeln!"
+  ],
+  "do": [
+   {
+    "minigame": "haggle",
+    "then": "phil_after",
+    "opts": {
+     "fair": 11,
+     "budget": 16,
+     "label": "Brot und Öl für den Haushalt",
+     "greeting": "Für das Haus des Fabius nur das Beste!",
+     "hours": 0.2,
+     "energy": 0,
+     "dirt": 0
+    }
+   }
+  ]
+ },
+ "phil_after": {
+  "switch": [
+   {
+    "if": {
+     "var": [
+      "mg_saved",
+      ">=",
+      4
+     ]
+    },
+    "go": "phil_after_good"
+   },
+   {
+    "go": "phil_after_ok"
+   }
+  ]
+ },
+ "phil_after_good": {
+  "text": "Du bist hart, aber gerecht. Hier ist dein Korb.",
+  "do": [
+   {
+    "give": "cesta"
+   },
+   {
+    "advance": "servus_mercatus"
+   },
+   {
+    "lex": "preise"
+   }
+  ]
+ },
+ "phil_after_ok": {
+  "text": "Ein gutes Geschäft – vor allem für mich! Hier ist dein Korb.",
+  "do": [
+   {
+    "give": "cesta"
+   },
+   {
+    "advance": "servus_mercatus"
+   },
+   {
+    "lex": "preise"
+   }
+  ]
+ },
+ "verecunda": {
+  "text": "Frischer Käse vom Land, Eier, Feigen – und Honig! Komm näher, schau dir alles an.",
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "verecunda"
+     }
+    ]
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ],
+  "do": [
+   {
+    "lex": "macellum"
+   }
+  ]
+ },
+ "mago": {
+  "text": "Wein aus Kampanien! Falerner für die Herrschaften, Landwein für alle anderen. Und Posca für die Durstigen.",
+  "opts": [
+   {
+    "t": "Zeig mir deinen Wein.",
+    "do": [
+     {
+      "shop": "mago"
+     }
+    ]
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ],
+  "do": [
+   {
+    "lex": "macellum"
+   }
+  ]
+ },
+ "thais": {
+  "text": "Garum! Die beste Fischsauce aus Hispania! Und Austern vom Lucriner See – für die feinen Tische.",
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "thais"
+     }
+    ]
+   },
+   {
+    "t": "Was ist Garum eigentlich?",
+    "go": "thais_garum"
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ],
+  "do": [
+   {
+    "lex": "macellum"
+   }
+  ]
+ },
+ "thais_garum": {
+  "text": "Fisch, Salz und Sonne! Monatelang gärt das in Becken, bis eine goldene Sauce übrig bleibt. Riecht streng – schmeckt himmlisch.",
+  "do": [
+   {
+    "lex": "garum"
+   }
+  ]
+ },
+ "tertia": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "frumentatio_1",
+      2
+     ],
+     "item": "frumentum"
+    },
+    "go": "tertia_grain"
+   },
+   {
+    "if": {
+     "mission": "frumentatio_1"
+    },
+    "go": "tertia_hint"
+   },
+   {
+    "if": {
+     "canStart": "frumentatio_1"
+    },
+    "go": "tertia_offer"
+   },
+   {
+    "go": "tertia_hello"
+   }
+  ]
+ },
+ "tertia_offer": {
+  "text": [
+   "Da bist du ja, {name}. Heute ist Getreideausgabe auf dem Forum – fünf Modii für jeden eingetragenen Bürger.",
+   "{g:Geh zuerst zu Hilarus, dem Verwalter. Er muss bestätigen, dass wir hier wohnen.|Die Ration steht auf dem Namen deines Bruders Gaius, der als Soldat in Afrika dient. Geh zuerst zu Hilarus, dem Verwalter – er muss bestätigen, dass du sie für ihn abholen darfst.}",
+   "Man sagt, Caesar will nach seiner Rückkehr die Listen Haus für Haus prüfen lassen. Dann wird es schwieriger."
+  ],
+  "opts": [
+   {
+    "t": "Ich gehe sofort.",
+    "do": [
+     {
+      "start": "frumentatio_1"
+     }
+    ]
+   },
+   {
+    "t": "Später, Mutter."
+   }
+  ]
+ },
+ "tertia_hint": {
+  "text": "Erst Hilarus, dann das Forum. Die Ausgabe ist nur vormittags!"
+ },
+ "tertia_grain": {
+  "text": [
+   "Fünf Modii! Das reicht einen Monat lang für Brot und Puls.",
+   "Ich bringe einen Teil zu Felix zum Mahlen. Hier, nimm schon mal zwei Brote."
+  ],
+  "do": [
+   {
+    "take": "frumentum"
+   },
+   {
+    "give": [
+     "panis",
+     2
+    ]
+   },
+   {
+    "advance": "frumentatio_1"
+   }
+  ]
+ },
+ "tertia_hello": {
+  "text": "{name}! Hast du gegessen? Und denk an die Miete – Hilarus ist streng.",
+  "opts": [
+   {
+    "t": "Gibt es etwas zu essen?",
+    "go": "tertia_eat",
+    "do": [
+     {
+      "need": {
+       "satiety": 25
+      }
+     },
+     {
+      "today": "meal_tertia"
+     }
+    ],
+    "if": {
+     "notToday": "meal_tertia"
+    }
+   },
+   {
+    "t": "Wie geht es dir, Mutter?",
+    "go": "tertia_how"
+   },
+   {
+    "t": "Ich muss los."
+   }
+  ]
+ },
+ "tertia_eat": {
+  "text": "Etwas Puls ist noch da. Iss, du bist zu dünn!"
+ },
+ "tertia_how": {
+  "text": "Die Knie schmerzen, und die Treppe wird jeden Tag länger. Aber solange wir zusammen sind, geht es."
+ },
+ "hilarus": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "frumentatio_1",
+      0
+     ]
+    },
+    "go": "hil_frum"
+   },
+   {
+    "if": {
+     "cls": "plebs",
+     "rentDue": true
+    },
+    "go": "hil_rent"
+   },
+   {
+    "go": "hil_hello"
+   }
+  ]
+ },
+ "hil_hello": {
+  "text": [
+   "Hilarus, Verwalter dieser Insula im Auftrag des ehrenwerten Arrius.",
+   "Miete pünktlich, kein offenes Feuer nach Sonnenuntergang, kein Unrat aus dem Fenster. Dann sind wir Freunde."
+  ],
+  "opts": [
+   {
+    "t": "Wann ist die Miete fällig?",
+    "go": "hil_when"
+   },
+   {
+    "t": "Verstanden."
+   }
+  ],
+  "do": [
+   {
+    "lex": "insula"
+   }
+  ]
+ },
+ "hil_when": {
+  "text": "Einmal im Monat – {rent}. Wer nicht zahlt, fliegt raus. So einfach ist das.",
+  "do": [
+   {
+    "lex": "miete"
+   }
+  ]
+ },
+ "hil_frum": {
+  "text": [
+   "Die Getreideausgabe? Moment …",
+   "{g:Ja, du stehst auf meiner Liste als Bürger dieses Hauses.|Die Ration deines Bruders Gaius, der in Afrika dient? Gut, ich bestätige, dass du sie abholen darfst.} Zeig das dem Schreiber am Forum."
+  ],
+  "do": [
+   {
+    "advance": "frumentatio_1"
+   }
+  ]
+ },
+ "hil_rent": {
+  "text": "Ah, {name}. Die Miete ist fällig: {rent}.",
+  "opts": [
+   {
+    "t": "Hier ist das Geld.",
+    "go": "hil_paid",
+    "do": [
+     {
+      "payRent": true
+     }
+    ],
+    "if": {
+     "money": 60
+    }
+   },
+   {
+    "t": "Ich habe gerade nicht genug.",
+    "go": "hil_wait"
+   }
+  ],
+  "do": [
+   {
+    "lex": "miete"
+   }
+  ]
+ },
+ "hil_paid": {
+  "text": "Sehr gut. Arrius wird zufrieden sein."
+ },
+ "hil_wait": {
+  "text": "Dann beeil dich. Ein, zwei Tage gebe ich dir – dann rede ich mit Arrius."
+ },
+ "vettia": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "aqua_1",
+      1
+     ],
+     "item": "hydria"
+    },
+    "go": "vet_water_done"
+   },
+   {
+    "if": {
+     "mission": "aqua_1"
+    },
+    "go": "vet_hint"
+   },
+   {
+    "if": {
+     "canStart": "aqua_1",
+     "done": "aqua_1"
+    },
+    "go": "vet_offer_again"
+   },
+   {
+    "if": {
+     "canStart": "aqua_1"
+    },
+    "go": "vet_offer"
+   },
+   {
+    "go": "vet_hello"
+   }
+  ]
+ },
+ "vet_offer": {
+  "text": [
+   "Ach, {name}, du schickt mir der Himmel. Meine Beine tragen mich nicht mehr die Treppen hinunter.",
+   "Holst du mir einen Krug Wasser vom Lacus auf dem Platz? Ich gebe dir auch etwas dafür."
+  ],
+  "opts": [
+   {
+    "t": "Natürlich, Vettia.",
+    "do": [
+     {
+      "start": "aqua_1"
+     }
+    ]
+   },
+   {
+    "t": "Heute nicht."
+   }
+  ]
+ },
+ "vet_offer_again": {
+  "text": "Würdest du mir heute wieder Wasser holen, {name}?",
+  "opts": [
+   {
+    "t": "Gern.",
+    "do": [
+     {
+      "start": "aqua_1"
+     }
+    ]
+   },
+   {
+    "t": "Heute nicht."
+   }
+  ]
+ },
+ "vet_hint": {
+  "text": "Der Lacus ist auf dem Platz, ein paar Schritte die Gasse hinunter nach Osten. Pass auf, dass nichts überschwappt!"
+ },
+ "vet_water_done": {
+  "text": [
+   "Danke dir! Frisches Wasser aus der Leitung – man sagt, die Aqua Marcia bringt das kälteste Wasser von allen.",
+   "Hier, drei Asse. Und erzähl Tertia, dass du ein guter Mensch bist."
+  ],
+  "do": [
+   {
+    "take": "hydria"
+   },
+   {
+    "money": 3
+   },
+   {
+    "advance": "aqua_1"
+   },
+   {
+    "lex": "aquaedukte"
+   }
+  ]
+ },
+ "vet_hello": {
+  "text": "Mein Mann ist vor drei Jahren am Fieber gestorben. Seitdem lebe ich allein hier oben. Gut, dass es Nachbarn gibt."
+ },
+ "felix": {
+  "switch": [
+   {
+    "if": {
+     "cls": "plebs",
+     "mission": "pistor_1"
+    },
+    "go": "felix_job_continue"
+   },
+   {
+    "if": {
+     "cls": "plebs",
+     "canStart": "pistor_1",
+     "done": "pistor_1"
+    },
+    "go": "felix_job_again"
+   },
+   {
+    "if": {
+     "cls": "plebs",
+     "canStart": "pistor_1"
+    },
+    "go": "felix_job_first"
+   },
+   {
+    "if": {
+     "cls": "plebs"
+    },
+    "go": "felix_tired"
+   },
+   {
+    "go": "felix_hello"
+   }
+  ]
+ },
+ "felix_job_first": {
+  "text": [
+   "Du suchst Arbeit? Mein Gehilfe liegt mit Fieber im Bett.",
+   "Hol die Brote aus dem Ofen, wenn sie goldbraun sind – nicht früher, nicht später. Bezahlt wird nach Leistung."
+  ],
+  "opts": [
+   {
+    "t": "Ich fange an! (Minispiel)",
+    "do": [
+     {
+      "start": "pistor_1"
+     },
+     {
+      "minigame": "baking",
+      "then": "felix_after",
+      "opts": {
+       "hours": 1,
+       "energy": 10,
+       "dirt": 8
+      }
+     }
+    ]
+   },
+   {
+    "t": "Ich will erst Brot kaufen.",
+    "do": [
+     {
+      "shop": "felix"
+     }
+    ]
+   },
+   {
+    "t": "Vielleicht später."
+   }
+  ]
+ },
+ "felix_job_again": {
+  "text": "Wieder da? Gut, der Ofen ist heiß!",
+  "opts": [
+   {
+    "t": "An den Ofen! (Minispiel)",
+    "do": [
+     {
+      "start": "pistor_1"
+     },
+     {
+      "minigame": "baking",
+      "then": "felix_after",
+      "opts": {
+       "hours": 1,
+       "energy": 10,
+       "dirt": 8
+      }
+     }
+    ]
+   },
+   {
+    "t": "Routiniert arbeiten (ohne Minispiel)",
+    "go": "felix_after",
+    "do": [
+     {
+      "start": "pistor_1"
+     },
+     {
+      "auto": "baking",
+      "opts": {
+       "hours": 1,
+       "energy": 10,
+       "dirt": 8
+      }
+     }
+    ],
+    "if": {
+     "skill": [
+      "baking",
+      3
+     ]
+    }
+   },
+   {
+    "t": "Brot kaufen",
+    "do": [
+     {
+      "shop": "felix"
+     }
+    ]
+   },
+   {
+    "t": "Später."
+   }
+  ]
+ },
+ "felix_job_continue": {
+  "text": "Der Ofen wartet!",
+  "opts": [
+   {
+    "t": "An den Ofen! (Minispiel)",
+    "do": [
+     {
+      "minigame": "baking",
+      "then": "felix_after",
+      "opts": {
+       "hours": 1,
+       "energy": 10,
+       "dirt": 8
+      }
+     }
+    ]
+   },
+   {
+    "t": "Routiniert arbeiten (ohne Minispiel)",
+    "go": "felix_after",
+    "do": [
+     {
+      "auto": "baking",
+      "opts": {
+       "hours": 1,
+       "energy": 10,
+       "dirt": 8
+      }
+     }
+    ],
+    "if": {
+     "skill": [
+      "baking",
+      3
+     ]
+    }
+   },
+   {
+    "t": "Später."
+   }
+  ]
+ },
+ "felix_tired": {
+  "text": "Für heute ist genug gebacken – zwei Schichten am Tag reichen. Komm morgen wieder!",
+  "opts": [
+   {
+    "t": "Brot kaufen",
+    "do": [
+     {
+      "shop": "felix"
+     }
+    ]
+   },
+   {
+    "t": "Bis morgen."
+   }
+  ]
+ },
+ "felix_after": {
+  "switch": [
+   {
+    "if": {
+     "var": [
+      "mg_score",
+      ">=",
+      8
+     ]
+    },
+    "go": "felix_after_good"
+   },
+   {
+    "go": "felix_after_meh"
+   }
+  ]
+ },
+ "felix_after_good": {
+  "text": "Ausgezeichnet! Du hast ein Händchen dafür. Hier dein Lohn: {money:mg_pay} – und ein Brot obendrauf.",
+  "do": [
+   {
+    "moneyVar": "mg_pay"
+   },
+   {
+    "give": "panis"
+   },
+   {
+    "advance": "pistor_1"
+   },
+   {
+    "lex": "brot"
+   }
+  ]
+ },
+ "felix_after_meh": {
+  "text": "Na ja … ein paar sind dunkel geraten. Hier dein Lohn: {money:mg_pay}.",
+  "do": [
+   {
+    "moneyVar": "mg_pay"
+   },
+   {
+    "advance": "pistor_1"
+   },
+   {
+    "lex": "brot"
+   }
+  ]
+ },
+ "felix_hello": {
+  "text": [
+   "Felix, Bäcker und – bei den Göttern – freier Mann! Früher habe ich selbst die Mühle gedreht. Heute gehört sie mir.",
+   "Was darf's sein?"
+  ],
+  "opts": [
+   {
+    "t": "Brot kaufen",
+    "do": [
+     {
+      "shop": "felix"
+     }
+    ]
+   },
+   {
+    "t": "Wie bist du freigekommen?",
+    "go": "felix_story"
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ]
+ },
+ "felix_story": {
+  "text": "Mein Herr hat mich in seinem Testament freigelassen. Viele Freigelassene führen Geschäfte – wir wissen, was Arbeit heißt.",
+  "do": [
+   {
+    "lex": "manumissio"
+   }
+  ]
+ },
+ "asellina": {
+  "text": "Heiße Linsen, Puls, Eier, Wein! Setz dich – oder nimm's mit. Ja, das Geschäft gehört mir – auch Frauen führen in Rom Läden.",
+  "opts": [
+   {
+    "t": "Was gibt es?",
+    "do": [
+     {
+      "shop": "asellina"
+     }
+    ]
+   },
+   {
+    "t": "Wer isst bei dir?",
+    "go": "ase_info"
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ],
+  "do": [
+   {
+    "lex": "frauen"
+   }
+  ]
+ },
+ "ase_info": {
+  "text": "Wer in einer Insula wohnt, hat meist keine eigene Küche – zu gefährlich wegen der Brände. Also essen alle bei mir!",
+  "do": [
+   {
+    "lex": "thermopolium"
+   }
+  ]
+ },
+ "philo": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "servus_mercatus",
+      2
+     ],
+     "item": "cesta"
+    },
+    "go": "philo_cesta"
+   },
+   {
+    "if": {
+     "any": [
+      {
+       "mission": "servus_aqua"
+      },
+      {
+       "mission": "servus_mercatus"
+      },
+      {
+       "mission": "servus_nuntius"
+      }
+     ]
+    },
+    "go": "philo_busy"
+   },
+   {
+    "if": {
+     "cls": "servus",
+     "canStart": "servus_aqua"
+    },
+    "go": "philo_first"
+   },
+   {
+    "if": {
+     "cls": "servus",
+     "canStart": "servus_mercatus"
+    },
+    "go": "philo_market"
+   },
+   {
+    "if": {
+     "cls": "servus",
+     "canStart": "servus_nuntius"
+    },
+    "go": "philo_nuntius"
+   },
+   {
+    "if": {
+     "cls": "servus"
+    },
+    "go": "philo_free"
+   },
+   {
+    "go": "philo_hello"
+   }
+  ]
+ },
+ "philo_first": {
+  "text": [
+   "Da bist du ja. Ich bin Philo, der Verwalter – ich führe die Bücher und die Sklaven dieses Hauses.",
+   "Erste Aufgabe: Lyde braucht Wasser für die Küche. Der Brunnen steht am Clivus Palatinus, gleich vor dem Haus."
+  ],
+  "opts": [
+   {
+    "t": "Ja, Philo.",
+    "do": [
+     {
+      "start": "servus_aqua"
+     }
+    ]
+   },
+   {
+    "t": "Muss das jetzt sein?",
+    "go": "philo_first_b"
+   }
+  ]
+ },
+ "philo_first_b": {
+  "text": "Ob es jetzt sein muss? Du bist nicht hier, um Fragen zu stellen. Wer gehorcht, gewinnt Vertrauen – und Vertrauen ist das Einzige, was dir hier nützt.",
+  "opts": [
+   {
+    "t": "Ich gehe.",
+    "do": [
+     {
+      "start": "servus_aqua"
+     }
+    ]
+   }
+  ]
+ },
+ "philo_market": {
+  "text": [
+   "Gut gemacht mit dem Wasser. Jetzt etwas Wichtigeres: Wir brauchen Brot und Öl.",
+   "Geh ins Macellum nördlich des Forums, zu Phileros. Du hast 16 Asse aus der Hauskasse. Was du beim Feilschen sparst, bringst du zurück – und ich vergesse nicht, wer sparsam ist."
+  ],
+  "opts": [
+   {
+    "t": "Ich gehe zum Macellum.",
+    "do": [
+     {
+      "start": "servus_mercatus"
+     },
+     {
+      "lex": "macellum"
+     }
+    ]
+   }
+  ]
+ },
+ "philo_nuntius": {
+  "text": "Der Herr will dich sprechen. Morgens ist er im Atrium, vormittags auf dem Forum."
+ },
+ "philo_busy": {
+  "text": "Du hast deine Aufgabe. Trödel nicht – der Herr merkt alles."
+ },
+ "philo_free": {
+  "text": "Für heute gibt es nichts mehr. Ruh dich aus – morgen wird es wieder viel Arbeit geben.",
+  "opts": [
+   {
+    "t": "Philo … wie kommt man hier jemals frei?",
+    "go": "philo_freedom"
+   },
+   {
+    "t": "Danke, Philo."
+   }
+  ]
+ },
+ "philo_freedom": {
+  "text": "Mit Geduld, Fleiß und Glück. Spare dein Peculium und gewinne das Vertrauen des Herrn. Ich selbst bin auch noch nicht so weit.",
+  "do": [
+   {
+    "lex": "peculium"
+   }
+  ]
+ },
+ "philo_hello": {
+  "text": "Wir haben zu tun."
+ },
+ "philo_cesta": {
+  "switch": [
+   {
+    "if": {
+     "var": [
+      "mg_saved",
+      ">=",
+      4
+     ]
+    },
+    "go": "philo_cesta_good"
+   },
+   {
+    "go": "philo_cesta_ok"
+   }
+  ]
+ },
+ "philo_cesta_good": {
+  "text": [
+   "{var:mg_saved} Asse gespart! Du hast Geschick.",
+   "Hier – zwei Asse für dein Peculium. Erzähl es nicht den anderen."
+  ],
+  "do": [
+   {
+    "take": "cesta"
+   },
+   {
+    "money": 2
+   },
+   {
+    "stat": {
+     "fides": 4
+    }
+   },
+   {
+    "advance": "servus_mercatus"
+   },
+   {
+    "lex": "peculium"
+   }
+  ]
+ },
+ "philo_cesta_ok": {
+  "text": "Hm. Teuer eingekauft. Nächstes Mal handelst du härter.",
+  "do": [
+   {
+    "take": "cesta"
+   },
+   {
+    "stat": {
+     "fides": 1
+    }
+   },
+   {
+    "advance": "servus_mercatus"
+   },
+   {
+    "lex": "peculium"
+   }
+  ]
+ },
+ "fabius": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "servus_nuntius",
+      1
+     ],
+     "item": "tabellae_resp"
+    },
+    "go": "fabius_resp"
+   },
+   {
+    "if": {
+     "cls": "servus",
+     "canStart": "servus_nuntius"
+    },
+    "go": "fabius_offer"
+   },
+   {
+    "if": {
+     "cls": "servus"
+    },
+    "go": "fabius_hello_slave"
+   },
+   {
+    "go": "fabius_hello"
+   }
+  ]
+ },
+ "fabius_offer": {
+  "text": [
+   "Du da. {name}, nicht wahr? Philo sagt, du bist zuverlässig.",
+   "Bring diese Tafeln zu Sextus Fadius, dem Bankier am Forum. Das Siegel bleibt unversehrt – verstanden? Und dann kommst du sofort zurück."
+  ],
+  "opts": [
+   {
+    "t": "Ja, Herr.",
+    "do": [
+     {
+      "start": "servus_nuntius"
+     }
+    ]
+   }
+  ]
+ },
+ "fabius_resp": {
+  "text": [
+   "Seine Antwort? Gib her.",
+   "… Gut. Du warst schnell. Hier, vier Asse. Kauf dir etwas – oder spar sie, wie die anderen, die auf ihre Freiheit hoffen."
+  ],
+  "do": [
+   {
+    "take": "tabellae_resp"
+   },
+   {
+    "money": 4
+   },
+   {
+    "stat": {
+     "fides": 5
+    }
+   },
+   {
+    "advance": "servus_nuntius"
+   }
+  ]
+ },
+ "fabius_hello_slave": {
+  "text": "Hast du nichts zu tun? Philo wird dir etwas geben."
+ },
+ "fabius_hello": {
+  "text": "Quintus Fabius Rufus. Ich habe Geschäfte zu erledigen – was willst du?"
+ },
+ "lyde": {
+  "switch": [
+   {
+    "if": {
+     "step": [
+      "servus_aqua",
+      1
+     ],
+     "item": "hydria"
+    },
+    "go": "lyde_water"
+   },
+   {
+    "if": {
+     "mission": "servus_aqua"
+    },
+    "go": "lyde_hint"
+   },
+   {
+    "go": "lyde_hello"
+   }
+  ]
+ },
+ "lyde_hint": {
+  "text": "Der Brunnen ist am Weg vor dem Haus, nur ein paar Schritte. Beeil dich, das Feuer brennt schon!"
+ },
+ "lyde_water": {
+  "text": [
+   "Endlich! Ohne Wasser kein Puls, kein Brot, nichts.",
+   "Danke. Hier – ein Kanten Brot. Der Herr merkt es nicht."
+  ],
+  "do": [
+   {
+    "take": "hydria"
+   },
+   {
+    "give": "panis"
+   },
+   {
+    "stat": {
+     "fides": 3
+    }
+   },
+   {
+    "advance": "servus_aqua"
+   },
+   {
+    "lex": "aquaedukte"
+   }
+  ]
+ },
+ "lyde_hello": {
+  "text": "Na, {name}? Pass auf, dass Philo dich nicht beim Herumstehen erwischt.",
+  "opts": [
+   {
+    "t": "Gibt es etwas zu essen?",
+    "go": "lyde_eat",
+    "do": [
+     {
+      "need": {
+       "satiety": 30
+      }
+     },
+     {
+      "today": "meal_lyde"
+     }
+    ],
+    "if": {
+     "notToday": "meal_lyde"
+    }
+   },
+   {
+    "t": "Wie lange bist du schon hier?",
+    "go": "lyde_story"
+   },
+   {
+    "t": "Bis später."
+   }
+  ]
+ },
+ "lyde_eat": {
+  "text": "Puls mit etwas Öl. Die Herrschaften essen Austern, wir essen Brei. So ist die Welt."
+ },
+ "lyde_story": {
+  "text": "Ich bin hier im Haus geboren – eine verna. Meine Mutter war auch Sklavin. Ich kenne nichts anderes.",
+  "do": [
+   {
+    "lex": "sklaverei"
+   }
+  ]
+ },
+ "eutychus": {
+  "text": [
+   "Ah, die neue Hilfe – {name}. Ich bin Eutychus. Der Name bedeutet „der Glückliche“. Die Götter haben Humor.",
+   "Seit zwanzig Jahren spare ich mein Peculium. Noch ein paar hundert Sesterzen, dann kaufe ich mich frei."
+  ],
+  "opts": [
+   {
+    "t": "Wie funktioniert das – freikaufen?",
+    "go": "eut_free"
+   },
+   {
+    "t": "Was rätst du mir?",
+    "go": "eut_advice"
+   },
+   {
+    "t": "Bis später."
+   }
+  ]
+ },
+ "eut_free": {
+  "text": "Der Herr muss zustimmen. Dann geht ihr zum Prätor, und der berührt dich mit einem Stab – manumissio vindicta. Danach bist du ein Bürger Roms. Ein Freigelassener, aber ein Bürger!",
+  "do": [
+   {
+    "lex": [
+     "manumissio",
+     "peculium"
+    ]
+   }
+  ]
+ },
+ "eut_advice": {
+  "text": "Sei zuverlässig. Spare jede Münze. Und lass dir nie anmerken, was du denkst."
+ },
+ "door_cicero": {
+  "text": [
+   "Ein vornehmes Haus mit schwerer Tür. Ein Türhüter (ianitor) mustert dich.",
+   "„Das Haus des Marcus Tullius Cicero. Der Herr empfängt heute niemanden – er schreibt.“"
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "lex": "cicero"
+   }
+  ]
+ },
+ "door_domuspublica": {
+  "text": [
+   "Die Domus Publica, der Amtssitz des Pontifex maximus.",
+   "Der Türhüter: „Gaius Iulius Caesar wohnt hier – wenn er in Rom ist. Er ist in Afrika. Geh weiter.“"
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "lex": [
+     "domus_publica",
+     "caesar"
+    ]
+   }
+  ]
+ },
+ "deny_domus_valeria": {
+  "text": "Ein Türhüter versperrt dir den Weg: „Wen darf ich melden? … Nein, dich kennt hier niemand.“",
+  "who": "narr"
+ },
+ "deny_domus_fabia": {
+  "text": "Der Türhüter des Quintus Fabius Rufus schüttelt den Kopf. Hier kommst du nicht hinein.",
+  "who": "narr"
+ },
+ "fountain_subura": {
+  "text": "Ein öffentlicher Brunnen (lacus). Kühles Wasser fließt Tag und Nacht aus dem Speier – gespeist von einer der Wasserleitungen Roms.",
+  "opts": [
+   {
+    "t": "Krug füllen (Minispiel)",
+    "do": [
+     {
+      "minigame": "water",
+      "then": "fountain_aqua_done",
+      "opts": {
+       "hours": 0.3,
+       "energy": 3,
+       "dirt": 0
+      }
+     }
+    ],
+    "if": {
+     "step": [
+      "aqua_1",
+      0
+     ]
+    }
+   },
+   {
+    "t": "Waschen",
+    "go": "fountain_wash",
+    "do": [
+     {
+      "need": {
+       "hygiene": 35
+      }
+     },
+     {
+      "hours": 0.2
+     }
+    ]
+   },
+   {
+    "t": "Trinken",
+    "go": "fountain_drink",
+    "do": [
+     {
+      "need": {
+       "energy": 3
+      }
+     }
+    ]
+   },
+   {
+    "t": "Weitergehen"
+   }
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "lex": "lacus"
+   }
+  ]
+ },
+ "fountain_palatin": {
+  "text": "Ein öffentlicher Brunnen (lacus). Kühles Wasser fließt Tag und Nacht aus dem Speier – gespeist von einer der Wasserleitungen Roms.",
+  "opts": [
+   {
+    "t": "Krug füllen (Minispiel)",
+    "do": [
+     {
+      "minigame": "water",
+      "then": "fountain_servus_done",
+      "opts": {
+       "hours": 0.3,
+       "energy": 3,
+       "dirt": 0
+      }
+     }
+    ],
+    "if": {
+     "step": [
+      "servus_aqua",
+      0
+     ]
+    }
+   },
+   {
+    "t": "Waschen",
+    "go": "fountain_wash",
+    "do": [
+     {
+      "need": {
+       "hygiene": 35
+      }
+     },
+     {
+      "hours": 0.2
+     }
+    ]
+   },
+   {
+    "t": "Trinken",
+    "go": "fountain_drink",
+    "do": [
+     {
+      "need": {
+       "energy": 3
+      }
+     }
+    ]
+   },
+   {
+    "t": "Weitergehen"
+   }
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "lex": "lacus"
+   }
+  ]
+ },
+ "fountain_aqua_done": {
+  "text": "Der Krug ist voll. Jetzt vorsichtig die Treppen zu Vettia hinauf!",
+  "who": "narr",
+  "do": [
+   {
+    "give": "hydria"
+   },
+   {
+    "advance": "aqua_1"
+   }
+  ]
+ },
+ "fountain_servus_done": {
+  "text": "Der Krug ist voll. Lyde wartet in der Küche.",
+  "who": "narr",
+  "do": [
+   {
+    "give": "hydria"
+   },
+   {
+    "advance": "servus_aqua"
+   }
+  ]
+ },
+ "fountain_wash": {
+  "text": "Du wäschst Gesicht, Arme und Füße. Für ein richtiges Bad müsstest du in eine Balnea gehen – gegen ein kleines Eintrittsgeld.",
+  "who": "narr"
+ },
+ "fountain_drink": {
+  "text": "Das Wasser ist kalt und klar.",
+  "who": "narr"
+ },
+ "obj_bed": {
+  "switch": [
+   {
+    "if": {
+     "atHome": true
+    },
+    "go": "bed_home"
+   },
+   {
+    "go": "bed_foreign"
+   }
+  ]
+ },
+ "bed_foreign": {
+  "text": "Das ist nicht dein Schlafplatz.",
+  "who": "narr"
+ },
+ "bed_home": {
+  "switch": [
+   {
+    "if": {
+     "any": [
+      {
+       "hour": [
+        8,
+        24
+       ]
+      },
+      {
+       "need": [
+        "energy",
+        "<",
+        50
+       ]
+      }
+     ]
+    },
+    "go": "bed_sleep"
+   },
+   {
+    "go": "bed_early"
+   }
+  ]
+ },
+ "bed_sleep": {
+  "text": "Dein Schlafplatz. Morgen beginnt ein neuer Tag.",
+  "opts": [
+   {
+    "t": "Schlafen bis zum Morgen (speichert)",
+    "do": [
+     {
+      "sleep": true
+     }
+    ]
+   },
+   {
+    "t": "Noch nicht."
+   }
+  ],
+  "who": "narr"
+ },
+ "bed_early": {
+  "text": "Es ist noch früh, und du bist nicht müde. (Schlafen ist ab Hora IX möglich – oder wenn deine Energie niedrig ist.)",
+  "who": "narr"
+ },
+ "obj_wash": {
+  "text": "Ein Brunnenbecken im Peristyl.",
+  "opts": [
+   {
+    "t": "Waschen",
+    "go": "wash_done",
+    "do": [
+     {
+      "need": {
+       "hygiene": 40
+      }
+     }
+    ]
+   },
+   {
+    "t": "Weiter"
+   }
+  ],
+  "who": "narr"
+ },
+ "wash_done": {
+  "text": "Du wäschst dich mit dem kühlen Wasser. Herrlich!",
+  "who": "narr"
+ },
+ "obj_lararium": {
+  "switch": [
+   {
+    "if": {
+     "notToday": "lar"
+    },
+    "go": "lararium"
+   },
+   {
+    "go": "lararium_done_today"
+   }
+  ]
+ },
+ "lararium": {
+  "text": "Das Lararium, der Schrein der Hausgötter. Kleine Figuren der Laren tanzen mit Trinkhörnern in den Händen.",
+  "opts": [
+   {
+    "t": "Ein kleines Opfer darbringen",
+    "go": "lar_done",
+    "do": [
+     {
+      "today": "lar"
+     },
+     {
+      "need": {
+       "health": 5
+      }
+     },
+     {
+      "lex": "lararium"
+     }
+    ]
+   },
+   {
+    "t": "Weiter"
+   }
+  ],
+  "who": "narr"
+ },
+ "lar_done": {
+  "text": "Du legst etwas Brot und ein paar Körner Weihrauch nieder. Ein Gefühl von Ruhe erfüllt dich.",
+  "who": "narr"
+ },
+ "lararium_done_today": {
+  "text": "Du hast heute schon geopfert. Die Laren sind zufrieden.",
+  "who": "narr"
+ },
+ "obj_oven": {
+  "text": "Felix' Backofen – heiß wie die Esse des Vulcanus. Ohne Felix fasst du ihn besser nicht an.",
+  "who": "narr"
+ },
+ "obj_mill": {
+  "text": "Mühlsteine aus Basalt. Ein Esel dreht sie im Kreis, den ganzen Tag. Früher mussten das oft Sklaven tun.",
+  "who": "narr",
+  "do": [
+   {
+    "lex": "brot"
+   }
+  ]
+ },
+ "obj_shelf": {
+  "text": "Regale und Amphoren mit Vorräten: Getreide, Öl, Wein, Fischsauce.",
+  "who": "narr"
+ },
+ "obj_chest": {
+  "text": "Die Arca, eine eisenbeschlagene Geldtruhe. Sie steht gut sichtbar im Atrium – jeder Besucher soll sehen, dass das Haus wohlhabend ist.",
+  "who": "narr",
+  "do": [
+   {
+    "lex": "domus"
+   }
+  ]
+ },
+ "obj_hearth": {
+  "text": "Die Herdstelle. Gekocht wird auf offenem Feuer – der Rauch zieht durchs ganze Haus.",
+  "who": "narr"
+ },
+ "obj_table": {
+  "text": "Ein Tisch mit Schreibzeug und ein paar Schriftrollen.",
+  "who": "narr"
+ },
+ "obj_couch": {
+  "text": "Eine Speiseliege (lectus). Beim Gastmahl liegt man hier – aufgestützt auf den linken Ellbogen.",
+  "who": "narr",
+  "do": [
+   {
+    "lex": "convivium"
+   }
+  ]
+ },
+ "_ambient": {
+  "default": [
+   "Salve!",
+   "Die Götter mit dir.",
+   "Pass auf, wo du hintrittst!",
+   "Hast du gehört? In Afrika wird gekämpft.",
+   "Was für ein Gedränge heute!"
+  ],
+  "forum": [
+   "Auf den Rostra hat heute schon jemand eine Rede gehalten – drei Stunden lang!",
+   "Ich warte auf meinen Prozess in der Basilica. Mein Anwalt kommt zu spät.",
+   "Sieh dir die Basilica Iulia an – Caesar baut, als gehöre ihm die Stadt.",
+   "Die Vestalinnen sind heilig. Wer ihnen begegnet, macht Platz.",
+   "Man sagt, Caesar hat bei Thapsus gesiegt. Oder verloren. Jeder erzählt etwas anderes.",
+   "Wer Geld braucht, geht zu den Bankiers vor der Basilica Aemilia."
+  ],
+  "subura": [
+   "In der Subura schläft niemand – nachts rumpeln die Karren, tagsüber schreien die Händler.",
+   "Caesar ist hier aufgewachsen, sagt man – mitten in der Subura!",
+   "Mein Vermieter hat das Haus schon wieder aufgestockt. Es wackelt, wenn ein Karren vorbeifährt.",
+   "Feuer ist das Schlimmste. Eine Insula brennt in Minuten.",
+   "Im Thermopolium der Asellina gibt es die besten Linsen der Stadt.",
+   "Hast du Arbeit für mich? Nein? Dann eben nicht."
+  ],
+  "palatin": [
+   "Hier oben wohnen die vornehmen Familien. Unsere Herren lassen sich in Sänften tragen.",
+   "Ich bin nur ein Sklave. Ich trage die Einkäufe meiner Herrin.",
+   "Dort drüben steht die Hütte des Romulus. Man pflegt sie seit Jahrhunderten.",
+   "Ruhig ist es hier. Ganz anders als unten in der Stadt."
+  ],
+  "circus": [
+   "Wenn die Spiele beginnen, passen hier mehr als hunderttausend Menschen hinein!",
+   "Ich setze immer auf die Roten. Na ja – meistens verliere ich.",
+   "Die Wendemarken sind das Gefährlichste. Da krachen die Wagen ineinander."
+  ],
+  "forum_iulium": [
+   "Hau ruck! Noch ein Block!",
+   "Caesar zahlt gut – und pünktlich. Das kann man nicht von jedem Bauherrn sagen.",
+   "Hier soll ein Tempel für Venus hin. Die Göttin, von der Caesars Familie abstammt.",
+   "Pass auf, der Kran schwenkt!"
+  ],
+  "capitol": [
+   "Hier oben wohnt Iuppiter. Jeder Triumphzug endet an seinem Tempel.",
+   "Vom Kapitol sieht man die ganze Stadt.",
+   "Hier wurden einst Verräter vom Tarpeischen Felsen gestürzt."
+  ],
+  "velabrum": [
+   "Hier am Fluss kommen die Schiffe aus Ostia an. Getreide, Wein, Öl – alles muss geschleppt werden.",
+   "Riechst du das? Rindermarkt.",
+   "Wenn der Tiber Hochwasser führt, steht hier alles unter Wasser."
+  ],
+  "marsfeld": [
+   "Hier üben die jungen Männer: Laufen, Ringen, Schwimmen im Tiber.",
+   "Draußen vor der Stadtgrenze, dem Pomerium. Hier wird gewählt und exerziert."
+  ],
+  "velia": [
+   "Die Carinae sind ein gutes Viertel. Pompeius hatte hier sein Haus.",
+   "Die Heilige Straße führt hinab zum Forum."
+  ],
+  "caelius": [
+   "Gärten, Villen, frische Luft – wer es sich leisten kann, wohnt hier."
+  ],
+  "worker": [
+   "Hau ruck!",
+   "Meine Schulter bringt mich noch um.",
+   "Zwölf Asse am Tag. Davon soll man leben."
+  ],
+  "child": [
+   "Spielst du mit? Wir werfen Nüsse!",
+   "Meine Mutter sagt, ich soll nicht mit Fremden reden.",
+   "Ich will später Wagenlenker werden!"
+  ],
+  "senator": [
+   "Ich habe keine Zeit, Bürger.",
+   "Der Senat ist auch nicht mehr, was er war.",
+   "Hast du meinen Klienten gesehen? Er sollte mich hier treffen."
+  ],
+  "slave": [
+   "Ich muss weiter, mein Herr wartet.",
+   "Rede nicht mit mir, sonst gibt es Ärger.",
+   "Eines Tages bin ich frei. Eines Tages."
+  ],
+  "night": [
+   "Was treibst du dich nachts herum? Geh nach Hause!",
+   "Leise … in der Dunkelheit lauern Diebe.",
+   "Ohne Laterne siehst du hier nichts."
+  ]
+ }
+}

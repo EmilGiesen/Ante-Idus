@@ -1,0 +1,176 @@
+{
+ "panis": {
+  "name": "Brot (panis)",
+  "icon": "loaf",
+  "price": 2,
+  "food": {
+   "satiety": 25
+  },
+  "desc": "Rundes Brot mit acht Kerben, wie man es in Pompeji gefunden hat."
+ },
+ "puls": {
+  "name": "Puls (Getreidebrei)",
+  "icon": "bowl",
+  "c": "#e5d3a0",
+  "price": 1,
+  "food": {
+   "satiety": 30
+  },
+  "desc": "Brei aus Emmer oder Weizen – das Alltagsessen der einfachen Leute."
+ },
+ "lentes": {
+  "name": "Linseneintopf",
+  "icon": "bowl",
+  "c": "#9a6a3a",
+  "price": 2,
+  "food": {
+   "satiety": 38,
+   "health": 2
+  },
+  "desc": "Heiß aus dem Dolium des Thermopoliums."
+ },
+ "olivae": {
+  "name": "Oliven",
+  "icon": "bowl",
+  "c": "#5b6b2a",
+  "price": 1,
+  "food": {
+   "satiety": 10
+  },
+  "desc": "Eingelegte Oliven aus Picenum."
+ },
+ "caseus": {
+  "name": "Käse",
+  "icon": "wedge",
+  "price": 2,
+  "food": {
+   "satiety": 15
+  },
+  "desc": "Fester Schafskäse vom Land."
+ },
+ "ova": {
+  "name": "Eier",
+  "icon": "eggs",
+  "price": 2,
+  "food": {
+   "satiety": 14
+  },
+  "desc": "Gekochte Eier – ab ovo, vom Ei an, begann jedes Gastmahl."
+ },
+ "ficus": {
+  "name": "Getrocknete Feigen",
+  "icon": "fruit",
+  "c": "#6a3f5a",
+  "price": 1,
+  "food": {
+   "satiety": 10,
+   "energy": 3
+  },
+  "desc": "Süß und lange haltbar."
+ },
+ "mel": {
+  "name": "Honig",
+  "icon": "jar",
+  "c": "#e0a020",
+  "price": 6,
+  "food": {
+   "satiety": 8,
+   "energy": 6
+  },
+  "desc": "Das Süßungsmittel der Antike – Zucker kennt man nicht."
+ },
+ "vinum": {
+  "name": "Landwein",
+  "icon": "amphora",
+  "c": "#7a2230",
+  "price": 2,
+  "food": {
+   "satiety": 4,
+   "energy": 6
+  },
+  "desc": "Einfacher Wein, mit Wasser verdünnt getrunken."
+ },
+ "vinum_bonum": {
+  "name": "Falerner Wein",
+  "icon": "amphora",
+  "c": "#5a1020",
+  "price": 32,
+  "desc": "Der berühmteste Wein Italiens, aus Kampanien."
+ },
+ "posca": {
+  "name": "Posca",
+  "icon": "cup",
+  "c": "#c9a06a",
+  "price": 1,
+  "food": {
+   "energy": 5,
+   "satiety": 2
+  },
+  "desc": "Wasser mit Essig – erfrischend und billig."
+ },
+ "garum": {
+  "name": "Garum",
+  "icon": "jar",
+  "c": "#8a5a2a",
+  "price": 12,
+  "desc": "Fermentierte Fischsauce – kräftig, salzig und überall beliebt."
+ },
+ "ostrea": {
+  "name": "Austern",
+  "icon": "shell",
+  "price": 20,
+  "desc": "Austern vom Lucriner See – ein Luxus für Reiche."
+ },
+ "oleum": {
+  "name": "Olivenöl",
+  "icon": "jug",
+  "c": "#c9b23a",
+  "price": 4,
+  "desc": "Öl aus Venafrum, für Küche, Lampe und Körperpflege."
+ },
+ "lucerna": {
+  "name": "Öllampe (lucerna)",
+  "icon": "lamp",
+  "price": 4,
+  "light": 50,
+  "desc": "Eine Tonlampe. Benutzen: anzünden – nachts siehst du mehr und lockst weniger Diebe an."
+ },
+ "fax": {
+  "name": "Fackel",
+  "icon": "torch",
+  "price": 3,
+  "light": 76,
+  "desc": "Eine Pechfackel. Hell, aber rußig."
+ },
+ "frumentum": {
+  "name": "Getreide (5 Modii)",
+  "icon": "sack",
+  "quest": true,
+  "desc": "Die monatliche Getreideration: rund 33 kg Weizen."
+ },
+ "hydria": {
+  "name": "Wasserkrug (voll)",
+  "icon": "jar",
+  "c": "#b0603a",
+  "quest": true,
+  "desc": "Ein schwerer Krug mit frischem Brunnenwasser."
+ },
+ "tabellae": {
+  "name": "Versiegelte Wachstafeln",
+  "icon": "tablet",
+  "quest": true,
+  "desc": "Ein Brief deines Herrn an den Bankier Sextus Fadius. Das Siegel darf nicht brechen."
+ },
+ "tabellae_resp": {
+  "name": "Antwort des Bankiers",
+  "icon": "tablet",
+  "quest": true,
+  "desc": "Die Antwort des Sextus Fadius an Quintus Fabius Rufus."
+ },
+ "cesta": {
+  "name": "Einkaufskorb (Brot & Öl)",
+  "icon": "basket",
+  "quest": true,
+  "desc": "Brot und Öl für den Haushalt des Fabius."
+ }
+}

@@ -1,0 +1,780 @@
+{
+ "list": [
+  {
+   "id": "hermes",
+   "name": "Hermes",
+   "role": "Nomenklator (Sklave)",
+   "where": "Domus der Valerier",
+   "dialogue": "hermes",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#8a8070",
+    "style": "bald",
+    "dress": "tunic",
+    "color": "#d8cfb4",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      12
+     ],
+     "map": "domus_valeria",
+     "at": [
+      12,
+      15
+     ],
+     "wander": 1
+    },
+    {
+     "h": [
+      12,
+      24
+     ],
+     "map": "domus_valeria",
+     "at": [
+      19,
+      13
+     ]
+    }
+   ]
+  },
+  {
+   "id": "syra",
+   "name": "Syra",
+   "role": "Köchin (Sklavin)",
+   "where": "Küche der Domus der Valerier",
+   "dialogue": "syra",
+   "app": {
+    "skin": "#c68b5e",
+    "hair": "#1c1410",
+    "style": "bun",
+    "dress": "dress",
+    "color": "#8a6b4a",
+    "color2": "#a5764b"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      13
+     ],
+     "map": "domus_valeria",
+     "at": [
+      4,
+      7
+     ]
+    },
+    {
+     "h": [
+      13,
+      24
+     ],
+     "map": "domus_valeria",
+     "at": [
+      21,
+      12
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aemilia",
+   "name": "Aemilia",
+   "role": "deine Mutter",
+   "where": "Domus der Valerier",
+   "dialogue": "aemilia",
+   "app": {
+    "skin": "#f1c9a5",
+    "hair": "#8a8070",
+    "style": "bun",
+    "dress": "stola",
+    "color": "#3f6b8a",
+    "color2": "#e8dcc0"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      4
+     ],
+     "map": "domus_valeria",
+     "at": [
+      12,
+      7
+     ]
+    },
+    {
+     "h": [
+      4,
+      11
+     ],
+     "map": "domus_valeria",
+     "at": [
+      13,
+      3
+     ],
+     "wander": 3
+    },
+    {
+     "h": [
+      11,
+      12.5
+     ],
+     "map": "domus_valeria",
+     "at": [
+      18,
+      8
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cliens_lucius",
+   "name": "Lucius",
+   "role": "Schuster, Klient",
+   "dialogue": "cliens_lucius",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#8a8070",
+    "style": "bald",
+    "dress": "tunic",
+    "color": "#7d6a58",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      3.5
+     ],
+     "map": "domus_valeria",
+     "at": [
+      9,
+      12
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cliens_gnaeus",
+   "name": "Gnaeus Popillius",
+   "role": "Freigelassener, Klient",
+   "dialogue": "cliens_gnaeus",
+   "app": {
+    "skin": "#c68b5e",
+    "hair": "#2b1d14",
+    "style": "short",
+    "dress": "tunic",
+    "color": "#5f8a4a"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      3.5
+     ],
+     "map": "domus_valeria",
+     "at": [
+      14,
+      11
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cliens_aulus",
+   "name": "Aulus Licinius",
+   "role": "Lehrer, Klient",
+   "dialogue": "cliens_aulus",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#d8d0c0",
+    "style": "short",
+    "dress": "tunic",
+    "color": "#4f7a8a",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      3.5
+     ],
+     "map": "domus_valeria",
+     "at": [
+      14,
+      14
+     ]
+    }
+   ]
+  },
+  {
+   "id": "philo",
+   "name": "Philo",
+   "role": "Verwalter (dispensator)",
+   "where": "Domus des Fabius",
+   "dialogue": "philo",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#5a3a1e",
+    "style": "short",
+    "dress": "tunic",
+    "color": "#4f7a8a"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      12
+     ],
+     "map": "domus_fabia",
+     "at": [
+      13,
+      12
+     ],
+     "wander": 1
+    },
+    {
+     "h": [
+      12,
+      24
+     ],
+     "map": "domus_fabia",
+     "at": [
+      21,
+      13
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fabius",
+   "name": "Quintus Fabius Rufus",
+   "role": "dein Herr (dominus)",
+   "where": "Atrium (früh), Forum (vormittags)",
+   "dialogue": "fabius",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#3d2817",
+    "style": "bald",
+    "dress": "toga",
+    "color": "#f1ece0"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      3
+     ],
+     "map": "domus_fabia",
+     "at": [
+      10,
+      11
+     ],
+     "dir": "down"
+    },
+    {
+     "h": [
+      3,
+      8
+     ],
+     "map": "rom",
+     "at": [
+      55,
+      43
+     ],
+     "wander": 2
+    },
+    {
+     "h": [
+      10,
+      12
+     ],
+     "map": "domus_fabia",
+     "at": [
+      19,
+      8
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lyde",
+   "name": "Lyde",
+   "role": "Köchin (Sklavin)",
+   "where": "Küche der Domus des Fabius",
+   "dialogue": "lyde",
+   "app": {
+    "skin": "#c68b5e",
+    "hair": "#2b1d14",
+    "style": "bun",
+    "dress": "dress",
+    "color": "#8c7a5c",
+    "color2": "#a5764b"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      13
+     ],
+     "map": "domus_fabia",
+     "at": [
+      4,
+      7
+     ]
+    },
+    {
+     "h": [
+      13,
+      24
+     ],
+     "map": "domus_fabia",
+     "at": [
+      21,
+      11
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eutychus",
+   "name": "Eutychus",
+   "role": "alter Haussklave",
+   "dialogue": "eutychus",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#d8d0c0",
+    "style": "bald",
+    "dress": "worker",
+    "color": "#7a6248",
+    "beard": true,
+    "barefoot": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      12
+     ],
+     "map": "domus_fabia",
+     "at": [
+      12,
+      3
+     ],
+     "wander": 3
+    },
+    {
+     "h": [
+      12,
+      24
+     ],
+     "map": "domus_fabia",
+     "at": [
+      18,
+      13
+     ]
+    }
+   ]
+  },
+  {
+   "id": "rubrius",
+   "name": "Gaius Rubrius Pollio",
+   "role": "Senator, Caesarianer",
+   "where": "Forum, vor dem Concordia-Tempel",
+   "dialogue": "rubrius",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#3d2817",
+    "style": "short",
+    "dress": "toga",
+    "color": "#f1ece0"
+   },
+   "sched": [
+    {
+     "h": [
+      1,
+      8
+     ],
+     "map": "rom",
+     "at": [
+      48,
+      37
+     ],
+     "wander": 1
+    }
+   ]
+  },
+  {
+   "id": "atilius",
+   "name": "Publius Atilius Serranus",
+   "role": "Senator, Optimat",
+   "where": "Forum, vor dem Concordia-Tempel",
+   "dialogue": "atilius",
+   "app": {
+    "skin": "#f1c9a5",
+    "hair": "#8a8070",
+    "style": "bald",
+    "dress": "praetexta",
+    "color": "#f1ece0"
+   },
+   "sched": [
+    {
+     "h": [
+      1,
+      8
+     ],
+     "map": "rom",
+     "at": [
+      43,
+      37
+     ],
+     "wander": 1
+    }
+   ]
+  },
+  {
+   "id": "praeco",
+   "name": "Pacuvius",
+   "role": "Ausrufer (praeco)",
+   "dialogue": "praeco",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#2b1d14",
+    "style": "curly",
+    "dress": "tunic",
+    "color": "#b5523a"
+   },
+   "sched": [
+    {
+     "h": [
+      1,
+      10
+     ],
+     "map": "rom",
+     "at": [
+      53,
+      41
+     ],
+     "wander": 2
+    }
+   ]
+  },
+  {
+   "id": "frumentarius",
+   "name": "Decimus",
+   "role": "Schreiber der Getreideausgabe",
+   "where": "Forum, Getreideausgabe (vormittags)",
+   "dialogue": "frumentarius",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#5a3a1e",
+    "style": "short",
+    "dress": "tunic",
+    "color": "#d8cfb4"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      7
+     ],
+     "map": "rom",
+     "at": [
+      60,
+      40
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "argentarius",
+   "name": "Sextus Fadius",
+   "role": "Bankier (argentarius)",
+   "where": "Forum, vor der Basilica Aemilia",
+   "dialogue": "argentarius",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#3d2817",
+    "style": "short",
+    "dress": "tunic",
+    "color": "#a8743f",
+    "clavus": true
+   },
+   "sched": [
+    {
+     "h": [
+      1,
+      9
+     ],
+     "map": "rom",
+     "at": [
+      64,
+      37
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "phileros",
+   "name": "Phileros",
+   "role": "Öl- und Olivenhändler",
+   "where": "Macellum",
+   "dialogue": "phileros",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#2b1d14",
+    "style": "curly",
+    "dress": "tunic",
+    "color": "#6f7d5a",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      10
+     ],
+     "map": "rom",
+     "at": [
+      60,
+      24
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "verecunda",
+   "name": "Verecunda",
+   "role": "Händlerin",
+   "where": "Macellum",
+   "dialogue": "verecunda",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#5a3a1e",
+    "style": "bun",
+    "dress": "dress",
+    "color": "#9a4a6a",
+    "color2": "#e3c27a"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      10
+     ],
+     "map": "rom",
+     "at": [
+      67,
+      24
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "mago",
+   "name": "Mago",
+   "role": "Weinhändler",
+   "where": "Macellum",
+   "dialogue": "mago",
+   "app": {
+    "skin": "#a86f48",
+    "hair": "#1c1410",
+    "style": "curly",
+    "dress": "tunic",
+    "color": "#7b6a8c",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      10
+     ],
+     "map": "rom",
+     "at": [
+      67,
+      20
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "thais",
+   "name": "Thais",
+   "role": "Fischhändlerin",
+   "where": "Macellum",
+   "dialogue": "thais",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#3d2817",
+    "style": "bun",
+    "dress": "dress",
+    "color": "#4f7a8a",
+    "color2": "#d8cfb4"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      10
+     ],
+     "map": "rom",
+     "at": [
+      60,
+      20
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "tertia",
+   "name": "Tertia",
+   "role": "deine Mutter",
+   "where": "Insula des Arrius",
+   "dialogue": "tertia",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#d8d0c0",
+    "style": "veil",
+    "dress": "dress",
+    "color": "#7a6248",
+    "color2": "#9a8a6a"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      24
+     ],
+     "map": "insula_arria",
+     "at": [
+      3,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hilarus",
+   "name": "Hilarus",
+   "role": "Verwalter der Insula (insularius)",
+   "where": "Insula des Arrius",
+   "dialogue": "hilarus",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#5a3a1e",
+    "style": "curly",
+    "dress": "tunic",
+    "color": "#8c7a5c"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      24
+     ],
+     "map": "insula_arria",
+     "at": [
+      7,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vettia",
+   "name": "Vettia",
+   "role": "Nachbarin, Witwe",
+   "where": "Insula des Arrius",
+   "dialogue": "vettia",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#d8d0c0",
+    "style": "veil",
+    "dress": "dress",
+    "color": "#6a5f52",
+    "color2": "#8a8070"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      24
+     ],
+     "map": "insula_arria",
+     "at": [
+      12,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "felix",
+   "name": "Felix",
+   "role": "Bäcker (pistor), Freigelassener",
+   "where": "Pistrinum in der Subura",
+   "dialogue": "felix",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#3d2817",
+    "style": "short",
+    "dress": "worker",
+    "color": "#e8e0cc",
+    "belt": "#8a6a44"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      24
+     ],
+     "map": "pistrinum",
+     "at": [
+      7,
+      2
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "asellina",
+   "name": "Asellina",
+   "role": "Wirtin des Thermopoliums",
+   "where": "Platz in der Subura",
+   "dialogue": "asellina",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#1c1410",
+    "style": "bun",
+    "dress": "dress",
+    "color": "#a5764b",
+    "color2": "#c0392b"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      15
+     ],
+     "map": "rom",
+     "at": [
+      109,
+      31
+     ],
+     "dir": "down"
+    }
+   ]
+  }
+ ]
+}

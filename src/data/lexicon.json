@@ -1,0 +1,699 @@
+{
+ "categories": [
+  {
+   "id": "orte",
+   "name": "Orte"
+  },
+  {
+   "id": "politik",
+   "name": "Politik & Geschichte"
+  },
+  {
+   "id": "gesellschaft",
+   "name": "Gesellschaft"
+  },
+  {
+   "id": "alltag",
+   "name": "Alltag"
+  },
+  {
+   "id": "essen",
+   "name": "Essen & Trinken"
+  },
+  {
+   "id": "wirtschaft",
+   "name": "Geld & Arbeit"
+  },
+  {
+   "id": "religion",
+   "name": "Religion"
+  },
+  {
+   "id": "zeit",
+   "name": "Zeit & Kalender"
+  }
+ ],
+ "entries": {
+  "roma_stadt": {
+   "title": "Rom um 46 v. Chr.",
+   "cat": "orte",
+   "text": [
+    "Rom ist die größte Stadt der Mittelmeerwelt. Wie viele Menschen hier leben, weiß niemand genau: Die Forschung schätzt für die späte Republik meist zwischen 750.000 und einer Million Einwohner.",
+    "Die Stadt hat keine Planung aus einem Guss: Prachtbauten stehen neben engen Gassen und wackligen Mietshäusern. Im Spiel ist Rom stark verkleinert, die Lage der Viertel zueinander stimmt aber grob."
+   ],
+   "sources": [
+    "Moderne Schätzungen (u. a. N. Morley, W. Scheidel)",
+    "Strabon, Geographika 5,3,7–8"
+   ],
+   "estimate": true
+  },
+  "forum_romanum": {
+   "title": "Forum Romanum",
+   "cat": "orte",
+   "text": [
+    "Das Forum ist das Herz der Republik: Hier stehen Tempel, Basiliken, die Rednertribüne (Rostra) und das Versammlungsgebäude des Senats. Hier wird gehandelt, prozessiert, gewählt und getratscht.",
+    "Caesar baut das Forum gerade um: Die Basilica Iulia entsteht, und später lässt er auch die Rostra und die Curia neu errichten."
+   ],
+   "sources": [
+    "Varro, De lingua Latina 5,145–156",
+    "Sueton, Caesar 26",
+    "F. Coarelli, Rom. Ein archäologischer Führer"
+   ]
+  },
+  "forum_iulium": {
+   "title": "Forum Iulium",
+   "cat": "orte",
+   "text": [
+    "Caesar ließ nördlich des alten Forums ein eigenes Forum bauen – das erste der späteren „Kaiserfora“. Allein der Grund kostete ein Vermögen: Cicero spricht von 60 Millionen Sesterzen, Sueton von über 100 Millionen.",
+    "Herzstück ist der Tempel der Venus Genetrix, den Caesar in der Schlacht von Pharsalos (48 v. Chr.) gelobt hatte. Geweiht wird er am 26. September 46 v. Chr. – noch unvollendet."
+   ],
+   "sources": [
+    "Cicero, Briefe an Atticus 4,16,8",
+    "Sueton, Caesar 26",
+    "Appian, Bürgerkriege 2,102",
+    "Cassius Dio 43,22"
+   ]
+  },
+  "palatin": {
+   "title": "Palatin",
+   "cat": "orte",
+   "text": [
+    "Auf dem Palatin, einem der sieben Hügel, wohnen die vornehmsten Familien Roms – auch Cicero besitzt hier ein Haus. Von hier blickt man auf das Forum und den Circus Maximus.",
+    "Unser Wort „Palast“ stammt vom Namen dieses Hügels (Palatium) – weil später die Kaiser hier ihre Residenzen bauten. Zu Caesars Zeit gibt es noch keine Paläste."
+   ],
+   "sources": [
+    "Cicero, Briefe an Freunde 5,6",
+    "Varro, De lingua Latina 5,53"
+   ]
+  },
+  "subura": {
+   "title": "Subura",
+   "cat": "orte",
+   "text": [
+    "Die Subura liegt im Tal zwischen Viminal und Esquilin: enge Gassen, hohe Mietshäuser, Werkstätten, Kneipen und viel Lärm. Sie gilt als laut, schmutzig und verrufen.",
+    "Caesar selbst ist hier aufgewachsen: Laut Sueton wohnte er zuerst „in einem bescheidenen Haus in der Subura“."
+   ],
+   "sources": [
+    "Sueton, Caesar 46",
+    "Martial und Juvenal (spätere Beschreibungen, 1./2. Jh. n. Chr.)"
+   ]
+  },
+  "circus_maximus": {
+   "title": "Circus Maximus",
+   "cat": "orte",
+   "text": [
+    "Die riesige Rennbahn im Tal zwischen Palatin und Aventin ist Roms älteste Arena. Bei Wagenrennen stürmen Vierergespanne sieben Runden um die Mittelbarriere (spina) mit ihren Wendemarken (metae).",
+    "Caesar lässt den Circus 46 v. Chr. erweitern und einen Wassergraben um die Bahn anlegen. Wie viele Zuschauer Platz fanden, ist umstritten – antike Angaben nennen 150.000 und mehr."
+   ],
+   "sources": [
+    "Dionysios von Halikarnassos 3,68",
+    "Plinius, Naturgeschichte 8,21 und 36,102",
+    "Sueton, Caesar 39"
+   ],
+   "estimate": true
+  },
+  "kapitol": {
+   "title": "Kapitol",
+   "cat": "orte",
+   "text": [
+    "Auf dem Kapitol steht der wichtigste Tempel Roms: der Tempel des Iuppiter Optimus Maximus, den er mit Iuno und Minerva teilt. Nach einem Brand 83 v. Chr. wurde er neu errichtet und 69 v. Chr. geweiht.",
+    "Am Hang zum Forum liegt das Tabularium, das Staatsarchiv. Triumphzüge enden am Iuppitertempel."
+   ],
+   "sources": [
+    "Tacitus, Historien 3,72",
+    "Plutarch, Publicola 15",
+    "CIL VI 1314 (Bauinschrift des Tabulariums)"
+   ]
+  },
+  "velabrum": {
+   "title": "Velabrum & Forum Boarium",
+   "cat": "orte",
+   "text": [
+    "Zwischen Kapitol, Palatin und Tiber liegt das Forum Boarium, der alte Rindermarkt, gleich neben dem Flusshafen. Hier kommen die Waren an, die auf dem Tiber nach Rom gebracht werden.",
+    "Der kleine Tempel des Portunus, des Hafengottes, steht bis heute."
+   ],
+   "sources": [
+    "Livius 10,23; 33,27",
+    "Varro, De lingua Latina 5,146",
+    "F. Coarelli, Il Foro Boario"
+   ]
+  },
+  "hercules": {
+   "title": "Hercules am Forum Boarium",
+   "cat": "religion",
+   "text": [
+    "Der Rundtempel des Hercules Victor (spätes 2. Jh. v. Chr.) ist aus griechischem Marmor gebaut und gilt als ältester erhaltener Marmortempel Roms.",
+    "In der Nähe liegt die Ara Maxima, ein uralter Altar des Hercules. Händler weihten dort einen Zehnten ihres Gewinns."
+   ],
+   "sources": [
+    "Macrobius, Saturnalia 3,6",
+    "Plutarch, Römische Fragen 18",
+    "Moderne Bauforschung"
+   ]
+  },
+  "tiber": {
+   "title": "Tiber & Tiberinsel",
+   "cat": "orte",
+   "text": [
+    "Der Tiber ist Roms Lebensader: Über ihn kommen Getreide, Wein und Öl in die Stadt. Hochwasser überschwemmt immer wieder die tief gelegenen Viertel.",
+    "Auf der Tiberinsel steht seit 291 v. Chr. der Tempel des Heilgottes Aesculapius. Die Steinbrücke Pons Fabricius (62 v. Chr.) zur Insel ist bis heute in Gebrauch."
+   ],
+   "sources": [
+    "Livius 10,47 und Periochae 11",
+    "CIL VI 1305 (Inschrift am Pons Fabricius)",
+    "Cassius Dio 37,45"
+   ]
+  },
+  "marsfeld": {
+   "title": "Marsfeld",
+   "cat": "orte",
+   "text": [
+    "Das Marsfeld (Campus Martius) liegt außerhalb der heiligen Stadtgrenze (pomerium). Hier üben junge Männer, hier versammelt sich das Volk zu Wahlen, und hier steht seit 55 v. Chr. das Theater des Pompeius – Roms erstes steinernes Theater.",
+    "In der Halle neben diesem Theater, der Curia Pompeia, wird der Senat an den Iden des März 44 v. Chr. tagen."
+   ],
+   "sources": [
+    "Strabon 5,3,8",
+    "Plutarch, Pompeius 52",
+    "Sueton, Caesar 80–81"
+   ]
+  },
+  "macellum": {
+   "title": "Macellum",
+   "cat": "orte",
+   "text": [
+    "Das Macellum ist Roms großer Lebensmittelmarkt nordöstlich des Forums, mit Ständen für Fleisch, Fisch, Gemüse und Delikatessen und einem Rundbau in der Mitte.",
+    "Seine genaue Gestalt zur Zeit Caesars ist nur teilweise bekannt; im Spiel ist es vereinfacht dargestellt."
+   ],
+   "sources": [
+    "Varro, De lingua Latina 5,147",
+    "Livius 40,51"
+   ],
+   "estimate": true
+  },
+  "domus_publica": {
+   "title": "Domus Publica",
+   "cat": "orte",
+   "text": [
+    "Die Domus Publica an der Heiligen Straße ist die Amtswohnung des Pontifex maximus, des obersten Priesters. Caesar hat dieses Amt seit 63 v. Chr. inne und wohnt hier, wenn er in Rom ist."
+   ],
+   "sources": [
+    "Sueton, Caesar 46",
+    "Plutarch, Caesar 7"
+   ]
+  },
+  "basilicae": {
+   "title": "Basilica Aemilia & Basilica Iulia",
+   "cat": "orte",
+   "text": [
+    "Basiliken sind große überdachte Hallen für Gerichte, Geschäfte und Geldwechsel – bei Regen auch ein Treffpunkt. Die Basilica Aemilia (179 v. Chr.) wird seit 55/54 v. Chr. von Lucius Aemilius Paullus erneuert, angeblich mit Caesars Geld.",
+    "Die Basilica Iulia auf der anderen Seite des Forums ließ Caesar ab 54 v. Chr. bauen. Sie wird 46 v. Chr. unvollendet geweiht; fertig wird sie erst unter Augustus."
+   ],
+   "sources": [
+    "Cicero, Briefe an Atticus 4,16,8",
+    "Plutarch, Caesar 29",
+    "Augustus, Res gestae 20"
+   ]
+  },
+  "curia": {
+   "title": "Curia",
+   "cat": "orte",
+   "text": [
+    "Die Curia ist das Versammlungshaus des Senats am Comitium. Die alte Curia Hostilia brannte 52 v. Chr. beim Begräbnis des Clodius nieder und wurde neu gebaut.",
+    "44 v. Chr. beschließt der Senat einen Neubau (Curia Iulia). Der Senat tagte aber ohnehin oft auch in Tempeln. Wie es mit dem Bau genau weiterging, ist in der Forschung umstritten."
+   ],
+   "sources": [
+    "Cassius Dio 40,49 und 44,5",
+    "Asconius, Kommentar zu Ciceros Pro Milone"
+   ]
+  },
+  "concordia": {
+   "title": "Tempel der Concordia",
+   "cat": "orte",
+   "text": [
+    "Der Tempel der Eintracht (Concordia) steht am Fuß des Kapitols. Der Senat tagt hier häufig – berühmt ist die Sitzung von 63 v. Chr., in der über die Catilinarier entschieden wurde."
+   ],
+   "sources": [
+    "Sallust, Catilina 46–49",
+    "Cicero, Vierte Catilinarische Rede",
+    "Plutarch, Gaius Gracchus 17"
+   ]
+  },
+  "saturn": {
+   "title": "Tempel des Saturn",
+   "cat": "orte",
+   "text": [
+    "Im Podium des Saturntempels liegt das Aerarium, die Staatskasse. 49 v. Chr. ließ Caesar sie öffnen und nahm das Geld für seinen Krieg – gegen den Protest eines Volkstribunen."
+   ],
+   "sources": [
+    "Plutarch, Caesar 35",
+    "Appian, Bürgerkriege 2,41",
+    "Cassius Dio 41,17"
+   ]
+  },
+  "vesta": {
+   "title": "Vesta & die Vestalinnen",
+   "cat": "religion",
+   "text": [
+    "Im runden Tempel der Vesta brennt das ewige Feuer Roms. Sechs Priesterinnen, die Vestalinnen, hüten es; sie leben unverheiratet und genießen hohes Ansehen.",
+    "Daneben liegt die Regia, das uralte Amtsgebäude des Pontifex maximus."
+   ],
+   "sources": [
+    "Plutarch, Numa 9–10",
+    "Dionysios von Halikarnassos 2,64–69",
+    "Gellius 1,12"
+   ]
+  },
+  "rostra": {
+   "title": "Rostra",
+   "cat": "orte",
+   "text": [
+    "Die Rednertribüne heißt nach den bronzenen Schiffsschnäbeln (rostra), die man 338 v. Chr. erbeuteten Kriegsschiffen aus Antium abnahm und hier anbrachte.",
+    "Von hier sprechen Magistrate und Redner zum Volk. Caesar lässt die Rostra 44 v. Chr. an eine neue Stelle versetzen."
+   ],
+   "sources": [
+    "Livius 8,14",
+    "Plinius, Naturgeschichte 34,20",
+    "Cassius Dio 43,49"
+   ]
+  },
+  "magna_mater": {
+   "title": "Magna Mater (Kybele)",
+   "cat": "religion",
+   "text": [
+    "Die „Große Mutter“ aus Kleinasien wurde 204 v. Chr. als heiliger Stein nach Rom geholt; ihr Tempel auf dem Palatin wurde 191 v. Chr. geweiht. Ihre Priester, die Galli, fallen durch fremdartige Riten auf.",
+    "Im April feiert man ihr zu Ehren die Megalesischen Spiele."
+   ],
+   "sources": [
+    "Livius 29,10–14 und 36,36",
+    "Ovid, Fasti 4,179–372"
+   ]
+  },
+  "casa_romuli": {
+   "title": "Casa Romuli",
+   "cat": "orte",
+   "text": [
+    "Auf dem Palatin wird eine strohgedeckte Hütte gezeigt, in der Romulus gewohnt haben soll. Sie wird sorgfältig gepflegt und bei Schäden originalgetreu erneuert.",
+    "Archäologen haben auf dem Palatin tatsächlich Pfostenlöcher von Hütten aus dem 8. Jh. v. Chr. gefunden."
+   ],
+   "sources": [
+    "Dionysios von Halikarnassos 1,79",
+    "Archäologische Ausgrabungen auf dem Palatin"
+   ]
+  },
+  "ianus": {
+   "title": "Ianus Geminus",
+   "cat": "religion",
+   "text": [
+    "Der kleine Durchgang des doppelgesichtigen Gottes Ianus am Forum hat Türen, die im Krieg offen stehen und im Frieden geschlossen werden.",
+    "Geschlossen waren sie in all den Jahrhunderten fast nie – 46 v. Chr. herrscht Bürgerkrieg, also stehen sie offen. Erst Augustus wird sie 29 v. Chr. wieder schließen."
+   ],
+   "sources": [
+    "Livius 1,19",
+    "Augustus, Res gestae 13"
+   ]
+  },
+  "caesar": {
+   "title": "Gaius Iulius Caesar",
+   "cat": "politik",
+   "text": [
+    "Caesar (geb. 100 v. Chr.) war Konsul, eroberte Gallien und überschritt 49 v. Chr. den Rubikon – der Beginn des Bürgerkriegs gegen Pompeius und die Senatsmehrheit. Seitdem regiert er als Diktator.",
+    "Wichtig: Caesar ist kein Kaiser! Die Diktatur ist ein altes republikanisches Notamt. Caesar hält es aber immer länger – 44 v. Chr. lässt er sich zum Diktator auf Lebenszeit ernennen. Er begnadigt viele Gegner (clementia)."
+   ],
+   "sources": [
+    "Sueton, Caesar",
+    "Plutarch, Caesar",
+    "Caesar, Der Bürgerkrieg",
+    "Cassius Dio 41–44"
+   ]
+  },
+  "senat": {
+   "title": "Der Senat",
+   "cat": "politik",
+   "text": [
+    "Der Senat ist die Versammlung der ehemaligen Magistrate – mehrere hundert Männer aus den führenden Familien. Er berät die Magistrate, lenkt Außenpolitik und Finanzen und beschließt Ehrungen.",
+    "Nach Thapsus beschließt er für Caesar ein Dankfest von 40 Tagen und die Diktatur für zehn Jahre. Caesar wird den Senat später auf rund 900 Mitglieder vergrößern."
+   ],
+   "sources": [
+    "Cassius Dio 43,14 und 43,47",
+    "Sueton, Caesar 41",
+    "Polybios 6,13"
+   ]
+  },
+  "optimaten": {
+   "title": "Optimaten und Popularen",
+   "cat": "politik",
+   "text": [
+    "Optimaten („die Besten“) wollten die Macht des Senats und der alten Familien bewahren; Popularen setzten auf Volksversammlungen und Volkstribune. Das waren keine Parteien mit Mitgliedern, sondern politische Methoden und Netzwerke.",
+    "Caesar galt als Popular. Viele Optimaten kämpften im Bürgerkrieg gegen ihn – manche begnadigte er, andere starben."
+   ],
+   "sources": [
+    "Cicero, Pro Sestio 96–98",
+    "Moderne Forschung (z. B. C. Meier, Res publica amissa)"
+   ]
+  },
+  "thapsus": {
+   "title": "Die Schlacht bei Thapsus",
+   "cat": "politik",
+   "text": [
+    "Am 6. April 46 v. Chr. (nach dem damaligen Kalender) besiegt Caesar bei Thapsus in Nordafrika die Anhänger des Pompeius unter Metellus Scipio und den numidischen König Juba.",
+    "Cato der Jüngere nimmt sich kurz darauf in Utica das Leben, um nicht von Caesar begnadigt zu werden."
+   ],
+   "sources": [
+    "Bellum Africum (anonym)",
+    "Plutarch, Caesar 53–54 und Cato minor 59–70",
+    "Cassius Dio 43,7–11"
+   ]
+  },
+  "cicero": {
+   "title": "Marcus Tullius Cicero",
+   "cat": "politik",
+   "text": [
+    "Cicero (106–43 v. Chr.) ist der berühmteste Redner Roms. Als Konsul deckte er 63 v. Chr. die Verschwörung Catilinas auf. Im Bürgerkrieg stand er auf der Seite des Pompeius, wurde aber von Caesar begnadigt.",
+    "46 v. Chr. hält er sich politisch zurück und schreibt Werke über die Redekunst. Sein Haus auf dem Palatin hatte er für 3,5 Millionen Sesterzen gekauft. Seine vielen Briefe sind eine Hauptquelle für diese Zeit."
+   ],
+   "sources": [
+    "Cicero, Briefe an Freunde 5,6",
+    "Plutarch, Cicero",
+    "Cicero, Brutus und Orator (46 v. Chr.)"
+   ]
+  },
+  "sklaverei": {
+   "title": "Sklaverei in Rom",
+   "cat": "gesellschaft",
+   "text": [
+    "Sklaven gelten rechtlich als Sache (res) ihres Herrn. Sie arbeiten im Haushalt, in Werkstätten, auf Landgütern und in Bergwerken – unter oft harten Bedingungen. Viele sind Kriegsgefangene: Allein in Caesars Gallischem Krieg wurden Hunderttausende versklavt.",
+    "Wie viele Sklaven es gab, ist unsicher. Für Italien schätzt die Forschung etwa 1 bis 2 Millionen bei 5 bis 7 Millionen Einwohnern; in der Stadt Rom vielleicht 20–30 %. Sklaven konnten keine gültige Ehe schließen, ihre Kinder gehörten dem Herrn."
+   ],
+   "sources": [
+    "Plutarch, Caesar 15 (antike Zahlen gelten als übertrieben)",
+    "Moderne Schätzungen (P. A. Brunt, W. Scheidel)",
+    "Gaius, Institutionen 1,52"
+   ],
+   "estimate": true
+  },
+  "peculium": {
+   "title": "Peculium",
+   "cat": "gesellschaft",
+   "text": [
+    "Ein Peculium ist ein kleines Vermögen, das ein Herr seinem Sklaven zur Verwaltung überlässt – etwa Trinkgelder, Ersparnisse oder sogar ein kleiner Laden. Rechtlich gehört es weiter dem Herrn.",
+    "Viele Sklaven sparten ihr Peculium, um sich damit eines Tages freizukaufen."
+   ],
+   "sources": [
+    "Digesten 15,1 (Ulpian)",
+    "Seneca, Briefe 80,4"
+   ]
+  },
+  "manumissio": {
+   "title": "Freilassung (manumissio)",
+   "cat": "gesellschaft",
+   "text": [
+    "Ein Herr konnte seinen Sklaven freilassen: vor einem Magistrat (vindicta, mit einer symbolischen Berührung durch einen Stab), durch Eintrag bei der Volkszählung oder im Testament. Dafür war eine Steuer von 5 % des Wertes fällig.",
+    "Freigelassene (liberti) wurden römische Bürger, blieben ihrem früheren Herrn als Patron aber verpflichtet. Viele führten erfolgreiche Geschäfte."
+   ],
+   "sources": [
+    "Gaius, Institutionen 1,17",
+    "Livius 7,16 (Freilassungssteuer)",
+    "Cicero, Briefe an Freunde 16 (Tiro)"
+   ]
+  },
+  "salutatio": {
+   "title": "Salutatio",
+   "cat": "gesellschaft",
+   "text": [
+    "Jeden Morgen strömen Klienten in die Häuser ihrer Patrone, um sie zu begrüßen (salutatio). Wer viele Besucher hat, zeigt damit seine Macht.",
+    "Dafür bekommen Klienten Rat, Schutz vor Gericht oder kleine Geschenke – und der Patron kann bei Wahlen auf ihre Stimmen zählen."
+   ],
+   "sources": [
+    "Quintus Cicero, Commentariolum petitionis 34–35",
+    "Seneca, Über die Wohltaten 6,34"
+   ]
+  },
+  "cliens": {
+   "title": "Patron und Klient",
+   "cat": "gesellschaft",
+   "text": [
+    "Die Bindung zwischen Patron und Klient beruht auf Treue (fides): Der Patron schützt und hilft, der Klient unterstützt, begleitet und wählt ihn. Diese Netzwerke durchziehen die ganze Gesellschaft.",
+    "Auch Freigelassene sind Klienten ihres früheren Herrn."
+   ],
+   "sources": [
+    "Dionysios von Halikarnassos 2,9–10",
+    "Moderne Forschung (z. B. M. Gelzer, Die Nobilität der römischen Republik)"
+   ]
+  },
+  "nomenclator": {
+   "title": "Nomenklator",
+   "cat": "gesellschaft",
+   "text": [
+    "Ein Nomenklator ist ein Sklave, dessen Aufgabe es ist, sich Namen zu merken. Er flüstert seinem Herrn zu, wer gerade vor ihm steht – besonders wichtig im Wahlkampf, wenn man möglichst viele Bürger mit Namen grüßen will."
+   ],
+   "sources": [
+    "Quintus Cicero, Commentariolum petitionis 32",
+    "Plutarch, Cato minor 8"
+   ]
+  },
+  "insula": {
+   "title": "Insula (Mietshaus)",
+   "cat": "alltag",
+   "text": [
+    "Die meisten Römer wohnen zur Miete in mehrstöckigen Häusern, den insulae. Im Erdgeschoss liegen Läden (tabernae), oben die Wohnungen – je höher, desto billiger, enger und gefährlicher.",
+    "Die Häuser sind oft schlecht gebaut; Einstürze und Brände sind häufig. Der reiche Crassus soll brennende Häuser billig aufgekauft haben."
+   ],
+   "sources": [
+    "Plutarch, Crassus 2",
+    "Cicero, Briefe an Atticus 14,9",
+    "Vitruv 2,8,17"
+   ]
+  },
+  "miete": {
+   "title": "Mieten in Rom",
+   "cat": "alltag",
+   "text": [
+    "Wohnen in Rom ist teuer. Caesar erließ einmal für ein Jahr die Mieten bis zu 2.000 Sesterzen – ein Hinweis darauf, wie viel einfache Wohnungen kosteten.",
+    "Im Spiel zahlst du für dein Zimmer etwa einmal im Monat 15 Sesterzen. Das ist eine vereinfachte Schätzung."
+   ],
+   "sources": [
+    "Sueton, Caesar 38",
+    "Cassius Dio 42,51",
+    "Moderne Schätzungen"
+   ],
+   "estimate": true
+  },
+  "domus": {
+   "title": "Domus (Stadthaus)",
+   "cat": "alltag",
+   "text": [
+    "Reiche Familien wohnen in einer domus: Nach außen fast fensterlos, öffnet sie sich nach innen. Durch die Dachöffnung (compluvium) fällt Regen ins Becken (impluvium) im Atrium.",
+    "Dahinter liegen Tablinum (Arbeitszimmer), Speisezimmer (triclinium), Schlafkammern und oft ein Säulengarten (peristylium)."
+   ],
+   "sources": [
+    "Vitruv 6,3–5",
+    "Ausgrabungen in Pompeji und Herculaneum"
+   ]
+  },
+  "aquaedukte": {
+   "title": "Wasserversorgung",
+   "cat": "alltag",
+   "text": [
+    "Im Jahr 46 v. Chr. versorgen vier Wasserleitungen Rom: die Aqua Appia (312 v. Chr.), der Anio Vetus (272), die Aqua Marcia (144–140) und die Aqua Tepula (125). Die Aqua Marcia galt als die mit dem kältesten, besten Wasser.",
+    "Die meisten Menschen holen ihr Wasser an öffentlichen Brunnen. Private Anschlüsse sind selten und nur mit Erlaubnis möglich."
+   ],
+   "sources": [
+    "Frontinus, Über die Wasserleitungen 4–8 und 94",
+    "Plinius, Naturgeschichte 31,41"
+   ]
+  },
+  "lacus": {
+   "title": "Öffentliche Brunnen (lacus)",
+   "cat": "alltag",
+   "text": [
+    "Lacus sind öffentliche Brunnenbecken, aus denen Tag und Nacht Wasser fließt. Hier holt man Wasser, wäscht sich und trifft die Nachbarn.",
+    "Erst Agrippa wird ab 33 v. Chr. Hunderte neue Brunnen bauen lassen."
+   ],
+   "sources": [
+    "Frontinus, Über die Wasserleitungen 78",
+    "Plinius, Naturgeschichte 36,121"
+   ]
+  },
+  "nacht": {
+   "title": "Nachts in Rom",
+   "cat": "alltag",
+   "text": [
+    "Straßenbeleuchtung gibt es nicht. Wer nachts unterwegs ist, braucht eine Fackel oder Laterne – oder Sklaven, die sie tragen. Diebe und Schläger nutzen die Dunkelheit.",
+    "Eine Polizei im heutigen Sinn existiert nicht. Die Feuerwehr der Vigiles gründet erst Augustus (6 n. Chr.)."
+   ],
+   "sources": [
+    "Juvenal, Satiren 3,268–314 (spätere Schilderung)",
+    "Cassius Dio 55,26"
+   ]
+  },
+  "kleidung": {
+   "title": "Toga, Tunika, Stola",
+   "cat": "alltag",
+   "text": [
+    "Die Tunika ist das Alltagsgewand aller. Die Toga, ein riesiges Wolltuch, dürfen nur römische Bürger tragen – sie ist unbequem und wird zu offiziellen Anlässen angelegt.",
+    "Senatoren tragen breite Purpurstreifen (latus clavus) auf der Tunika, Magistrate eine Toga mit Purpursaum (toga praetexta). Ehrbare Ehefrauen tragen die Stola."
+   ],
+   "sources": [
+    "Quintilian 11,3,137–149",
+    "Sueton, Augustus 40",
+    "Moderne Forschung (z. B. M. Harlow)"
+   ]
+  },
+  "frauen": {
+   "title": "Frauen in Rom",
+   "cat": "gesellschaft",
+   "text": [
+    "Frauen dürfen nicht wählen und keine Ämter bekleiden. Dennoch führen viele Geschäfte, besitzen Vermögen und arbeiten als Händlerinnen, Wirtinnen, Hebammen oder Wollarbeiterinnen.",
+    "Frauen der Oberschicht wie Caesars Geliebte Servilia haben großen politischen Einfluss – über Familie und Netzwerke."
+   ],
+   "sources": [
+    "Cicero, Briefe an Atticus 15,11",
+    "Inschriften aus Pompeji",
+    "Moderne Forschung (z. B. S. Dixon)"
+   ]
+  },
+  "brot": {
+   "title": "Brot und Bäckereien",
+   "cat": "essen",
+   "text": [
+    "In einem pistrinum wird Getreide gemahlen und gebacken. Die schweren Mühlsteine drehen Esel – oder Sklaven, was als harte Strafe galt. Ein typisches Brot ist rund und in acht Stücke gekerbt.",
+    "Das Getreide aus der staatlichen Verteilung muss man erst mahlen lassen – viele bringen es deshalb zum Bäcker."
+   ],
+   "sources": [
+    "Plinius, Naturgeschichte 18,107",
+    "Funde aus Pompeji (verkohlte Brote)",
+    "Apuleius, Metamorphosen 9,12"
+   ]
+  },
+  "thermopolium": {
+   "title": "Thermopolium & Garküchen",
+   "cat": "essen",
+   "text": [
+    "Wer in einer Insula wohnt, hat meist keine eigene Küche – Feuer ist zu gefährlich. Deshalb kauft man warmes Essen an Straßentheken mit eingelassenen Tongefäßen (dolia).",
+    "Die besten Funde stammen aus Pompeji (1. Jh. n. Chr.); ähnliche Garküchen gab es auch im Rom Caesars."
+   ],
+   "sources": [
+    "Ausgrabungen in Pompeji (Thermopolium der Asellina u. a.)",
+    "Plautus, Curculio 292"
+   ]
+  },
+  "garum": {
+   "title": "Garum",
+   "cat": "essen",
+   "text": [
+    "Garum ist eine Sauce aus Fisch und Salz, die monatelang in der Sonne gärt. Sie würzt fast jedes Gericht. Gute Sorten, etwa aus Hispania, sind sehr teuer."
+   ],
+   "sources": [
+    "Plinius, Naturgeschichte 31,93–94",
+    "Apicius, De re coquinaria"
+   ]
+  },
+  "convivium": {
+   "title": "Convivium (Gastmahl)",
+   "cat": "essen",
+   "text": [
+    "Beim Gastmahl liegen die Gäste auf drei Liegen um einen Tisch im triclinium, meist neun Personen. Anders als bei den Griechen nehmen auch Frauen teil.",
+    "Das Essen beginnt mit Eiern und endet mit Obst – „ab ovo usque ad mala“, vom Ei bis zu den Äpfeln."
+   ],
+   "sources": [
+    "Horaz, Satiren 1,3,6",
+    "Cornelius Nepos, Vorwort 6",
+    "Vitruv 6,7"
+   ]
+  },
+  "geld": {
+   "title": "Münzen: Denar, Sesterz, As",
+   "cat": "wirtschaft",
+   "text": [
+    "1 Denar (Silber) = 4 Sesterzen (Silber) = 16 Asse (Bronze). Große Summen rechnet man in Sesterzen (Abkürzung HS).",
+    "Münzen werden beim Tempel der Iuno Moneta auf dem Kapitol geprägt – daher stammt unser Wort „Moneten“."
+   ],
+   "sources": [
+    "Plinius, Naturgeschichte 33,45",
+    "Livius 6,20",
+    "M. H. Crawford, Roman Republican Coinage"
+   ]
+  },
+  "preise": {
+   "title": "Preise und Löhne",
+   "cat": "wirtschaft",
+   "text": [
+    "Ein Tagelöhner verdient etwa 12 Asse (3 Sesterzen) am Tag. Caesar verdoppelte den Sold der Legionäre auf 225 Denare im Jahr.",
+    "Viele Preisangaben stammen aus Pompeji, über 100 Jahre später: Ein Becher Wein kostete 1–4 Asse, ein Brot etwa 2 Asse. Die Preise im Spiel sind vereinfachte Schätzungen."
+   ],
+   "sources": [
+    "Cicero, Pro Q. Roscio comoedo 28",
+    "Sueton, Caesar 26",
+    "Graffiti aus Pompeji (CIL IV)"
+   ],
+   "estimate": true
+  },
+  "argentarii": {
+   "title": "Bankiers (argentarii)",
+   "cat": "wirtschaft",
+   "text": [
+    "Argentarii wechseln Münzen, nehmen Einlagen an, vermitteln Kredite und leiten Versteigerungen. Sie sitzen in Läden am Forum.",
+    "Der Bürgerkrieg löste eine Schuldenkrise aus. Caesar ließ bereits gezahlte Zinsen von den Schulden abziehen – ein Kompromiss zwischen Gläubigern und Schuldnern."
+   ],
+   "sources": [
+    "Sueton, Caesar 42",
+    "Caesar, Der Bürgerkrieg 3,1",
+    "Livius 9,40"
+   ]
+  },
+  "frumentatio": {
+   "title": "Getreideverteilung (frumentatio)",
+   "cat": "wirtschaft",
+   "text": [
+    "Seit Gaius Gracchus (123 v. Chr.) erhalten Bürger verbilligtes Getreide, seit einem Gesetz des Clodius (58 v. Chr.) sogar kostenlos: fünf Modii (ca. 33 kg) im Monat. Berechtigt sind erwachsene männliche Bürger.",
+    "Laut Sueton erhielten bis Caesar 320.000 Menschen Getreide; er reduzierte die Liste auf 150.000. Wo genau die Ausgabe stattfand, ist für diese Zeit unsicher."
+   ],
+   "sources": [
+    "Sueton, Caesar 41",
+    "Cicero, Pro Sestio 55",
+    "Asconius zu Ciceros In Pisonem"
+   ],
+   "estimate": true
+  },
+  "lararium": {
+   "title": "Laren und Hausschrein",
+   "cat": "religion",
+   "text": [
+    "In jedem Haus gibt es einen Schrein (lararium) für die Laren, die Schutzgeister der Familie, und die Penaten, die Hüter der Vorräte. Man opfert ihnen Wein, Weihrauch und Speisen.",
+    "An den Straßenkreuzungen stehen Schreine der Lares Compitales; hier feiert die Nachbarschaft das Fest der Compitalia."
+   ],
+   "sources": [
+    "Cato, Über die Landwirtschaft 143",
+    "Plautus, Aulularia (Prolog)",
+    "Dionysios von Halikarnassos 4,14"
+   ]
+  },
+  "kalender": {
+   "title": "Der römische Kalender",
+   "cat": "zeit",
+   "text": [
+    "Der alte Kalender hatte nur 355 Tage. Ein Schaltmonat sollte ihn an die Jahreszeiten anpassen – doch in den Wirren des Bürgerkriegs wurde das vernachlässigt. 46 v. Chr. liegt der Kalender rund drei Monate daneben.",
+    "Caesar macht deshalb 46 v. Chr. zum längsten Jahr der Geschichte: 445 Tage, das „Jahr der Verwirrung“. Ab 1. Januar 45 v. Chr. gilt der Julianische Kalender mit 365 Tagen und Schalttag – entwickelt mit dem Astronomen Sosigenes.",
+    "Im Spiel entspricht ein gespielter Tag einer Marktwoche (8 Tage). Licht und Jahreszeit folgen vereinfacht dem Kalendermonat."
+   ],
+   "sources": [
+    "Sueton, Caesar 40",
+    "Macrobius, Saturnalia 1,14",
+    "Censorinus, De die natali 20",
+    "Plinius, Naturgeschichte 18,211"
+   ]
+  },
+  "horae": {
+   "title": "Stunden und Nachtwachen",
+   "cat": "zeit",
+   "text": [
+    "Die Römer teilen den hellen Tag – von Sonnenaufgang bis Sonnenuntergang – in 12 Stunden (horae). Im Sommer ist eine Stunde daher länger als im Winter. Die Nacht wird in vier Wachen (vigiliae) geteilt.",
+    "Uhren sind Sonnenuhren und Wasseruhren. Die erste Sonnenuhr kam 263 v. Chr. als Kriegsbeute aus Sizilien nach Rom – sie ging falsch, weil sie für Catania gebaut war."
+   ],
+   "sources": [
+    "Plinius, Naturgeschichte 7,212–215",
+    "Censorinus, De die natali 23"
+   ]
+  }
+ }
+}
