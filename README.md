@@ -13,6 +13,11 @@ npm install      # einmalig: installiert Vite (Dev-Server)
 npm run dev      # startet den Dev-Server und öffnet http://localhost:5173
 ```
 
+**Einfachste Variante unter Windows:** Doppelklick auf `start.bat`.
+
+Hinweis für PowerShell: Meldet `npm` „Ausführung von Skripts … deaktiviert“, verwende `npm.cmd install` und
+`npm.cmd run dev` – oder erlaube Skripte einmalig mit `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
+
 Ohne Node.js geht es auch mit jedem statischen Webserver, z. B. mit Python im Projektordner:
 `python -m http.server 8000` → http://localhost:8000
 
