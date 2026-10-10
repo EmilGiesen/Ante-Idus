@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "map": "node tools/build_map.mjs",
     "validate": "node tools/validate.mjs",
     "smoke": "node tools/smoke.mjs"
   },

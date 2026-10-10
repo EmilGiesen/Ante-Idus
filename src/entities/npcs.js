@@ -9,6 +9,17 @@ import { isNight } from '../core/time.js';
 
 const tilePx = (t) => ({ x: t.x * 16 + 8, y: t.y * 16 + 13 });
 
+// Position eines Tagesplan-Eintrags: [x, y] oder "@anker" aus der Kartendatei
+export function schedAt(s) {
+  if (typeof s.at === 'string') {
+    const a = G.data.map_rom.anchors[s.at.slice(1)];
+    if (!a) throw new Error(`Unbekannter Anker ${s.at}`);
+    return a;
+  }
+  return s.at;
+}
+const schedPx = (s) => { const a = schedAt(s); return tilePx({ x: a[0], y: a[1] }); };
+
 export class NPC extends Mover {
   constructor(o) {
     super(o.x, o.y);
@@ -73,7 +84,7 @@ class Animal extends Mover {
     this.wait = Math.random() * 3;
     this.face = Math.random() < 0.5 ? 0 : 1;
     this.hw = 4; this.hh = 4;
-    this.speed = kind === 'chicken' ? 22 : kind === 'donkey' ? 14 : 30;
+    this.speed = { chicken: 22, donkey: 14, cow: 10 }[kind] || 30;
   }
 
   update(dt, map) {
@@ -137,7 +148,7 @@ export class NpcManager {
     const s = this.schedFor(n.def, G.state.time.hour);
     if (!s) return null;
     if (n.map === s.map && n.sched === s) return { map: n.map, x: n.x, y: n.y };
-    const p = tilePx({ x: s.at[0], y: s.at[1] });
+    const p = schedPx(s);
     return { map: s.map, x: p.x, y: p.y };
   }
 
@@ -151,7 +162,7 @@ export class NpcManager {
       n.path = null;
       n.talking = false;
       n.map = s ? s.map : null;
-      if (s) { const p = tilePx({ x: s.at[0], y: s.at[1] }); n.x = p.x; n.y = p.y; n.dir = s.dir || 'down'; }
+      if (s) { const p = schedPx(s); n.x = p.x; n.y = p.y; n.dir = s.dir || 'down'; }
     }
     this.ambient = [];
     this.thieves = [];
@@ -178,13 +189,18 @@ export class NpcManager {
     const map = this.map;
     const cam = G.game.renderer.cam, vw = G.game.renderer.vw, vh = G.game.renderer.vh;
     const onScreen = (x, y) => x > cam.x - 24 && x < cam.x + vw + 24 && y > cam.y - 24 && y < cam.y + vh + 40;
+    // Nur Viertel in der Nähe des Spielers werden belebt (große Karte, Leistung)
+    const px = G.game.player.x / 16, py = G.game.player.y / 16, R = 34;
+    const near = (z) => px > z.r[0] - R && px < z.r[0] + z.r[2] + R && py > z.r[1] - R && py < z.r[1] + z.r[3] + R;
+    let budget = initial ? 60 : 3; // neue Passanten pro Durchgang begrenzen (Sprite-Erzeugung kostet Zeit)
     for (const z of map.zones) {
-      const want = this.desiredAmbient(z);
+      const want = near(z) ? this.desiredAmbient(z) : 0;
       const have = this.ambient.filter((a) => a.zone === z);
       if (have.length > want) {
         for (const a of have.slice(want)) if (!onScreen(a.x, a.y) && !a.talking) this.ambient.splice(this.ambient.indexOf(a), 1);
       } else {
-        for (let i = have.length; i < want; i++) {
+        for (let i = have.length; i < want && budget > 0; i++) {
+          budget--;
           const rng = mulberry32(this.seed++ * 7919 + Date.now() % 1000);
           const t = map.randomFreeTile(rng, z.r, 40);
           if (!t) continue;
@@ -223,11 +239,12 @@ export class NpcManager {
         const wasHere = n.map === this.mapId;
         n.sched = s;
         if (!s) { n.map = null; continue; }
+        const at = schedAt(s);
         if (s.map === this.mapId && wasHere && !n.talking) {
-          if (!n.goTo(map, s.at[0], s.at[1], 9000)) { const p = tilePx({ x: s.at[0], y: s.at[1] }); n.x = p.x; n.y = p.y; }
+          if (!n.goTo(map, at[0], at[1], 9000)) { const p = schedPx(s); n.x = p.x; n.y = p.y; }
         } else {
           n.map = s.map; n.path = null;
-          const p = tilePx({ x: s.at[0], y: s.at[1] }); n.x = p.x; n.y = p.y; n.dir = s.dir || 'down';
+          const p = schedPx(s); n.x = p.x; n.y = p.y; n.dir = s.dir || 'down';
         }
       }
     }
@@ -241,22 +258,27 @@ export class NpcManager {
         if (n.wait <= 0) {
           n.wait = 2 + Math.random() * 5;
           const r = s.wander;
-          const t = map.randomFreeTile(Math.random, [s.at[0] - r, s.at[1] - r, r * 2 + 1, r * 2 + 1], 10);
+          const at = schedAt(s);
+          const t = map.randomFreeTile(Math.random, [at[0] - r, at[1] - r, r * 2 + 1, r * 2 + 1], 10);
           if (t) n.goTo(map, t.x, t.y, 600);
         }
       } else if (s && s.dir && !n.moving) n.dir = s.dir;
     }
     if (!map.interior) {
       this.ambT -= dt;
-      if (this.ambT <= 0) { this.ambT = 4; this.syncAmbient(false); }
+      if (this.ambT <= 0) { this.ambT = 0.7; this.syncAmbient(false); }
       for (const a of this.ambient) {
         if (a.talking) { a.moving = false; continue; }
         if (a.path) { a.followPath(dt, player); continue; }
         a.wait -= dt;
         if (a.wait <= 0) {
           a.wait = 2 + Math.random() * 6;
-          const t = map.randomFreeTile(Math.random, a.zone.r, 12);
-          if (t && !a.goTo(map, t.x, t.y, 2500)) a.wait = 1.5;
+          // Ziel in der Nähe, aber innerhalb des eigenen Viertels
+          const ax = Math.floor(a.x / 16), ay = Math.floor(a.y / 16), zr = a.zone.r;
+          const x0 = Math.max(zr[0], ax - 10), y0 = Math.max(zr[1], ay - 10);
+          const x1 = Math.min(zr[0] + zr[2], ax + 11), y1 = Math.min(zr[1] + zr[3], ay + 11);
+          const t = map.randomFreeTile(Math.random, [x0, y0, Math.max(1, x1 - x0), Math.max(1, y1 - y0)], 12);
+          if (t && !a.goTo(map, t.x, t.y, 1200)) a.wait = 1.5;
         }
       }
       this.updateThieves(dt, player);

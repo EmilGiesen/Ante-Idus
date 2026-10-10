@@ -11,7 +11,7 @@ const WALL_STYLES = {
 };
 
 const isWaterish = (t) => t === T.water || t === T.bridge;
-const isHillish = (t) => t === T.hill || t === T.rim || t === T.cliff || t === T.stairs;
+const isHillish = (t) => t === T.hill || t === T.rim || t === T.cliff || t === T.stairs || t === T.slope;
 
 export function drawTile(ctx, map, tx, ty) {
   const t = map.tileAt(tx, ty);
@@ -59,6 +59,35 @@ export function drawTile(ctx, map, tx, ty) {
       if (out(-1, 0)) { p('#6a7f3a', x, y, 3, 16); p('#4d5c2a', x, y, 1, 16); }
       if (out(1, 0)) { p('#6a7f3a', x + 13, y, 3, 16); p('#4d5c2a', x + 15, y, 1, 16); }
       if (out(0, 1)) { p('#6a7f3a', x, y + 13, 16, 3); p('#4d5c2a', x, y + 15, 16, 1); }
+      break;
+    }
+    case T.slope: {
+      // sanfter Hang: Hügelgras mit Höhenlinien zur Talseite
+      p('#8fae55', x, y, 16, 16);
+      speck(['#7f9e4a', '#a0bf64'], 10, 21);
+      const low = (dx, dy) => { const n = map.tileAt(tx + dx, ty + dy); return n !== T.hill && n !== T.slope; };
+      if (low(0, 1)) { p('#7a9a48', x, y + 10, 16, 6); for (let i = 0; i < 16; i += 3) p('#6a8a3e', x + i, y + 11 + (i % 2), 2, 1); }
+      if (low(0, -1)) { p('#7a9a48', x, y, 16, 4); p('#6a8a3e', x + 2, y + 1, 12, 1); }
+      if (low(-1, 0)) { p('#7a9a48', x, y, 4, 16); p('#6a8a3e', x + 1, y + 2, 1, 12); }
+      if (low(1, 0)) { p('#7a9a48', x + 12, y, 4, 16); p('#6a8a3e', x + 14, y + 2, 1, 12); }
+      break;
+    }
+    case T.citywall: {
+      // Servianische Mauer aus Tuffquadern
+      const isW = (dx, dy) => map.tileAt(tx + dx, ty + dy) === T.citywall;
+      p('#c4b186', x, y, 16, 16);
+      for (let i = 0; i < 16; i += 5) p('#a8956a', x, y + i, 16, 1);
+      for (let i = 0; i < 16; i += 5) p('#a8956a', x + ((i / 5) % 2 ? 3 : 10), y + i, 1, 5);
+      if (!isW(0, -1)) { p('#d8c89c', x, y, 16, 3); p('#e6d9b0', x, y, 16, 1); }
+      if (!isW(0, 1)) {
+        p('#9c8a60', x, y + 9, 16, 7);
+        for (let i = 0; i < 16; i += 4) p('#857550', x + i, y + 9, 1, 7);
+        p('rgba(0,0,0,0.35)', x, y + 15, 16, 1);
+      }
+      // Seitenkanten: senkrechte Mauerstücke bekommen Licht- und Schattenseite
+      if (!isW(-1, 0)) { p('#e0d2a6', x, y, 2, 16); p('#f0e4bc', x, y, 1, 16); }
+      if (!isW(1, 0)) { p('#857550', x + 12, y, 4, 16); p('rgba(0,0,0,0.25)', x + 15, y, 1, 16); }
+      if (isW(0, -1) && isW(0, 1) && ty % 3 === 0) { p('#d8c89c', x + 3, y + 6, 9, 2); }
       break;
     }
     case T.cliff: {

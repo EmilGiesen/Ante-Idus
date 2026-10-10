@@ -4,7 +4,7 @@ const KEYMAP = {
   KeyA: 'left', ArrowLeft: 'left', KeyD: 'right', ArrowRight: 'right',
   ShiftLeft: 'sprint', ShiftRight: 'sprint',
   KeyE: 'interact', Space: 'action', Enter: 'confirm', NumpadEnter: 'confirm',
-  KeyI: 'inventory', KeyL: 'log', KeyK: 'lexicon', Escape: 'menu',
+  KeyI: 'inventory', KeyL: 'log', KeyK: 'lexicon', KeyM: 'map', Escape: 'menu',
   Digit1: 'opt1', Digit2: 'opt2', Digit3: 'opt3', Digit4: 'opt4', Digit5: 'opt5',
   Numpad1: 'opt1', Numpad2: 'opt2', Numpad3: 'opt3', Numpad4: 'opt4', Numpad5: 'opt5',
 };

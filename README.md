@@ -30,7 +30,7 @@ Ohne Node.js geht es auch mit jedem statischen Webserver, z. B. mit Python im Pr
 | E | sprechen, untersuchen, benutzen |
 | Leertaste / Enter | bestätigen, Minispiel-Aktion |
 | 1–5 | Dialogantwort wählen |
-| I / L / K | Inventar / Logbuch / Lexikon |
+| I / L / K / M | Inventar / Logbuch / Lexikon / Stadtplan |
 | Esc | Menü, Fenster schließen |
 
 Auf Touch-Geräten erscheinen Steuerkreuz und Knöpfe.
@@ -38,6 +38,7 @@ Auf Touch-Geräten erscheinen Steuerkreuz und Knöpfe.
 ## Weitere Befehle
 
 ```bash
+npm run map        # erzeugt die Stadtkarte src/data/map_rom.json aus tools/build_map.mjs
 npm run validate   # prüft die JSON-Daten (Querverweise, Erreichbarkeit aller Orte und NPCs)
 npm run smoke      # Browser-Test mit Headless-Chrome (spielt alle Missionen durch, Screenshots in smoke-out/)
 npm run build      # Produktions-Build nach dist/

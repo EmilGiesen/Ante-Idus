@@ -6,7 +6,7 @@ import { advanceClock, advanceHours, ambientLight, isNight } from './core/time.j
 import { dateOfPlayedDay, formatRoman, formatGerman } from './core/calendar.js';
 import { formatMoney } from './core/util.js';
 import { buildExterior, buildInterior } from './world/mapgen.js';
-import { renderMap } from './gfx/maprender.js';
+import { prepareMap } from './gfx/maprender.js';
 import { Renderer } from './gfx/renderer.js';
 import { Player } from './entities/player.js';
 import { NpcManager } from './entities/npcs.js';
@@ -48,7 +48,7 @@ export class Game {
       if (!def) throw new Error(`Unbekannte Karte: ${id}`);
       map = buildInterior(id, def);
     }
-    renderMap(map);
+    prepareMap(map);
     this.maps[id] = map;
     return map;
   }
@@ -156,6 +156,7 @@ export class Game {
     if (input.wasPressed('inventory')) { G.ui.panels.show('inventory'); return; }
     if (input.wasPressed('log')) { G.ui.panels.show('log'); return; }
     if (input.wasPressed('lexicon')) { G.ui.panels.show('lexicon'); return; }
+    if (input.wasPressed('map')) { G.ui.panels.show('map'); return; }
 
     const { gained, newDay } = advanceClock(s.time, dt);
     if (updateNeeds(gained, p.sprinting)) { this.faint(); return; }
@@ -221,8 +222,7 @@ export class Game {
     const s = this.state, p = this.player;
     if (door.exit) {
       const back = s.lastDoor && s.lastDoor.from === this.map.id ? s.lastDoor : null;
-      const def = G.data.interiors[this.map.id];
-      const tgt = back || (def.exitTo ? { map: 'rom', ...tileToPx(def.exitTo[0], def.exitTo[1]) } : null);
+      const tgt = back || this.doorFront(this.map.id);
       if (!tgt) { p.x = px; p.y = py; return; }
       G.ui.fade(() => this.enterMap(tgt.map || 'rom', tgt.x, tgt.y, 'down'));
       return;
@@ -235,9 +235,56 @@ export class Game {
     }
     const target = door.to;
     const def = G.data.interiors[target];
+    if (door.planned || !def) {
+      // Übergang ist vorbereitet, der Innenraum folgt in einem späteren Schritt
+      p.x = px; p.y = py + 4;
+      if (this.t > (this.plannedT || 0)) {
+        this.plannedT = this.t + 3;
+        G.ui.toast(`${door.label || door.building?.name || 'Dieses Gebäude'}: Der Innenraum ist noch in Arbeit und folgt in einem späteren Schritt.`, 'warn');
+      }
+      if (door.building?.lex) unlockLex(door.building.lex);
+      return;
+    }
     const spawn = def.spawns[door.spawn || 'entry'];
     s.lastDoor = { from: target, map: this.map.id, ...tileToPx(door.x, door.y + 1) };
     G.ui.fade(() => this.enterMap(target, spawn[0] * TILE + 8, spawn[1] * TILE + 14, 'up'));
+  }
+
+  // Vorplatz der Außentür, die zu einem Innenraum führt
+  doorFront(interiorId) {
+    const rom = this.mapById('rom');
+    for (const d of rom.doors.values()) if (d.to === interiorId) return { map: 'rom', ...tileToPx(d.x, d.y + 1) };
+    return null;
+  }
+
+  // Schnellreise mit der Sänfte (lectica)
+  travelCost() {
+    const s = this.state;
+    if (s.cls === 'nobilis') return 0;
+    return 8;
+  }
+
+  canTravel() {
+    const s = this.state;
+    if (s.cls === 'servus' && !s.flags.freed) return 'Sklaven werden nicht getragen – sie tragen. Die Sänftenträger sind selbst meist Sklaven.';
+    if (s.money < this.travelCost()) return 'Dafür reicht dein Geld nicht.';
+    return null;
+  }
+
+  fastTravel(stationId) {
+    const map = this.mapById('rom');
+    const st = map.stations.find((x) => x.id === stationId);
+    if (!st) return;
+    const why = this.canTravel();
+    if (why) { G.ui.toast(why, 'warn'); return; }
+    const cost = this.travelCost();
+    G.ui.fade(() => {
+      if (cost) changeMoney(-cost);
+      this.passHours(0.4);
+      const pos = tileToPx(st.arrive[0], st.arrive[1]);
+      this.enterMap('rom', pos.x, pos.y, 'down');
+      unlockLex('lectica');
+    }, 450).then(() => G.ui.showBanner(st.name, 'mit der Sänfte angekommen'));
   }
 
   // ---------- Interaktion ----------
@@ -281,6 +328,8 @@ export class Game {
         if (d.lex) unlockLex(d.lex);
         return;
       }
+      if (it.type === 'sign') { dlg.say(null, ['Aufgemalter Hinweis (Spielhilfe – echte Straßenschilder gab es in Rom nicht):', it.text], 'narr'); unlockLex('orientierung'); return; }
+      if (it.type === 'travel') { G.ui.panels.show('travel', { from: it.station }); return; }
       const node = it.dialogue || `obj_${it.type}`;
       if (G.data.dialogues[node]) dlg.start(node);
       return;
@@ -513,7 +562,7 @@ export class Game {
   drawTitle(dt) {
     const map = this.mapById('rom');
     this.titleT += dt;
-    const path = [[60, 42], [52, 22], [66, 62], [96, 22], [62, 88], [24, 60]];
+    const path = [[126, 90], [146, 66], [128, 112], [130, 130], [84, 96], [70, 48], [100, 66]];
     const seg = (this.titleT / 14) % path.length;
     const i = Math.floor(seg), f = seg - i;
     const a = path[i], b = path[(i + 1) % path.length];

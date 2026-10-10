@@ -246,7 +246,7 @@
  "syra_offer": {
   "text": [
    "Gut, dass du kommst! Deine Mutter will bald Freunde des Hauses zu einem Gastmahl einladen.",
-   "Mir fehlen zwei Dinge: gutes Garum und ein Krug Falerner. Beides gibt es im Macellum nördlich des Forums – Garum bei Thais, Wein bei Mago."
+   "Mir fehlen zwei Dinge: gutes Garum und ein Krug Falerner. Beides gibt es im Macellum am Argiletum, nordöstlich des Forums – Garum bei Thais, Wein bei Mago."
   ],
   "opts": [
    {
@@ -952,7 +952,7 @@
  },
  "praeco": {
   "text": [
-   "Hört, Quiriten! Die Getreideausgabe findet am Vormittag statt, vor der Basilica Aemilia!",
+   "Hört, Quiriten! Die Getreideausgabe findet am Vormittag statt, hier auf dem Forum!",
    "Und: Wer Unrat aus dem Fenster kippt, haftet für den Schaden!"
   ],
   "opts": [
@@ -1582,7 +1582,7 @@
   ]
  },
  "vet_hint": {
-  "text": "Der Lacus ist auf dem Platz, ein paar Schritte die Gasse hinunter nach Osten. Pass auf, dass nichts überschwappt!"
+  "text": "Der Lacus ist auf dem Platz, gleich die Gasse hinauf nach Norden. Pass auf, dass nichts überschwappt!"
  },
  "vet_water_done": {
   "text": [
@@ -1967,7 +1967,7 @@
  "philo_first": {
   "text": [
    "Da bist du ja. Ich bin Philo, der Verwalter – ich führe die Bücher und die Sklaven dieses Hauses.",
-   "Erste Aufgabe: Lyde braucht Wasser für die Küche. Der Brunnen steht am Clivus Palatinus, gleich vor dem Haus."
+   "Erste Aufgabe: Lyde braucht Wasser für die Küche. Der Brunnen steht auf dem Palatin, gleich gegenüber an der Straße."
   ],
   "opts": [
    {
@@ -2000,7 +2000,7 @@
  "philo_market": {
   "text": [
    "Gut gemacht mit dem Wasser. Jetzt etwas Wichtigeres: Wir brauchen Brot und Öl.",
-   "Geh ins Macellum nördlich des Forums, zu Phileros. Du hast 16 Asse aus der Hauskasse. Was du beim Feilschen sparst, bringst du zurück – und ich vergesse nicht, wer sparsam ist."
+   "Geh ins Macellum am Argiletum – die Treppe hinunter, über das Forum und dann nach Nordosten, zu Phileros. Du hast 16 Asse aus der Hauskasse. Was du beim Feilschen sparst, bringst du zurück – und ich vergesse nicht, wer sparsam ist."
   ],
   "opts": [
    {
@@ -2204,7 +2204,7 @@
   ]
  },
  "lyde_hint": {
-  "text": "Der Brunnen ist am Weg vor dem Haus, nur ein paar Schritte. Beeil dich, das Feuer brennt schon!"
+  "text": "Der Brunnen ist gegenüber an der Palatinstraße, nur ein paar Schritte. Beeil dich, das Feuer brennt schon!"
  },
  "lyde_water": {
   "text": [

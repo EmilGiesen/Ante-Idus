@@ -95,7 +95,7 @@
    "nobilis"
   ],
   "giver": "syra",
-  "summary": "Syra, die Köchin, braucht Garum und Falerner Wein für ein Gastmahl. Beides gibt es im Macellum nördlich des Forums.",
+  "summary": "Syra, die Köchin, braucht Garum und Falerner Wein für ein Gastmahl. Beides gibt es im Macellum am Argiletum, nordöstlich des Forums.",
   "hint": "Syra in der Küche braucht Hilfe für ein Gastmahl.",
   "steps": [
    {
@@ -234,10 +234,10 @@
   ],
   "giver": "philo",
   "noAbandon": true,
-  "summary": "Philo, der Verwalter, schickt dich mit einem Krug zum Brunnen am Clivus Palatinus.",
+  "summary": "Philo, der Verwalter, schickt dich mit einem Krug zum Brunnen auf dem Palatin.",
   "steps": [
    {
-    "text": "Fülle einen Krug am Brunnen vor dem Haus (E)",
+    "text": "Fülle einen Krug am Brunnen auf dem Palatin (E)",
     "target": {
      "area": "lacus_palatin"
     }
@@ -275,7 +275,7 @@
   "hint": "Philo hat einen Einkauf für dich.",
   "steps": [
    {
-    "text": "Geh zum Macellum nördlich des Forums",
+    "text": "Geh zum Macellum am Argiletum (nordöstlich des Forums)",
     "target": {
      "area": "macellum"
     },

@@ -1,656 +1,198 @@
 {
  "id": "rom",
  "name": "Roma",
- "w": 128,
- "h": 96,
- "base": "grass",
- "seed": 4646,
- "ops": [
-  {
-   "op": "rect",
-   "tile": "water",
-   "r": [
-    0,
-    0,
-    6,
-    44
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "water",
-   "r": [
-    0,
-    44,
-    8,
-    30
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "water",
-   "r": [
-    0,
-    74,
-    6,
-    22
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "mud",
-   "r": [
-    6,
-    0,
-    1,
-    44
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "mud",
-   "r": [
-    8,
-    44,
-    1,
-    30
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "mud",
-   "r": [
-    6,
-    74,
-    1,
-    22
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "grass",
-   "r": [
-    2,
-    60,
-    3,
-    8
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "bridge",
-   "r": [
-    5,
-    63,
-    3,
-    2
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "field",
-   "r": [
-    7,
-    0,
-    34,
-    18
-   ],
-   "only": [
-    "grass"
-   ]
-  },
-  {
-   "op": "plateau",
-   "r": [
-    17,
-    18,
-    23,
-    27
-   ],
-   "face": 2
-  },
-  {
-   "op": "rect",
-   "tile": "stairs",
-   "r": [
-    38,
-    36,
-    3,
-    2
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "plaza",
-   "r": [
-    21,
-    31,
-    14,
-    3
-   ]
-  },
-  {
-   "op": "plateau",
-   "r": [
-    44,
-    54,
-    43,
-    26
-   ],
-   "face": 2
-  },
-  {
-   "op": "rect",
-   "tile": "stairs",
-   "r": [
-    78,
-    53,
-    3,
-    3
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "stairs",
-   "r": [
-    46,
-    77,
-    2,
-    4
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "stairs",
-   "r": [
-    85,
-    66,
-    3,
-    2
-   ]
-  },
-  {
-   "op": "line",
-   "tile": "paved",
-   "pts": [
-    [
-     79,
-     56
-    ],
-    [
-     79,
-     66
-    ],
-    [
-     52,
-     66
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "dirt",
-   "pts": [
-    [
-     52,
-     66
-    ],
-    [
-     47,
-     66
-    ],
-    [
-     47,
-     76
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "dirt",
-   "pts": [
-    [
-     79,
-     66
-    ],
-    [
-     84,
-     66
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "rect",
-   "tile": "dirt",
-   "r": [
-    24,
-    80,
-    96,
-    16
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "sand",
-   "r": [
-    32,
-    84,
-    80,
-    9
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "dirt",
-   "r": [
-    9,
-    46,
-    35,
-    34
-   ],
-   "only": [
-    "grass"
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "plaza",
-   "r": [
-    10,
-    52,
-    16,
-    12
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "dirt",
-   "r": [
-    44,
-    12,
-    15,
-    17
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "plaza",
-   "r": [
-    45,
-    22,
-    13,
-    6
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "plaza",
-   "r": [
-    58,
-    19,
-    12,
-    9
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "forum",
-   "r": [
-    43,
-    38,
-    32,
-    8
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "plaza",
-   "r": [
-    43,
-    46,
-    34,
-    6
-   ],
-   "only": [
-    "grass"
-   ]
-  },
-  {
-   "op": "line",
-   "tile": "paved",
-   "pts": [
-    [
-     41,
-     36
-    ],
-    [
-     78,
-     36
-    ],
-    [
-     86,
-     41
-    ],
-    [
-     127,
-     41
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "paved",
-   "pts": [
-    [
-     41,
-     35
-    ],
-    [
-     41,
-     14
-    ],
-    [
-     30,
-     8
-    ],
-    [
-     8,
-     8
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "paved",
-   "pts": [
-    [
-     44,
-     52
-    ],
-    [
-     84,
-     52
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "paved",
-   "pts": [
-    [
-     64,
-     46
-    ],
-    [
-     64,
-     52
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "paved",
-   "pts": [
-    [
-     45,
-     46
-    ],
-    [
-     45,
-     52
-    ],
-    [
-     38,
-     58
-    ],
-    [
-     26,
-     58
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "dirt",
-   "pts": [
-    [
-     42,
-     53
-    ],
-    [
-     42,
-     80
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "paved",
-   "pts": [
-    [
-     71,
-     36
-    ],
-    [
-     71,
-     22
-    ],
-    [
-     78,
-     22
-    ]
-   ],
-   "w": 3
-  },
-  {
-   "op": "line",
-   "tile": "paved",
-   "pts": [
-    [
-     78,
-     22
-    ],
-    [
-     127,
-     15
-    ]
-   ],
-   "w": 3
-  },
-  {
-   "op": "line",
-   "tile": "cobble",
-   "pts": [
-    [
-     100,
-     20
-    ],
-    [
-     100,
-     0
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "dirt",
-   "pts": [
-    [
-     88,
-     42
-    ],
-    [
-     88,
-     80
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "dirt",
-   "pts": [
-    [
-     26,
-     58
-    ],
-    [
-     26,
-     60
-    ],
-    [
-     12,
-     60
-    ],
-    [
-     12,
-     65
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "dirt",
-   "pts": [
-    [
-     47,
-     29
-    ],
-    [
-     49,
-     29
-    ],
-    [
-     49,
-     36
-    ]
-   ],
-   "w": 1
-  },
-  {
-   "op": "line",
-   "tile": "cobble",
-   "pts": [
-    [
-     78,
-     31
-    ],
-    [
-     127,
-     31
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "cobble",
-   "pts": [
-    [
-     78,
-     22
-    ],
-    [
-     78,
-     33
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "cobble",
-   "pts": [
-    [
-     89,
-     21
-    ],
-    [
-     89,
-     33
-    ]
-   ],
-   "w": 2
-  },
-  {
-   "op": "line",
-   "tile": "cobble",
-   "pts": [
-    [
-     103,
-     18
-    ],
-    [
-     103,
-     25
-    ]
-   ],
-   "w": 3
-  },
-  {
-   "op": "line",
-   "tile": "cobble",
-   "pts": [
-    [
-     114,
-     17
-    ],
-    [
-     114,
-     31
-    ]
-   ],
-   "w": 1
-  },
-  {
-   "op": "rect",
-   "tile": "plaza",
-   "r": [
-    99,
-    25,
-    9,
-    8
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "garden",
-   "r": [
-    64,
-    59,
-    3,
-    4
-   ]
-  },
-  {
-   "op": "rect",
-   "tile": "garden",
-   "r": [
-    62,
-    76,
-    6,
-    1
-   ]
-  }
+ "w": 200,
+ "h": 170,
+ "note": "Erzeugt von tools/build_map.mjs – Änderungen bitte dort vornehmen und neu erzeugen.",
+ "ground": [
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~u:::::::::::ppp:::::::::::................................................pp.........ddd........................cc..............",
+  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~u:::::::::::ppp:::::::::::................................................pp.......ddddd........................cc..............",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~u:::::::::::ppp:::::::::::................................................pp....ddddddd.........................cc..............",
+  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~u:::::::::::ppp:::::::::::................................................pp..dddddd............................cc..............",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~u:::::::::::pppp::::::::::..............................WWWWWWWW..........pp.dddd..............................ccc..............",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~u::::::::::::pppp::::::::::.........................WWWWWWWWWWWWWWWWWWWWW..pdddd................................ccc..............",
+  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~u:::::::::::::pppp::::::::::....................WWWWWWWWWWWW....WWWWWWWWWWWWdddd.................................cc...............",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~u:::::::::::::::ppp::::::::::...............WWWWWWWWWWWW.................WWWpdddWWWWWW............................cc...............",
+  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~u::::::::::::::::ppp::::::::::..........WWWWWWWWWWWW.........................ppp.WWWWWWWWWW........................cc...............",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~u::::::::::::::::ppp::::::::::.....WWWWWWWWWWWW.............................ppp......WWWWWWWWWWW...................cc...............",
+  ":::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~u:::::::::::::::::ppp::::::::::..WWWWWWWWWW..................................pp............WWWWWWWWWW...............cc...............",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~u::::::::::::::::::ppp::::::::::..WWWWW......................................ppp................WWWWWWWWWWW.........ccc...............",
+  ":::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~u:::::::::::::::::::ppp::::::::::.WWW........................................ppp......................WWWWWWWWWW.....ccc...............",
+  "::::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~u::::::::::::::::::::ppp::::::::::.WWW........................................ppp..........................WWWWWWWWWWWcc................",
+  ":::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~~u::::::::::::::::::::pppp:::::::::.WWddddddddddddddddddddddddddddddddddddddddpppdd..............................WWWWWWcc................",
+  "::::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~~u:::::::::::::::::::::pppp:::::::::.WWdddddddddddddddddddddddddddddddddddddddpppddd..................................WcccW...............",
+  ":::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~~u::::::::::::::::::::::pppp:::::::::WWWdddddddddddddddddddddddddddddddddddddddpppddd...................................cccWW..............",
+  "::::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~~u::::::::::::::::::::::::ppp:::::::::WWdddddddddddddddddddddddddddddddddddddddpppdddd..................................cccWWWW.............",
+  ":::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~~u:::::::::::::::::::::::::ppp:::::::::WWdddddddddddddddddddddddddddddddddddddddppddddd.........ddddddddddddddddddddddddcccd.WWWW............",
+  "::::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~~u::::::::::::::::::::::::::ppp::::::::WWWddddddddddddddddddddddddddddddddddddddpppddddd.........dddddddddddddddddddddddcccdd..WWW............",
+  ":::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~~u:::::::::::::::::::::::::::ppp::::::::WW.dddddddddddddddddddddddddddddddddddddpppdddddd.........dddddddddddddddddddddddcccdd...WWW...........",
+  ":::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~u::::::::::::::::::::::::::::ppp::::::::WW.dddddddddddddddddddddddddddddddddddddpppdddddd.........ddddddddddddddddddddddcccddd....WWW..........",
+  "::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~~u:::::::::::::::::::::::::::::ppp:::::::WWW.dddddddddddddddd,,,,,,,,ddddddddddddpppddddddd.........dddddddddddddddddddddcccdddd.....WWW.........",
+  "::::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~u::::::::::::::::::::::::::::::pppp::::::WWW.dddddddddddddddd,,,,,,,,ddddddddddddppdddddddd.........ddddddddddddddddddddcccddddd......WWW........",
+  ":::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~~u:::::::::::::::::::::::::::::::pppp::::::WW..dddddddddddddddd,,,,,,,,dddddddddddpppdddddddd.........dddddddddddddddddddccccddddd......WWWW.......",
+  ":::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~u:::::::::::::::::::::::::::::::::ppp::::::WW..dddddddddddddddd,,,,,,,,dddddddddddppddddddddd.........ddddddddddddddddddccccdddddd.......WWWW......",
+  "::::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~u:::::::::::::::::dddddddddddddddddddp:::::WWW..dddddddddddddddd,,,,,,,,ddddddddddpppdddddddddl........dddddddddddddddddccccddddddd........WWWW.....",
+  ":::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~u::::::::::::::::::dddddddddddddddddddp:::::WW:..dddddddddddddddd,,,,,,,,ddddddddddppddddddddddl........ddddddddddddddddccccdddddddd.........WWW.....",
+  ":::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~u:::::::::::::::::::::::::::::::::::ppp:::::WW:..dddddddddddddddddddddddddddddddddpppdddddddddd,l.......dddddddddddddddccccddddddddd..........WWW....",
+  "::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~u::::::::::::::::::::::::::::::::::::pppp:::WWW:..dddddddddddddddddddddddddddddddddpppdddddddddd,l.......ddddddddddddddccccdddddddddd...........WWW...",
+  "::::::::::::::::::::::::::::::::::::::u~~~~~~~~~~u:::::::::::::::::::::::::::::::::::::pppp:::WW::..ddddddddddddddddddddddddddddddddppp,,,,,,ddddd,l.......dddddddddddddccccddddddddddd............WWW..",
+  ":::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~u:::::::::::::::::::::::::::::::::::::pppp:::WW::..ddddddddddddddddddddddddddddddddppp,,,,,,ddddd,l.......ddddddddddddccccdddddddddddd.............WW..",
+  ":::::::::::::::::::::::::::::::::::::u~~~~~~~~~~u:::::::::::::::::::::::::::::::::::::::ppp:::WW::..ddddddddddddddddddddddddddddddddppd,,,,,,ddddd,l.......dddddddddddccccddddddddddddd.............WW..",
+  "::::::::::::::::::::::::::::::::::::u~~~~~~~~~~~u:::::::::::::::::::::::::::::::::::::::ppp:::WW::..dddddddddddddddddddddddddddddddpppd,,,,,,ddddd,l.......ddddddddddccccdddddddddddddd.............WW..",
+  "::::::::::::::::::::::::::::::::::::u~~~~~~~~~~u::::::::::::::::::::::::::::::::::::::::ppp:::WW::..dddddddddddddddddddddddddddddddppdd,,,,,,ddddd,l.......dddddddddccccddddddddddddddd.............WW..",
+  "::::::::::::::::::::::::::::::::::::u~~~~~~~~~~u::::::::::::::::::::::::::::::::::::::::ppp:::WW::..ddddddddddddddddddddddddddddddpppddddddddddddd,l.......ddddddddccccdddddddddddddddd.............WW..",
+  "::::::::::::::::::::::::::::::::::::u~~~~~~~~~u:::::::::::::::::::::::::::::::::::::::::pppp::WW::..ddddddddddddddddddddddddddddddppddddddddddddddl........dddddddccccddddddddddddddddd.............WW..",
+  "::::::::::::::::::::::::::::::::::::u~~~~~~~~u:::::::::::::::::.................::::::::pppp::WW::..dddddddddddddddddddddddddddddpppddddddddddddddl........ddddddccccdddddddddddddddddd.............WW..",
+  "::::::::::::::::::::::::::::::::::::u~~~~~~~~u:::::::::::::::::.................::::::::pppp::WW::..dddddddddddddddddddddddddddddpppdddddddddddddd.........dddddccccddddddddddddddddddd.............WW..",
+  "::::::::::::::::::::::::::::::::::::u~~~~~~~u::::::::::::::::::.................:::::::::ppp::WW::..ddddddddddddddddddddddddddddpppddddddddddddddd.........ddddccccdddddddddddddddddddd.............WW..",
+  "::::::::::::::::::::::::::::::::::::u~~~~~~~u::::::::::::::::::.................:::::::::ppp::WW::..ddddddddddddddddddddddddddddpppddddddddddddddd.........dddccccddddddddddddddddddddd.............WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~~u::::::::::::::::::.................:::::::::pppp:WWW:..ddddddddddddddddddddddddddddppdddddddddddddddd.........dddcccdddddddddddddddddddddd.............WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~~u::::::::::::::::::.................:::::::::pppp::WW:..dddddddddddddddddddddddddddpppdddddddddddddddd............cc....................................WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~~u::::::::::::::::::.................::::::::::pppp:WW:..dddddddddddddddddddddddddddppddddddddddddddddd............cc....................................WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~~u::::::::::::::::::.................::::::::::pppp:WW:..dddddddddddddddddddddddddddppddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~~u::::::::::::::::::.................:::::::::::ppppWW:..ddddddddddddddddddddddddddpppddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~~u::::::::::::::::::.................::::dd:::::ppppWW:..ddddddddddddddddddddddddddppdddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~u::::::::::::::::::::::::::::::::::::::::dd::::::ppppW:..dddddddddddddddddddddddddpppdddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~~u:::::::::::::::::::::::::::::::::::::::ddddddddppppW:..dddddddddddddddddddddddddpppdddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  ":::::::::::::::::::::::::::::::::::u~~~~~~~~u:::::::::::::::::::::::::ddddddddddddddddddddddppppp:..dddddddddddddddddddddddddppddddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  "::::::::::llll:::::::::::::::::::::u~~~~~~~~~u::::::::::::::::dddddddddddddddddddddddd:::::::pppp:..ddddddddddddddddddddddddpppddddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  ":::::::::l,,,,l::::::::::::::::::::u~~~~~~~~~u::::::::::::::::ddddddddd:::::::::::::dd:::::::ppppp..ddddddddddddddddddddddddppdddddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  "........l,,,,,,l...................u~~~~~~~~~~u:::::::::::::::zzzzzzzzzzzzzzzzzzzzzzdd::::::::pppppppdddddddddddddddddddddddppdddddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  ".......l,,,,,,,,l..................u~~~~~~~~~~u:::::::::::::::zzzzzzzzzzzzzzzzzzzzzzdd:::::::WWWWpppppppdddddddddddddddddddpppdddddddddddddddddddd..cccccccccccccccccccccccc........................WW..",
+  ".......l,,,,,,,,l..................u~~~~~~~~~~~u::::::::::::::zzzzzzzzzzzzzzzzzzzzzzdd::::::WWWW::..pppppppddddddddddddddddppddddddddddddddddddddd..cccccccccccccccccccccccc........llll............WW..",
+  "......l,,,,,,,,,,l..................u~~~~~~~~~~u::::::::::::::zzzzzzzzzzzzzzzzzzzzzzdd::::::WWW:::..dddpppppddddddddddddddpppddddddddddddddddddddd..cccccccccccccccccpppppppppp...ll,,,,ll..........WW..",
+  "......l,,,,,,,,,,l..................u~~~~~~~~~~~u:::::::::::::zzzzzzzzzzzzzzzzzzzzzzdd:::::WWW::RRRRRR...pppp.............ppp.......................ccccppppppccpppppppppppppppppp,,,,,,,,l.........WW..",
+  ".....l,,,,,,,,,,,,l..................u~~~~~~~~~~u:::::::::::::zzzzzzzzzzzzzzzzzzzzzzdd::::WWW:RR,,,,,,RR..ppppddddddddddddppd....................pppppppppppppccppppppppppppppppppppp,,,,,,l........WW..",
+  ".....l,,,,,,,,,,,,l..................u~~~~~~~~~~~u::::::::::::zzzzzzzzzzzzzzzzzzzzzzdd:::WWW:R,,,,,,,,,,R...pppdddddddddddddd..................pppppppppppppppppppppppppcccc.pppppppppppdddddddddd..WW..",
+  "....l,,,,,,,,,,,,,,l..................u~~~~~~~~~~~u:::::::::::::::::::::::::::::::::dd:::WW:R,,,,,,,,,,,,R...ppdddddddddddddd................ppppppppppppppccccccccccccccccc.dddpppppppppppddddddd..WW..",
+  "....l,,,,,,,,,,,,,,l..................u~~~~~~~~~~~~u::::::::::::::::::::::::::::::::dd:::WWR,,,,,,,,,,,,,,R..ppdddddddddddddd..............pppppppp.cccccccccccccccccccccccc.ddddddpppppddppppdddd..WW..",
+  "....l,,,,,,,,,,,,,,l...................u~~~~~~~~~~~~u:::::::::::::::::::::::::::::::dd:::WWR,,,,,,,,,,,,,,R..ppdddddddddddddd............pppppppp...cccccccccccccccccccccccc.dddddddddppddpppppppd..WW..",
+  "...l,,,,,,,,,,,,,,,,l..................u~~~~~~~~~~~~~uuuuu........zzzzzzzzzzzzzzzzzzddz..WWR,,,,,,,,,,,zzzzz.ppdddddddddddddd..........pppppppp.....cccccccccccccccccccccccc.dddddddddddddppppppppppWW..",
+  "...l,,,,,,,,,,,,,,,,l...................u~~~~~~~~~~~~~~~~~uu......zzzzzzzzzzzzzzzzzzddz..WW,,,,,,,,,,,,zzzzz.ppdddddddddddddd........pppppppp.......ccccccccccccccccccccccccddddddddddddddddpppppppppppp",
+  "...l,,,,,,,,,,,,,,,,l...................u~~~~~~~~~~~~~~~~~~~u.....zzzzzzzzzzzzzzzzzzddz..WW,,,,,,,,,,,,,,,zz.ppdddddddddddddd.......ppppppp.........ccczzzzzzzzzzzzzzcccccccdddddddddddddddddddppppppppp",
+  "...l,,,,,,,,,,,,,,,,l....................u~~~~~~~~~~~~~~~~~~~u....zzzzzzzzzzzzzzzzzzddz..WW,,,,,,,,,,,,,,,zz.ppdddddddddddddd......pppppp...........ccczzzzzzzzzzzzzzcccccccddddddddddddddddddddddpppppp",
+  "...l,,,,,,,,,,,,,,,,l.....................u~~~~~~~~~~~~~~~~~~~u...zzzzzzzzzzzzzzzzzzddz..WW,,,,,,,,,,,,,,,zz.ppzzzzzzzzzzzzzd.....ppppppzzzzzzzzzzz.ccczzzzzzzzzzzzzzcccccccdddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l.....................u~~~~~~~~~~~uu~~~~~u...zzzzzzzzzzzzzzzzzzddz..WW,,,,,,,,,,,,,,,zz.ppzzzzzzzzzzzzzd....ppppppzzzzzzzzzzzz.ccczzzzzzzzzzzzzzcccccccdddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..ddddddddddddddddddddu~~~~~~~~~u..u~~~~~u..zzzzzzzzzzzzzzzzzzddz.WWW,,,,,,,,,,,,,,,zz.ppzzzzzzzzzzzzzd....pppppzzzzzzzzzzzzz.ccczzzzzzzzzzzzzzcccccccdddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..dddddddddddddddddddddu~~~~~~~u....u~~~~u..zzzzzzzzzzzzzzzpppddz.WW.R,,,,,,,,,,,,,,zz.ppzzzzzzzzzzzzzd...ppppp.zzzzzzzzzzzzz.ccczzzzzzzzzzzzzzcccccccdddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..dddddddddddddddddddddduu~~~~~u....u~~~~~u.zzzzzzzzzzzzzpppppddz.WW.C,,,,,,,,,,,,,Szz.ppzzzzzzzzzzzzzd..ppppp..zzzzzzzzzzzzz.ccczzzzzzzzzzzzzzcccccccdddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..dddddddddddddddddddddddu~~~~~u....u~BBBBBpppppzzzzzzzpppppppddz.WW.CC,,,zz,,,,,,,Szz.ppdddddddddddddd.ppppp...zzzzzzzzzzzzz.cccccccccccccccccccccccc,ddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..dddddddddddddddddddddddu~~~~u......uBBBBBpppppzzzzzpppppppppppz.WW..CC,Szz,,,,,,CSSS.pp..............ppppp....zzzzzzzzzzzzz.cccccccccccccccccccccccc,ddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..dddddddddddddddddddddddu~~~~u......u~~~~u........pppppppp...ppp.WW...CCSzz,,,,CCCSSS.pp.............ppppp.....zzzzzzzzzzzzz.cccccccccccccccccccccccc,ddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddu~~~~u......u~~~~u.......ppppppp.....ppppWW....CSSSCCCCCC.SSSppp.............pppp......zzzzzzzzzzzzz.cccccccccccccccccccccccc,ddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddu~~~~u......u~~~~u.......ppppp........pppWW.....SSSCCCC...SSSppp.............ppp.......zzzzzzzzzzzzz.ccccccccccccccccccccccccdddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddu~~~~~u....u~~~~~u......ppppp.........WpppW.....SSS.........pp...............ppp.....................ccccccccccccccccccccccccdddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddu~~~~~u....u~~~~~u.....ppppp..WWWWWWWWWWppp.....SSS.........pp...............ppp.....................ccccccccccccccccccccccccdddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.ddddddddddddddddddddddddu~~~~u....u~~~~u.....WppppWWWWWWWWWWWW..ppp....SSS.........pp...............ppp.....................ccccccccccccccccccccccccdddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.ddddddddddddddddddddddddu~~~~~u..u~~~~~uWWWWWpppppWWWW..........ppp................pp...............ppp.....................ccccccccccccccccccccccccdddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddddu~~~~~uu~~~~~u.WWWWWpppp................ppp....pp.........pp......zzzzzzzzzppp.....................ccccccccccccccccccccccccdddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddddu~~~~~~~~~~~~~u.....ppp.................ppp....ppp........pp......zzzzzzzzzppp.......................dddddddddddddddddddddddddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.ddddddddddddddddddddddddddu~~~~~~~~~~~~u.....ppp..................ppp...ppp........pp......zzzzzzzzzppp.......................dddddddddddddddddddddddddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddddd.u~~~~~~~~~~~u.....ppp...................pp....ppp.......pp......zzzzzzzzzppp.......................ddddddddddddddddddddddddddddppdddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddddd..uu~~~~~~~~~u.....ppp...................ppp...pppp...zzzppzzzzzzzzzzzzzzzpppzzzzzzzzzzzzzzzzzzzzz..ddddddddddddddddddddddddppppppdddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddddd....u~~~~~~~~u.....ppp....................ppp...ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppdddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddddd....u~~~~~~~~u.....pppzzzzzzzzzzzzzzzzzzzzppppddddppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppdddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddddd.....u~~~~~~~u.....pppzzzzzzzzzzzzzzzzzzzzdpppdddddddpppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppdddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddddd..pBBBBBBBBBBBBppppppppzzzzzzzzzzzzzzzzzzzddpppddddddddd..ffffffffffffffffffffffffffffffffppffff....dddddddddddddddddddddddddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.dddddddddddddddddddddddppppppBBBBBBBBBBBBppppppppzzzzzzzzzzzzzzzzzzzdddpppdddddddd..ffffffffffffffffffffffffffffffffppffff....dddddddddddddddddddddddddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.ddddddddddddddddddddpppppppppp.u~~~~~~~~u....pppzzzzzzzzzzzzzzzzzzzzdddppppddddddd..ffffffffffffffffffffffffffffffffppffff....d.......dddddddddddddddddddddddddddddddddddd..WW..",
+  ".l,,,,,,,,,,,,,,,,,,,,l.ddddddddddddddddddpppppppd.....u~~~~~~~~u....ppppzzzzzzzzzzzzzzzzzzzddddpppddddddd..ffffffffffffffffffffffffffffffffppffff....d.......dddddddddddddddddddddddddddddddddddd..WW..",
+  "dddddddd,,,,,,,,,,,,,,l.ddddddddddddddddpppppddddd.....u~~~~~~~~u....ppppzzzzzzzzzzzzzzzzzzzdddddppppddddd..fffffffffffffffffffffffppfffffffppffff....d.......dddddddddddddddddddddddddddddddddddd..WW..",
+  "dddddddddddddddddddd,,l.dddddddddddddddpppppdddddd.....u~~~~~~~~u....ppppzzzzzzzzzzzzzzzzzzzddddddppppdddd..fffffffffffffffffffffffppfffffffppffff....d.......dddddddddddddddddddddddddddddddddddd..WW..",
+  "..l,,,dddddddddddddddddddddddddddddddpppppdddddddd......u~~~~~~~u.....pppzzzzzzzzzzzzzzzzzzzdddddddpppppdd.........................pp.......pp........d.......dddddddddddddddddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,dddddddddddddddddpppppdddddddddd......u~~~~~~~u.....pppzzzzzzzzzzzzzzzzzzzdddddddddppppd.........................pp.......pp........d.......dddddddddddddddddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..ddddddddddddpppddddddddddd......u~~~~~~~u.....pppzzzzzzzzzzzzzzzzzzzddddddddddppppppppppp..................pp.......SS........dddddddddddddddddddddddddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..ddddddddddddpddddddddddddd......u~~~~~~~u.....pppzzzzzzzzzzzzzzzzzzzddddddddddddppppppppp..................pp.......SS........dddddddddddddddddddddddddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..dddddddddpppdddddddddddddd......u~~~~~~~u.....pppzzzzzzzzzzzzzzzzzzzdddddddddddddd.........................pp.......SS....................ddd.......dddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..dddddddddppddddddddddddddd.....u~~~~~~~~u.....ppppzzzzzzzzzzzzzzzzzz..............ppppppppppppppppppppppppppp.......SS.....................ddd......dddddddddddddddddddddd..WW..",
+  "..l,,,,,,,,,,,,,,,,,,l..ddddddddpppddddddddddddddd.....u~~~~~~~~u.....ppppzzzzzzzzzzzzzzzzzz.............ppppppppppppppppppppppppppppRRRR...SS.....................ddd......dddddddddddddddddddddd..WW..",
+  "...l,,,,,,,,,,,,,,,,l...ddddddddpppddddddddddddddd.....u~~~~~~~~u.....pppp..............................ppp.....RRR,,,,,,,,,,,,,,,,,,,,,,RRRSS......................ddd.....dddddddddddddddddddddd..WW..",
+  "...l,,,,,,,,,,,,,,,,l...dddddddpppdddddddddddddddd.....u~~~~~~~~u......ppp............................pppp....RR,,,,,,,,,g,,,,,,,,,,,,,,,,,,pp..............dddddddddddddddddddddddddddddddd........WW..",
+  "...l,,,,,,,,,,,,,,,,l...dddddddpppdddddddddddddddd.....u~~~~~~~~u......ppp...........................pppp...RR,,,,,,,,,,,g,,,,,,,,,,,,,,,,,,ppRR............dddddddddddddddddddddddddddddddd........WW..",
+  "...l,,,,,,,,,,,,,,,,l...dddddddppddddddddddddddddd.....u~~~~~~~~u......pppp.........................pppp...R,,,,,,,,,,,,,g,,,,,,,,,,,,,,,,,,pp,,R...........dddddddddddddddddddddddddddddddd........WW..",
+  "...l,,,,,,,,,,,,,,,,l...ddddddpppddddddddddddddddd.....u~~~~~~~u.......pppp........................pppp...R,,,,,,,,,,,,,,g,,,,,,,,,,,,,,,,,,pp,,,R..........dddddddddddddddddddddddddddddddd........WW..",
+  "....l,,,,,,,,,,,,,,l....ddddddppdddddddddddddddddd.....u~~~~~~~u.......ppppp......................pppp...R,,,,,,,,,,,,,,,g,,,,,,,,,,,,,,,,,,pp,,,,R.........dddddddddddddddddddddddddddddddd.......WWW..",
+  "....l,,,,,,,,,,,,,,l....dddddpppdddddddddddddddddd.....u~~~~~~~u........pppp.....................pppp....R,,,,,,,,,,,,,,,g,,,,,,,,,,,,,,,,,,pp,,,,R.........dddddddddddddddddddddddddddddddd.......WWW..",
+  "....l,,,,,,,,,,,,,,l....dddddpppdddddddddddddddddd.....u~~~~~~~u........ppppp...................ddpp....R,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,pp,,,,,R........dddddddddddddddddddddddddddddddd.......WW...",
+  ".....l,,,,,,,,,,,,l.....ddddpppddddddddddddddddddd.....u~~~~~~~u.........pppp...................ddd....SSSSS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,pp,,,,,R........dddddddddddddddddddddddddddddddd.......WW...",
+  ".....l,,,,,,,,,,,,l.....ddddpppddddddddddddddddddd.....u~~~~~~~u.........ppppp..................ddd....SSSSSppppppppppppppppppppppppppppppppppppppppSS......dddddddddddddddddddddddddddddddd......WWW...",
+  "......l,,,,,,,,,,l......ddddppdddddddddddddddddddd.....u~~~~~~~u..........pppp...................ddd....C,,,ppppppppppppppppppppppppppppppppppppppppSS......dddddddddddddddddddddddddddddddd......WWW...",
+  "......l,,,,,,,,,,l......ddddppdddddddddddddddddddd....u~~~~~~~~u........ddppppp..................ddd.....C,,,,,,,,,,,,,,,,,,dd,,,,,,,,,,,,,,,,,,,,C.........dddddddddddddddddddddddddddddddd......WW....",
+  ".......l,,,,,,,,l.......ddddppdddddddddddddddddddd....u~~~~~~~~u......dddd.pppp...................ddd....CC,,,,,,,,,,,,,,,,,dd,,,,,,,,,,,,,,,,,,,CC.........dddddddddddddddddddddddddddddddd......WW....",
+  ".......l,,,,,,,,l.......ddddppdddddddddddddddddddd....u~~~~~~~~u.....dddd..ppppp...................dd.....CC,,,,,,,,,,,,,,,,dd,,,,,,,,,,,,,,,,,,CC..........dddddddddddddddddddddddddddddddd.....WWW....",
+  "........l,,,,,,l........ddddpppddddddddddddddddddd....u~~~~~~~~u...ddddd....pppp...................ddd.....CCC,,,,,,,,,,,,,,dd,,,,,,,,,,,,,,,,CCC...........dddddddddddddddddddddddddddddddd.....WW.....",
+  ".........l,,,,l.........ddddpppddddddddddddddddddd....u~~~~~~~~u.ddddd......pppp....................ddd.....CCCC,,,,,,,,,,,,dd,,,,,,,,,,,,,,CCCC............dddddddddddddddddddddddddddddddd.....WW.....",
+  "..........llll..........dddddppddddddddddddddddddddddBBBBBBBBBBBdddd.........ppp....................ddd.......CCCCC,,,,,,,,,dd,,,,,,,,,,,CCCCC..............dddddddddddddddddddddddddddddddd.....WW.....",
+  "........................dddddpdddddddddddddddddddddddBBBBBBBBBBBddd..........ppp.....................ddd........CCCCCCC,,,,,dd,,,,,,,CCCCCCC................dddddddddddddddddddddddddddddddd....WWW.....",
+  "........................dddddpdddddddddddddddddddd....u~~~~~~~u..............ppp.....................ddd...........CCCCCCCCCddCCCCCCCCCCC...................dddddddddddddddddddddddddddddddd....WW......",
+  "........................dddddppddddddddddddddddddd....u~~~~~~~u..............ppp......................ddd..............CCCCCSSCCCCCCC.......................dddddddddddddddddddddddddddddddd....WW......",
+  "........................dddddppddddddddddddddddddd....u~~~~~~~~u.............ppp.......................dd...................SS..............................dddddddddddddddddddddddddddddddd...WWW......",
+  "........................dddddppddddddddddddddddddd....u~~~~~~~~u.............ppp................dd.....dddddddddddddddddddddSSdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd...WWW......",
+  "........................dddddppddddddddddddddddddd....u~~~~~~~~u.............ppp................dd......dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd...WW.......",
+  "........................dddddppddddddddddddddddddd....u~~~~~~~~uWWWW.........ppp................dd..........................................................dddddddddddddddddddddddddddddddd...WW.......",
+  "........................dddddpppdddddddddddddddddd....u~~~~~~~~uWWWWWWWWW....ppp................dd..........................................................dddddddddddddddddddddddddddddddd..WWW.......",
+  "........................dddddpppdddddddddddddddddd....u~~~~~~~~u...WWWWWWWWWWppp................dd..........................................................dddddddddddddddddddddddddddddddd..WWW.......",
+  "........................ddddddppdddddddddddddddddd.....u~~~~~~~u.......WWWWWWpppWW..............dd......ssssssssssssssssssssssssssssssssssssssssssssssss....dddddddddddddddddddddddddddddddd..WW........",
+  "..............................pp.......................u~~~~~~~~u...........WpppWWWW............dd......ssssssssssssssssssssssssssssssssssssssssssssssss....dddddddddddddddddddddddddddddddd..WW........",
+  "..............................pp.......................u~~~~~~~~ww...........pppWWWW............dd......ssssssssssssssssssssssssssssssssssssssssssssssss....dddddddddddddddddddddddddddddddd.WWW........",
+  "..............................pp.......................u~~~~~~~~ww...........ppp..WW............dd......ssssssssssssssssssssssssssssssssssssssssssssssss........dddddd.......................WW.........",
+  "..............................pp.......................u~~~~~~~~ww...........ppp..WW............dd......ssssssssssssssssssssssssssssssssssssssssssssssss.........ddddd.......................WW.........",
+  "..............g.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.g.u~~~~~~~~ww...........ppp..WW............dd......ssssssssssssssssssssssssssssssssssssssssssssssss........ddddd........................WW.........",
+  "..............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g..u~~~~~~~~ww...........ppp..WW............ddd.....ssssssssssssssssssssssssssssssssssssssssssssssss........ddddd.......................WWW.........",
+  "...............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g..u~~~~~~~~ww..........ppp..WW............ddd.....ssssssssssssssssssssssssssssssssssssssssssssssss........dddd......................WWWW..........",
+  "..............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg...u~~~~~~~~ww..........ppp..WW.............ddd............................................................dddd.................WWWWWWWWW..........",
+  "...............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg..u~~~~~~~~ww..........ppp..WW.............ddSSS.........................................................ddddd............WWWWWWWWWWWW............",
+  "..............g.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.g..u~~~~~~~~ww..........ppp..WW..............dSSS.........................................................dddd........WWWWWWWWWWWW.................",
+  "..............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g...u~~~~~~~~ww..........ppp..WW..............dSSS..ddddddddddddddddddddddddddddddddddddddddddddddddddddd..dddd...WWWWWWWWWWWW......................",
+  "...............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g..u~~~~~~~~~ww.........ppp..WW...............SSS..dddddddddddddddddddddddddddddddddddddddddddddddddddddpppddWWWWWWWWWWW...........................",
+  "..............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg...u~~~~~~~~~ww.........ppp..WW...............SSS................................................dd...ddpppppWWWWWW................................",
+  "...............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg...u~~~~~~~~ww.........ppp..WW...............SSS.RRRRRRRRRRRRRR................................ddd.....ppppppp....................................",
+  "..............g.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.g...u~~~~~~~~ww.........ppp..WW..............RSSdd,,,,,,,,,,,,,,RRRRR..........................ddd......Wppppppp...................................",
+  "..............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g....u~~~~~~~~ww.........ppp..WW...........RRR,,,dd,,,,,,,,,,,,,,,,,,,RRR.....................dddd......WWW.ppppppp.................................",
+  "...............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g...u~~~~~~~~ww.........ppp..WW........RRR,,,,,,dd,,,,,,,,,,,,,,,,,,,,,,RRR.................dddd......WWW...ppppppp................................",
+  "..............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg....u~~~~~~~~~ww........ppp..WW......RR,,,,,,,,,dd,,,,,,,,,,,,,,,,,,,,,,,,,RR..............dddd.......WWW.....ppppppp..............................",
+  "...............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg....u~~~~~~~~ww........ppp..WW.....R,,,,,,,,,,,dd,,,,,,,,,,,,,,,,,dd,,,,,,,,R............dddd.......WWW.......ppppppp.............................",
+  "..............g.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.g....u~~~~~~~~ww........ppp..WW....Rddddddddddddddd,,,,,,,ddddddddddddd,,,,,,dRdd........ddd........WWW..........ppppppp...........................",
+  "..............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.....u~~~~~~~~ww........ppp..WW...Rdddddddddddddddd,,,,,,,ddddddddddddd,,,,,,ddRd......dddd........WWWW...........ppppppp..........................",
+  "...............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g....u~~~~~~~~ww........pppp.WW..R,dddddddddddddddddddddddddddddddddddd,,,,,,dddRSSSS.dddd.........WWW..............ppppppp........................",
+  "..............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.....u~~~~~~~~ww........pppp.WWW.R,dddddddddddddddddddddddddddddddddddd,,,,,,dddRddSSdddd.........WWW................ppppppp.......................",
+  "...............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.....u~~~~~~~ww.........ppp.WWWW,,dddddddddddddddddddddddddddddddddddd,,,,,,dddddd..ddd.........WWW...................ppppppp.....................",
+  "..............g.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.g.....u~~~~~~~~ww........ppp..WWWW,dddddddddddddddddddddddddddddddddddddddddddddddd..............WWW....................pppppppp...................",
+  "..............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g......u~~~~~~~~ww........ppp...WWWWdddddddddddddddddddddddddddddddddddddddddddddddd.............WWW.......................ppppppp..................",
+  "...............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.....u~~~~~~~~ww........ppp....WWWWdddddddddddddddddddddddddddddddddddddddddddddd.............WWW.........................pppppppp................",
+  "..............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg......u~~~~~~~~ww........ppp.....WWWWddddddddddddddddddddddddddddddddddddddddddddd.............WWW...........................pppppppp..............",
+  "...............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.....u~~~~~~~~ww........ppp.....CWWWWdddddddddddddddddddddddddddddddddddddddddddd............WWW..............................pppppppp............",
+  "..............g.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.g.....u~~~~~~~~ww........ppp......CWWWWdddddddddddddddddddddddddddddddddddddddddd............WWW.................................ppppppp...........",
+  "..............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g......u~~~~~~~~ww........ppp.......CWWWWdddddddddddddddddddddddddddddddddddddCCdd............WWW..................................pppppppp.........",
+  "...............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g......u~~~~~~~ww........ppp.......dCWWWWddddddddddddddddddddddddddddddddddCCCddd...........WWW.....................................pppppppp.......",
+  "..............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.......u~~~~~~~ww........ppp.......ddCWWWWddddddddddddddddddddddddddddddCCCCCdddd..........WWW........................................pppppppp.....",
+  "...............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg......u~~~~~~~ww........ppp.......ddddCWWWCCddddddddddddddddddddddddCCCCCCdddddd.........WWWW..........................................pppppppp...",
+  "..............g.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.g......u~~~~~~~~ww.......ppp.............WWWCCCCCC,,,,,,,,,,,,,,CCCddCCC..................WWW.............................................ppppppp..",
+  "..............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.......u~~~~~~~~ww.......ppp..............WWWCCCCCCCCCCCCCCCCCCCCCSdd....................WWW...............................................pppppppp",
+  "...............gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g......u~~~~~~~~ww.......ppp...............WWW....CCCCCCCCCCCCCC..Sdd...................WWW..................................................pppppp",
+  "..............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.......u~~~~~~~~ww.......ppp................WWW...................SSS...................WWW....................................................pppp",
+  "...............g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg......u~~~~~~~~ww.......ppp.................WWW..................SSSWWWWWWWWWWWWWWWWWWWWW.......................................................pp",
+  "..............g.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.gg.g.g......u~~~~~~~~ww.......ppp..................WWWWWWWWWWWWWWWWWWWWWddWWWWWWWWWWWWWWWWWWWW..........................................................",
+  "............................................................u~~~~~~~~ww.......ppp...................WWWWWWWWWWWWWWWWWWWWdd..............................................................................",
+  ".............................................................u~~~~~~~ww.......ppp.......................................dd.............................................................................."
  ],
  "buildings": [
   {
+   "kind": "carcer",
+   "x": 103,
+   "y": 79,
+   "w": 4,
+   "h": 5,
+   "name": "Carcer (Tullianum)",
+   "lex": "carcer",
+   "info": "Der Carcer, Roms Staatsgefängnis am Fuß des Kapitols. Gefangene warten hier auf ihr Urteil – oder ihre Hinrichtung."
+  },
+  {
    "kind": "temple",
-   "x": 43,
-   "y": 30,
+   "x": 109,
+   "y": 77,
    "w": 6,
-   "h": 6,
+   "h": 7,
    "name": "Tempel der Concordia",
    "lex": "concordia",
    "style": {
@@ -663,135 +205,100 @@
   },
   {
    "kind": "curia",
-   "x": 50,
-   "y": 29,
+   "x": 116,
+   "y": 73,
    "w": 6,
    "h": 7,
-   "name": "Curia",
+   "name": "Curia Cornelia",
    "lex": "curia",
-   "info": "Die Curia, das Versammlungshaus des Senats. Nach dem Brand von 52 v. Chr. wurde sie neu gebaut – doch der Senat tagt auch oft in Tempeln."
-  },
-  {
-   "kind": "basilica",
-   "x": 57,
-   "y": 30,
-   "w": 13,
-   "h": 6,
-   "name": "Basilica Aemilia",
-   "lex": "basilicae",
-   "info": "Die Basilica Aemilia: Hier verhandeln Gerichte, Händler und Geldwechsler. Lucius Aemilius Paullus lässt sie gerade prächtig erneuern."
-  },
-  {
-   "kind": "shrine",
-   "x": 73,
-   "y": 34,
-   "w": 1,
-   "h": 2,
-   "name": "Ianus-Tor",
-   "lex": "ianus",
-   "info": "Der Durchgang des Ianus Geminus. Seine Türen stehen offen – das heißt: Rom ist im Krieg. Geschlossen waren sie seit Jahrhunderten kaum."
+   "info": "Die Curia Cornelia, das Versammlungshaus des Senats. Faustus Sulla ließ sie nach dem Brand von 52 v. Chr. neu errichten."
   },
   {
    "kind": "rostra",
-   "x": 50,
-   "y": 38,
+   "x": 115,
+   "y": 82,
    "w": 6,
    "h": 2,
    "name": "Rostra",
    "lex": "rostra",
-   "info": "Die Rostra, die Rednertribüne – geschmückt mit den bronzenen Schiffsschnäbeln erbeuteter Kriegsschiffe."
+   "onRoad": true,
+   "info": "Die Rostra, die Rednertribüne am Comitium – geschmückt mit den bronzenen Schiffsschnäbeln erbeuteter Kriegsschiffe."
+  },
+  {
+   "kind": "shrine",
+   "x": 122,
+   "y": 80,
+   "w": 1,
+   "h": 2,
+   "name": "Ianus-Tor",
+   "lex": "ianus",
+   "info": "Der Durchgang des Ianus Geminus. Seine Türen stehen offen – das heißt: Rom ist im Krieg."
+  },
+  {
+   "kind": "basilica",
+   "x": 128,
+   "y": 77,
+   "w": 16,
+   "h": 7,
+   "name": "Basilica Aemilia",
+   "lex": "basilicae",
+   "info": "Die Basilica Aemilia: Gerichte, Händler und Geldwechsler unter einem Dach.",
+   "door": {
+    "dx": 8,
+    "to": "basilica_aemilia",
+    "planned": true,
+    "label": "Basilica Aemilia"
+   }
   },
   {
    "kind": "temple",
-   "x": 41,
-   "y": 39,
+   "x": 106,
+   "y": 88,
    "w": 6,
-   "h": 6,
+   "h": 7,
    "name": "Tempel des Saturn",
    "lex": "saturn",
    "style": {
     "cols": 4
    },
-   "info": "Der Saturntempel. In seinem Podium liegt das Aerarium, die Staatskasse Roms."
-  },
-  {
-   "kind": "stall",
-   "x": 59,
-   "y": 41,
-   "w": 3,
-   "h": 1,
-   "name": "Getreideausgabe",
-   "style": {
-    "goods": "bread",
-    "awning": "#d4a017"
-   },
-   "info": "Ein Tisch der Getreideverwaltung. Hier wird die Getreideration ausgegeben."
-  },
-  {
-   "kind": "stall",
-   "x": 63,
-   "y": 38,
-   "w": 2,
-   "h": 1,
-   "name": "Wechseltisch",
-   "style": {
-    "goods": "lamps",
-    "awning": "#2e6da4"
-   },
-   "info": "Der Tisch eines Bankiers (argentarius)."
-  },
-  {
-   "kind": "statue",
-   "x": 47,
-   "y": 42,
-   "w": 1,
-   "h": 1,
-   "name": "Ehrenstatue",
-   "info": "Eine Ehrenstatue. Auf dem Forum stehen Dutzende davon – Feldherren, Redner, Wohltäter."
-  },
-  {
-   "kind": "statue",
-   "x": 69,
-   "y": 42,
-   "w": 1,
-   "h": 1,
-   "name": "Ehrenstatue",
-   "style": {
-    "color": "#d8d0c0"
-   },
-   "info": "Eine marmorne Ehrenstatue eines verdienten Bürgers."
+   "door": {
+    "dx": 3,
+    "to": "tempel_saturn",
+    "planned": true,
+    "label": "Tempel des Saturn (Aerarium)"
+   }
   },
   {
    "kind": "basilica",
-   "x": 48,
-   "y": 46,
-   "w": 15,
+   "x": 113,
+   "y": 94,
+   "w": 17,
    "h": 5,
-   "name": "Basilica Iulia",
+   "name": "Basilica Iulia (Baustelle)",
    "lex": "basilicae",
    "style": {
     "build": true,
     "stone": "#ece4cc"
    },
-   "info": "Die Basilica Iulia – Caesars neuer Prachtbau, noch eingerüstet. Sie soll in diesem Jahr geweiht werden, obwohl sie nicht fertig ist."
+   "info": "Die Basilica Iulia – Caesars neuer Prachtbau, noch eingerüstet."
   },
   {
    "kind": "temple",
-   "x": 66,
-   "y": 45,
+   "x": 133,
+   "y": 92,
    "w": 6,
-   "h": 6,
+   "h": 7,
    "name": "Tempel von Castor und Pollux",
    "lex": "forum_romanum",
    "style": {
     "cols": 5
    },
-   "info": "Der Tempel der Dioskuren Castor und Pollux. Auf seinem Podium werden auch Reden gehalten."
+   "info": "Der Tempel der Dioskuren Castor und Pollux."
   },
   {
    "kind": "temple_round",
-   "x": 73,
-   "y": 45,
+   "x": 142,
+   "y": 91,
    "w": 4,
    "h": 4,
    "name": "Tempel der Vesta",
@@ -801,13 +308,13 @@
     2,
     46
    ],
-   "info": "Der runde Vestatempel. Drinnen hüten die Vestalinnen das ewige Feuer Roms – es darf nie erlöschen."
+   "info": "Der runde Vestatempel. Drinnen hüten die Vestalinnen das ewige Feuer Roms."
   },
   {
    "kind": "domus",
-   "x": 73,
-   "y": 39,
-   "w": 5,
+   "x": 146,
+   "y": 88,
+   "w": 4,
    "h": 4,
    "name": "Regia",
    "lex": "vesta",
@@ -818,8 +325,22 @@
   },
   {
    "kind": "domus",
-   "x": 78,
-   "y": 44,
+   "x": 142,
+   "y": 95,
+   "w": 8,
+   "h": 5,
+   "name": "Atrium Vestae",
+   "lex": "vesta",
+   "style": {
+    "color": "#f2ead6",
+    "socle": "#7a2f22"
+   },
+   "info": "Das Haus der Vestalinnen."
+  },
+  {
+   "kind": "domus",
+   "x": 151,
+   "y": 90,
    "w": 7,
    "h": 6,
    "name": "Domus Publica",
@@ -839,9 +360,35 @@
    ]
   },
   {
+   "kind": "stall",
+   "x": 120,
+   "y": 91,
+   "w": 3,
+   "h": 1,
+   "name": "Getreideausgabe",
+   "style": {
+    "goods": "bread",
+    "awning": "#d4a017"
+   },
+   "info": "Ein Tisch der Getreideverwaltung."
+  },
+  {
+   "kind": "temple_build",
+   "x": 113,
+   "y": 57,
+   "w": 8,
+   "h": 8,
+   "name": "Tempel der Venus Genetrix (im Bau)",
+   "lex": "forum_iulium",
+   "style": {
+    "cols": 8
+   },
+   "info": "Hier entsteht Caesars neues Forum mit dem Tempel der Venus Genetrix."
+  },
+  {
    "kind": "temple_round",
-   "x": 62,
-   "y": 20,
+   "x": 139,
+   "y": 67,
    "w": 4,
    "h": 4,
    "name": "Tholos des Macellum",
@@ -852,149 +399,22 @@
    "info": "Der Rundbau in der Mitte des Macellum, des großen Lebensmittelmarkts."
   },
   {
-   "kind": "stall",
-   "x": 59,
-   "y": 25,
-   "w": 3,
-   "h": 1,
-   "name": "Stand des Phileros",
-   "style": {
-    "goods": "oil",
-    "awning": "#3f7f3f"
-   }
-  },
-  {
-   "kind": "stall",
-   "x": 66,
-   "y": 25,
-   "w": 3,
-   "h": 1,
-   "name": "Stand der Verecunda",
-   "style": {
-    "goods": "cheese",
-    "awning": "#d4a017"
-   }
-  },
-  {
-   "kind": "stall",
-   "x": 66,
-   "y": 21,
-   "w": 3,
-   "h": 1,
-   "name": "Stand des Mago",
-   "style": {
-    "goods": "wine",
-    "awning": "#8e44ad"
-   }
-  },
-  {
-   "kind": "stall",
-   "x": 59,
-   "y": 21,
-   "w": 3,
-   "h": 1,
-   "name": "Stand der Thais",
-   "style": {
-    "goods": "fish",
-    "awning": "#2e6da4"
-   }
-  },
-  {
-   "kind": "amphorae",
-   "x": 69,
-   "y": 23,
-   "w": 1,
-   "h": 1
-  },
-  {
-   "kind": "crates",
-   "x": 58,
-   "y": 23,
-   "w": 1,
-   "h": 1
-  },
-  {
-   "kind": "temple_build",
-   "x": 48,
-   "y": 13,
-   "w": 7,
-   "h": 8,
-   "name": "Tempel der Venus Genetrix (im Bau)",
-   "lex": "forum_iulium",
-   "style": {
-    "cols": 8
-   },
-   "info": "Hier entsteht Caesars neues Forum mit dem Tempel der Venus Genetrix – der Göttin, von der seine Familie abzustammen behauptet."
-  },
-  {
-   "kind": "crane",
-   "x": 55,
-   "y": 15,
-   "w": 2,
-   "h": 2,
-   "name": "Tretradkran",
-   "lex": "forum_iulium",
-   "info": "Ein Tretradkran: Arbeiter laufen im Rad und heben so tonnenschwere Steinblöcke."
-  },
-  {
-   "kind": "stones",
-   "x": 45,
-   "y": 18,
-   "w": 2,
-   "h": 2
-  },
-  {
-   "kind": "stones",
-   "x": 56,
-   "y": 19,
-   "w": 2,
-   "h": 1
-  },
-  {
-   "kind": "drums",
-   "x": 45,
-   "y": 14,
-   "w": 3,
-   "h": 1
-  },
-  {
-   "kind": "stones",
-   "x": 52,
-   "y": 22,
-   "w": 2,
-   "h": 1
-  },
-  {
-   "kind": "scaffold",
-   "x": 44,
-   "y": 22,
-   "w": 1,
-   "h": 3
-  },
-  {
-   "kind": "scaffold",
-   "x": 44,
-   "y": 13,
-   "w": 1,
-   "h": 3
-  },
-  {
    "kind": "temple",
-   "x": 22,
-   "y": 21,
-   "w": 12,
-   "h": 9,
+   "x": 93,
+   "y": 63,
+   "w": 10,
+   "h": 7,
    "name": "Tempel des Iuppiter Optimus Maximus",
    "lex": "kapitol",
    "style": {
     "cols": 6
    },
-   "info": "Der größte Tempel Roms: Iuppiter, Iuno und Minerva werden hier gemeinsam verehrt. Hierher ziehen Triumphzüge."
+   "info": "Der größte Tempel Roms: Iuppiter, Iuno und Minerva werden hier gemeinsam verehrt."
   },
   {
    "kind": "temple",
-   "x": 34,
-   "y": 19,
+   "x": 97,
+   "y": 57,
    "w": 5,
    "h": 5,
    "name": "Tempel der Iuno Moneta",
@@ -1002,136 +422,30 @@
    "style": {
     "cols": 4
    },
-   "info": "Der Tempel der Iuno Moneta auf der Arx. In der Nähe werden Münzen geprägt – daher kommt unser Wort „Moneten“."
+   "info": "Der Tempel der Iuno Moneta auf der Arx. In der Nähe werden Münzen geprägt."
   },
   {
    "kind": "tabularium",
-   "x": 29,
-   "y": 36,
-   "w": 6,
-   "h": 6,
+   "x": 103,
+   "y": 64,
+   "w": 3,
+   "h": 5,
    "name": "Tabularium",
    "lex": "kapitol",
-   "info": "Das Tabularium, das Staatsarchiv. Hier lagern Gesetze und Verträge auf Bronzetafeln."
-  },
-  {
-   "kind": "altar",
-   "x": 27,
-   "y": 32,
-   "w": 2,
-   "h": 1,
-   "name": "Altar",
-   "light": [
-    1,
-    0,
-    30
-   ],
-   "info": "Ein Opferaltar vor dem Iuppitertempel."
-  },
-  {
-   "kind": "temple",
-   "x": 11,
-   "y": 53,
-   "w": 4,
-   "h": 6,
-   "name": "Tempel des Portunus",
-   "lex": "velabrum",
-   "style": {
-    "cols": 4
-   },
-   "info": "Der Tempel des Portunus, des Gottes der Häfen – der Tiberhafen liegt gleich nebenan."
-  },
-  {
-   "kind": "temple_round",
-   "x": 17,
-   "y": 55,
-   "w": 4,
-   "h": 4,
-   "name": "Rundtempel des Hercules Victor",
-   "lex": "hercules",
-   "info": "Der Rundtempel des Hercules Victor – aus griechischem Marmor, eine Seltenheit in Rom."
-  },
-  {
-   "kind": "altar",
-   "x": 22,
-   "y": 57,
-   "w": 2,
-   "h": 1,
-   "name": "Ara Maxima",
-   "lex": "hercules",
-   "light": [
-    1,
-    0,
-    32
-   ],
-   "info": "Die Ara Maxima, der uralte Altar des Hercules. Hier opfern Händler ein Zehntel ihres Gewinns."
-  },
-  {
-   "kind": "horrea",
-   "x": 9,
-   "y": 66,
-   "w": 6,
-   "h": 5,
-   "name": "Horrea (Lagerhallen)",
-   "lex": "tiber",
-   "info": "Lagerhallen für Getreide, Wein und Öl, die über den Tiber nach Rom kommen."
-  },
-  {
-   "kind": "horrea",
-   "x": 9,
-   "y": 72,
-   "w": 6,
-   "h": 5,
-   "name": "Horrea (Lagerhallen)",
-   "lex": "tiber",
-   "info": "Lagerhallen am Fluss. Sackträger schleppen hier den ganzen Tag Waren."
-  },
-  {
-   "kind": "temple",
-   "x": 2,
-   "y": 61,
-   "w": 3,
-   "h": 3,
-   "name": "Tempel des Aesculapius",
-   "lex": "tiber",
-   "style": {
-    "cols": 4
-   },
-   "info": "Auf der Tiberinsel steht der Tempel des Heilgottes Aesculapius. Kranke hoffen hier auf Genesung."
-  },
-  {
-   "kind": "crates",
-   "x": 15,
-   "y": 63,
-   "w": 1,
-   "h": 1
-  },
-  {
-   "kind": "amphorae",
-   "x": 16,
-   "y": 64,
-   "w": 1,
-   "h": 1
-  },
-  {
-   "kind": "amphorae",
-   "x": 9,
-   "y": 64,
-   "w": 1,
-   "h": 1
+   "info": "Das Tabularium, das Staatsarchiv. Hier lagern Gesetze und Verträge."
   },
   {
    "kind": "domus",
-   "x": 54,
-   "y": 58,
-   "w": 10,
-   "h": 7,
+   "x": 112,
+   "y": 102,
+   "w": 9,
+   "h": 8,
    "name": "Domus der Valerier",
    "style": {
     "color": "#efe6d0"
    },
    "door": {
-    "dx": 5,
+    "dx": 4,
     "to": "domus_valeria",
     "if": {
      "cls": "nobilis"
@@ -1141,10 +455,10 @@
   },
   {
    "kind": "domus",
-   "x": 68,
-   "y": 58,
+   "x": 123,
+   "y": 101,
    "w": 10,
-   "h": 7,
+   "h": 8,
    "name": "Domus des Quintus Fabius Rufus",
    "style": {
     "color": "#e8d8b8",
@@ -1161,59 +475,38 @@
   },
   {
    "kind": "domus",
-   "x": 47,
-   "y": 57,
-   "w": 6,
+   "x": 134,
+   "y": 103,
+   "w": 5,
    "h": 6,
    "name": "Haus des Cicero",
    "style": {
     "color": "#f2ead6"
    },
    "door": {
-    "dx": 3,
+    "dx": 2,
     "dialogue": "door_cicero"
    }
   },
   {
-   "kind": "domus",
-   "x": 81,
-   "y": 57,
-   "w": 5,
-   "h": 6,
-   "name": "Domus eines Senators",
-   "info": "Eine prächtige Domus. Auf dem Palatin wohnen die reichsten Familien Roms."
-  },
-  {
-   "kind": "domus",
-   "x": 70,
-   "y": 70,
-   "w": 8,
-   "h": 6,
-   "name": "Domus eines Ritters",
-   "style": {
-    "color": "#e3cfa8"
-   },
-   "info": "Das Haus eines wohlhabenden Ritters (eques). Die Fenster zur Straße sind klein – das Leben spielt sich im Inneren ab."
-  },
-  {
    "kind": "temple",
-   "x": 49,
-   "y": 68,
+   "x": 111,
+   "y": 112,
    "w": 6,
-   "h": 7,
+   "h": 4,
    "name": "Tempel der Magna Mater",
    "lex": "magna_mater",
    "style": {
     "cols": 4
    },
-   "info": "Der Tempel der Großen Mutter Kybele. Ihre Priester, die Galli, kamen aus Phrygien."
+   "info": "Der Tempel der Großen Mutter Kybele."
   },
   {
    "kind": "temple",
-   "x": 55,
-   "y": 69,
+   "x": 117,
+   "y": 112,
    "w": 6,
-   "h": 6,
+   "h": 5,
    "name": "Tempel der Victoria",
    "lex": "palatin",
    "style": {
@@ -1223,21 +516,21 @@
   },
   {
    "kind": "hut",
-   "x": 63,
-   "y": 72,
+   "x": 127,
+   "y": 113,
    "w": 3,
    "h": 3,
    "name": "Casa Romuli",
    "lex": "casa_romuli",
-   "info": "Die Hütte des Romulus – sorgfältig gepflegt und immer wieder erneuert. Hier soll Roms Gründer gewohnt haben."
+   "info": "Die Hütte des Romulus – sorgfältig gepflegt und immer wieder erneuert."
   },
   {
    "kind": "fountain",
-   "x": 66,
-   "y": 67,
+   "x": 131,
+   "y": 112,
    "w": 2,
    "h": 2,
-   "name": "Brunnen am Clivus Palatinus",
+   "name": "Brunnen auf dem Palatin",
    "lex": "aquaedukte",
    "interact": {
     "type": "fountain",
@@ -1245,26 +538,276 @@
    }
   },
   {
-   "kind": "insula",
-   "x": 80,
-   "y": 25,
-   "w": 8,
+   "kind": "domus",
+   "x": 134,
+   "y": 112,
+   "w": 6,
+   "h": 5,
+   "name": "Domus eines Ritters",
+   "style": {
+    "color": "#e3cfa8"
+   },
+   "info": "Das Haus eines wohlhabenden Ritters (eques)."
+  },
+  {
+   "kind": "carceres",
+   "x": 104,
+   "y": 124,
+   "w": 4,
+   "h": 14,
+   "name": "Carceres (Startboxen)",
+   "lex": "circus_maximus",
+   "info": "Die Startboxen der Rennwagen."
+  },
+  {
+   "kind": "circus_n",
+   "x": 108,
+   "y": 124,
+   "w": 16,
+   "h": 3
+  },
+  {
+   "kind": "circus_n",
+   "x": 127,
+   "y": 124,
+   "w": 13,
+   "h": 3
+  },
+  {
+   "kind": "circus_n",
+   "x": 143,
+   "y": 124,
+   "w": 9,
+   "h": 3
+  },
+  {
+   "kind": "circus_n",
+   "x": 152,
+   "y": 124,
+   "w": 4,
+   "h": 14
+  },
+  {
+   "kind": "circus_s",
+   "x": 108,
+   "y": 135,
+   "w": 44,
+   "h": 3
+  },
+  {
+   "kind": "spina",
+   "x": 114,
+   "y": 130,
+   "w": 34,
+   "h": 2,
+   "name": "Spina mit Metae",
+   "lex": "circus_maximus",
+   "info": "Die Spina, die Mittelbarriere mit den Wendemarken (metae) und den Eiern als Rundenzähler."
+  },
+  {
+   "kind": "temple",
+   "x": 88,
+   "y": 121,
+   "w": 6,
    "h": 6,
+   "name": "Tempel der Ceres",
+   "lex": "aventin",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel von Ceres, Liber und Libera – das religiöse Zentrum der Plebejer."
+  },
+  {
+   "kind": "temple",
+   "x": 104,
+   "y": 143,
+   "w": 7,
+   "h": 6,
+   "name": "Tempel der Diana",
+   "lex": "aventin",
+   "style": {
+    "cols": 6
+   },
+   "info": "Der Tempel der Diana auf dem Aventin, ein uraltes Heiligtum."
+  },
+  {
+   "kind": "temple",
+   "x": 124,
+   "y": 147,
+   "w": 6,
+   "h": 5,
+   "name": "Tempel der Iuno Regina",
+   "lex": "aventin",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel der Iuno Regina, 392 v. Chr. von Camillus aus Veji nach Rom geholt."
+  },
+  {
+   "kind": "domus",
+   "x": 89,
+   "y": 147,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 345627
+  },
+  {
+   "kind": "domus",
+   "x": 112,
+   "y": 147,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 34969
+  },
+  {
+   "kind": "insula",
+   "x": 95,
+   "y": 154,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 956841
+  },
+  {
+   "kind": "temple",
+   "x": 74,
+   "y": 88,
+   "w": 4,
+   "h": 6,
+   "name": "Tempel des Portunus",
+   "lex": "velabrum",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel des Portunus, des Gottes der Häfen."
+  },
+  {
+   "kind": "temple_round",
+   "x": 80,
+   "y": 89,
+   "w": 4,
+   "h": 4,
+   "name": "Rundtempel des Hercules Victor",
+   "lex": "hercules",
+   "info": "Der Rundtempel des Hercules Victor – aus griechischem Marmor."
+  },
+  {
+   "kind": "insula",
+   "x": 99,
+   "y": 88,
+   "w": 5,
+   "h": 3,
+   "name": "Ölhändler im Velabrum",
+   "style": {
+    "color": "#d6a56f"
+   }
+  },
+  {
+   "kind": "insula",
+   "x": 92,
+   "y": 100,
+   "w": 6,
+   "h": 5,
+   "style": {
+    "color": "#e0c9a0"
+   }
+  },
+  {
+   "kind": "temple",
+   "x": 67,
+   "y": 62,
+   "w": 4,
+   "h": 5,
+   "name": "Tempel des Ianus",
+   "lex": "forum_holitorium",
+   "style": {
+    "cols": 4
+   },
+   "info": "Einer von drei Tempeln am Gemüsemarkt."
+  },
+  {
+   "kind": "temple",
+   "x": 72,
+   "y": 62,
+   "w": 4,
+   "h": 5,
+   "name": "Tempel der Spes",
+   "lex": "forum_holitorium",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel der Hoffnung (Spes)."
+  },
+  {
+   "kind": "temple",
+   "x": 77,
+   "y": 62,
+   "w": 4,
+   "h": 5,
+   "name": "Tempel der Iuno Sospita",
+   "lex": "forum_holitorium",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel der Iuno Sospita."
+  },
+  {
+   "kind": "temple",
+   "x": 54,
+   "y": 70,
+   "w": 4,
+   "h": 4,
+   "name": "Tempel des Aesculapius",
+   "lex": "tiber",
+   "style": {
+    "cols": 4
+   },
+   "info": "Auf der Tiberinsel steht der Tempel des Heilgottes Aesculapius.",
+   "onWater": true
+  },
+  {
+   "kind": "horrea",
+   "x": 68,
+   "y": 136,
+   "w": 9,
+   "h": 18,
+   "name": "Porticus Aemilia",
+   "lex": "emporium",
+   "info": "Die riesige Lagerhalle der Porticus Aemilia am Tiberhafen."
+  },
+  {
+   "kind": "horrea",
+   "x": 70,
+   "y": 156,
+   "w": 7,
+   "h": 10,
+   "name": "Horrea Galbana",
+   "lex": "emporium",
+   "info": "Lagerhallen für Getreide, Öl und Wein."
+  },
+  {
+   "kind": "insula",
+   "x": 149,
+   "y": 72,
+   "w": 6,
+   "h": 5,
    "name": "Insula des Arrius",
    "style": {
     "color": "#d6a56f"
    },
    "door": {
-    "dx": 4,
+    "dx": 3,
     "to": "insula_arria"
    }
   },
   {
    "kind": "insula",
-   "x": 91,
-   "y": 25,
+   "x": 156,
+   "y": 72,
    "w": 6,
-   "h": 6,
+   "h": 5,
    "name": "Pistrinum des Felix",
    "style": {
     "color": "#e0c9a0"
@@ -1275,14 +818,88 @@
    },
    "light": [
     3,
-    5,
+    4,
     26
    ]
   },
   {
+   "kind": "thermopolium",
+   "x": 158,
+   "y": 60,
+   "w": 7,
+   "h": 4,
+   "name": "Thermopolium der Asellina",
+   "lex": "thermopolium",
+   "style": {
+    "color": "#c98a5e"
+   },
+   "light": [
+    3,
+    4,
+    40
+   ]
+  },
+  {
+   "kind": "insula",
+   "x": 151,
+   "y": 60,
+   "w": 6,
+   "h": 4,
+   "name": "Balneum der Subura",
+   "lex": "balneum",
+   "style": {
+    "color": "#e3cfa8"
+   },
+   "door": {
+    "dx": 3,
+    "to": "balneum_subura",
+    "planned": true,
+    "label": "Balneum (Bad)"
+   }
+  },
+  {
+   "kind": "insula",
+   "x": 163,
+   "y": 72,
+   "w": 5,
+   "h": 5,
+   "name": "Töpferladen",
+   "style": {
+    "color": "#c98a5e"
+   },
+   "door": {
+    "dx": 2,
+    "to": "laden_subura",
+    "planned": true,
+    "label": "Laden des Töpfers"
+   }
+  },
+  {
+   "kind": "insula",
+   "x": 166,
+   "y": 64,
+   "w": 5,
+   "h": 6,
+   "name": "Popina (Taverne)",
+   "style": {
+    "color": "#b8754e"
+   },
+   "light": [
+    2,
+    5,
+    36
+   ],
+   "door": {
+    "dx": 2,
+    "to": "taberna_subura",
+    "planned": true,
+    "label": "Taverne"
+   }
+  },
+  {
    "kind": "fountain",
-   "x": 102,
-   "y": 27,
+   "x": 156,
+   "y": 65,
    "w": 2,
    "h": 2,
    "name": "Lacus der Subura",
@@ -1294,8 +911,8 @@
   },
   {
    "kind": "shrine",
-   "x": 105,
-   "y": 26,
+   "x": 162,
+   "y": 65,
    "w": 1,
    "h": 2,
    "name": "Compitum-Schrein",
@@ -1305,358 +922,3599 @@
     1,
     24
    ],
-   "info": "Ein Schrein der Lares Compitales an der Straßenkreuzung. Die Nachbarschaft bringt hier kleine Opfer."
-  },
-  {
-   "kind": "thermopolium",
-   "x": 108,
-   "y": 25,
-   "w": 6,
-   "h": 6,
-   "name": "Thermopolium der Asellina",
-   "lex": "thermopolium",
-   "style": {
-    "color": "#c98a5e"
-   },
-   "light": [
-    3,
-    5,
-    40
-   ]
+   "info": "Ein Schrein der Lares Compitales an der Kreuzung."
   },
   {
    "kind": "insula",
-   "x": 115,
-   "y": 24,
+   "x": 148,
+   "y": 44,
    "w": 6,
-   "h": 7,
-   "name": "Popina (Taverne)",
-   "style": {
-    "color": "#b8754e"
-   },
-   "light": [
-    3,
-    6,
-    36
-   ],
-   "info": "Eine Popina: Wein, Würfel, laute Lieder. Ehrbare Leute meiden sie – angeblich."
+   "h": 5,
+   "filler": true,
+   "seed": 851970
   },
   {
-   "kind": "carceres",
-   "x": 28,
-   "y": 81,
+   "kind": "thermopolium",
+   "x": 160,
+   "y": 44,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 406336
+  },
+  {
+   "kind": "insula",
+   "x": 165,
+   "y": 44,
    "w": 4,
-   "h": 15,
-   "name": "Carceres (Startboxen)",
-   "lex": "circus_maximus",
-   "info": "Die Startboxen der Rennwagen. Ein Tuch fällt – und die Gespanne stürmen los."
+   "h": 5,
+   "filler": true,
+   "seed": 809596
   },
   {
-   "kind": "circus_n",
-   "x": 32,
-   "y": 81,
-   "w": 20,
-   "h": 3
+   "kind": "insula",
+   "x": 148,
+   "y": 50,
+   "w": 5,
+   "h": 4,
+   "filler": true,
+   "seed": 303435
   },
   {
-   "kind": "circus_n",
-   "x": 54,
-   "y": 81,
-   "w": 18,
-   "h": 3
-  },
-  {
-   "kind": "circus_n",
-   "x": 74,
-   "y": 81,
-   "w": 18,
-   "h": 3
-  },
-  {
-   "kind": "circus_n",
-   "x": 94,
-   "y": 81,
-   "w": 18,
-   "h": 3
-  },
-  {
-   "kind": "circus_n",
-   "x": 112,
-   "y": 81,
+   "kind": "insula",
+   "x": 153,
+   "y": 50,
    "w": 4,
-   "h": 12
+   "h": 4,
+   "filler": true,
+   "seed": 30921
   },
   {
-   "kind": "circus_s",
-   "x": 32,
-   "y": 93,
-   "w": 84,
-   "h": 3
+   "kind": "insula",
+   "x": 160,
+   "y": 50,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 457673
   },
   {
-   "kind": "spina",
-   "x": 44,
-   "y": 87,
-   "w": 56,
-   "h": 2,
-   "name": "Spina mit Metae",
-   "lex": "circus_maximus",
-   "info": "Die Spina, die Mittelbarriere. An ihren Enden stehen die Wendemarken (metae), auf einem Gestell zählen Eier die Runden."
+   "kind": "insula",
+   "x": 168,
+   "y": 50,
+   "w": 4,
+   "h": 4,
+   "filler": true,
+   "seed": 542636
+  },
+  {
+   "kind": "insula",
+   "x": 168,
+   "y": 76,
+   "w": 4,
+   "h": 4,
+   "filler": true,
+   "seed": 187916
+  },
+  {
+   "kind": "insula",
+   "x": 154,
+   "y": 42,
+   "w": 4,
+   "h": 4,
+   "filler": true,
+   "seed": 448290
+  },
+  {
+   "kind": "insula",
+   "x": 169,
+   "y": 42,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 669734
+  },
+  {
+   "kind": "insula",
+   "x": 168,
+   "y": 58,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 526592
+  },
+  {
+   "kind": "insula",
+   "x": 147,
+   "y": 60,
+   "w": 4,
+   "h": 4,
+   "filler": true,
+   "seed": 624744
+  },
+  {
+   "kind": "insula",
+   "x": 147,
+   "y": 65,
+   "w": 4,
+   "h": 4,
+   "filler": true,
+   "seed": 472317
+  },
+  {
+   "kind": "insula",
+   "x": 168,
+   "y": 71,
+   "w": 5,
+   "h": 4,
+   "filler": true,
+   "seed": 882058
   },
   {
    "kind": "domus",
-   "x": 20,
-   "y": 3,
+   "x": 150,
+   "y": 78,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 265265
+  },
+  {
+   "kind": "domus",
+   "x": 156,
+   "y": 78,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 919522
+  },
+  {
+   "kind": "domus",
+   "x": 172,
+   "y": 78,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 630053
+  },
+  {
+   "kind": "domus",
+   "x": 163,
+   "y": 90,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 665921
+  },
+  {
+   "kind": "insula",
+   "x": 169,
+   "y": 90,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 339042
+  },
+  {
+   "kind": "temple",
+   "x": 116,
+   "y": 22,
+   "w": 8,
+   "h": 6,
+   "name": "Tempel des Quirinus",
+   "lex": "quirinal",
+   "style": {
+    "cols": 6
+   },
+   "info": "Der Tempel des Quirinus, des vergöttlichten Romulus."
+  },
+  {
+   "kind": "temple",
+   "x": 135,
+   "y": 30,
+   "w": 6,
+   "h": 5,
+   "name": "Tempel der Salus",
+   "lex": "quirinal",
+   "style": {
+    "cols": 4
+   },
+   "info": "Der Tempel der Salus, der Göttin des Wohlergehens."
+  },
+  {
+   "kind": "domus",
+   "x": 101,
+   "y": 14,
+   "w": 9,
+   "h": 5,
+   "filler": true,
+   "seed": 200615
+  },
+  {
+   "kind": "domus",
+   "x": 110,
+   "y": 14,
    "w": 8,
    "h": 5,
+   "filler": true,
+   "seed": 519541
+  },
+  {
+   "kind": "insula",
+   "x": 120,
+   "y": 14,
+   "w": 9,
+   "h": 5,
+   "filler": true,
+   "seed": 398359
+  },
+  {
+   "kind": "insula",
+   "x": 129,
+   "y": 14,
+   "w": 8,
+   "h": 5,
+   "filler": true,
+   "seed": 479078
+  },
+  {
+   "kind": "insula",
+   "x": 101,
+   "y": 21,
+   "w": 8,
+   "h": 4,
+   "filler": true,
+   "seed": 865640
+  },
+  {
+   "kind": "insula",
+   "x": 109,
+   "y": 21,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 467229
+  },
+  {
+   "kind": "insula",
+   "x": 125,
+   "y": 21,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 35434
+  },
+  {
+   "kind": "domus",
+   "x": 100,
+   "y": 27,
+   "w": 9,
+   "h": 6,
+   "filler": true,
+   "seed": 515422
+  },
+  {
+   "kind": "insula",
+   "x": 124,
+   "y": 27,
+   "w": 7,
+   "h": 6,
+   "filler": true,
+   "seed": 347343
+  },
+  {
+   "kind": "domus",
+   "x": 100,
+   "y": 35,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 33012
+  },
+  {
+   "kind": "domus",
+   "x": 107,
+   "y": 35,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 358082
+  },
+  {
+   "kind": "insula",
+   "x": 116,
+   "y": 35,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 916848
+  },
+  {
+   "kind": "domus",
+   "x": 133,
+   "y": 35,
+   "w": 9,
+   "h": 4,
+   "filler": true,
+   "seed": 882579
+  },
+  {
+   "kind": "domus",
+   "x": 101,
+   "y": 41,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 615185
+  },
+  {
+   "kind": "insula",
+   "x": 108,
+   "y": 41,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 596897
+  },
+  {
+   "kind": "insula",
+   "x": 114,
+   "y": 41,
+   "w": 9,
+   "h": 4,
+   "filler": true,
+   "seed": 779440
+  },
+  {
+   "kind": "insula",
+   "x": 130,
+   "y": 41,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 275094
+  },
+  {
+   "kind": "domus",
+   "x": 137,
+   "y": 41,
+   "w": 9,
+   "h": 4,
+   "filler": true,
+   "seed": 556527
+  },
+  {
+   "kind": "insula",
+   "x": 100,
+   "y": 47,
+   "w": 8,
+   "h": 5,
+   "filler": true,
+   "seed": 766142
+  },
+  {
+   "kind": "domus",
+   "x": 109,
+   "y": 47,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 855038
+  },
+  {
+   "kind": "insula",
+   "x": 128,
+   "y": 47,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 264437
+  },
+  {
+   "kind": "insula",
+   "x": 136,
+   "y": 47,
+   "w": 8,
+   "h": 5,
+   "filler": true,
+   "seed": 235667
+  },
+  {
+   "kind": "domus",
+   "x": 155,
+   "y": 18,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 489283
+  },
+  {
+   "kind": "domus",
+   "x": 160,
+   "y": 18,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 304025
+  },
+  {
+   "kind": "domus",
+   "x": 168,
+   "y": 18,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 829132
+  },
+  {
+   "kind": "insula",
+   "x": 155,
+   "y": 25,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 680195
+  },
+  {
+   "kind": "insula",
+   "x": 161,
+   "y": 25,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 252340
+  },
+  {
+   "kind": "domus",
+   "x": 177,
+   "y": 25,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 591495
+  },
+  {
+   "kind": "insula",
+   "x": 155,
+   "y": 32,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 722537
+  },
+  {
+   "kind": "insula",
+   "x": 170,
+   "y": 32,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 593151
+  },
+  {
+   "kind": "insula",
+   "x": 177,
+   "y": 32,
+   "w": 5,
+   "h": 4,
+   "filler": true,
+   "seed": 294047
+  },
+  {
+   "kind": "domus",
+   "x": 173,
+   "y": 66,
+   "w": 8,
+   "h": 6,
+   "filler": true,
+   "seed": 288640
+  },
+  {
+   "kind": "domus",
+   "x": 186,
+   "y": 66,
+   "w": 7,
+   "h": 6,
+   "filler": true,
+   "seed": 605935
+  },
+  {
+   "kind": "domus",
+   "x": 185,
+   "y": 74,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 634037
+  },
+  {
+   "kind": "insula",
+   "x": 183,
+   "y": 81,
+   "w": 8,
+   "h": 5,
+   "filler": true,
+   "seed": 263912
+  },
+  {
+   "kind": "domus",
+   "x": 175,
+   "y": 88,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 345457
+  },
+  {
+   "kind": "domus",
+   "x": 182,
+   "y": 88,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 794788
+  },
+  {
+   "kind": "domus",
+   "x": 172,
+   "y": 95,
+   "w": 6,
+   "h": 6,
+   "filler": true,
+   "seed": 818063
+  },
+  {
+   "kind": "domus",
+   "x": 178,
+   "y": 95,
+   "w": 6,
+   "h": 6,
+   "filler": true,
+   "seed": 17914
+  },
+  {
+   "kind": "domus",
+   "x": 187,
+   "y": 95,
+   "w": 6,
+   "h": 6,
+   "filler": true,
+   "seed": 193566
+  },
+  {
+   "kind": "domus",
+   "x": 157,
+   "y": 102,
+   "w": 8,
+   "h": 6,
+   "filler": true,
+   "seed": 469312
+  },
+  {
+   "kind": "domus",
+   "x": 171,
+   "y": 102,
+   "w": 7,
+   "h": 6,
+   "filler": true,
+   "seed": 547548
+  },
+  {
+   "kind": "domus",
+   "x": 156,
+   "y": 111,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 95440
+  },
+  {
+   "kind": "domus",
+   "x": 174,
+   "y": 111,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 869383
+  },
+  {
+   "kind": "domus",
+   "x": 170,
+   "y": 119,
+   "w": 9,
+   "h": 6,
+   "filler": true,
+   "seed": 755703
+  },
+  {
+   "kind": "horrea",
+   "x": 24,
+   "y": 68,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 384080
+  },
+  {
+   "kind": "insula",
+   "x": 31,
+   "y": 68,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 228592
+  },
+  {
+   "kind": "insula",
+   "x": 39,
+   "y": 68,
+   "w": 5,
+   "h": 4,
+   "filler": true,
+   "seed": 391319
+  },
+  {
+   "kind": "insula",
+   "x": 24,
+   "y": 73,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 647212
+  },
+  {
+   "kind": "insula",
+   "x": 31,
+   "y": 73,
+   "w": 5,
+   "h": 4,
+   "filler": true,
+   "seed": 435739
+  },
+  {
+   "kind": "horrea",
+   "x": 37,
+   "y": 73,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 920525
+  },
+  {
+   "kind": "insula",
+   "x": 24,
+   "y": 78,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 957975
+  },
+  {
+   "kind": "insula",
+   "x": 29,
+   "y": 78,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 336653
+  },
+  {
+   "kind": "insula",
+   "x": 36,
+   "y": 78,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 929671
+  },
+  {
+   "kind": "horrea",
+   "x": 43,
+   "y": 78,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 949776
+  },
+  {
+   "kind": "insula",
+   "x": 24,
+   "y": 84,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 627169
+  },
+  {
+   "kind": "insula",
+   "x": 31,
+   "y": 84,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 366641
+  },
+  {
+   "kind": "insula",
+   "x": 38,
+   "y": 84,
+   "w": 5,
+   "h": 4,
+   "filler": true,
+   "seed": 646003
+  },
+  {
+   "kind": "insula",
+   "x": 43,
+   "y": 84,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 775723
+  },
+  {
+   "kind": "horrea",
+   "x": 24,
+   "y": 89,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 249253
+  },
+  {
+   "kind": "horrea",
+   "x": 31,
+   "y": 89,
+   "w": 6,
+   "h": 4,
+   "filler": true,
+   "seed": 833139
+  },
+  {
+   "kind": "insula",
+   "x": 42,
+   "y": 94,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 431977
+  },
+  {
+   "kind": "insula",
+   "x": 24,
+   "y": 100,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 463458
+  },
+  {
+   "kind": "insula",
+   "x": 35,
+   "y": 100,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 265146
+  },
+  {
+   "kind": "insula",
+   "x": 42,
+   "y": 100,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 980620
+  },
+  {
+   "kind": "insula",
+   "x": 32,
+   "y": 106,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 287205
+  },
+  {
+   "kind": "insula",
+   "x": 39,
+   "y": 106,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 412949
+  },
+  {
+   "kind": "insula",
+   "x": 31,
+   "y": 112,
+   "w": 5,
+   "h": 5,
+   "filler": true,
+   "seed": 407439
+  },
+  {
+   "kind": "horrea",
+   "x": 36,
+   "y": 112,
+   "w": 7,
+   "h": 5,
+   "filler": true,
+   "seed": 158787
+  },
+  {
+   "kind": "insula",
+   "x": 44,
+   "y": 112,
+   "w": 6,
+   "h": 5,
+   "filler": true,
+   "seed": 386723
+  },
+  {
+   "kind": "insula",
+   "x": 32,
+   "y": 124,
+   "w": 7,
+   "h": 4,
+   "filler": true,
+   "seed": 407259
+  },
+  {
+   "kind": "insula",
+   "x": 39,
+   "y": 124,
+   "w": 5,
+   "h": 4,
+   "filler": true,
+   "seed": 553484
+  },
+  {
+   "kind": "horrea",
+   "x": 45,
+   "y": 124,
+   "w": 5,
+   "h": 4,
+   "filler": true,
+   "seed": 984
+  },
+  {
+   "kind": "domus",
+   "x": 26,
+   "y": 142,
+   "w": 12,
+   "h": 8,
+   "name": "Villa in den Gärten Caesars",
+   "lex": "horti_caesaris",
+   "style": {
+    "color": "#f2ead6"
+   },
+   "info": "Caesars Landhaus in seinen Gärten jenseits des Tibers."
+  },
+  {
+   "kind": "theater",
+   "x": 48,
+   "y": 32,
+   "w": 15,
+   "h": 18,
+   "name": "Theater des Pompeius",
+   "lex": "theater_pompeius",
+   "info": "Das Theater des Pompeius (55 v. Chr.), Roms erstes Theater aus Stein. Oben thront der Tempel der Venus Victrix."
+  },
+  {
+   "kind": "colonnade",
+   "x": 63,
+   "y": 36,
+   "w": 18,
+   "h": 1,
+   "name": "Porticus Pompeiana",
+   "lex": "theater_pompeius",
+   "info": "Die Säulenhalle des Pompeius mit Gärten, Kunstwerken und schattigen Wegen."
+  },
+  {
+   "kind": "colonnade",
+   "x": 63,
+   "y": 47,
+   "w": 18,
+   "h": 1,
+   "name": "Porticus Pompeiana",
+   "lex": "theater_pompeius",
+   "info": "Die Säulenhalle des Pompeius."
+  },
+  {
+   "kind": "curia",
+   "x": 81,
+   "y": 37,
+   "w": 6,
+   "h": 9,
+   "name": "Curia Pompeia",
+   "lex": "curia_pompeia",
+   "info": "Die Curia Pompeia am Ende der Säulenhalle – hier tagt der Senat, wenn er auf dem Marsfeld zusammenkommt.",
+   "door": {
+    "dx": 3,
+    "to": "curia_pompeia",
+    "planned": true,
+    "label": "Curia Pompeia"
+   }
+  },
+  {
+   "kind": "saepta",
+   "x": 68,
+   "y": 14,
+   "w": 16,
+   "h": 10,
+   "name": "Saepta",
+   "lex": "saepta",
+   "info": "Die Saepta, die Wahlgehege des Volkes. Caesar plant einen Neubau aus Marmor."
+  },
+  {
+   "kind": "domus",
+   "x": 72,
+   "y": 29,
+   "w": 8,
+   "h": 4,
    "name": "Villa Publica",
    "lex": "marsfeld",
    "style": {
     "color": "#efe6d0"
    },
-   "info": "Die Villa Publica: Hier arbeiten die Zensoren und hier werden Gesandte untergebracht."
+   "info": "Die Villa Publica: Amtssitz der Zensoren und Unterkunft für Gesandte."
+  },
+  {
+   "kind": "hut",
+   "x": 8,
+   "y": 10,
+   "w": 3,
+   "h": 3,
+   "name": "Gehöft",
+   "lex": "ager_vaticanus",
+   "info": "Ein Bauernhof auf dem Ager Vaticanus, dem flachen Land jenseits des Tibers."
+  },
+  {
+   "kind": "hut",
+   "x": 22,
+   "y": 26,
+   "w": 3,
+   "h": 3,
+   "name": "Gehöft",
+   "lex": "ager_vaticanus",
+   "info": "Ein Bauernhof auf dem Ager Vaticanus."
   }
  ],
- "fills": [
+ "deco": [
   {
-   "op": "blocks",
-   "r": [
-    74,
-    0,
-    54,
-    36
-   ],
-   "kinds": [
-    "insula",
-    "insula",
-    "insula",
-    "insula",
-    "domus"
-   ],
-   "bw": [
-    5,
-    8
-   ],
-   "bh": [
-    4,
-    6
-   ],
-   "gap": 1,
-   "ground": "cobble"
+   "kind": "tower",
+   "x": 89,
+   "y": 76,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Carmentalis",
+   "info": "Porta Carmentalis – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
   },
   {
-   "op": "blocks",
-   "r": [
-    26,
-    46,
-    16,
+   "kind": "tower",
+   "x": 86,
+   "y": 77,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Carmentalis",
+   "info": "Porta Carmentalis – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "gatearch",
+   "x": 87,
+   "y": 77,
+   "w": 2,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "h",
+    "label": true
+   },
+   "name": "Porta Carmentalis",
+   "lex": "mauer",
+   "info": "Porta Carmentalis – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "tower",
+   "x": 69,
+   "y": 78,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Flumentana",
+   "info": "Porta Flumentana – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "tower",
+   "x": 74,
+   "y": 78,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Flumentana",
+   "info": "Porta Flumentana – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "gatearch",
+   "x": 70,
+   "y": 78,
+   "w": 4,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "h",
+    "label": true
+   },
+   "name": "Porta Flumentana",
+   "lex": "mauer",
+   "info": "Porta Flumentana – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "tower",
+   "x": 95,
+   "y": 53,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Fontinalis",
+   "info": "Porta Fontinalis – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "tower",
+   "x": 96,
+   "y": 48,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Fontinalis",
+   "info": "Porta Fontinalis – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "gatearch",
+   "x": 95,
+   "y": 51,
+   "w": 2,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "v",
+    "label": true
+   },
+   "name": "Porta Fontinalis",
+   "lex": "mauer",
+   "info": "Porta Fontinalis – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "tower",
+   "x": 145,
+   "y": 6,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Collina",
+   "info": "Porta Collina – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "tower",
+   "x": 149,
+   "y": 7,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Collina",
+   "info": "Porta Collina – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "gatearch",
+   "x": 146,
+   "y": 7,
+   "w": 3,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "h",
+    "label": true
+   },
+   "name": "Porta Collina",
+   "lex": "mauer",
+   "info": "Porta Collina – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "tower",
+   "x": 181,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Viminalis",
+   "info": "Porta Viminalis – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "tower",
+   "x": 184,
+   "y": 15,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Viminalis",
+   "info": "Porta Viminalis – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "gatearch",
+   "x": 182,
+   "y": 15,
+   "w": 2,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "h",
+    "label": true
+   },
+   "name": "Porta Viminalis",
+   "lex": "mauer",
+   "info": "Porta Viminalis – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "tower",
+   "x": 196,
+   "y": 62,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Esquilina",
+   "info": "Porta Esquilina – ein Tor der Servianischen Mauer.",
+   "lex": "esquilin"
+  },
+  {
+   "kind": "tower",
+   "x": 196,
+   "y": 66,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Esquilina",
+   "info": "Porta Esquilina – ein Tor der Servianischen Mauer.",
+   "lex": "esquilin"
+  },
+  {
+   "kind": "gatearch",
+   "x": 196,
+   "y": 64,
+   "w": 2,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "v",
+    "label": true
+   },
+   "name": "Porta Esquilina",
+   "lex": "esquilin",
+   "info": "Porta Esquilina – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "tower",
+   "x": 157,
+   "y": 142,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Capena",
+   "info": "Porta Capena – ein Tor der Servianischen Mauer.",
+   "lex": "via_appia"
+  },
+  {
+   "kind": "tower",
+   "x": 162,
+   "y": 140,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Capena",
+   "info": "Porta Capena – ein Tor der Servianischen Mauer.",
+   "lex": "via_appia"
+  },
+  {
+   "kind": "gatearch",
+   "x": 158,
+   "y": 141,
+   "w": 4,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "h",
+    "label": true
+   },
+   "name": "Porta Capena",
+   "lex": "via_appia",
+   "info": "Porta Capena – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "tower",
+   "x": 119,
+   "y": 167,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Raudusculana",
+   "info": "Porta Raudusculana – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "tower",
+   "x": 122,
+   "y": 166,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Raudusculana",
+   "info": "Porta Raudusculana – ein Tor der Servianischen Mauer.",
+   "lex": "mauer"
+  },
+  {
+   "kind": "gatearch",
+   "x": 120,
+   "y": 167,
+   "w": 2,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "h",
+    "label": true
+   },
+   "name": "Porta Raudusculana",
+   "lex": "mauer",
+   "info": "Porta Raudusculana – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "tower",
+   "x": 76,
+   "y": 127,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Trigemina",
+   "info": "Porta Trigemina – ein Tor der Servianischen Mauer.",
+   "lex": "emporium"
+  },
+  {
+   "kind": "tower",
+   "x": 80,
+   "y": 127,
+   "w": 1,
+   "h": 1,
+   "name": "Porta Trigemina",
+   "info": "Porta Trigemina – ein Tor der Servianischen Mauer.",
+   "lex": "emporium"
+  },
+  {
+   "kind": "gatearch",
+   "x": 77,
+   "y": 127,
+   "w": 3,
+   "h": 1,
+   "solid": false,
+   "style": {
+    "dir": "h",
+    "label": true
+   },
+   "name": "Porta Trigemina",
+   "lex": "emporium",
+   "info": "Porta Trigemina – ein Tor der Servianischen Mauer."
+  },
+  {
+   "kind": "statue",
+   "x": 113,
+   "y": 90,
+   "w": 1,
+   "h": 1,
+   "name": "Ehrenstatue",
+   "info": "Eine Ehrenstatue. Auf dem Forum stehen Dutzende davon."
+  },
+  {
+   "kind": "statue",
+   "x": 143,
+   "y": 86,
+   "w": 1,
+   "h": 1,
+   "name": "Ehrenstatue",
+   "style": {
+    "color": "#d8d0c0"
+   },
+   "info": "Eine marmorne Ehrenstatue eines verdienten Bürgers.",
+   "onRoad": true
+  },
+  {
+   "kind": "altar",
+   "x": 126,
+   "y": 90,
+   "w": 2,
+   "h": 1,
+   "name": "Lacus Curtius",
+   "lex": "forum_romanum",
+   "info": "Der Lacus Curtius: ein eingefasster Fleck, an dem sich der Sage nach einst ein Abgrund öffnete."
+  },
+  {
+   "kind": "crane",
+   "x": 121,
+   "y": 58,
+   "w": 2,
+   "h": 2,
+   "name": "Tretradkran",
+   "lex": "forum_iulium",
+   "info": "Ein Tretradkran: Arbeiter laufen im Rad und heben so tonnenschwere Blöcke."
+  },
+  {
+   "kind": "scaffold",
+   "x": 111,
+   "y": 58,
+   "w": 1,
+   "h": 7
+  },
+  {
+   "kind": "scaffold",
+   "x": 123,
+   "y": 61,
+   "w": 1,
+   "h": 4
+  },
+  {
+   "kind": "stones",
+   "x": 111,
+   "y": 66,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "kind": "drums",
+   "x": 120,
+   "y": 66,
+   "w": 3,
+   "h": 1
+  },
+  {
+   "kind": "stones",
+   "x": 116,
+   "y": 69,
+   "w": 2,
+   "h": 1
+  },
+  {
+   "kind": "stall",
+   "x": 135,
+   "y": 73,
+   "w": 3,
+   "h": 1,
+   "name": "Stand des Phileros",
+   "style": {
+    "goods": "oil",
+    "awning": "#3f7f3f"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 143,
+   "y": 73,
+   "w": 3,
+   "h": 1,
+   "name": "Stand der Verecunda",
+   "style": {
+    "goods": "cheese",
+    "awning": "#d4a017"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 143,
+   "y": 69,
+   "w": 3,
+   "h": 1,
+   "name": "Stand des Mago",
+   "style": {
+    "goods": "wine",
+    "awning": "#8e44ad"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 135,
+   "y": 69,
+   "w": 3,
+   "h": 1,
+   "name": "Stand der Thais",
+   "style": {
+    "goods": "fish",
+    "awning": "#2e6da4"
+   }
+  },
+  {
+   "kind": "amphorae",
+   "x": 146,
+   "y": 67,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "crates",
+   "x": 146,
+   "y": 74,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "altar",
+   "x": 99,
+   "y": 72,
+   "w": 2,
+   "h": 1,
+   "name": "Altar",
+   "light": [
+    1,
+    0,
+    30
+   ],
+   "info": "Ein Opferaltar vor dem Iuppitertempel."
+  },
+  {
+   "kind": "olive",
+   "x": 93,
+   "y": 61,
+   "w": 1,
+   "h": 1,
+   "seed": 376963
+  },
+  {
+   "kind": "bush",
+   "x": 95,
+   "y": 59,
+   "w": 1,
+   "h": 1,
+   "seed": 347214
+  },
+  {
+   "kind": "pine",
+   "x": 107,
+   "y": 118,
+   "w": 1,
+   "h": 1,
+   "seed": 515282
+  },
+  {
+   "kind": "pine",
+   "x": 147,
+   "y": 104,
+   "w": 1,
+   "h": 1,
+   "seed": 891737
+  },
+  {
+   "kind": "pine",
+   "x": 131,
+   "y": 115,
+   "w": 1,
+   "h": 1,
+   "seed": 953650
+  },
+  {
+   "kind": "pine",
+   "x": 143,
+   "y": 119,
+   "w": 1,
+   "h": 1,
+   "seed": 470077
+  },
+  {
+   "kind": "cypress",
+   "x": 108,
+   "y": 107,
+   "w": 1,
+   "h": 1,
+   "seed": 830549
+  },
+  {
+   "kind": "bush",
+   "x": 144,
+   "y": 107,
+   "w": 1,
+   "h": 1,
+   "seed": 666211
+  },
+  {
+   "kind": "pine",
+   "x": 128,
+   "y": 117,
+   "w": 1,
+   "h": 1,
+   "seed": 548598
+  },
+  {
+   "kind": "pine",
+   "x": 145,
+   "y": 117,
+   "w": 1,
+   "h": 1,
+   "seed": 880696
+  },
+  {
+   "kind": "pine",
+   "x": 146,
+   "y": 102,
+   "w": 1,
+   "h": 1,
+   "seed": 303178
+  },
+  {
+   "kind": "cypress",
+   "x": 147,
+   "y": 119,
+   "w": 1,
+   "h": 1,
+   "seed": 479934
+  },
+  {
+   "kind": "pine",
+   "x": 141,
+   "y": 113,
+   "w": 1,
+   "h": 1,
+   "seed": 276416
+  },
+  {
+   "kind": "pine",
+   "x": 147,
+   "y": 116,
+   "w": 1,
+   "h": 1,
+   "seed": 349316
+  },
+  {
+   "kind": "pine",
+   "x": 109,
+   "y": 105,
+   "w": 1,
+   "h": 1,
+   "seed": 126663
+  },
+  {
+   "kind": "pine",
+   "x": 89,
+   "y": 142,
+   "w": 1,
+   "h": 1,
+   "seed": 6773
+  },
+  {
+   "kind": "cypress",
+   "x": 99,
+   "y": 144,
+   "w": 1,
+   "h": 1,
+   "seed": 365259
+  },
+  {
+   "kind": "pine",
+   "x": 87,
+   "y": 142,
+   "w": 1,
+   "h": 1,
+   "seed": 914644
+  },
+  {
+   "kind": "pine",
+   "x": 130,
+   "y": 143,
+   "w": 1,
+   "h": 1,
+   "seed": 759033
+  },
+  {
+   "kind": "olive",
+   "x": 91,
+   "y": 142,
+   "w": 1,
+   "h": 1,
+   "seed": 118455
+  },
+  {
+   "kind": "olive",
+   "x": 86,
+   "y": 145,
+   "w": 1,
+   "h": 1,
+   "seed": 781480
+  },
+  {
+   "kind": "pine",
+   "x": 115,
+   "y": 143,
+   "w": 1,
+   "h": 1,
+   "seed": 684810
+  },
+  {
+   "kind": "cypress",
+   "x": 125,
+   "y": 141,
+   "w": 1,
+   "h": 1,
+   "seed": 582151
+  },
+  {
+   "kind": "cypress",
+   "x": 132,
+   "y": 142,
+   "w": 1,
+   "h": 1,
+   "seed": 59824
+  },
+  {
+   "kind": "olive",
+   "x": 118,
+   "y": 145,
+   "w": 1,
+   "h": 1,
+   "seed": 553992
+  },
+  {
+   "kind": "altar",
+   "x": 86,
+   "y": 92,
+   "w": 2,
+   "h": 1,
+   "name": "Ara Maxima",
+   "lex": "hercules",
+   "light": [
+    1,
+    0,
     32
    ],
-   "kinds": [
-    "insula",
-    "insula",
-    "horrea"
-   ],
-   "bw": [
-    5,
-    7
-   ],
-   "bh": [
-    4,
-    5
-   ],
-   "gap": 1,
-   "ground": "cobble"
+   "info": "Die Ara Maxima, der uralte Altar des Hercules."
   },
   {
-   "op": "blocks",
-   "r": [
-    80,
-    43,
-    47,
-    11
-   ],
-   "kinds": [
-    "domus",
-    "insula",
-    "domus"
-   ],
-   "bw": [
-    6,
-    9
-   ],
-   "bh": [
-    4,
-    5
-   ],
-   "gap": 1,
-   "ground": "dirt"
+   "kind": "fence",
+   "x": 76,
+   "y": 96,
+   "w": 9,
+   "h": 1
   },
   {
-   "op": "blocks",
-   "r": [
-    90,
-    57,
-    37,
-    22
-   ],
-   "kinds": [
-    "domus",
-    "domus",
-    "insula"
-   ],
-   "bw": [
-    7,
-    10
-   ],
-   "bh": [
-    5,
-    6
-   ],
-   "gap": 2,
-   "chance": 0.7
+   "kind": "fence",
+   "x": 76,
+   "y": 100,
+   "w": 9,
+   "h": 1
   },
   {
-   "op": "scatter",
-   "r": [
-    44,
-    54,
-    43,
-    24
-   ],
-   "n": 26,
-   "kinds": [
-    "pine",
-    "pine",
-    "cypress",
-    "bush"
-   ]
+   "kind": "fence",
+   "x": 76,
+   "y": 97,
+   "w": 1,
+   "h": 3
   },
   {
-   "op": "scatter",
-   "r": [
-    17,
-    18,
-    23,
-    25
-   ],
-   "n": 14,
-   "kinds": [
-    "pine",
-    "olive",
-    "bush"
-   ]
+   "kind": "fence",
+   "x": 84,
+   "y": 97,
+   "w": 1,
+   "h": 2
   },
   {
-   "op": "scatter",
-   "r": [
-    7,
-    0,
-    34,
-    17
-   ],
-   "n": 22,
-   "kinds": [
-    "pine",
-    "pine",
-    "cypress",
-    "olive"
-   ]
+   "kind": "stall",
+   "x": 86,
+   "y": 96,
+   "w": 3,
+   "h": 1,
+   "name": "Viehhändler",
+   "style": {
+    "goods": "veg",
+    "awning": "#c0392b"
+   }
   },
   {
-   "op": "scatter",
-   "r": [
-    87,
-    55,
-    41,
-    25
-   ],
-   "n": 18,
-   "kinds": [
-    "pine",
-    "olive",
-    "cypress",
-    "bush"
-   ]
+   "kind": "crates",
+   "x": 73,
+   "y": 98,
+   "w": 1,
+   "h": 1
   },
   {
-   "op": "scatter",
-   "r": [
-    9,
-    46,
-    33,
-    33
-   ],
-   "n": 6,
-   "kinds": [
-    "olive",
-    "bush"
-   ]
+   "kind": "amphorae",
+   "x": 89,
+   "y": 99,
+   "w": 1,
+   "h": 1
   },
   {
-   "op": "scatter",
-   "r": [
-    2,
-    60,
-    3,
-    8
-   ],
-   "n": 2,
-   "kinds": [
-    "cypress"
-   ]
+   "kind": "stall",
+   "x": 67,
+   "y": 69,
+   "w": 3,
+   "h": 1,
+   "name": "Gemüsestand",
+   "style": {
+    "goods": "veg",
+    "awning": "#3f7f3f"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 73,
+   "y": 69,
+   "w": 3,
+   "h": 1,
+   "name": "Gemüsestand",
+   "style": {
+    "goods": "veg",
+    "awning": "#d4a017"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 77,
+   "y": 69,
+   "w": 3,
+   "h": 1,
+   "name": "Obststand",
+   "style": {
+    "goods": "cheese",
+    "awning": "#c0392b"
+   }
+  },
+  {
+   "kind": "amphorae",
+   "x": 65,
+   "y": 131,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "crates",
+   "x": 66,
+   "y": 134,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "amphorae",
+   "x": 69,
+   "y": 154,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "crates",
+   "x": 70,
+   "y": 168,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "kind": "boat",
+   "x": 57,
+   "y": 140,
+   "w": 3,
+   "h": 1,
+   "onWater": true,
+   "solid": true
+  },
+  {
+   "kind": "boat",
+   "x": 58,
+   "y": 158,
+   "w": 3,
+   "h": 1,
+   "onWater": true,
+   "solid": true
+  },
+  {
+   "kind": "boat",
+   "x": 55,
+   "y": 100,
+   "w": 3,
+   "h": 1,
+   "onWater": true,
+   "solid": true
+  },
+  {
+   "kind": "cypress",
+   "x": 71,
+   "y": 41,
+   "w": 1,
+   "h": 1,
+   "seed": 353849
+  },
+  {
+   "kind": "olive",
+   "x": 67,
+   "y": 41,
+   "w": 1,
+   "h": 1,
+   "seed": 10706
+  },
+  {
+   "kind": "cypress",
+   "x": 78,
+   "y": 45,
+   "w": 1,
+   "h": 1,
+   "seed": 62555
+  },
+  {
+   "kind": "pine",
+   "x": 76,
+   "y": 38,
+   "w": 1,
+   "h": 1,
+   "seed": 336822
+  },
+  {
+   "kind": "pine",
+   "x": 70,
+   "y": 45,
+   "w": 1,
+   "h": 1,
+   "seed": 644352
+  },
+  {
+   "kind": "cypress",
+   "x": 68,
+   "y": 44,
+   "w": 1,
+   "h": 1,
+   "seed": 952040
+  },
+  {
+   "kind": "pine",
+   "x": 74,
+   "y": 45,
+   "w": 1,
+   "h": 1,
+   "seed": 220736
+  },
+  {
+   "kind": "pine",
+   "x": 64,
+   "y": 43,
+   "w": 1,
+   "h": 1,
+   "seed": 154379
+  },
+  {
+   "kind": "tomb",
+   "x": 76,
+   "y": 6,
+   "w": 3,
+   "h": 3,
+   "name": "Grab der Iulia",
+   "lex": "marsfeld",
+   "style": {
+    "variant": "drum"
+   },
+   "info": "Das Grab der Iulia, Caesars Tochter und Ehefrau des Pompeius (gest. 54 v. Chr.)."
+  },
+  {
+   "kind": "tomb",
+   "x": 62,
+   "y": 18,
+   "w": 3,
+   "h": 3,
+   "name": "Grab des Sulla",
+   "lex": "marsfeld",
+   "style": {
+    "variant": "altar"
+   },
+   "info": "Das Grab des Diktators Sulla."
+  },
+  {
+   "kind": "statue",
+   "x": 73,
+   "y": 53,
+   "w": 1,
+   "h": 1,
+   "name": "Circus Flaminius",
+   "lex": "circus_flaminius",
+   "info": "Der Circus Flaminius: keine Rennbahn, sondern ein offener Platz für Märkte, Versammlungen und den Aufmarsch der Triumphzüge."
+  },
+  {
+   "kind": "stall",
+   "x": 64,
+   "y": 55,
+   "w": 3,
+   "h": 1,
+   "name": "Marktstand",
+   "style": {
+    "goods": "veg",
+    "awning": "#d4a017"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 77,
+   "y": 55,
+   "w": 3,
+   "h": 1,
+   "name": "Marktstand",
+   "style": {
+    "goods": "lamps",
+    "awning": "#2e6da4"
+   }
+  },
+  {
+   "kind": "pine",
+   "x": 64,
+   "y": 26,
+   "w": 1,
+   "h": 1,
+   "seed": 661060
+  },
+  {
+   "kind": "pine",
+   "x": 92,
+   "y": 18,
+   "w": 1,
+   "h": 1,
+   "seed": 379915
+  },
+  {
+   "kind": "pine",
+   "x": 76,
+   "y": 34,
+   "w": 1,
+   "h": 1,
+   "seed": 678293
+  },
+  {
+   "kind": "olive",
+   "x": 51,
+   "y": 5,
+   "w": 1,
+   "h": 1,
+   "seed": 723975
+  },
+  {
+   "kind": "olive",
+   "x": 80,
+   "y": 12,
+   "w": 1,
+   "h": 1,
+   "seed": 766894
+  },
+  {
+   "kind": "cypress",
+   "x": 72,
+   "y": 11,
+   "w": 1,
+   "h": 1,
+   "seed": 255890
+  },
+  {
+   "kind": "pine",
+   "x": 79,
+   "y": 34,
+   "w": 1,
+   "h": 1,
+   "seed": 944724
+  },
+  {
+   "kind": "olive",
+   "x": 66,
+   "y": 31,
+   "w": 1,
+   "h": 1,
+   "seed": 656476
+  },
+  {
+   "kind": "pine",
+   "x": 93,
+   "y": 27,
+   "w": 1,
+   "h": 1,
+   "seed": 705573
+  },
+  {
+   "kind": "pine",
+   "x": 94,
+   "y": 7,
+   "w": 1,
+   "h": 1,
+   "seed": 519978
+  },
+  {
+   "kind": "pine",
+   "x": 46,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "seed": 23368
+  },
+  {
+   "kind": "pine",
+   "x": 93,
+   "y": 22,
+   "w": 1,
+   "h": 1,
+   "seed": 75973
+  },
+  {
+   "kind": "olive",
+   "x": 78,
+   "y": 4,
+   "w": 1,
+   "h": 1,
+   "seed": 501661
+  },
+  {
+   "kind": "olive",
+   "x": 89,
+   "y": 53,
+   "w": 1,
+   "h": 1,
+   "seed": 236195
+  },
+  {
+   "kind": "cypress",
+   "x": 79,
+   "y": 38,
+   "w": 1,
+   "h": 1,
+   "seed": 142708
+  },
+  {
+   "kind": "pine",
+   "x": 61,
+   "y": 29,
+   "w": 1,
+   "h": 1,
+   "seed": 292461
+  },
+  {
+   "kind": "pine",
+   "x": 87,
+   "y": 53,
+   "w": 1,
+   "h": 1,
+   "seed": 671828
+  },
+  {
+   "kind": "pine",
+   "x": 73,
+   "y": 7,
+   "w": 1,
+   "h": 1,
+   "seed": 2733
+  },
+  {
+   "kind": "pine",
+   "x": 93,
+   "y": 1,
+   "w": 1,
+   "h": 1,
+   "seed": 229016
+  },
+  {
+   "kind": "cypress",
+   "x": 81,
+   "y": 6,
+   "w": 1,
+   "h": 1,
+   "seed": 505515
+  },
+  {
+   "kind": "pine",
+   "x": 92,
+   "y": 12,
+   "w": 1,
+   "h": 1,
+   "seed": 450123
+  },
+  {
+   "kind": "pine",
+   "x": 93,
+   "y": 16,
+   "w": 1,
+   "h": 1,
+   "seed": 793247
+  },
+  {
+   "kind": "olive",
+   "x": 74,
+   "y": 40,
+   "w": 1,
+   "h": 1,
+   "seed": 780152
+  },
+  {
+   "kind": "olive",
+   "x": 48,
+   "y": 9,
+   "w": 1,
+   "h": 1,
+   "seed": 539307
+  },
+  {
+   "kind": "pine",
+   "x": 47,
+   "y": 11,
+   "w": 1,
+   "h": 1,
+   "seed": 356667
+  },
+  {
+   "kind": "pine",
+   "x": 59,
+   "y": 29,
+   "w": 1,
+   "h": 1,
+   "seed": 16387
+  },
+  {
+   "kind": "bush",
+   "x": 27,
+   "y": 7,
+   "w": 1,
+   "h": 1,
+   "seed": 388273
+  },
+  {
+   "kind": "olive",
+   "x": 8,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "seed": 5934
+  },
+  {
+   "kind": "pine",
+   "x": 12,
+   "y": 20,
+   "w": 1,
+   "h": 1,
+   "seed": 846221
+  },
+  {
+   "kind": "bush",
+   "x": 14,
+   "y": 20,
+   "w": 1,
+   "h": 1,
+   "seed": 161629
+  },
+  {
+   "kind": "pine",
+   "x": 30,
+   "y": 15,
+   "w": 1,
+   "h": 1,
+   "seed": 758664
+  },
+  {
+   "kind": "bush",
+   "x": 7,
+   "y": 1,
+   "w": 1,
+   "h": 1,
+   "seed": 143712
+  },
+  {
+   "kind": "pine",
+   "x": 31,
+   "y": 24,
+   "w": 1,
+   "h": 1,
+   "seed": 664644
+  },
+  {
+   "kind": "bush",
+   "x": 34,
+   "y": 19,
+   "w": 1,
+   "h": 1,
+   "seed": 819982
+  },
+  {
+   "kind": "olive",
+   "x": 4,
+   "y": 14,
+   "w": 1,
+   "h": 1,
+   "seed": 325679
+  },
+  {
+   "kind": "pine",
+   "x": 30,
+   "y": 10,
+   "w": 1,
+   "h": 1,
+   "seed": 59463
+  },
+  {
+   "kind": "olive",
+   "x": 12,
+   "y": 24,
+   "w": 1,
+   "h": 1,
+   "seed": 617745
+  },
+  {
+   "kind": "olive",
+   "x": 42,
+   "y": 10,
+   "w": 1,
+   "h": 1,
+   "seed": 350606
+  },
+  {
+   "kind": "olive",
+   "x": 6,
+   "y": 36,
+   "w": 1,
+   "h": 1,
+   "seed": 445885
+  },
+  {
+   "kind": "bush",
+   "x": 7,
+   "y": 25,
+   "w": 1,
+   "h": 1,
+   "seed": 302339
+  },
+  {
+   "kind": "olive",
+   "x": 26,
+   "y": 37,
+   "w": 1,
+   "h": 1,
+   "seed": 392690
+  },
+  {
+   "kind": "olive",
+   "x": 18,
+   "y": 31,
+   "w": 1,
+   "h": 1,
+   "seed": 960458
+  },
+  {
+   "kind": "olive",
+   "x": 31,
+   "y": 49,
+   "w": 1,
+   "h": 1,
+   "seed": 261453
+  },
+  {
+   "kind": "bush",
+   "x": 32,
+   "y": 35,
+   "w": 1,
+   "h": 1,
+   "seed": 131223
+  },
+  {
+   "kind": "cypress",
+   "x": 15,
+   "y": 63,
+   "w": 1,
+   "h": 1,
+   "seed": 165472
+  },
+  {
+   "kind": "pine",
+   "x": 2,
+   "y": 101,
+   "w": 1,
+   "h": 1,
+   "seed": 546450
+  },
+  {
+   "kind": "olive",
+   "x": 6,
+   "y": 96,
+   "w": 1,
+   "h": 1,
+   "seed": 304955
+  },
+  {
+   "kind": "cypress",
+   "x": 6,
+   "y": 63,
+   "w": 1,
+   "h": 1,
+   "seed": 738875
+  },
+  {
+   "kind": "cypress",
+   "x": 7,
+   "y": 82,
+   "w": 1,
+   "h": 1,
+   "seed": 669939
+  },
+  {
+   "kind": "cypress",
+   "x": 13,
+   "y": 91,
+   "w": 1,
+   "h": 1,
+   "seed": 405868
+  },
+  {
+   "kind": "olive",
+   "x": 2,
+   "y": 54,
+   "w": 1,
+   "h": 1,
+   "seed": 320718
+  },
+  {
+   "kind": "pine",
+   "x": 14,
+   "y": 53,
+   "w": 1,
+   "h": 1,
+   "seed": 803034
+  },
+  {
+   "kind": "pine",
+   "x": 3,
+   "y": 115,
+   "w": 1,
+   "h": 1,
+   "seed": 109320
+  },
+  {
+   "kind": "pine",
+   "x": 9,
+   "y": 99,
+   "w": 1,
+   "h": 1,
+   "seed": 763724
+  },
+  {
+   "kind": "olive",
+   "x": 6,
+   "y": 105,
+   "w": 1,
+   "h": 1,
+   "seed": 356944
+  },
+  {
+   "kind": "olive",
+   "x": 5,
+   "y": 65,
+   "w": 1,
+   "h": 1,
+   "seed": 560659
+  },
+  {
+   "kind": "pine",
+   "x": 16,
+   "y": 58,
+   "w": 1,
+   "h": 1,
+   "seed": 921601
+  },
+  {
+   "kind": "pine",
+   "x": 13,
+   "y": 106,
+   "w": 1,
+   "h": 1,
+   "seed": 775883
+  },
+  {
+   "kind": "pine",
+   "x": 21,
+   "y": 68,
+   "w": 1,
+   "h": 1,
+   "seed": 680784
+  },
+  {
+   "kind": "olive",
+   "x": 4,
+   "y": 73,
+   "w": 1,
+   "h": 1,
+   "seed": 660369
+  },
+  {
+   "kind": "pine",
+   "x": 18,
+   "y": 100,
+   "w": 1,
+   "h": 1,
+   "seed": 59261
+  },
+  {
+   "kind": "cypress",
+   "x": 15,
+   "y": 84,
+   "w": 1,
+   "h": 1,
+   "seed": 39174
+  },
+  {
+   "kind": "cypress",
+   "x": 21,
+   "y": 53,
+   "w": 1,
+   "h": 1,
+   "seed": 113387
+  },
+  {
+   "kind": "pine",
+   "x": 13,
+   "y": 59,
+   "w": 1,
+   "h": 1,
+   "seed": 789898
+  },
+  {
+   "kind": "olive",
+   "x": 21,
+   "y": 77,
+   "w": 1,
+   "h": 1,
+   "seed": 309707
+  },
+  {
+   "kind": "pine",
+   "x": 7,
+   "y": 87,
+   "w": 1,
+   "h": 1,
+   "seed": 116823
+  },
+  {
+   "kind": "pine",
+   "x": 14,
+   "y": 103,
+   "w": 1,
+   "h": 1,
+   "seed": 537327
+  },
+  {
+   "kind": "pine",
+   "x": 6,
+   "y": 112,
+   "w": 1,
+   "h": 1,
+   "seed": 928948
+  },
+  {
+   "kind": "olive",
+   "x": 29,
+   "y": 152,
+   "w": 1,
+   "h": 1,
+   "seed": 198934
+  },
+  {
+   "kind": "olive",
+   "x": 46,
+   "y": 150,
+   "w": 1,
+   "h": 1,
+   "seed": 209320
+  },
+  {
+   "kind": "pine",
+   "x": 19,
+   "y": 150,
+   "w": 1,
+   "h": 1,
+   "seed": 508229
+  },
+  {
+   "kind": "olive",
+   "x": 22,
+   "y": 147,
+   "w": 1,
+   "h": 1,
+   "seed": 88176
+  },
+  {
+   "kind": "bush",
+   "x": 51,
+   "y": 156,
+   "w": 1,
+   "h": 1,
+   "seed": 487294
+  },
+  {
+   "kind": "cypress",
+   "x": 18,
+   "y": 158,
+   "w": 1,
+   "h": 1,
+   "seed": 891920
+  },
+  {
+   "kind": "cypress",
+   "x": 21,
+   "y": 153,
+   "w": 1,
+   "h": 1,
+   "seed": 204677
+  },
+  {
+   "kind": "pine",
+   "x": 46,
+   "y": 140,
+   "w": 1,
+   "h": 1,
+   "seed": 395926
+  },
+  {
+   "kind": "bush",
+   "x": 52,
+   "y": 139,
+   "w": 1,
+   "h": 1,
+   "seed": 839133
+  },
+  {
+   "kind": "pine",
+   "x": 38,
+   "y": 163,
+   "w": 1,
+   "h": 1,
+   "seed": 861277
+  },
+  {
+   "kind": "pine",
+   "x": 34,
+   "y": 133,
+   "w": 1,
+   "h": 1,
+   "seed": 753541
+  },
+  {
+   "kind": "bush",
+   "x": 25,
+   "y": 162,
+   "w": 1,
+   "h": 1,
+   "seed": 113533
+  },
+  {
+   "kind": "pine",
+   "x": 51,
+   "y": 154,
+   "w": 1,
+   "h": 1,
+   "seed": 240291
+  },
+  {
+   "kind": "olive",
+   "x": 22,
+   "y": 134,
+   "w": 1,
+   "h": 1,
+   "seed": 300057
+  },
+  {
+   "kind": "pine",
+   "x": 17,
+   "y": 156,
+   "w": 1,
+   "h": 1,
+   "seed": 205933
+  },
+  {
+   "kind": "olive",
+   "x": 50,
+   "y": 139,
+   "w": 1,
+   "h": 1,
+   "seed": 975068
+  },
+  {
+   "kind": "bush",
+   "x": 42,
+   "y": 145,
+   "w": 1,
+   "h": 1,
+   "seed": 999264
+  },
+  {
+   "kind": "pine",
+   "x": 50,
+   "y": 166,
+   "w": 1,
+   "h": 1,
+   "seed": 54560
+  },
+  {
+   "kind": "olive",
+   "x": 15,
+   "y": 157,
+   "w": 1,
+   "h": 1,
+   "seed": 905586
+  },
+  {
+   "kind": "pine",
+   "x": 47,
+   "y": 166,
+   "w": 1,
+   "h": 1,
+   "seed": 782090
+  },
+  {
+   "kind": "pine",
+   "x": 20,
+   "y": 132,
+   "w": 1,
+   "h": 1,
+   "seed": 883359
+  },
+  {
+   "kind": "olive",
+   "x": 43,
+   "y": 133,
+   "w": 1,
+   "h": 1,
+   "seed": 745310
+  },
+  {
+   "kind": "bush",
+   "x": 45,
+   "y": 143,
+   "w": 1,
+   "h": 1,
+   "seed": 288353
+  },
+  {
+   "kind": "cypress",
+   "x": 25,
+   "y": 132,
+   "w": 1,
+   "h": 1,
+   "seed": 242439
+  },
+  {
+   "kind": "pine",
+   "x": 42,
+   "y": 151,
+   "w": 1,
+   "h": 1,
+   "seed": 131277
+  },
+  {
+   "kind": "olive",
+   "x": 31,
+   "y": 139,
+   "w": 1,
+   "h": 1,
+   "seed": 604538
+  },
+  {
+   "kind": "olive",
+   "x": 44,
+   "y": 167,
+   "w": 1,
+   "h": 1,
+   "seed": 612955
+  },
+  {
+   "kind": "cypress",
+   "x": 52,
+   "y": 135,
+   "w": 1,
+   "h": 1,
+   "seed": 929320
+  },
+  {
+   "kind": "cypress",
+   "x": 23,
+   "y": 137,
+   "w": 1,
+   "h": 1,
+   "seed": 769447
+  },
+  {
+   "kind": "pine",
+   "x": 48,
+   "y": 136,
+   "w": 1,
+   "h": 1,
+   "seed": 893388
+  },
+  {
+   "kind": "olive",
+   "x": 176,
+   "y": 61,
+   "w": 1,
+   "h": 1,
+   "seed": 84876
+  },
+  {
+   "kind": "pine",
+   "x": 177,
+   "y": 54,
+   "w": 1,
+   "h": 1,
+   "seed": 881514
+  },
+  {
+   "kind": "olive",
+   "x": 189,
+   "y": 38,
+   "w": 1,
+   "h": 1,
+   "seed": 509604
+  },
+  {
+   "kind": "pine",
+   "x": 173,
+   "y": 49,
+   "w": 1,
+   "h": 1,
+   "seed": 691610
+  },
+  {
+   "kind": "pine",
+   "x": 190,
+   "y": 34,
+   "w": 1,
+   "h": 1,
+   "seed": 469864
+  },
+  {
+   "kind": "olive",
+   "x": 187,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "seed": 22809
+  },
+  {
+   "kind": "olive",
+   "x": 179,
+   "y": 64,
+   "w": 1,
+   "h": 1,
+   "seed": 260835
+  },
+  {
+   "kind": "pine",
+   "x": 170,
+   "y": 98,
+   "w": 1,
+   "h": 1,
+   "seed": 389653
+  },
+  {
+   "kind": "pine",
+   "x": 175,
+   "y": 64,
+   "w": 1,
+   "h": 1,
+   "seed": 27741
+  },
+  {
+   "kind": "cypress",
+   "x": 189,
+   "y": 42,
+   "w": 1,
+   "h": 1,
+   "seed": 817179
+  },
+  {
+   "kind": "pine",
+   "x": 174,
+   "y": 52,
+   "w": 1,
+   "h": 1,
+   "seed": 788888
+  },
+  {
+   "kind": "cypress",
+   "x": 193,
+   "y": 52,
+   "w": 1,
+   "h": 1,
+   "seed": 207408
+  },
+  {
+   "kind": "cypress",
+   "x": 152,
+   "y": 98,
+   "w": 1,
+   "h": 1,
+   "seed": 475435
+  },
+  {
+   "kind": "olive",
+   "x": 181,
+   "y": 46,
+   "w": 1,
+   "h": 1,
+   "seed": 301543
+  },
+  {
+   "kind": "cypress",
+   "x": 182,
+   "y": 112,
+   "w": 1,
+   "h": 1,
+   "seed": 287116
+  },
+  {
+   "kind": "olive",
+   "x": 181,
+   "y": 127,
+   "w": 1,
+   "h": 1,
+   "seed": 960570
+  },
+  {
+   "kind": "pine",
+   "x": 163,
+   "y": 117,
+   "w": 1,
+   "h": 1,
+   "seed": 209696
+  },
+  {
+   "kind": "pine",
+   "x": 190,
+   "y": 109,
+   "w": 1,
+   "h": 1,
+   "seed": 325056
+  },
+  {
+   "kind": "olive",
+   "x": 156,
+   "y": 109,
+   "w": 1,
+   "h": 1,
+   "seed": 917437
+  },
+  {
+   "kind": "bush",
+   "x": 185,
+   "y": 113,
+   "w": 1,
+   "h": 1,
+   "seed": 788408
+  },
+  {
+   "kind": "cypress",
+   "x": 186,
+   "y": 117,
+   "w": 1,
+   "h": 1,
+   "seed": 814088
+  },
+  {
+   "kind": "olive",
+   "x": 160,
+   "y": 100,
+   "w": 1,
+   "h": 1,
+   "seed": 488870
+  },
+  {
+   "kind": "olive",
+   "x": 152,
+   "y": 116,
+   "w": 1,
+   "h": 1,
+   "seed": 701360
+  },
+  {
+   "kind": "olive",
+   "x": 187,
+   "y": 131,
+   "w": 1,
+   "h": 1,
+   "seed": 588522
+  },
+  {
+   "kind": "cypress",
+   "x": 184,
+   "y": 108,
+   "w": 1,
+   "h": 1,
+   "seed": 82112
+  },
+  {
+   "kind": "cypress",
+   "x": 180,
+   "y": 122,
+   "w": 1,
+   "h": 1,
+   "seed": 931467
+  },
+  {
+   "kind": "bush",
+   "x": 180,
+   "y": 118,
+   "w": 1,
+   "h": 1,
+   "seed": 691520
+  },
+  {
+   "kind": "pine",
+   "x": 188,
+   "y": 123,
+   "w": 1,
+   "h": 1,
+   "seed": 529497
+  },
+  {
+   "kind": "olive",
+   "x": 121,
+   "y": 50,
+   "w": 1,
+   "h": 1,
+   "seed": 345799
+  },
+  {
+   "kind": "cypress",
+   "x": 139,
+   "y": 8,
+   "w": 1,
+   "h": 1,
+   "seed": 230987
+  },
+  {
+   "kind": "cypress",
+   "x": 117,
+   "y": 52,
+   "w": 1,
+   "h": 1,
+   "seed": 753347
+  },
+  {
+   "kind": "cypress",
+   "x": 130,
+   "y": 12,
+   "w": 1,
+   "h": 1,
+   "seed": 59635
+  },
+  {
+   "kind": "pine",
+   "x": 99,
+   "y": 7,
+   "w": 1,
+   "h": 1,
+   "seed": 210616
+  },
+  {
+   "kind": "pine",
+   "x": 111,
+   "y": 54,
+   "w": 1,
+   "h": 1,
+   "seed": 901194
+  },
+  {
+   "kind": "pine",
+   "x": 146,
+   "y": 18,
+   "w": 1,
+   "h": 1,
+   "seed": 9856
+  },
+  {
+   "kind": "cypress",
+   "x": 143,
+   "y": 23,
+   "w": 1,
+   "h": 1,
+   "seed": 733136
+  },
+  {
+   "kind": "olive",
+   "x": 131,
+   "y": 7,
+   "w": 1,
+   "h": 1,
+   "seed": 647686
+  },
+  {
+   "kind": "olive",
+   "x": 111,
+   "y": 31,
+   "w": 1,
+   "h": 1,
+   "seed": 224642
+  },
+  {
+   "kind": "cypress",
+   "x": 121,
+   "y": 48,
+   "w": 1,
+   "h": 1,
+   "seed": 57863
+  },
+  {
+   "kind": "olive",
+   "x": 130,
+   "y": 9,
+   "w": 1,
+   "h": 1,
+   "seed": 407313
+  },
+  {
+   "kind": "tomb",
+   "x": 170,
+   "y": 141,
+   "w": 4,
+   "h": 3,
+   "name": "Grab der Scipionen",
+   "lex": "via_appia",
+   "style": {
+    "variant": "house"
+   },
+   "info": "Das Familiengrab der Scipionen an der Via Appia."
+  },
+  {
+   "kind": "tomb",
+   "x": 160,
+   "y": 148,
+   "w": 2,
+   "h": 2,
+   "name": "Grabmal",
+   "lex": "via_appia",
+   "style": {
+    "variant": "altar"
+   },
+   "info": "Grabmäler säumen die Straßen vor der Stadt – Bestattungen innerhalb der Mauern sind verboten."
+  },
+  {
+   "kind": "tomb",
+   "x": 174,
+   "y": 146,
+   "w": 3,
+   "h": 3,
+   "name": "Grabmal",
+   "lex": "via_appia",
+   "style": {
+    "variant": "drum"
+   },
+   "info": "Grabmäler säumen die Straßen vor der Stadt – Bestattungen innerhalb der Mauern sind verboten."
+  },
+  {
+   "kind": "tomb",
+   "x": 180,
+   "y": 158,
+   "w": 2,
+   "h": 2,
+   "name": "Grabmal",
+   "lex": "via_appia",
+   "style": {
+    "variant": "altar"
+   },
+   "info": "Grabmäler säumen die Straßen vor der Stadt – Bestattungen innerhalb der Mauern sind verboten."
+  },
+  {
+   "kind": "tomb",
+   "x": 186,
+   "y": 151,
+   "w": 3,
+   "h": 3,
+   "name": "Grabmal",
+   "lex": "via_appia",
+   "style": {
+    "variant": "drum"
+   },
+   "info": "Grabmäler säumen die Straßen vor der Stadt – Bestattungen innerhalb der Mauern sind verboten."
+  },
+  {
+   "kind": "tomb",
+   "x": 192,
+   "y": 164,
+   "w": 2,
+   "h": 2,
+   "name": "Grabmal",
+   "lex": "via_appia",
+   "style": {
+    "variant": "house"
+   },
+   "info": "Grabmäler säumen die Straßen vor der Stadt – Bestattungen innerhalb der Mauern sind verboten."
+  },
+  {
+   "kind": "tomb",
+   "x": 196,
+   "y": 156,
+   "w": 3,
+   "h": 3,
+   "name": "Grabmal",
+   "lex": "via_appia",
+   "style": {
+    "variant": "drum"
+   },
+   "info": "Grabmäler säumen die Straßen vor der Stadt – Bestattungen innerhalb der Mauern sind verboten."
+  },
+  {
+   "kind": "tomb",
+   "x": 172,
+   "y": 157,
+   "w": 2,
+   "h": 2,
+   "name": "Grabmal",
+   "lex": "via_appia",
+   "style": {
+    "variant": "altar"
+   },
+   "info": "Grabmäler säumen die Straßen vor der Stadt – Bestattungen innerhalb der Mauern sind verboten."
+  },
+  {
+   "kind": "cypress",
+   "x": 184,
+   "y": 147,
+   "w": 1,
+   "h": 1,
+   "seed": 205317
+  },
+  {
+   "kind": "cypress",
+   "x": 174,
+   "y": 166,
+   "w": 1,
+   "h": 1,
+   "seed": 673249
+  },
+  {
+   "kind": "cypress",
+   "x": 189,
+   "y": 140,
+   "w": 1,
+   "h": 1,
+   "seed": 134386
+  },
+  {
+   "kind": "cypress",
+   "x": 167,
+   "y": 154,
+   "w": 1,
+   "h": 1,
+   "seed": 552070
+  },
+  {
+   "kind": "pine",
+   "x": 168,
+   "y": 156,
+   "w": 1,
+   "h": 1,
+   "seed": 665680
+  },
+  {
+   "kind": "pine",
+   "x": 190,
+   "y": 143,
+   "w": 1,
+   "h": 1,
+   "seed": 422383
+  },
+  {
+   "kind": "cypress",
+   "x": 192,
+   "y": 143,
+   "w": 1,
+   "h": 1,
+   "seed": 45189
+  },
+  {
+   "kind": "cypress",
+   "x": 165,
+   "y": 149,
+   "w": 1,
+   "h": 1,
+   "seed": 121446
+  },
+  {
+   "kind": "cypress",
+   "x": 160,
+   "y": 152,
+   "w": 1,
+   "h": 1,
+   "seed": 796685
+  },
+  {
+   "kind": "cypress",
+   "x": 184,
+   "y": 141,
+   "w": 1,
+   "h": 1,
+   "seed": 527438
+  },
+  {
+   "kind": "litter",
+   "x": 128,
+   "y": 91,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Forum Romanum",
+   "interact": {
+    "type": "travel",
+    "station": "forum"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 152,
+   "y": 69,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Subura (Platz)",
+   "interact": {
+    "type": "travel",
+    "station": "subura"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 126,
+   "y": 109,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Palatin",
+   "interact": {
+    "type": "travel",
+    "station": "palatin"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 110,
+   "y": 120,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Circus Maximus",
+   "interact": {
+    "type": "travel",
+    "station": "circus"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 71,
+   "y": 48,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Marsfeld (Theater des Pompeius)",
+   "interact": {
+    "type": "travel",
+    "station": "marsfeld"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 87,
+   "y": 97,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Forum Boarium",
+   "interact": {
+    "type": "travel",
+    "station": "boarium"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 74,
+   "y": 132,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Emporium",
+   "interact": {
+    "type": "travel",
+    "station": "emporium"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 36,
+   "y": 98,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Trans Tiberim",
+   "interact": {
+    "type": "travel",
+    "station": "transtiberim"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 156,
+   "y": 134,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Porta Capena",
+   "interact": {
+    "type": "travel",
+    "station": "capena"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 190,
+   "y": 60,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Porta Esquilina",
+   "interact": {
+    "type": "travel",
+    "station": "esquilina"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 101,
+   "y": 52,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Porta Fontinalis",
+   "interact": {
+    "type": "travel",
+    "station": "fontinalis"
+   }
+  },
+  {
+   "kind": "litter",
+   "x": 142,
+   "y": 8,
+   "w": 2,
+   "h": 1,
+   "name": "Sänftenträger – Porta Collina",
+   "interact": {
+    "type": "travel",
+    "station": "collina"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 127,
+   "y": 84,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↗ Macellum (≈ 3 s)   ↖ Forum Iulium (≈ 4 s)   ↓ Palatin (≈ 5 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 144,
+   "y": 57,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↓ Macellum (≈ 3 s)   ↘ Subura (≈ 3 s)   ← Forum Iulium (≈ 5 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 139,
+   "y": 88,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "← Forum Romanum (≈ 2 s)   ↑ Macellum (≈ 3 s)   → Velia (≈ 4 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 103,
+   "y": 84,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↑ Kapitol (≈ 3 s)   ↙ Forum Boarium (≈ 4 s)   → Forum Romanum (≈ 4 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 96,
+   "y": 54,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↓ Kapitol (≈ 2 s)   ↘ Forum Iulium (≈ 4 s)   ↙ Forum Holitorium (≈ 4 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 88,
+   "y": 80,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↙ Forum Boarium (≈ 3 s)   ↖ Forum Holitorium (≈ 3 s)   ↗ Kapitol (≈ 3 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 73,
+   "y": 87,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↘ Forum Boarium (≈ 2 s)   ↑ Forum Holitorium (≈ 4 s)   ↗ Kapitol (≈ 6 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 76,
+   "y": 123,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↓ Emporium (≈ 5 s)   ↑ Forum Boarium (≈ 5 s)   ↘ Aventin (≈ 8 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 105,
+   "y": 120,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↗ Palatin (≈ 4 s)   ↘ Circus Maximus (≈ 5 s)   ↓ Aventin (≈ 6 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 157,
+   "y": 136,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↗ Caelius (≈ 4 s)   ← Circus Maximus (≈ 5 s)   ↖ Palatin (≈ 7 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 151,
+   "y": 65,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↙ Macellum (≈ 2 s)   ↘ Velia (≈ 5 s)   ↘ Esquilin (≈ 6 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 171,
+   "y": 84,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↙ Velia (≈ 2 s)   ↗ Esquilin (≈ 2 s)   ↖ Subura (≈ 4 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 76,
+   "y": 65,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "→ Kapitol (≈ 4 s)   ↑ Marsfeld (≈ 5 s)   ↓ Forum Boarium (≈ 5 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 86,
+   "y": 47,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↖ Marsfeld (≈ 3 s)   ↙ Forum Holitorium (≈ 4 s)   ↘ Kapitol (≈ 4 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 43,
+   "y": 90,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↙ Trans Tiberim (≈ 2 s)   → Forum Boarium (≈ 7 s)   ↗ Forum Holitorium (≈ 7 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 110,
+   "y": 57,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↘ Forum Iulium (≈ 2 s)   ↙ Kapitol (≈ 3 s)   ↗ Quirinal (≈ 5 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 101,
+   "y": 107,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↖ Forum Boarium (≈ 4 s)   → Palatin (≈ 5 s)   ↗ Forum Romanum (≈ 5 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 140,
+   "y": 112,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "← Palatin (≈ 3 s)   ↙ Circus Maximus (≈ 4 s)   ↖ Forum Romanum (≈ 5 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 70,
+   "y": 102,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↗ Forum Boarium (≈ 3 s)   ← Trans Tiberim (≈ 6 s)   ↑ Forum Holitorium (≈ 6 s)"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 157,
+   "y": 55,
+   "w": 1,
+   "h": 1,
+   "interact": {
+    "type": "sign",
+    "text": "↓ Subura (≈ 2 s)   ↙ Macellum (≈ 4 s)   ↓ Velia (≈ 6 s)"
+   }
   }
  ],
  "zones": [
   {
-   "id": "palatin",
-   "name": "Palatin",
-   "sub": "Hügel der Reichen",
+   "id": "tiberinsel",
+   "name": "Tiberinsel",
+   "sub": "Insel des Aesculapius",
    "r": [
-    44,
-    54,
-    43,
-    26
+    50,
+    64,
+    12,
+    20
    ],
-   "lex": "palatin",
-   "amb": 4,
+   "lex": "bruecken",
+   "amb": 2,
    "roles": [
     "citizen",
-    "woman",
-    "slave",
-    "senator"
-   ],
-   "danger": 0.4
-  },
-  {
-   "id": "circus",
-   "name": "Circus Maximus",
-   "sub": "Rennbahn im Tal",
-   "r": [
-    24,
-    80,
-    96,
-    16
-   ],
-   "lex": "circus_maximus",
-   "amb": 6,
-   "roles": [
-    "citizen",
-    "child",
-    "worker",
     "woman"
    ],
-   "danger": 1
+   "danger": 0.4
   },
   {
    "id": "forum_iulium",
    "name": "Forum Iulium",
    "sub": "Caesars Baustelle",
    "r": [
-    43,
-    11,
-    16,
-    18
+    109,
+    56,
+    17,
+    16
    ],
    "lex": "forum_iulium",
    "amb": 6,
@@ -1668,17 +4526,37 @@
    "danger": 0.6
   },
   {
+   "id": "argiletum",
+   "name": "Argiletum & Macellum",
+   "sub": "Buchhändler, Schuster, Lebensmittelmarkt",
+   "r": [
+    126,
+    56,
+    22,
+    20
+   ],
+   "lex": "macellum",
+   "amb": 8,
+   "roles": [
+    "citizen",
+    "woman",
+    "slave",
+    "merchant"
+   ],
+   "danger": 0.8
+  },
+  {
    "id": "forum",
    "name": "Forum Romanum",
    "sub": "Herz der Republik",
    "r": [
-    40,
-    18,
-    40,
-    36
+    102,
+    72,
+    58,
+    28
    ],
    "lex": "forum_romanum",
-   "amb": 14,
+   "amb": 16,
    "roles": [
     "citizen",
     "woman",
@@ -1694,10 +4572,10 @@
    "name": "Kapitol",
    "sub": "Sitz des Iuppiter",
    "r": [
-    17,
-    18,
-    23,
-    28
+    88,
+    54,
+    22,
+    24
    ],
    "lex": "kapitol",
    "amb": 3,
@@ -1709,17 +4587,77 @@
    "danger": 0.5
   },
   {
+   "id": "palatin",
+   "name": "Palatin",
+   "sub": "Hügel der Reichen",
+   "r": [
+    103,
+    98,
+    48,
+    24
+   ],
+   "lex": "palatin",
+   "amb": 5,
+   "roles": [
+    "citizen",
+    "woman",
+    "slave",
+    "senator"
+   ],
+   "danger": 0.4
+  },
+  {
+   "id": "circus",
+   "name": "Circus Maximus",
+   "sub": "Rennbahn im Tal",
+   "r": [
+    96,
+    120,
+    66,
+    20
+   ],
+   "lex": "circus_maximus",
+   "amb": 7,
+   "roles": [
+    "citizen",
+    "child",
+    "worker",
+    "woman"
+   ],
+   "danger": 1
+  },
+  {
+   "id": "aventin",
+   "name": "Aventin",
+   "sub": "Hügel der Plebejer",
+   "r": [
+    84,
+    140,
+    54,
+    30
+   ],
+   "lex": "aventin",
+   "amb": 6,
+   "roles": [
+    "citizen",
+    "woman",
+    "worker",
+    "child"
+   ],
+   "danger": 1.2
+  },
+  {
    "id": "subura",
    "name": "Subura",
    "sub": "Enge Gassen, laute Nächte",
    "r": [
-    74,
-    0,
-    54,
-    36
+    148,
+    42,
+    26,
+    38
    ],
    "lex": "subura",
-   "amb": 16,
+   "amb": 18,
    "roles": [
     "citizen",
     "woman",
@@ -1734,11 +4672,70 @@
    "name": "Velia & Carinae",
    "sub": "Wohnviertel am Forum",
    "r": [
+    150,
     80,
-    36,
-    48,
+    30,
     20
    ],
+   "lex": "velia",
+   "amb": 6,
+   "roles": [
+    "citizen",
+    "woman",
+    "slave"
+   ],
+   "danger": 1
+  },
+  {
+   "id": "viminal",
+   "name": "Viminal",
+   "sub": "Wohnhügel im Nordosten",
+   "r": [
+    150,
+    12,
+    46,
+    30
+   ],
+   "lex": "quirinal",
+   "amb": 4,
+   "roles": [
+    "citizen",
+    "woman",
+    "child"
+   ],
+   "danger": 1
+  },
+  {
+   "id": "quirinal",
+   "name": "Quirinal",
+   "sub": "Hügel des Quirinus",
+   "r": [
+    96,
+    6,
+    54,
+    50
+   ],
+   "lex": "quirinal",
+   "amb": 7,
+   "roles": [
+    "citizen",
+    "woman",
+    "slave",
+    "child"
+   ],
+   "danger": 0.8
+  },
+  {
+   "id": "esquilin",
+   "name": "Esquilin",
+   "sub": "Gärten und Häuser",
+   "r": [
+    172,
+    42,
+    28,
+    64
+   ],
+   "lex": "esquilin",
    "amb": 5,
    "roles": [
     "citizen",
@@ -1748,16 +4745,35 @@
    "danger": 1
   },
   {
+   "id": "via_appia",
+   "name": "Via Appia",
+   "sub": "Gräberstraße vor der Porta Capena",
+   "r": [
+    158,
+    138,
+    42,
+    32
+   ],
+   "lex": "via_appia",
+   "amb": 3,
+   "roles": [
+    "citizen",
+    "worker"
+   ],
+   "danger": 1.4
+  },
+  {
    "id": "caelius",
    "name": "Caelius",
-   "sub": "Gärten und Villen",
+   "sub": "Villen und Gärten",
    "r": [
-    87,
-    56,
-    41,
-    24
+    152,
+    100,
+    46,
+    38
    ],
-   "amb": 3,
+   "lex": "caelius",
+   "amb": 4,
    "roles": [
     "citizen",
     "woman",
@@ -1767,16 +4783,35 @@
   },
   {
    "id": "velabrum",
-   "name": "Velabrum & Forum Boarium",
-   "sub": "Rindermarkt am Fluss",
+   "name": "Velabrum",
+   "sub": "Tal zwischen Kapitol und Palatin",
    "r": [
-    7,
-    44,
-    37,
-    36
+    90,
+    84,
+    16,
+    22
    ],
    "lex": "velabrum",
-   "amb": 7,
+   "amb": 5,
+   "roles": [
+    "citizen",
+    "worker",
+    "woman"
+   ],
+   "danger": 1.2
+  },
+  {
+   "id": "forum_boarium",
+   "name": "Forum Boarium",
+   "sub": "Viehmarkt am Fluss",
+   "r": [
+    62,
+    80,
+    40,
+    46
+   ],
+   "lex": "velabrum",
+   "amb": 9,
    "roles": [
     "worker",
     "citizen",
@@ -1786,20 +4821,134 @@
    "danger": 1.2
   },
   {
-   "id": "marsfeld",
-   "name": "Marsfeld (Rand)",
-   "sub": "Übungsplatz vor der Stadt",
+   "id": "forum_holitorium",
+   "name": "Forum Holitorium",
+   "sub": "Gemüsemarkt vor der Porta Carmentalis",
    "r": [
-    7,
-    0,
-    36,
+    62,
+    60,
+    26,
     18
    ],
-   "lex": "marsfeld",
-   "amb": 4,
+   "lex": "forum_holitorium",
+   "amb": 7,
    "roles": [
     "citizen",
+    "woman",
+    "worker"
+   ],
+   "danger": 0.9
+  },
+  {
+   "id": "emporium",
+   "name": "Emporium",
+   "sub": "Hafen und Lagerhallen",
+   "r": [
+    58,
+    126,
+    26,
+    44
+   ],
+   "lex": "emporium",
+   "amb": 8,
+   "roles": [
+    "worker",
+    "worker",
+    "slave",
+    "citizen"
+   ],
+   "danger": 1.3
+  },
+  {
+   "id": "marsfeld",
+   "name": "Marsfeld",
+   "sub": "Campus Martius in der Flussbiegung",
+   "r": [
+    40,
+    0,
+    58,
+    60
+   ],
+   "lex": "marsfeld",
+   "amb": 8,
+   "roles": [
+    "citizen",
+    "child",
+    "senator",
+    "woman"
+   ],
+   "danger": 0.9
+  },
+  {
+   "id": "horti",
+   "name": "Gärten Caesars",
+   "sub": "Horti Caesaris jenseits des Tibers",
+   "r": [
+    10,
+    128,
+    46,
+    42
+   ],
+   "lex": "horti_caesaris",
+   "amb": 2,
+   "roles": [
+    "slave",
+    "worker"
+   ],
+   "danger": 0.6
+  },
+  {
+   "id": "trans_tiberim",
+   "name": "Trans Tiberim",
+   "sub": "Jenseits des Flusses",
+   "r": [
+    24,
+    56,
+    32,
+    72
+   ],
+   "lex": "trans_tiberim",
+   "amb": 8,
+   "roles": [
+    "worker",
+    "citizen",
+    "woman",
     "child"
+   ],
+   "danger": 1.4
+  },
+  {
+   "id": "ianiculum",
+   "name": "Ianiculum",
+   "sub": "Hügel am Westufer",
+   "r": [
+    0,
+    50,
+    24,
+    78
+   ],
+   "lex": "ianiculum",
+   "amb": 2,
+   "roles": [
+    "citizen",
+    "worker"
+   ],
+   "danger": 1
+  },
+  {
+   "id": "ager_vaticanus",
+   "name": "Ager Vaticanus",
+   "sub": "Offenes Land jenseits des Tibers",
+   "r": [
+    0,
+    0,
+    46,
+    50
+   ],
+   "lex": "ager_vaticanus",
+   "amb": 2,
+   "roles": [
+    "worker"
    ],
    "danger": 0.8
   },
@@ -1810,108 +4959,332 @@
    "r": [
     0,
     0,
-    9,
-    96
+    200,
+    170
    ],
    "lex": "tiber",
    "amb": 0,
-   "danger": 0.5
+   "danger": 0.5,
+   "hideLabel": true
   }
  ],
  "areas": {
   "concordia": [
-   44,
-   36,
+   109,
+   84,
    5,
    2
   ],
   "frumentatio": [
-   57,
-   39,
-   6,
-   4
+   117,
+   88,
+   9,
+   5
   ],
   "macellum": [
-   58,
-   19,
-   12,
-   9
+   134,
+   66,
+   13,
+   10
   ],
   "argentarius": [
-   62,
-   36,
-   4,
+   137,
+   83,
+   6,
    3
   ],
   "lacus_subura": [
-   99,
-   25,
-   9,
-   8
+   151,
+   64,
+   14,
+   7
   ],
   "lacus_palatin": [
-   64,
-   65,
-   6,
+   128,
+   112,
+   8,
    5
   ]
  },
+ "anchors": {
+  "rubrius": [
+   112,
+   85
+  ],
+  "atilius": [
+   107,
+   85
+  ],
+  "praeco": [
+   119,
+   88
+  ],
+  "frumentarius": [
+   121,
+   90
+  ],
+  "argentarius": [
+   140,
+   84
+  ],
+  "fabius_forum": [
+   127,
+   89
+  ],
+  "phileros": [
+   136,
+   72
+  ],
+  "verecunda": [
+   144,
+   72
+  ],
+  "mago": [
+   144,
+   68
+  ],
+  "thais": [
+   136,
+   68
+  ],
+  "asellina": [
+   161,
+   64
+  ]
+ },
+ "stations": [
+  {
+   "id": "forum",
+   "name": "Forum Romanum",
+   "at": [
+    128,
+    91
+   ],
+   "arrive": [
+    128,
+    92
+   ]
+  },
+  {
+   "id": "subura",
+   "name": "Subura (Platz)",
+   "at": [
+    152,
+    69
+   ],
+   "arrive": [
+    152,
+    70
+   ]
+  },
+  {
+   "id": "palatin",
+   "name": "Palatin",
+   "at": [
+    126,
+    109
+   ],
+   "arrive": [
+    126,
+    110
+   ]
+  },
+  {
+   "id": "circus",
+   "name": "Circus Maximus",
+   "at": [
+    110,
+    120
+   ],
+   "arrive": [
+    110,
+    121
+   ]
+  },
+  {
+   "id": "marsfeld",
+   "name": "Marsfeld (Theater des Pompeius)",
+   "at": [
+    71,
+    48
+   ],
+   "arrive": [
+    71,
+    49
+   ]
+  },
+  {
+   "id": "boarium",
+   "name": "Forum Boarium",
+   "at": [
+    87,
+    97
+   ],
+   "arrive": [
+    87,
+    98
+   ]
+  },
+  {
+   "id": "emporium",
+   "name": "Emporium",
+   "at": [
+    74,
+    132
+   ],
+   "arrive": [
+    74,
+    133
+   ]
+  },
+  {
+   "id": "transtiberim",
+   "name": "Trans Tiberim",
+   "at": [
+    36,
+    98
+   ],
+   "arrive": [
+    36,
+    99
+   ]
+  },
+  {
+   "id": "capena",
+   "name": "Porta Capena",
+   "at": [
+    156,
+    134
+   ],
+   "arrive": [
+    156,
+    135
+   ]
+  },
+  {
+   "id": "esquilina",
+   "name": "Porta Esquilina",
+   "at": [
+    190,
+    60
+   ],
+   "arrive": [
+    190,
+    61
+   ]
+  },
+  {
+   "id": "fontinalis",
+   "name": "Porta Fontinalis",
+   "at": [
+    101,
+    52
+   ],
+   "arrive": [
+    101,
+    53
+   ]
+  },
+  {
+   "id": "collina",
+   "name": "Porta Collina",
+   "at": [
+    142,
+    8
+   ],
+   "arrive": [
+    142,
+    9
+   ]
+  }
+ ],
  "lights": [
   [
-   102,
-   28,
+   157,
+   67,
    30
   ],
   [
-   67,
-   68,
-   26
-  ],
-  [
-   46,
-   36,
-   26
-  ],
-  [
-   94,
-   31,
-   22
-  ],
-  [
-   84,
-   31,
-   22
-  ],
-  [
-   59,
-   65,
+   132,
+   115,
    24
   ],
   [
-   73,
-   65,
+   110,
+   85,
+   26
+  ],
+  [
+   136,
+   71,
+   22
+  ],
+  [
+   144,
+   71,
+   22
+  ],
+  [
+   159,
+   77,
+   22
+  ],
+  [
+   152,
+   77,
+   22
+  ],
+  [
+   96,
+   52,
+   26
+  ],
+  [
+   157,
+   139,
+   26
+  ],
+  [
+   78,
+   126,
    24
   ],
   [
-   61,
-   24,
-   26
+   88,
+   78,
+   24
   ],
   [
-   67,
-   24,
-   26
+   196,
+   62,
+   24
+  ],
+  [
+   147,
+   8,
+   24
   ]
  ],
  "animals": [
   {
+   "kind": "cow",
+   "color": "#8a5a3a",
+   "r": [
+    77,
+    97,
+    7,
+    3
+   ],
+   "n": 3
+  },
+  {
    "kind": "dog",
    "color": "#8a6a44",
    "r": [
-    76,
-    2,
-    48,
-    32
+    148,
+    44,
+    24,
+    36
    ],
    "n": 3
   },
@@ -1919,21 +5292,21 @@
    "kind": "dog",
    "color": "#3a3030",
    "r": [
+    24,
+    68,
     26,
-    46,
-    16,
-    30
+    60
    ],
-   "n": 1
+   "n": 2
   },
   {
    "kind": "dog",
    "color": "#d8c8a8",
    "r": [
-    50,
-    64,
-    30,
-    10
+    106,
+    100,
+    40,
+    18
    ],
    "n": 1
   },
@@ -1941,10 +5314,10 @@
    "kind": "cat",
    "color": "#c98a4a",
    "r": [
-    43,
-    38,
-    30,
-    8
+    108,
+    88,
+    36,
+    6
    ],
    "n": 2
   },
@@ -1952,10 +5325,10 @@
    "kind": "cat",
    "color": "#7a7068",
    "r": [
-    99,
-    25,
-    9,
-    8
+    151,
+    64,
+    14,
+    7
    ],
    "n": 1
   },
@@ -1963,23 +5336,45 @@
    "kind": "chicken",
    "color": "#f0ece0",
    "r": [
-    10,
-    52,
-    16,
-    12
+    66,
+    62,
+    20,
+    10
    ],
-   "n": 4
+   "n": 3
   },
   {
    "kind": "chicken",
    "color": "#a8743f",
    "r": [
-    99,
-    25,
-    9,
-    8
+    151,
+    64,
+    14,
+    7
    ],
    "n": 2
+  },
+  {
+   "kind": "chicken",
+   "color": "#f0ece0",
+   "r": [
+    4,
+    8,
+    20,
+    10
+   ],
+   "n": 3
+  },
+  {
+   "kind": "donkey",
+   "color": "#8a8078",
+   "r": [
+    64,
+    128,
+    14,
+    8
+   ],
+   "n": 1
   }
  ]
 }

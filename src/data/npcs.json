@@ -281,10 +281,7 @@
       8
      ],
      "map": "rom",
-     "at": [
-      55,
-      43
-     ],
+     "at": "@fabius_forum",
      "wander": 2
     },
     {
@@ -399,10 +396,7 @@
       8
      ],
      "map": "rom",
-     "at": [
-      48,
-      37
-     ],
+     "at": "@rubrius",
      "wander": 1
     }
    ]
@@ -427,10 +421,7 @@
       8
      ],
      "map": "rom",
-     "at": [
-      43,
-      37
-     ],
+     "at": "@atilius",
      "wander": 1
     }
    ]
@@ -454,10 +445,7 @@
       10
      ],
      "map": "rom",
-     "at": [
-      53,
-      41
-     ],
+     "at": "@praeco",
      "wander": 2
     }
    ]
@@ -482,10 +470,7 @@
       7
      ],
      "map": "rom",
-     "at": [
-      60,
-      40
-     ],
+     "at": "@frumentarius",
      "dir": "down"
     }
    ]
@@ -511,10 +496,7 @@
       9
      ],
      "map": "rom",
-     "at": [
-      64,
-      37
-     ],
+     "at": "@argentarius",
      "dir": "down"
     }
    ]
@@ -523,7 +505,7 @@
    "id": "phileros",
    "name": "Phileros",
    "role": "Öl- und Olivenhändler",
-   "where": "Macellum",
+   "where": "Macellum am Argiletum",
    "dialogue": "phileros",
    "app": {
     "skin": "#d9a47a",
@@ -540,10 +522,7 @@
       10
      ],
      "map": "rom",
-     "at": [
-      60,
-      24
-     ],
+     "at": "@phileros",
      "dir": "down"
     }
    ]
@@ -552,7 +531,7 @@
    "id": "verecunda",
    "name": "Verecunda",
    "role": "Händlerin",
-   "where": "Macellum",
+   "where": "Macellum am Argiletum",
    "dialogue": "verecunda",
    "app": {
     "skin": "#e8b88f",
@@ -569,10 +548,7 @@
       10
      ],
      "map": "rom",
-     "at": [
-      67,
-      24
-     ],
+     "at": "@verecunda",
      "dir": "down"
     }
    ]
@@ -581,7 +557,7 @@
    "id": "mago",
    "name": "Mago",
    "role": "Weinhändler",
-   "where": "Macellum",
+   "where": "Macellum am Argiletum",
    "dialogue": "mago",
    "app": {
     "skin": "#a86f48",
@@ -598,10 +574,7 @@
       10
      ],
      "map": "rom",
-     "at": [
-      67,
-      20
-     ],
+     "at": "@mago",
      "dir": "down"
     }
    ]
@@ -610,7 +583,7 @@
    "id": "thais",
    "name": "Thais",
    "role": "Fischhändlerin",
-   "where": "Macellum",
+   "where": "Macellum am Argiletum",
    "dialogue": "thais",
    "app": {
     "skin": "#d9a47a",
@@ -627,10 +600,7 @@
       10
      ],
      "map": "rom",
-     "at": [
-      60,
-      20
-     ],
+     "at": "@thais",
      "dir": "down"
     }
    ]
@@ -768,10 +738,7 @@
       15
      ],
      "map": "rom",
-     "at": [
-      109,
-      31
-     ],
+     "at": "@asellina",
      "dir": "down"
     }
    ]

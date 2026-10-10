@@ -10,8 +10,9 @@ Lebenssimulation im Rom Caesars. Start: Kalenden des April 46 v. Chr. (708 a.u.c
   Iden des März nach ca. 6–10 Stunden Spielzeit erreichbar sind.
 - **Jahreszeiten:** Der Kalender war 46 v. Chr. rund drei Monate „vorgelaufen“. Das Spiel zeigt das korrekte
   römische Datum, Licht/Wetter folgen aber der astronomischen Jahreszeit (im Lexikon erklärt).
-- **Karte:** Eine Außenkarte „Rom“ (Tiles à 16 px), generiert aus `src/data/map_rom.json`, plus kleine
-  Innenräume aus ASCII-Layouts. Erweiterung um neue Viertel durch Vergrößern der Karte und neue JSON-Einträge.
+- **Karte:** Eine Außenkarte „Rom“ (200 × 170 Tiles à 16 px) mit festen Layern in `src/data/map_rom.json`,
+  entworfen in `tools/build_map.mjs` nach dem Plan in `docs/karte_uebersicht.md`; Chunk-Rendering (nur sichtbare
+  32×32-Blöcke). Innenräume sind eigene kleine Karten aus ASCII-Layouts.
 - **UI:** DOM-Overlays über einem pixeligen Canvas (scharfe Schrift, einfache Bedienung, auch Touch).
 
 ## Phase 1 – Spielbarer Kern ✅ (dieser Stand)
@@ -26,6 +27,15 @@ Lebenssimulation im Rom Caesars. Start: Kalenden des April 46 v. Chr. (708 a.u.c
 - Je Klasse 3 Missionen; Minispiele: Brot backen, Wasser schöpfen, Feilschen; Automatisierung nach 3 Erfolgen
 - Klassen-Einschränkung Sklave (Palatin nur mit Auftrag verlassen), Miete für Plebejer
 - Speichern/Laden (localStorage, try/catch), Touch-Steuerung (Basis)
+
+## Zwischenschritt – Neue Stadtkarte ✅
+- Ganz Rom stark verkleinert, aber lagerichtig: Tiber mit Biegung, Tiberinsel, Trans Tiberim, Ianiculum, Ager Vaticanus,
+  Marsfeld (Theater des Pompeius, Curia Pompeia, Saepta, Circus Flaminius), alle sieben Hügel, Servianische Mauer mit 9 Toren,
+  Forum mit allen Hauptbauten, Forum Iulium, Macellum, Märkte, Emporium, Via Appia mit Gräbern, drei Brücken
+- Straßennetz (Via Sacra, Argiletum, Clivus Suburanus, Vicus Tuscus/Iugarius, Via Flaminia …), Treppen auf die Hügel
+- Minikarte, Stadtplan (M), Viertel-Einblendung, aufgemalte Wegweiser, Sänften-Schnellreise an 12 Plätzen
+- Vorbereitete Türen (Innenräume folgen): Taverne, Töpferladen, Balneum (Subura), Tempel des Saturn, Basilica Aemilia, Curia Pompeia
+- Curia Cornelia steht; Phase 4: Ereignis 44 v. Chr. macht sie zur Baustelle der Curia Iulia
 
 ## Phase 2 – Die ganze Stadt
 - Karte erweitern: Marsfeld, Theater des Pompeius mit Curia Pompeia, Tiberhafen (Emporium/Lagerhallen),

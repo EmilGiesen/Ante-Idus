@@ -35,6 +35,12 @@ Diese Regeln gelten für **alle** Sitzungen. Den Phasenplan findest du in `PLAN.
 - Vanilla JavaScript (ES-Module), HTML, CSS, Canvas 2D. Vite nur als Dev-Server/Bundler, keine Laufzeit-Abhängigkeiten.
 - **Keine externen Assets**: alle Grafiken werden im Code gezeichnet (`src/gfx/`), keine Bilder, Sounds, Webfonts.
 - Inhalte sind **Daten** in `src/data/*.json` (NPCs, Dialoge, Missionen, Lexikon, Items, Karten, Klassen).
+- **Stadtkarte:** `src/data/map_rom.json` (200 × 170 Tiles) enthält feste Layer: `ground` (ein Zeichen pro Tile,
+  Legende in `src/world/tiles.js`), `buildings`, `deco`, optional `collision`, dazu Zonen, Bereiche, Anker
+  (benannte NPC-Positionen, in `npcs.json` als `"@name"`), Sänftenplätze. Die Datei wird von `tools/build_map.mjs`
+  erzeugt (`npm run map`) – Kartenänderungen dort vornehmen, nie zur Laufzeit zufällig generieren.
+- Lagebeziehungen der Karte folgen `docs/karte_uebersicht.md` (freigegebener Plan).
+- Türen zu noch nicht gebauten Innenräumen tragen `"planned": true`; der Innenraum kommt später in `interiors.json`.
   Neue Inhalte möglichst nur dort hinzufügen; Code nur ändern, wenn ein neuer *Mechanismus* nötig ist.
 - JSON wird per `fetch(new URL('./data/x.json', import.meta.url))` geladen (funktioniert mit Vite und jedem Static-Server).
 - Ordner:
@@ -51,7 +57,7 @@ Diese Regeln gelten für **alle** Sitzungen. Den Phasenplan findest du in `PLAN.
 - Kommentare knapp, auf Deutsch oder Englisch – im Projekt einheitlich Deutsch.
 
 ## 4. Arbeitsweise
-- Nach jeder Phase: `npm run validate` (Datenprüfung), `npm run build` und `npm run smoke` (Headless-Chrome,
-  spielt alle Missionen durch) müssen fehlerfrei laufen, dann Git-Commit.
+- Nach jeder Phase: `npm run map` (falls Karte geändert, 0 Warnungen), `npm run validate` (Datenprüfung),
+  `npm run build` und `npm run smoke` (Headless-Chrome, spielt alle Missionen durch) müssen fehlerfrei laufen, dann Git-Commit.
 - Neue Missionen in `tools/smoke.mjs` (Abschnitt „Alle Missionen …“) mit einem Durchlauf absichern.
-- Steuerung: WASD/Pfeile laufen, Shift sprinten, E interagieren, I Inventar, L Logbuch, K Lexikon, Esc Menü.
+- Steuerung: WASD/Pfeile laufen, Shift sprinten, E interagieren, I Inventar, L Logbuch, K Lexikon, M Stadtplan, Esc Menü.

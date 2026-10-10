@@ -62,7 +62,7 @@ const KINDS = {
       const wy = fy + 3 + f * 9;
       for (let wx = X + 4; wx < X + W - 5; wx += 8) {
         win(p, wx, wy, 3, 4);
-        map.windowLights.push({ x: wx, y: wy, w: 3, h: 4, s: rng() });
+        (map.winSink || map.windowLights).push({ x: wx, y: wy, w: 3, h: 4, s: rng() });
       }
     }
     if (floors >= 2 && rng() < 0.6) {
@@ -555,3 +555,150 @@ function drawTemple({ p, q, X, Y, W, H, st, rng }, building) {
   p('#b5ab92', X, yStairs, 2, stairH); p('#b5ab92', X + W - 2, yStairs, 2, stairH);
   for (let i = 0; i < stairH; i += 2) { p(marble, sx, yStairs + i, sw, 1); p(colD, sx, yStairs + i + 1, sw, 1); }
 }
+
+// ---------- Ergänzungen für die große Stadtkarte ----------
+Object.assign(KINDS, {
+  tower({ p, X, Y, W, H }) {
+    const tuff = '#bfae84';
+    p(tuff, X, Y, W, H);
+    for (let yy = Y + 4; yy < Y + H; yy += 5) p(shade(tuff, -0.15), X, yy, W, 1);
+    p(shade(tuff, 0.15), X, Y, W, 3);
+    for (let xx = X; xx < X + W; xx += 6) p(shade(tuff, -0.3), xx + 2, Y, 3, 2);
+    p('#2e241c', X + Math.floor(W / 2) - 1, Y + 7, 2, 5);
+    p('rgba(0,0,0,0.3)', X, Y + H - 2, W, 2);
+  },
+
+  gatearch({ q, X, Y, W, st }) {
+    // Torbogen über der Straße (in der Überlagerung, man läuft darunter hindurch)
+    const tuff = '#c4b186';
+    const vertical = st.dir === 'v';
+    if (vertical) {
+      q(tuff, X, Y - 12, W, 14); q(shade(tuff, 0.15), X, Y - 12, W, 3);
+      for (let yy = Y - 9; yy < Y + 2; yy += 4) q(shade(tuff, -0.15), X, yy, W, 1);
+      return;
+    }
+    q(tuff, X, Y - 14, W, 12);
+    q(shade(tuff, 0.18), X, Y - 14, W, 3);
+    q('#2e241c', X + 4, Y - 9, W - 8, 7);
+    for (let i = 0; i < 3; i++) q(tuff, X + 4 + i, Y - 9 + 2 - i, W - 8 - 2 * i, 1);
+    if (st.label) for (let i = 0; i < W - 12; i += 3) q('#7a6a48', X + 6 + i, Y - 12, 2, 1);
+  },
+
+  theater({ p, q, X, Y, W, H }) {
+    // Theater des Pompeius: halbrunder Zuschauerraum (cavea) nach Osten offen, Bühnenhaus im Osten
+    const stageW = 28;
+    const cx = X + W - stageW, cy = Y + H / 2, R = Math.min(W - stageW, H / 2) - 1;
+    for (let yy = Y; yy < Y + H; yy++) {
+      for (let xx = X; xx < cx; xx++) {
+        const d = Math.hypot(xx + 0.5 - cx, yy + 0.5 - cy);
+        if (d > R) continue;
+        let col;
+        if (d > R - 5) col = (Math.floor(Math.atan2(yy - cy, xx - cx) * 14) % 2) ? '#a8956a' : '#c4b186';
+        else if (d < R * 0.32) col = '#d8cfb4';
+        else col = Math.floor(d / 3) % 2 ? '#e2d8bf' : '#cfc4a8';
+        p(col, xx, yy, 1, 1);
+      }
+    }
+    p('#2e241c', cx - 1, Y + 3, 2, H - 6);
+    p('#efe9dc', cx + 1, Y + 2, stageW - 2, H - 4);
+    roof(p, cx + 1, Y + 2, stageW - 2, Math.round(H * 0.45), '#b5532f');
+    for (let yy = Y + Math.round(H * 0.5); yy < Y + H - 6; yy += 6) p('#f6f2e8', cx + 2, yy, stageW - 4, 2);
+    // Tempel der Venus Victrix auf der Höhe des Zuschauerraums
+    const tx = X + 2, ty = Math.round(cy) - 9;
+    p('#efe9dc', tx, ty, 12, 18); p('#b9583a', tx, ty, 6, 18); p('#cfc8b5', tx + 11, ty, 1, 18);
+    for (let i = 0; i < 4; i++) q('#f6f2e8', tx + 7 + (i % 2) * 2, ty + 2 + i * 4, 2, 2);
+  },
+
+  colonnade({ p, X, Y, W, H }) {
+    const horiz = W >= H;
+    p('#b5532f', X, Y, W, H);
+    if (horiz) {
+      p('#e8dcc0', X, Y + H - 6, W, 6);
+      for (let xx = X + 2; xx < X + W - 2; xx += 6) { p('#f6f2e8', xx, Y + H - 6, 3, 6); p('#cfc8b5', xx + 2, Y + H - 6, 1, 6); }
+      p('#3d3026', X, Y + H - 2, W, 1);
+      p(shade('#b5532f', 0.2), X, Y, W, 2);
+    } else {
+      p('#e8dcc0', X + W - 6, Y, 6, H);
+      for (let yy = Y + 2; yy < Y + H - 2; yy += 6) p('#f6f2e8', X + W - 6, yy, 6, 3);
+      p(shade('#b5532f', 0.2), X, Y, 2, H);
+    }
+  },
+
+  tomb({ p, X, Y, W, H, rng, st }) {
+    const v = st.variant || ['drum', 'altar', 'house'][Math.floor(rng() * 3)];
+    const stone = '#d6ccb2';
+    if (v === 'drum') {
+      // Rundgrab
+      const cx = X + W / 2, cy = Y + H / 2 + 2, r = Math.min(W, H) / 2 - 1;
+      ellipseFill(p, '#a99f8c', cx, cy + 2, r, r * 0.7);
+      ellipseFill(p, stone, cx, cy, r, r * 0.7);
+      ellipseFill(p, '#6f8a4a', cx, cy - 3, r * 0.75, r * 0.45);
+      for (let i = -r + 2; i < r - 1; i += 4) p('#bdb295', Math.round(cx + i), Math.round(cy + r * 0.5), 2, 3);
+    } else if (v === 'altar') {
+      p('#bdb295', X + 2, Y + 6, W - 4, H - 6); p(stone, X + 2, Y + 4, W - 4, H - 8);
+      p('#efe9dc', X + 1, Y + 3, W - 2, 2); p('#efe9dc', X + 1, Y + H - 4, W - 2, 2);
+      p('#8a7a5a', X + 5, Y + 8, W - 10, 1); p('#8a7a5a', X + 5, Y + 10, W - 12, 1);
+    } else {
+      p(stone, X + 2, Y + 8, W - 4, H - 8); p('#3d3026', X + W / 2 - 2, Y + H - 7, 4, 7);
+      for (let i = 0; i < 6; i++) p('#b9583a', X + 2 + i, Y + 8 - i, W - 4 - i * 2, 1);
+    }
+  },
+
+  litter({ p, X, Y, W }) {
+    // Sänfte (lectica) mit Tragestangen
+    p('#6b4426', X - 2, Y + 9, W + 4, 2);
+    p('#7a2230', X + 3, Y + 2, W - 6, 10);
+    p('#a3392c', X + 4, Y + 3, W - 8, 4);
+    p('#e3c27a', X + 3, Y + 2, W - 6, 1);
+    p('#f0e6d0', X + 6, Y + 7, W - 12, 4);
+    p('#4a2c18', X + 4, Y + 12, 2, 3); p('#4a2c18', X + W - 6, Y + 12, 2, 3);
+  },
+
+  sign({ p, X, Y }) {
+    // Bemalter Hinweisstein (Spielhilfe)
+    p('#bdb295', X + 5, Y + 6, 6, 10);
+    p('#f4eedc', X + 3, Y + 2, 10, 8);
+    p('#a3392c', X + 4, Y + 4, 8, 1); p('#3a2a20', X + 4, Y + 6, 6, 1); p('#3a2a20', X + 4, Y + 8, 7, 1);
+    p('#8a7a5a', X + 3, Y + 10, 10, 1);
+  },
+
+  fence({ p, X, Y, W, H }) {
+    const horiz = W >= H;
+    if (horiz) {
+      for (let xx = X; xx < X + W; xx += 4) p('#6b4426', xx + 1, Y + 6, 2, 9);
+      p('#8a5a32', X, Y + 8, W, 2); p('#8a5a32', X, Y + 12, W, 1);
+    } else {
+      for (let yy = Y; yy < Y + H; yy += 5) p('#6b4426', X + 6, yy, 3, 4);
+      p('#8a5a32', X + 7, Y, 1, H);
+    }
+  },
+
+  boat({ p, X, Y, W }) {
+    p('#5a3a22', X + 1, Y + 7, W - 2, 5);
+    p('#7a5232', X + 2, Y + 6, W - 4, 2);
+    p('#3a2a1a', X + 3, Y + 11, W - 6, 2);
+    for (let i = 0; i < 3; i++) p('#b0603a', X + 5 + i * 5, Y + 3, 3, 4);
+  },
+
+  saepta({ p, X, Y, W, H }) {
+    // Wahlgehege: Holzschranken und Gänge
+    p('#c8a46e', X, Y, W, H);
+    for (let xx = X + 3; xx < X + W - 2; xx += 8) p('#7a5232', xx, Y + 2, 2, H - 4);
+    p('#8a5a32', X, Y, W, 3); p('#8a5a32', X, Y + H - 3, W, 3);
+    p('#6b4426', X, Y, 2, H); p('#6b4426', X + W - 2, Y, 2, H);
+  },
+
+  carcer({ p, X, Y, W, H }) {
+    const tuff = '#a89a78';
+    p(tuff, X, Y, W, H);
+    for (let yy = Y + 3; yy < Y + H; yy += 5) p(shade(tuff, -0.15), X, yy, W, 1);
+    p(shade(tuff, 0.15), X, Y, W, 3);
+    p('#2e241c', X + Math.floor(W / 2) - 3, Y + H - 9, 6, 9);
+    p('#5a4a3a', X + Math.floor(W / 2) - 3, Y + H - 9, 6, 1);
+  },
+
+  well({ p, X, Y }) {
+    ellipseFill(p, '#bdb295', X + 8, Y + 9, 6, 5);
+    ellipseFill(p, '#3f6b8a', X + 8, Y + 8, 4, 3);
+  },
+});

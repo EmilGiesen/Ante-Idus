@@ -5,7 +5,7 @@ import { dateOfPlayedDay, formatRoman, formatGerman, auc, season } from '../core
 import { hourLabel, hourHint, isNight } from '../core/time.js';
 import { coins } from '../core/util.js';
 import { NEED_NAMES } from '../systems/needs.js';
-import { currentStep, mdef } from '../systems/missions.js';
+import { currentStep, mdef, targetOf } from '../systems/missions.js';
 import { fmt } from '../systems/text.js';
 
 const ICON = { satiety: '🍞', energy: '⚡', health: '❤', hygiene: '💧' };
@@ -26,8 +26,9 @@ export class Hud {
     this.left = el('div', { class: 'hud-box hud-left' }, this.who, this.date, this.time, el('div', { class: 'needs' }, needs), this.money, this.extra);
     this.zone = el('div', { class: 'hud-zone' });
     this.goal = el('div', { class: 'hud-goal' });
-    this.right = el('div', { class: 'hud-box hud-right' }, this.zone, this.goal);
-    this.keys = el('div', { class: 'hud-keys' }, 'E sprechen/benutzen · Shift sprinten · I Inventar · L Logbuch · K Lexikon · Esc Menü');
+    this.mini = el('canvas', { class: 'minimap px', width: 140, height: 104, title: 'Stadtplan: M' });
+    this.right = el('div', { class: 'hud-box hud-right' }, this.zone, this.goal, this.mini);
+    this.keys = el('div', { class: 'hud-keys' }, 'E sprechen/benutzen · Shift sprinten · I Inventar · L Logbuch · K Lexikon · M Stadtplan · Esc Menü');
     this.root = el('div', { class: 'hud hidden' }, this.left, this.right, this.keys);
     root.append(this.root);
     this.t = 0;
@@ -66,6 +67,35 @@ export class Hud {
     this.goal.innerHTML = '';
     if (step) this.goal.append(el('b', {}, mdef(id).title), el('span', {}, fmt(step.text)));
     else this.goal.append(el('span', { class: 'muted' }, 'Kein Ziel verfolgt – L öffnet das Logbuch.'));
+    this.drawMini();
+  }
+
+  // Minikarte: Ausschnitt um die Spielfigur (2 Pixel pro Tile), Ziel als goldener Punkt
+  drawMini() {
+    const g = G.game, map = g.map, ctx = this.mini.getContext('2d');
+    const W = this.mini.width, H = this.mini.height;
+    ctx.imageSmoothingEnabled = false;
+    ctx.fillStyle = '#1b120c';
+    ctx.fillRect(0, 0, W, H);
+    let sc = 2, ox, oy;
+    if (map.interior) {
+      sc = Math.max(1, Math.floor(Math.min(W / map.w, H / map.h)));
+      ox = Math.floor((W - map.w * sc) / 2); oy = Math.floor((H - map.h * sc) / 2);
+      ctx.drawImage(map.mini, ox, oy, map.w * sc, map.h * sc);
+      ox = -ox / sc; oy = -oy / sc;
+    } else {
+      ox = g.player.x / 16 - W / sc / 2; oy = g.player.y / 16 - H / sc / 2;
+      ox = Math.max(0, Math.min(map.w - W / sc, ox)); oy = Math.max(0, Math.min(map.h - H / sc, oy));
+      ctx.drawImage(map.mini, ox, oy, W / sc, H / sc, 0, 0, W, H);
+    }
+    const dot = (tx, ty, c, r) => { ctx.fillStyle = '#2b1b12'; ctx.fillRect(Math.round((tx - ox) * sc) - r - 1, Math.round((ty - oy) * sc) - r - 1, r * 2 + 2, r * 2 + 2); ctx.fillStyle = c; ctx.fillRect(Math.round((tx - ox) * sc) - r, Math.round((ty - oy) * sc) - r, r * 2, r * 2); };
+    const s = G.state;
+    const tgt = s.tracked && targetOf(s.tracked);
+    if (tgt) {
+      const p = tgt.map === map.id ? tgt : (map.interior ? null : g.doorFront(tgt.map));
+      if (p) dot(p.x / 16, p.y / 16, '#f2c14e', 2);
+    }
+    dot(g.player.x / 16, g.player.y / 16, '#ffffff', 2);
   }
 
   extraText(s) {

@@ -156,7 +156,7 @@
    "cat": "orte",
    "text": [
     "Der Tiber ist Roms Lebensader: Über ihn kommen Getreide, Wein und Öl in die Stadt. Hochwasser überschwemmt immer wieder die tief gelegenen Viertel.",
-    "Auf der Tiberinsel steht seit 291 v. Chr. der Tempel des Heilgottes Aesculapius. Die Steinbrücke Pons Fabricius (62 v. Chr.) zur Insel ist bis heute in Gebrauch."
+    "Auf der Tiberinsel steht seit 291 v. Chr. der Tempel des Heilgottes Aesculapius."
    ],
    "sources": [
     "Livius 10,47 und Periochae 11",
@@ -168,8 +168,8 @@
    "title": "Marsfeld",
    "cat": "orte",
    "text": [
-    "Das Marsfeld (Campus Martius) liegt außerhalb der heiligen Stadtgrenze (pomerium). Hier üben junge Männer, hier versammelt sich das Volk zu Wahlen, und hier steht seit 55 v. Chr. das Theater des Pompeius – Roms erstes steinernes Theater.",
-    "In der Halle neben diesem Theater, der Curia Pompeia, wird der Senat an den Iden des März 44 v. Chr. tagen."
+    "Das Marsfeld (Campus Martius) liegt in der Tiberbiegung außerhalb der Mauer und der heiligen Stadtgrenze (pomerium). Hier üben junge Männer, hier stimmt das Volk in den Saepta ab, hier stehen Gräber berühmter Männer und Frauen.",
+    "Seit 55 v. Chr. steht hier das Theater des Pompeius mit Säulenhalle und Curia Pompeia."
    ],
    "sources": [
     "Strabon 5,3,8",
@@ -215,14 +215,15 @@
    ]
   },
   "curia": {
-   "title": "Curia",
+   "title": "Curia (Senatshaus)",
    "cat": "orte",
    "text": [
-    "Die Curia ist das Versammlungshaus des Senats am Comitium. Die alte Curia Hostilia brannte 52 v. Chr. beim Begräbnis des Clodius nieder und wurde neu gebaut.",
-    "44 v. Chr. beschließt der Senat einen Neubau (Curia Iulia). Der Senat tagte aber ohnehin oft auch in Tempeln. Wie es mit dem Bau genau weiterging, ist in der Forschung umstritten."
+    "Die alte Curia Hostilia brannte 52 v. Chr. beim Begräbnis des Clodius ab. Faustus Cornelius Sulla, Sohn des Diktators, ließ sie neu errichten: die Curia Cornelia. In ihr – und oft auch in Tempeln – tagt der Senat 46 v. Chr.",
+    "Laut Cassius Dio beschließt der Senat erst 44 v. Chr., die Curia Cornelia abzureißen (an ihrer Stelle soll ein Tempel der Felicitas entstehen) und eine neue Curia Iulia zu bauen. Fertig wird sie 29 v. Chr. unter Octavian. Die genaue Abfolge ist in der Forschung umstritten; im Spiel wird die Curia deshalb erst durch ein Ereignis 44 v. Chr. zur Baustelle."
    ],
    "sources": [
-    "Cassius Dio 40,49 und 44,5",
+    "Cassius Dio 40,49–50 und 44,5",
+    "Augustus, Res gestae 19",
     "Asconius, Kommentar zu Ciceros Pro Milone"
    ]
   },
@@ -693,6 +694,281 @@
    "sources": [
     "Plinius, Naturgeschichte 7,212–215",
     "Censorinus, De die natali 23"
+   ]
+  },
+  "carcer": {
+   "title": "Carcer (Staatsgefängnis)",
+   "cat": "orte",
+   "text": [
+    "Der Carcer mit dem unterirdischen Tullianum liegt am Fuß des Kapitols beim Comitium. Lange Haftstrafen kennt Rom kaum: Hier warten Gefangene auf Urteil oder Hinrichtung.",
+    "63 v. Chr. wurden hier die Verschwörer um Catilina erdrosselt. Nach Caesars Gallischem Triumph 46 v. Chr. stirbt hier der gefangene Gallierfürst Vercingetorix."
+   ],
+   "sources": [
+    "Sallust, Catilina 55",
+    "Cassius Dio 43,19",
+    "Livius 1,33"
+   ]
+  },
+  "mauer": {
+   "title": "Die Servianische Mauer",
+   "cat": "orte",
+   "text": [
+    "Der Sage nach baute König Servius Tullius die Stadtmauer. Die erhaltenen Tuffquader stammen aber aus dem 4. Jh. v. Chr., errichtet nach dem Galliereinfall. Die Mauer war rund 11 km lang und hatte zahlreiche Tore.",
+    "Zu Caesars Zeit ist Rom längst über die Mauer hinausgewachsen – das Marsfeld, das Emporium und Trans Tiberim liegen draußen."
+   ],
+   "sources": [
+    "Livius 1,44 und 6,32",
+    "Dionysios von Halikarnassos 4,13",
+    "Archäologische Befunde"
+   ],
+   "estimate": true
+  },
+  "via_appia": {
+   "title": "Via Appia",
+   "cat": "orte",
+   "text": [
+    "Die „Königin der Straßen“ wurde 312 v. Chr. von Appius Claudius Caecus angelegt und beginnt an der Porta Capena.",
+    "Bestattungen innerhalb der Stadt sind verboten. Deshalb säumen Grabmäler die Ausfallstraßen – gleich vor der Porta Capena liegt das Familiengrab der Scipionen."
+   ],
+   "sources": [
+    "Livius 9,29",
+    "Statius, Silvae 2,2,12",
+    "Cicero, Gespräche in Tusculum 1,13",
+    "Cicero, Über die Gesetze 2,58"
+   ]
+  },
+  "theater_pompeius": {
+   "title": "Theater des Pompeius",
+   "cat": "orte",
+   "text": [
+    "55 v. Chr. weihte Pompeius Roms erstes Theater aus Stein. Weil feste Theater als anstößig galten, setzte er einen Tempel der Venus Victrix oben auf den Zuschauerraum – die Sitzreihen wirkten wie Stufen zum Tempel.",
+    "Dahinter liegt eine große Säulenhalle mit Gärten (Porticus Pompeiana). Wie viele Zuschauer Platz fanden, ist umstritten: Schätzungen liegen bei 10.000–20.000, Plinius nennt 40.000."
+   ],
+   "sources": [
+    "Tertullian, Über die Schauspiele 10",
+    "Gellius 10,1,7",
+    "Plutarch, Pompeius 42 und 52",
+    "Plinius, Naturgeschichte 36,115"
+   ],
+   "estimate": true
+  },
+  "curia_pompeia": {
+   "title": "Curia Pompeia",
+   "cat": "orte",
+   "text": [
+    "Eine Versammlungshalle am östlichen Ende der Porticus Pompeiana, mit einer Statue des Pompeius. Hier kann der Senat außerhalb der Stadtgrenze tagen.",
+    "An den Iden des März 44 v. Chr. tritt der Senat hier zusammen – und Caesar wird zu Füßen der Pompeius-Statue ermordet."
+   ],
+   "sources": [
+    "Sueton, Caesar 80–82",
+    "Plutarch, Caesar 66",
+    "Appian, Bürgerkriege 2,117"
+   ]
+  },
+  "emporium": {
+   "title": "Emporium (Flusshafen)",
+   "cat": "orte",
+   "text": [
+    "Unterhalb des Aventin liegt seit 193 v. Chr. der große Flusshafen. Hier kommen Getreide, Öl und Wein an, die von Ostia den Tiber heraufgebracht werden.",
+    "Die riesige Halle, die man meist als Porticus Aemilia deutet, war fast 500 m lang. Daneben liegen weitere Lagerhallen (horrea)."
+   ],
+   "sources": [
+    "Livius 35,10 und 41,27",
+    "Forma Urbis Romae (Marmorplan)",
+    "Moderne Bauforschung"
+   ],
+   "estimate": true
+  },
+  "forum_holitorium": {
+   "title": "Forum Holitorium (Gemüsemarkt)",
+   "cat": "orte",
+   "text": [
+    "Der Gemüsemarkt liegt zwischen Kapitol und Tiber, vor der Porta Carmentalis. Drei Tempel stehen hier nebeneinander – für Ianus, Spes und Iuno Sospita.",
+    "Ihre Reste stecken heute in der Kirche San Nicola in Carcere."
+   ],
+   "sources": [
+    "Livius 21,62",
+    "Tacitus, Annalen 2,49",
+    "Varro, De lingua Latina 5,146"
+   ]
+  },
+  "trans_tiberim": {
+   "title": "Trans Tiberim",
+   "cat": "orte",
+   "text": [
+    "Jenseits des Tibers wohnen Hafenarbeiter, Handwerker und viele Zuwanderer. Erst Augustus macht das Gebiet als 14. Region offiziell zum Stadtgebiet."
+   ],
+   "sources": [
+    "Sueton, Augustus 30",
+    "Plinius, Naturgeschichte 3,66"
+   ]
+  },
+  "horti_caesaris": {
+   "title": "Gärten Caesars",
+   "cat": "orte",
+   "text": [
+    "Caesar besitzt große Gärten am rechten Tiberufer. In seinem Testament vermacht er sie dem römischen Volk.",
+    "Kleopatra wohnte bei ihren Aufenthalten in Rom (46–44 v. Chr.) wohl hier – Cicero erwähnt die Königin in ihren Gärten jenseits des Tibers."
+   ],
+   "sources": [
+    "Sueton, Caesar 83",
+    "Cicero, Briefe an Atticus 15,15",
+    "Cassius Dio 44,35"
+   ]
+  },
+  "ager_vaticanus": {
+   "title": "Ager Vaticanus",
+   "cat": "orte",
+   "text": [
+    "Das flache, teils sumpfige Land nordwestlich des Tibers: Felder, Gärten, Ziegeleien. Die Gegend gilt als ungesund.",
+    "Caesar plante sogar, den Tiber umzuleiten, um hier Bauland zu gewinnen."
+   ],
+   "sources": [
+    "Cicero, Briefe an Atticus 13,33a",
+    "Tacitus, Historien 2,93"
+   ]
+  },
+  "ianiculum": {
+   "title": "Ianiculum",
+   "cat": "orte",
+   "text": [
+    "Der Höhenzug am Westufer. Wenn das Volk auf dem Marsfeld abstimmte, wehte hier eine rote Fahne – wurde sie eingeholt, musste die Versammlung abbrechen, denn das hieß: Feind in Sicht."
+   ],
+   "sources": [
+    "Cassius Dio 37,28",
+    "Livius 39,15"
+   ]
+  },
+  "aventin": {
+   "title": "Aventin",
+   "cat": "orte",
+   "text": [
+    "Der Aventin ist der Hügel der Plebejer und lag lange außerhalb der heiligen Stadtgrenze. Hier stehen der uralte Dianatempel und der Tempel der Iuno Regina.",
+    "Am Fuß zum Circus steht der Tempel von Ceres, Liber und Libera – Sitz der plebejischen Ädilen."
+   ],
+   "sources": [
+    "Livius 1,45 und 5,22",
+    "Dionysios von Halikarnassos 6,17",
+    "Gellius 13,14"
+   ]
+  },
+  "quirinal": {
+   "title": "Quirinal und Viminal",
+   "cat": "orte",
+   "text": [
+    "Die Wohnhügel im Norden. Auf dem Quirinal stehen der Tempel des Quirinus, des vergöttlichten Romulus, und der Tempel der Salus.",
+    "45 v. Chr. wird im Quirinustempel eine Statue Caesars aufgestellt – Cicero spottet über Caesar als „Hausgenossen des Quirinus“."
+   ],
+   "sources": [
+    "Cassius Dio 43,45",
+    "Cicero, Briefe an Atticus 12,45"
+   ]
+  },
+  "esquilin": {
+   "title": "Esquilin",
+   "cat": "orte",
+   "text": [
+    "Der Esquilin im Osten: Häuser, Gärten und die Porta Esquilina. Vor dem Tor lag lange ein Begräbnisfeld für Arme und Sklaven (puticuli) – Maecenas wird es später in Gärten verwandeln."
+   ],
+   "sources": [
+    "Varro, De lingua Latina 5,25",
+    "Horaz, Satiren 1,8"
+   ]
+  },
+  "caelius": {
+   "title": "Caelius",
+   "cat": "orte",
+   "text": [
+    "Der Caelius im Südosten ist ein ruhiger Wohnhügel mit Villen und Gärten, nahe der Porta Capena."
+   ],
+   "sources": [
+    "Varro, De lingua Latina 5,46",
+    "Tacitus, Annalen 4,65"
+   ]
+  },
+  "velia": {
+   "title": "Velia & Carinae",
+   "cat": "orte",
+   "text": [
+    "Die Velia ist der Sattel zwischen Palatin und Esquilin; über ihn führt die Via Sacra. In den Carinae, einem vornehmen Wohnviertel, stand das Haus des Pompeius – nach seinem Tod übernahm es Marcus Antonius."
+   ],
+   "sources": [
+    "Cicero, Philippica 2,68",
+    "Velleius Paterculus 2,77"
+   ]
+  },
+  "circus_flaminius": {
+   "title": "Circus Flaminius",
+   "cat": "orte",
+   "text": [
+    "221 v. Chr. von Gaius Flaminius angelegt – trotz des Namens keine Rennbahn mit Tribünen, sondern ein offener Platz für Märkte, Versammlungen und den Aufmarsch der Triumphzüge."
+   ],
+   "sources": [
+    "Livius, Periochae 20",
+    "Varro, De lingua Latina 5,154",
+    "Moderne Forschung (T. P. Wiseman)"
+   ]
+  },
+  "saepta": {
+   "title": "Saepta (Wahlgehege)",
+   "cat": "orte",
+   "text": [
+    "In den Saepta stimmt das Volk ab, nach Gruppen in hölzernen Pferchen – deshalb heißen sie auch ovile, „Schafstall“.",
+    "Caesar plante schon 54 v. Chr. einen Neubau aus Marmor. Vollendet wird die Saepta Iulia erst 26 v. Chr. von Agrippa."
+   ],
+   "sources": [
+    "Cicero, Briefe an Atticus 4,16,8",
+    "Cassius Dio 53,23"
+   ]
+  },
+  "lectica": {
+   "title": "Sänfte (lectica)",
+   "cat": "alltag",
+   "text": [
+    "Reiche lassen sich in Sänften tragen – von Sklaven, den lecticarii. Caesar schränkt 46 v. Chr. den Gebrauch von Sänften per Gesetz auf bestimmte Personen, Altersgruppen und Tage ein.",
+    "Dass im Spiel auch Plebejer gegen Geld eine Sänfte nehmen können, ist eine Vereinfachung für die Schnellreise."
+   ],
+   "sources": [
+    "Sueton, Caesar 43",
+    "Juvenal, Satiren 1,64",
+    "Martial"
+   ]
+  },
+  "orientierung": {
+   "title": "Wie fand man sich in Rom zurecht?",
+   "cat": "alltag",
+   "text": [
+    "Straßenschilder und Hausnummern gab es nicht. Man beschrieb Wege mit markanten Punkten – „am Tempel vorbei, beim Bäcker links“ –, und so stehen Adressen auch in Inschriften.",
+    "Die aufgemalten Wegweiser im Spiel sind deshalb eine Spielhilfe."
+   ],
+   "sources": [
+    "Terenz, Adelphoe 571–584",
+    "Inschriften aus Rom (CIL VI)"
+   ]
+  },
+  "balneum": {
+   "title": "Balneum (Badehaus)",
+   "cat": "alltag",
+   "text": [
+    "Balneae sind kleinere, oft private Badehäuser gegen Eintritt – meist nur ein Quadrans, ein Viertel-As. Große öffentliche Thermen gibt es noch nicht; die ersten baut Agrippa ab 25 v. Chr."
+   ],
+   "sources": [
+    "Horaz, Satiren 1,3,137",
+    "Cicero, Pro Caelio 61–62",
+    "Cassius Dio 53,27"
+   ]
+  },
+  "bruecken": {
+   "title": "Die Tiberbrücken",
+   "cat": "orte",
+   "text": [
+    "Der hölzerne Pons Sublicius ist die älteste Brücke Roms – ohne Eisennägel gebaut und von den Pontifices gepflegt. Der Pons Aemilius war die erste Steinbrücke (Pfeiler 179, Bögen 142 v. Chr.).",
+    "Der Pons Fabricius (62 v. Chr.) führt zur Tiberinsel und ist bis heute in Gebrauch."
+   ],
+   "sources": [
+    "Livius 1,33 und 40,51",
+    "Plinius, Naturgeschichte 36,100",
+    "CIL VI 1305 (Inschrift am Pons Fabricius)"
    ]
   }
  }

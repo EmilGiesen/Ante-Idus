@@ -30,7 +30,7 @@ function bfs(map, sx, sy) {
   return seen;
 }
 const reach = {};
-const startRom = [58, 43];
+const startRom = [131, 90];
 if (maps.rom.isSolidTile(...startRom)) err('Startpunkt der Erreichbarkeitsprüfung ist blockiert');
 reach.rom = bfs(maps.rom, ...startRom);
 for (const [id, def] of Object.entries(D.interiors)) {
@@ -41,19 +41,34 @@ for (const [id, def] of Object.entries(D.interiors)) {
 const reachable = (m, x, y) => !!reach[m] && reach[m][maps[m].key(x, y)] === 1;
 const canReachAdj = (m, x, y) => [[0, 1], [0, -1], [1, 0], [-1, 0]].some(([dx, dy]) => maps[m].inside(x + dx, y + dy) && reachable(m, x + dx, y + dy));
 
-// Überlappende benannte Gebäude
-const bs = D.map_rom.buildings;
+// Kartenformat
+if (D.map_rom.ground.length !== D.map_rom.h || D.map_rom.ground.some((r) => r.length !== D.map_rom.w)) err('Boden-Layer hat falsche Abmessungen');
+// Überlappende feste Objekte
+const bs = [...D.map_rom.buildings, ...D.map_rom.deco].filter((b) => b.solid !== false && b.kind !== 'tower');
 for (let i = 0; i < bs.length; i++) for (let j = i + 1; j < bs.length; j++) {
   const a = bs[i], b = bs[j];
-  if (a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h) err(`Gebäude überlappen: ${a.name || a.kind}@${a.x},${a.y} und ${b.name || b.kind}@${b.x},${b.y}`);
+  if (a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h) err(`Objekte überlappen: ${a.name || a.kind}@${a.x},${a.y} und ${b.name || b.kind}@${b.x},${b.y}`);
 }
+// Anker
+const anchors = D.map_rom.anchors || {};
+for (const [n, [x, y]] of Object.entries(anchors)) {
+  if (maps.rom.isSolidTile(x, y) || !reachable('rom', x, y)) err(`Anker ${n} (${x},${y}) blockiert oder unerreichbar`);
+}
+// Sänften
+for (const st of D.map_rom.stations || []) {
+  const [x, y] = st.arrive;
+  if (maps.rom.isSolidTile(x, y) || !reachable('rom', x, y)) err(`Sänfte ${st.id}: Ankunftsfeld ${x},${y} blockiert oder unerreichbar`);
+}
+// Wegweiser
+for (const d of D.map_rom.deco) if (d.kind === 'sign' && !canReachAdj('rom', d.x, d.y)) err(`Wegweiser bei ${d.x},${d.y} nicht erreichbar`);
+const planned = [];
 // Türen
 for (const b of maps.rom.buildings) {
   if (!b.door) continue;
   const fx = b.doorTile.x, fy = b.doorTile.y + 1;
   if (maps.rom.isSolidTile(fx, fy)) err(`Tür von ${b.name} (${fx},${fy - 1}): Vorplatz blockiert`);
   else if (!reachable('rom', fx, fy)) err(`Tür von ${b.name}: nicht erreichbar`);
-  if (b.door.to && !D.interiors[b.door.to]) err(`Tür von ${b.name}: Innenraum ${b.door.to} fehlt`);
+  if (b.door.to && !D.interiors[b.door.to]) { if (b.door.planned) planned.push(`${b.door.to} (${b.name})`); else err(`Tür von ${b.name}: Innenraum ${b.door.to} fehlt`); }
   if (b.door.dialogue && !D.dialogues[b.door.dialogue]) err(`Tür von ${b.name}: Dialog ${b.door.dialogue} fehlt`);
   if (b.door.deny && !D.dialogues[b.door.deny]) err(`Tür von ${b.name}: Dialog ${b.door.deny} fehlt`);
 }
@@ -65,8 +80,7 @@ for (const b of maps.rom.buildings) {
   }
 }
 for (const [id, def] of Object.entries(D.interiors)) {
-  const ex = def.exitTo;
-  if (maps.rom.isSolidTile(ex[0], ex[1]) || !reachable('rom', ex[0], ex[1])) err(`${id}: exitTo ${ex} nicht begehbar/erreichbar`);
+  if (!maps.rom.buildings.some((b) => b.door && b.door.to === id)) err(`${id}: keine Tür auf der Stadtkarte führt hierher`);
   const m = maps[id];
   if (![...m.doors.keys()].some((k) => canReachAdj(id, k % m.w, Math.floor(k / m.w)) || reach[id][k])) err(`${id}: Ausgang nicht erreichbar`);
   for (const [k, it] of m.interacts) if (it.type === 'bed' && !canReachAdj(id, k % m.w, Math.floor(k / m.w))) warn.push(`${id}: Bett bei ${k % m.w},${Math.floor(k / m.w)} nicht erreichbar`);
@@ -92,7 +106,8 @@ for (const n of D.npcs.list) {
   for (const s of n.sched) {
     const m = maps[s.map];
     if (!m) { err(`NPC ${n.id}: Karte ${s.map} fehlt`); continue; }
-    const [x, y] = s.at;
+    if (typeof s.at === 'string' && !anchors[s.at.slice(1)]) { err(`NPC ${n.id}: Anker ${s.at} fehlt`); continue; }
+    const [x, y] = typeof s.at === 'string' ? anchors[s.at.slice(1)] : s.at;
     if (m.isSolidTile(x, y)) err(`NPC ${n.id}: steht auf festem Tile ${s.map} ${x},${y}`);
     else if (!reachable(s.map, x, y)) err(`NPC ${n.id}: Position ${s.map} ${x},${y} unerreichbar`);
   }
@@ -155,12 +170,13 @@ for (const [id, e] of Object.entries(lex)) {
   if (!e.sources || !e.sources.length) err(`Lexikon ${id}: keine Quellen`);
 }
 for (const z of D.map_rom.zones) if (z.lex) { usedLex.add(z.lex); if (!lex[z.lex]) err(`Zone ${z.id}: Lexikon ${z.lex} fehlt`); }
-for (const b of D.map_rom.buildings) if (b.lex) { usedLex.add(b.lex); if (!lex[b.lex]) err(`Gebäude ${b.name}: Lexikon ${b.lex} fehlt`); }
+for (const b of [...D.map_rom.buildings, ...D.map_rom.deco]) if (b.lex) { usedLex.add(b.lex); if (!lex[b.lex]) err(`Objekt ${b.name || b.kind}: Lexikon ${b.lex} fehlt`); }
 for (const d of Object.values(D.interiors)) if (d.lex) usedLex.add(d.lex);
-['kalender', 'sklaverei', 'nacht', 'preise'].forEach((x) => usedLex.add(x)); // im Code freigeschaltet
+['kalender', 'sklaverei', 'nacht', 'preise', 'lectica', 'orientierung'].forEach((x) => usedLex.add(x)); // im Code freigeschaltet
 for (const id of Object.keys(lex)) if (!usedLex.has(id)) warn.push(`Lexikon ${id} wird nirgends freigeschaltet`);
 
 for (const w of warn) console.log('Hinweis:', w);
+if (planned.length) console.log(`Vorbereitete Türen (Innenraum folgt später): ${planned.join(', ')}`);
 if (errors.length) {
   for (const e of errors) console.log('FEHLER:', e);
   console.log(`\n${errors.length} Fehler gefunden.`);

@@ -3,6 +3,7 @@ import { TARGET_VIEW_WIDTH } from '../core/config.js';
 import { Lighting } from './lighting.js';
 import { hash2 } from '../core/rng.js';
 import { T } from '../world/tiles.js';
+import { getChunk, visibleChunks, prefetchChunk } from './maprender.js';
 
 export class Renderer {
   constructor(canvas) {
@@ -45,13 +46,16 @@ export class Renderer {
     const cam = { x: Math.round(this.cam.x), y: Math.round(this.cam.y) };
     ctx.fillStyle = '#120c08';
     ctx.fillRect(0, 0, vw, vh);
-    ctx.drawImage(map.canvas, -cam.x, -cam.y);
+    const chunks = visibleChunks(map, cam, vw, vh).map(([cx, cy]) => getChunk(map, cx, cy));
+    for (const c of chunks) ctx.drawImage(c.g, c.x - cam.x, c.y - cam.y);
     this.waterSparkles(map, cam, t);
     entities.sort((a, b) => a.y - b.y);
     for (const e of entities) e.draw(ctx, cam, t);
-    ctx.drawImage(map.overlay, -cam.x, -cam.y);
-    this.lighting.render(ctx, vw, vh, light, lights, cam, t, map.interior ? null : map.windowLights, hour);
+    for (const c of chunks) ctx.drawImage(c.o, c.x - cam.x, c.y - cam.y);
+    const windows = map.interior ? null : chunks.flatMap((c) => c.windows);
+    this.lighting.render(ctx, vw, vh, light, lights, cam, t, windows, hour);
     if (afterLight) afterLight(ctx, cam);
+    prefetchChunk(map, cam, vw, vh);
   }
 
   waterSparkles(map, cam, t) {

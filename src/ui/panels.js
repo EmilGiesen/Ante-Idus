@@ -8,9 +8,13 @@ import * as M from '../systems/missions.js';
 import { fmt } from '../systems/text.js';
 import { lexCount } from '../systems/lexicon.js';
 import { changeMoney } from '../systems/rules.js';
+import { formatMoney as fm } from '../core/util.js';
 
-const TITLES = { inventory: 'Inventar', log: 'Logbuch', lexicon: 'Schriftrolle des Wissens', menu: 'Menü', shop: 'Laden', help: 'Steuerung' };
-const HOTKEY = { inventory: 'inventory', log: 'log', lexicon: 'lexicon' };
+const TITLES = {
+  inventory: 'Inventar', log: 'Logbuch', lexicon: 'Schriftrolle des Wissens', menu: 'Menü', shop: 'Laden', help: 'Steuerung',
+  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)',
+};
+const HOTKEY = { inventory: 'inventory', log: 'log', lexicon: 'lexicon', map: 'map' };
 
 export class Panels {
   constructor(root) {
@@ -194,7 +198,7 @@ export class Panels {
     const rows = [
       ['WASD / Pfeiltasten', 'Laufen'], ['Shift (gedrückt)', 'Sprinten (kostet Energie)'], ['E', 'Sprechen, untersuchen, benutzen'],
       ['Leertaste / Enter', 'Bestätigen, im Minispiel handeln'], ['1–5', 'Antwort im Dialog wählen'], ['I', 'Inventar'], ['L', 'Logbuch'],
-      ['K', 'Lexikon (Schriftrolle des Wissens)'], ['Esc', 'Menü / Fenster schließen'],
+      ['K', 'Lexikon (Schriftrolle des Wissens)'], ['M', 'Stadtplan'], ['Esc', 'Menü / Fenster schließen'],
     ];
     this.body.append(el('table', { class: 'keys' }, rows.map(([k, v]) => el('tr', {}, el('td', {}, el('kbd', {}, k)), el('td', {}, v)))),
       el('p', { class: 'muted small' }, 'Auf Touch-Geräten erscheinen Steuerkreuz und Knöpfe am Bildschirmrand.'));
@@ -224,6 +228,57 @@ export class Panels {
         shop.haggle && price >= 4 ? el('button', { class: 'btn small ghost', onclick: () => { this.close(); G.game.haggleBuy(this.arg.id, entry.id, price, this.arg.npc); } }, 'Feilschen') : null);
       list.append(row);
       this.nav.push(buy);
+    });
+    this.body.append(list);
+  }
+
+  // ---------- Stadtplan ----------
+  render_map() {
+    const g = G.game;
+    const rom = g.mapById('rom');
+    const S = 4;
+    const cv = el('canvas', { class: 'px citymap', width: rom.w * S, height: rom.h * S });
+    const ctx = cv.getContext('2d');
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(rom.mini, 0, 0, rom.w * S, rom.h * S);
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 15px Georgia, serif';
+    for (const z of rom.zones) {
+      if (z.hideLabel) continue;
+      const x = (z.r[0] + z.r[2] / 2) * S, y = (z.r[1] + z.r[3] / 2) * S;
+      ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(243,230,196,0.85)'; ctx.strokeText(z.name, x, y);
+      ctx.fillStyle = '#3b2416'; ctx.fillText(z.name, x, y);
+    }
+    for (const st of rom.stations) {
+      ctx.fillStyle = '#a3392c'; ctx.fillRect(st.at[0] * S - 5, st.at[1] * S - 5, 10, 10);
+      ctx.fillStyle = '#f2c14e'; ctx.fillRect(st.at[0] * S - 3, st.at[1] * S - 3, 6, 6);
+    }
+    const tgt = G.state.tracked && M.targetOf(G.state.tracked);
+    const tpos = tgt && (tgt.map === 'rom' ? tgt : g.doorFront(tgt.map));
+    if (tpos) { ctx.fillStyle = '#f2c14e'; ctx.beginPath(); ctx.arc(tpos.x / 16 * S, tpos.y / 16 * S, 8, 0, 7); ctx.fill(); ctx.strokeStyle = '#2b1b12'; ctx.lineWidth = 2; ctx.stroke(); }
+    const pp = g.map.interior ? g.doorFront(g.map.id) : { x: g.player.x, y: g.player.y };
+    if (pp) { ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(pp.x / 16 * S, pp.y / 16 * S, 7, 0, 7); ctx.fill(); ctx.fillStyle = '#c0392b'; ctx.beginPath(); ctx.arc(pp.x / 16 * S, pp.y / 16 * S, 4.5, 0, 7); ctx.fill(); }
+    this.body.append(el('div', { class: 'citymap-wrap' }, cv),
+      el('p', { class: 'muted small' }, '● du · ● goldener Kreis: aktuelles Ziel · ■ Sänftenträger (Schnellreise). Norden ist oben; die Stadt ist stark verkleinert.'));
+  }
+
+  // ---------- Sänfte ----------
+  render_travel() {
+    const g = G.game;
+    const rom = g.mapById('rom');
+    const from = rom.stations.find((x) => x.id === this.arg.from);
+    const cost = g.travelCost();
+    const why = g.canTravel();
+    this.body.append(el('p', {}, cost ? `Die Träger bringen dich für ${fm(cost)} an einen der Sammelplätze. Die Fahrt dauert etwas.` : 'Die Sänftenträger deines Hauses bringen dich, wohin du willst.'));
+    if (why) this.body.append(el('p', { class: 'warnline' }, why));
+    const list = el('div', { class: 'shop-list' });
+    rom.stations.filter((x) => x !== from).forEach((st, i) => {
+      const secs = from ? Math.round(Math.hypot(st.at[0] - from.at[0], st.at[1] - from.at[1]) / 5.5) : 0;
+      const go = () => { this.close(); g.fastTravel(st.id); };
+      list.append(el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}` },
+        el('div', { class: 'grow' }, el('b', {}, st.name), el('small', {}, `zu Fuß etwa ${secs} s`)),
+        el('button', { class: 'btn small', disabled: !!why, onclick: go }, 'Hinbringen')));
+      if (!why) this.nav.push(go);
     });
     this.body.append(list);
   }

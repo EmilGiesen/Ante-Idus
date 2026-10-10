@@ -91,20 +91,36 @@ try {
   if (!step || step.step !== 1) problems.push(`Mission frumentatio_1 nicht wie erwartet: ${JSON.stringify(step)}`);
 
   // Stadtansichten
-  const views = [['30-forum', 58, 42, 4], ['31-subura', 100, 30, 5], ['32-palatin', 60, 66, 3], ['33-circus', 60, 86, 6],
-    ['34-forum-iulium', 50, 24, 2], ['35-kapitol', 28, 34, 7], ['36-velabrum', 20, 61, 4], ['37-macellum', 63, 26, 3]];
+  const views = [['30-forum', 128, 90, 4], ['31-subura', 157, 70, 5], ['32-palatin', 125, 110, 3], ['33-circus', 130, 122, 6],
+    ['34-forum-iulium', 117, 70, 2], ['35-kapitol', 99, 71, 7], ['36-forum-boarium', 82, 95, 4], ['37-macellum', 140, 72, 3],
+    ['38a-marsfeld', 70, 50, 3], ['38b-emporium', 78, 140, 5], ['38c-trans-tiberim', 36, 100, 4], ['38d-via-appia', 168, 150, 6],
+    ['38e-forum-holitorium', 76, 71, 2], ['38f-porta-capena', 156, 136, 3], ['38g-forum-west', 110, 86, 3], ['38h-aventin', 112, 156, 4]];
   for (const [name, x, y, h] of views) {
     await ev((a) => { const g = window.__rv.game; g.state.time.hour = a[3]; g.debugTeleport('rom', a[1], a[2]); }, [name, x, y, h]);
     await sleep(900);
     await shot(page, name);
   }
-  await ev(() => { const g = window.__rv.game; g.state.time.hour = 16; g.debugTeleport('rom', 100, 31); });
+  await ev(() => { const g = window.__rv.game; g.state.time.hour = 16; g.debugTeleport('rom', 157, 70); });
   await sleep(900);
   await shot(page, '38-subura-nacht');
-  await ev(() => { const g = window.__rv.game; g.state.time.hour = 11.2; g.debugTeleport('rom', 60, 44); });
+  await ev(() => { const g = window.__rv.game; g.state.time.hour = 11.2; g.debugTeleport('rom', 128, 90); });
   await sleep(900);
   await shot(page, '39-forum-abend');
   await hold('KeyA', 1500);
+  // Stadtplan, Schnellreise, vorbereitete Tür
+  await press('KeyM'); await sleep(400); await shot(page, '39b-stadtplan'); await press('Escape');
+  const travel = await ev(() => {
+    const g = window.__rv.game; g.state.money = 100; g.state.time.hour = 3;
+    g.fastTravel('subura');
+    return new Promise((r) => setTimeout(() => r({ map: g.map.id, x: Math.floor(g.player.x / 16), y: Math.floor(g.player.y / 16), money: g.state.money }), 1500));
+  });
+  if (travel.map !== 'rom' || Math.hypot(travel.x - 152, travel.y - 69) > 8 || travel.money !== 92) problems.push(`Schnellreise fehlgeschlagen: ${JSON.stringify(travel)}`);
+  await shot(page, '39c-nach-schnellreise');
+  await ev(() => { const g = window.__rv.game; g.debugTeleport('rom', 109, 96); g.player.dir = 'up'; });
+  await sleep(300);
+  await hold('KeyW', 500);
+  const blocked = await ev(() => window.__rv.game.map.id);
+  if (blocked !== 'rom') problems.push('Vorbereitete Tür hat einen Innenraum geöffnet');
   for (const id of ['domus_valeria', 'insula_arria', 'pistrinum', 'domus_fabia']) {
     await ev((m) => { const g = window.__rv.game; g.state.time.hour = 3; const e = window.__rv.G.data.interiors[m].spawns.entry; g.debugTeleport(m, e[0], e[1] - 1); }, id);
     await sleep(700);
@@ -200,7 +216,7 @@ try {
     await talk('cliens_aulus', ['Gern']);
     if (status('salutatio_1') !== 'done:4:1') return `salutatio_1 ${status('salutatio_1')}`;
     await talk('hermes', ['Ich gehe hin']);
-    game.debugTeleport('rom', 46, 37);
+    game.debugTeleport('rom', 111, 85);
     await new Promise((r) => setTimeout(r, 300));
     G.state.time.hour = 3;
     await talk('door_concordia');
@@ -225,7 +241,7 @@ try {
     await talk('lyde');
     if (status('servus_aqua') !== 'done:2:1') return `servus_aqua ${status('servus_aqua')}`;
     await talk('philo', ['Macellum']);
-    game.debugTeleport('rom', 63, 26);
+    game.debugTeleport('rom', 140, 72);
     await new Promise((r) => setTimeout(r, 300));
     if (G.state.map !== 'rom' || status('servus_mercatus') !== 'active:1:0') return `Markt nicht erreicht: ${status('servus_mercatus')} ${G.state.map}`;
     await talk('phileros', [], { price: 9, fair: 11 });
