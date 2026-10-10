@@ -8,6 +8,7 @@ import { unlockLex } from './lexicon.js';
 import { fmt } from './text.js';
 import { level as skillLevel, addXp } from './skills.js';
 import { addBuff } from './buffs.js';
+import { isRaceDay } from './festivals.js';
 
 export const STAT_NAMES = {
   dignitas: 'Dignitas', caesariani: 'Caesarianer', optimates: 'Optimaten', fides: 'Vertrauen des Herrn',
@@ -47,6 +48,7 @@ export function checkCond(c) {
       case 'level': if (skillLevel(v[0]) < v[1]) return false; break;
       case 'rentDue': if (!s.rent || (s.time.day >= s.rent.due) !== v) return false; break;
       case 'free': if ((s.cls !== 'servus' || s.flags.freed || G.game.isSlaveFree()) !== v) return false; break;
+      case 'raceDay': if (isRaceDay(s.time.day) !== v) return false; break;
       case 'atHome': if ((G.game.map && G.game.map.id === s.home.map) !== v) return false; break;
       case 'map': if (!G.game.map || G.game.map.id !== v) return false; break;
       case 'any': if (!v.some((x) => checkCond(x))) return false; break;

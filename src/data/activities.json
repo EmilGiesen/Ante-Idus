@@ -325,5 +325,29 @@
   "lex": "balneum",
   "verb": "Baden",
   "doneText": "Du hast gebadet – frisch wie neu"
+ },
+ "wetten": {
+  "name": "Auf die Gespanne wetten",
+  "where": "Circus Maximus",
+  "desc": "Vier Viergespanne, sieben Runden um die Spina. Wer auf den Sieger setzt, gewinnt nach Quote – wer nicht, verliert den Einsatz.",
+  "minigame": "race",
+  "req": {
+   "raceDay": true,
+   "money": 1
+  },
+  "reqText": "Heute finden keine Rennen statt. Rennen gibt es an Festtagen und jeden dritten Tag (siehe Datumszeile oben links).",
+  "hours": [
+   5,
+   10
+  ],
+  "closed": "Die Rennen laufen am Nachmittag (Hora VI–X).",
+  "duration": 1,
+  "energy": 2,
+  "perDay": 3,
+  "pay": {
+   "useNet": true
+  },
+  "lex": "wagenrennen",
+  "verb": "Wette abschließen"
  }
 }

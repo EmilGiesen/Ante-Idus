@@ -20,6 +20,7 @@ import * as Act from './systems/activities.js';
 import * as Rumors from './systems/rumors.js';
 import * as Offer from './systems/offerings.js';
 import { buffFx } from './systems/buffs.js';
+import { festivalOf, isRaceDay } from './systems/festivals.js';
 import { level as levelOf } from './systems/skills.js';
 
 const GLYPH = {
@@ -438,8 +439,10 @@ export class Game {
   onNewDay() {
     const s = this.state;
     const d = dateOfPlayedDay(s.time.day);
-    G.ui.showBanner(formatRoman(d), formatGerman(d));
+    const fest = festivalOf(s.time.day);
+    G.ui.showBanner(formatRoman(d), fest ? `${formatGerman(d)} · ${fest.name}` : formatGerman(d));
     unlockLex('kalender');
+    if (isRaceDay(s.time.day)) G.ui.toast(`Heute Wagenrennen im Circus Maximus (Hora VI–X)${fest && fest.circus ? ` – ${fest.name}` : ''}!`, 'mission');
     if (s.rent) {
       if (s.time.day === s.rent.due) G.ui.toast(`Heute ist die Miete fällig: ${formatMoney(s.rent.amount)}. Zahle beim Verwalter Hilarus in der Insula.`, 'warn');
       else if (s.time.day > s.rent.due + 1) { G.ui.toast('Deine Miete ist überfällig! Die Nachbarn reden schon.', 'warn'); changeStat('vicinia', -2); }

@@ -76,7 +76,7 @@ export function run(id, auto) {
   if (d.cost) changeMoney(-d.cost);
   for (const [it, n] of Object.entries(d.consumes || {})) Inv.remove(it, n);
   if (d.minigame && !auto) {
-    G.game.playMinigame(d.minigame, { ...(d.mgOpts || {}), level: d.skill ? level(d.skill) : 0, money: G.state.money, luck: buffFx('luck'), hours: 0, energy: 0, dirt: 0, actId: id }).then((r) => {
+    G.game.playMinigame(d.minigame, { ...(d.mgOpts || {}), level: d.skill ? level(d.skill) : 0, money: G.state.money, luck: buffFx('luck'), day: G.state.time.day, hours: 0, energy: 0, dirt: 0, actId: id }).then((r) => {
       if (!r.aborted) finish(id, r);
       else if (d.cost) changeMoney(d.cost);
     });

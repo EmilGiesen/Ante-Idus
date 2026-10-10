@@ -128,7 +128,7 @@ try {
   }
 
   // Minispiele
-  for (const mg of ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice']) {
+  for (const mg of ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice', 'race']) {
     await ev((m) => { window.__rv.mg = null; window.__rv.game.playMinigame(m, { fair: 12, label: 'Testware', money: 20 }).then((r) => { window.__rv.mg = r; }); }, mg);
     await sleep(600);
     if (mg === 'water') { await hold('Space', 1300); await sleep(900); } else await press('Space', 3, 900);
@@ -378,6 +378,25 @@ try {
   await sleep(500); await shot(page, '63-balneum');
   await ev(() => { const g = window.__rv.game; g.debugTeleport('tempel_saturn', 5, 5); });
   await sleep(500); await shot(page, '64-saturntempel');
+  // Wagenrennen
+  await runScenario('plebs', async () => {
+    const { G } = window.__rv;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const Act = await import('/src/systems/activities.js');
+    const F = await import('/src/systems/festivals.js');
+    let off = -1;
+    for (let d = 0; d < 40; d++) if (!F.isRaceDay(d)) { off = d; break; }
+    if (off < 0) return 'Jeder Tag ist Renntag';
+    G.state.time.day = off; G.state.time.hour = 6;
+    if (!Act.blockReason('wetten')) return 'Wetten ohne Renntag möglich';
+    G.state.time.day = 2; G.state.money = 30;
+    if (Act.blockReason('wetten')) return `Wetten am Renntag blockiert: ${Act.blockReason('wetten')}`;
+    Act.run('wetten', false);
+    for (let i = 0; i < 30 && !G.ui.mini.open; i++) await wait(20);
+    G.ui.mini.finished = { done: true, success: true, net: 6, score: 1, text: 'Test' }; G.ui.mini.finish();
+    await wait(100);
+    return G.state.money === 36 ? true : `Wettgewinn falsch: ${G.state.money}`;
+  });
   await runScenario('nobilis', async () => {
     const Act = await import('/src/systems/activities.js');
     return Act.blockReason('abschreiben') ? true : 'Adel darf nicht abschreiben';

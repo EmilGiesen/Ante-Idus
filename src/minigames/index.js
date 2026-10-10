@@ -8,8 +8,9 @@ import { build } from './build.js';
 import { fishing } from './fishing.js';
 import { cooking } from './cooking.js';
 import { dice } from './dice.js';
+import { race } from './race.js';
 
-export const MINIGAMES = { baking, water, haggle, carry, build, fishing, cooking, dice };
+export const MINIGAMES = { baking, water, haggle, carry, build, fishing, cooking, dice, race };
 
 // Durchschnittsergebnis für automatisierte Routinearbeit
 export const AUTO_RESULTS = {

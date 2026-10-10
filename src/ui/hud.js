@@ -7,6 +7,7 @@ import { coins } from '../core/util.js';
 import { NEED_NAMES } from '../systems/needs.js';
 import { currentStep, mdef, targetOf } from '../systems/missions.js';
 import { fmt } from '../systems/text.js';
+import { festivalOf, isRaceDay } from '../systems/festivals.js';
 
 const ICON = { satiety: '🍞', energy: '⚡', health: '❤', hygiene: '💧' };
 
@@ -44,7 +45,8 @@ export class Hud {
     const cls = G.data.classes[s.cls];
     this.who.textContent = `${s.name} · ${s.gender === 'f' ? cls.title_f : cls.title_m}`;
     const dt0 = dateOfPlayedDay(s.time.day);
-    this.date.textContent = `${formatRoman(dt0)} · ${auc(dt0.year)} a.u.c.`;
+    const fest = festivalOf(s.time.day);
+    this.date.textContent = `${formatRoman(dt0)} · ${auc(dt0.year)} a.u.c.${fest ? ` · ${fest.name}` : ''}${isRaceDay(s.time.day) ? ' · Rennen' : ''}`;
     this.date.title = `${formatGerman(dt0)} · ${season(dt0)}`;
     this.time.textContent = `${isNight(s.time.hour) ? '☾' : '☀'} ${hourLabel(s.time.hour)} – ${hourHint(s.time.hour)}`;
     for (const [k, fill] of Object.entries(this.bars)) {

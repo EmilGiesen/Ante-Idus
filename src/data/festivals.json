@@ -1,0 +1,113 @@
+[
+ {
+  "name": "Megalesia",
+  "months": [
+   "Aprilis"
+  ],
+  "from": 4,
+  "to": 10,
+  "circus": true,
+  "note": "Spiele für die Magna Mater"
+ },
+ {
+  "name": "Cerialia",
+  "months": [
+   "Aprilis"
+  ],
+  "from": 12,
+  "to": 19,
+  "circus": true,
+  "note": "Spiele für Ceres"
+ },
+ {
+  "name": "Floralia",
+  "months": [
+   "Aprilis"
+  ],
+  "from": 27,
+  "to": 30,
+  "circus": true,
+  "note": "Fest der Flora"
+ },
+ {
+  "name": "Floralia",
+  "months": [
+   "Maius"
+  ],
+  "from": 1,
+  "to": 3,
+  "circus": true,
+  "note": "Fest der Flora"
+ },
+ {
+  "name": "Ludi Apollinares",
+  "months": [
+   "Quintilis",
+   "Iulius"
+  ],
+  "from": 6,
+  "to": 13,
+  "circus": true,
+  "note": "Spiele für Apollo"
+ },
+ {
+  "name": "Consualia",
+  "months": [
+   "Sextilis"
+  ],
+  "from": 21,
+  "to": 21,
+  "circus": true,
+  "note": "Fest des Consus mit Wagenrennen"
+ },
+ {
+  "name": "Ludi Romani",
+  "months": [
+   "September"
+  ],
+  "from": 5,
+  "to": 19,
+  "circus": true,
+  "note": "Die Römischen Spiele"
+ },
+ {
+  "name": "Ludi Victoriae",
+  "months": [
+   "October"
+  ],
+  "from": 26,
+  "to": 31,
+  "circus": true,
+  "note": "Siegesspiele"
+ },
+ {
+  "name": "Ludi Plebeii",
+  "months": [
+   "November"
+  ],
+  "from": 4,
+  "to": 17,
+  "circus": true,
+  "note": "Die Spiele der Plebejer"
+ },
+ {
+  "name": "Saturnalia",
+  "months": [
+   "December"
+  ],
+  "from": 17,
+  "to": 23,
+  "circus": false,
+  "note": "Saturnalien: Geschenke, Würfelspiel erlaubt"
+ },
+ {
+  "name": "Lupercalia",
+  "months": [
+   "Februarius"
+  ],
+  "from": 15,
+  "to": 15,
+  "circus": false,
+  "note": "Fest der Luperci"
+ }
+]

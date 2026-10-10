@@ -4293,6 +4293,22 @@
    }
   },
   {
+   "kind": "stall",
+   "x": 114,
+   "y": 121,
+   "w": 3,
+   "h": 1,
+   "name": "Wetten auf die Gespanne",
+   "style": {
+    "goods": "cloth",
+    "awning": "#c0392b"
+   },
+   "interact": {
+    "type": "activity",
+    "id": "wetten"
+   }
+  },
+  {
    "kind": "jetty",
    "x": 64,
    "y": 84,

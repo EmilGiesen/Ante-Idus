@@ -1064,6 +1064,20 @@
     "Livius 2,27 (Merkurtempel)",
     "Ovid, Fasti"
    ]
+  },
+  "wagenrennen": {
+   "title": "Wagenrennen",
+   "cat": "alltag",
+   "text": [
+    "Bei den Spielen im Circus Maximus treten Viergespanne (quadrigae) gegeneinander an: sieben Runden gegen den Uhrzeigersinn um die Spina, gezählt mit hölzernen Eiern. An den Wendemarken passieren die gefährlichsten Unfälle.",
+    "Die Wagenlenker fahren für Rennställe (factiones), die man an ihren Farben erkennt. Rot und Weiß sind früh belegt; Grün und Blau treten sicher erst in der Kaiserzeit auf – deshalb fahren im Spiel nur Rot und Weiß. Viele Lenker sind Sklaven oder Freigelassene; manche werden reich und berühmt. Der Wettstand ist eine Vereinfachung: Belegt sind private Wetten unter Zuschauern."
+   ],
+   "sources": [
+    "Plinius, Naturgeschichte 7,186",
+    "Ovid, Liebeskunst 1,135–162",
+    "Juvenal 11,193–202",
+    "Moderne Forschung (z. B. J. H. Humphrey, Roman Circuses)"
+   ]
   }
  }
 }

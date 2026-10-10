@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { buildExterior, buildInterior } from '../src/world/mapgen.js';
 
 const load = (n) => JSON.parse(readFileSync(new URL(`../src/data/${n}.json`, import.meta.url), 'utf8'));
-const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets', 'offerings', 'rumors'].map((n) => [n, load(n)]));
+const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets', 'offerings', 'rumors', 'festivals'].map((n) => [n, load(n)]));
 const MINIGAMES = ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice', 'race'];
 const errors = [];
 const warn = [];

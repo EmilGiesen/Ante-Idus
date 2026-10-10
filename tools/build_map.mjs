@@ -513,6 +513,7 @@ function priceBoard(x, y, market) {
 }
 priceBoard(72, 129, 'emporium'); priceBoard(140, 74, 'macellum'); priceBoard(70, 71, 'holitorium');
 priceBoard(90, 98, 'boarium'); priceBoard(164, 69, 'subura');
+actAt('stall', 114, 121, 3, 1, 'wetten', { name: 'Wetten auf die Gespanne', style: { goods: 'cloth', awning: '#c0392b' } });
 actAt('jetty', 64, 84, 1, 1, 'fischen_insula', { name: 'Angelsteg zwischen den Brücken' });
 actAt('jetty', 47, 30, 1, 1, 'fischen_marsfeld', { name: 'Angelplatz am Marsfeld' });
 actAt('jetty', 65, 133, 1, 1, 'fischen_emporium', { name: 'Angelplatz am Kai' });
