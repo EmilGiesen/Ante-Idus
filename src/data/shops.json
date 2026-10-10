@@ -9,7 +9,9 @@
    {
     "id": "puls"
    }
-  ]
+  ],
+  "zone": "subura",
+  "npc": "felix"
  },
  "asellina": {
   "name": "Thermopolium der Asellina",
@@ -39,7 +41,9 @@
    "fish"
   ],
   "sellFactor": 0.6,
-  "market": "subura"
+  "market": "subura",
+  "zone": "subura",
+  "npc": "asellina"
  },
  "phileros": {
   "name": "Stand des Phileros",
@@ -68,7 +72,9 @@
    "food"
   ],
   "sellFactor": 0.55,
-  "market": "macellum"
+  "market": "macellum",
+  "zone": "argiletum",
+  "npc": "phileros"
  },
  "verecunda": {
   "name": "Stand der Verecunda",
@@ -89,13 +95,19 @@
    },
    {
     "id": "far"
+   },
+   {
+    "id": "anulus_pronubus",
+    "fixed": true
    }
   ],
   "buys": [
    "food"
   ],
   "sellFactor": 0.45,
-  "market": "macellum"
+  "market": "macellum",
+  "zone": "argiletum",
+  "npc": "verecunda"
  },
  "mago": {
   "name": "Weinstand des Mago",
@@ -116,7 +128,9 @@
    "good"
   ],
   "sellFactor": 0.55,
-  "market": "macellum"
+  "market": "macellum",
+  "zone": "argiletum",
+  "npc": "mago"
  },
  "thais": {
   "name": "Fischstand der Thais",
@@ -136,7 +150,9 @@
    "ostrea"
   ],
   "sellFactor": 0.55,
-  "market": "macellum"
+  "market": "macellum",
+  "zone": "argiletum",
+  "npc": "thais"
  },
  "prima": {
   "name": "Gemüsestand der Prima",
@@ -179,7 +195,9 @@
    "ingredient"
   ],
   "sellFactor": 0.5,
-  "market": "holitorium"
+  "market": "holitorium",
+  "zone": "forum_holitorium",
+  "npc": "prima"
  },
  "nicanor": {
   "name": "Hafenhändler Nicanor",
@@ -220,7 +238,9 @@
    "calceus"
   ],
   "sellFactor": 0.5,
-  "market": "emporium"
+  "market": "emporium",
+  "zone": "emporium",
+  "npc": "nicanor"
  },
  "statius": {
   "name": "Stand des Statius",
@@ -244,7 +264,9 @@
   "buys": [
    "good",
    "food"
-  ]
+  ],
+  "zone": "forum_boarium",
+  "npc": "statius"
  },
  "ursus": {
   "name": "Popina des Ursus",
@@ -262,7 +284,9 @@
    {
     "id": "lentes"
    }
-  ]
+  ],
+  "zone": "subura",
+  "npc": "ursus"
  },
  "chloe": {
   "name": "Salben der Chloe",
@@ -271,7 +295,9 @@
    {
     "id": "unguentum"
    }
-  ]
+  ],
+  "zone": "subura",
+  "npc": "chloe"
  },
  "lucrio": {
   "name": "Töpferladen des Lucrio",
@@ -298,6 +324,8 @@
    {
     "id": "lectus"
    }
-  ]
+  ],
+  "zone": "subura",
+  "npc": "lucrio"
  }
 }

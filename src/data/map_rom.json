@@ -4300,6 +4300,81 @@
    }
   },
   {
+   "kind": "board",
+   "x": 160,
+   "y": 66,
+   "w": 2,
+   "h": 1,
+   "name": "Wandinschriften (dipinti)",
+   "interact": {
+    "type": "board",
+    "id": "subura"
+   }
+  },
+  {
+   "kind": "board",
+   "x": 135,
+   "y": 67,
+   "w": 2,
+   "h": 1,
+   "name": "Wandinschriften (dipinti)",
+   "interact": {
+    "type": "board",
+    "id": "argiletum"
+   }
+  },
+  {
+   "kind": "board",
+   "x": 74,
+   "y": 134,
+   "w": 2,
+   "h": 1,
+   "name": "Wandinschriften (dipinti)",
+   "interact": {
+    "type": "board",
+    "id": "emporium"
+   }
+  },
+  {
+   "kind": "board",
+   "x": 40,
+   "y": 90,
+   "w": 2,
+   "h": 1,
+   "name": "Wandinschriften (dipinti)",
+   "interact": {
+    "type": "board",
+    "id": "trans_tiberim"
+   }
+  },
+  {
+   "kind": "board",
+   "x": 110,
+   "y": 150,
+   "w": 2,
+   "h": 1,
+   "name": "Wandinschriften (dipinti)",
+   "interact": {
+    "type": "board",
+    "id": "aventin"
+   }
+  },
+  {
+   "kind": "stall",
+   "x": 151,
+   "y": 82,
+   "w": 3,
+   "h": 1,
+   "name": "Taberna der Insula Arriana",
+   "style": {
+    "goods": "tools",
+    "awning": "#4f7a3a"
+   },
+   "interact": {
+    "type": "myshop"
+   }
+  },
+  {
    "kind": "stall",
    "x": 114,
    "y": 121,

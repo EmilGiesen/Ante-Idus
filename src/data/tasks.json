@@ -1,0 +1,191 @@
+{
+ "perBoard": 3,
+ "maxActive": 3,
+ "days": 2,
+ "boards": {
+  "subura": {
+   "zone": "subura",
+   "text": "Die Hauswand ist voller Pinselschrift in Rot und Schwarz: Wahlaufrufe, Mietangebote – und Gesuche."
+  },
+  "argiletum": {
+   "zone": "argiletum",
+   "text": "Zwischen Werbung für Buchhändler und Schuster stehen frische Gesuche auf dem Putz."
+  },
+  "emporium": {
+   "zone": "emporium",
+   "text": "An der Lagerhallenwand haben Händler und Schiffer ihre Gesuche angeschrieben."
+  },
+  "trans_tiberim": {
+   "zone": "trans_tiberim",
+   "text": "Jenseits des Flusses: eine weiß getünchte Wand mit Aufrufen und Gesuchen."
+  },
+  "aventin": {
+   "zone": "aventin",
+   "text": "Am Aventin hat jemand die Wand frisch geweißt – schon stehen neue Gesuche darauf."
+  }
+ },
+ "givers": [
+  "Vibius der Walker",
+  "die Wäscherin Fortunata",
+  "Successus der Weber",
+  "die Witwe Sabina",
+  "Onesimus, Sklave des Lentulus",
+  "der Schmied Ampliatus",
+  "Iucundus der Schreiber",
+  "die Hebamme Grapte"
+ ],
+ "templates": [
+  {
+   "kind": "talk",
+   "w": 3,
+   "title": "Botengang zu {npc}",
+   "text": "„{Giver} sucht einen Boten: eine Nachricht an {npc} ({where}). Lohn {pay}.“",
+   "npcs": [
+    "asellina",
+    "prima",
+    "nicanor",
+    "statius",
+    "phileros",
+    "verecunda",
+    "mago",
+    "thais",
+    "felix",
+    "ursus",
+    "chloe",
+    "balneator",
+    "aedituus",
+    "lucrio",
+    "argentarius",
+    "frumentarius",
+    "hermeros"
+   ],
+   "pay": [
+    5,
+    12
+   ],
+   "rep": 2
+  },
+  {
+   "kind": "deliver",
+   "w": 1,
+   "title": "{n}× {item} für {npc}",
+   "text": "„Im Tempel fehlt es an {item}. Wer {n}× zu {npc} bringt, erhält {pay}.“",
+   "npcs": [
+    "aedituus"
+   ],
+   "items": [
+    "cera",
+    "lucerna",
+    "mel",
+    "ficus"
+   ],
+   "n": [
+    1,
+    3
+   ],
+   "bonus": [
+    4,
+    10
+   ],
+   "rep": 2
+  },
+  {
+   "kind": "deliver",
+   "w": 1,
+   "title": "{n}× {item} für {npc}",
+   "text": "„Das Balneum braucht {n}× {item}. Bringt es zu {npc} – Lohn {pay}.“",
+   "npcs": [
+    "balneator"
+   ],
+   "items": [
+    "oleum",
+    "lana",
+    "cera"
+   ],
+   "n": [
+    1,
+    3
+   ],
+   "bonus": [
+    4,
+    10
+   ],
+   "rep": 2
+  },
+  {
+   "kind": "deliver",
+   "w": 2,
+   "title": "{n}× {item} für {npc}",
+   "text": "„{npc} ({where}) braucht dringend {n}× {item}. Zahlt {pay} – mehr als der Markt!“",
+   "npcs": [
+    "ursus",
+    "asellina"
+   ],
+   "items": [
+    "piscis",
+    "olivae",
+    "caseus",
+    "allium",
+    "herbae",
+    "ova"
+   ],
+   "n": [
+    1,
+    3
+   ],
+   "bonus": [
+    4,
+    10
+   ],
+   "rep": 2
+  },
+  {
+   "kind": "deliver",
+   "w": 2,
+   "title": "{n}× {item} für {npc}",
+   "text": "„Gesucht: {n}× {item}. Abzugeben bei {npc} ({where}), Lohn {pay}.“",
+   "npcs": [
+    "hermeros",
+    "primus",
+    "lucrio",
+    "frumentarius"
+   ],
+   "items": [
+    "panis",
+    "moretum",
+    "vinum",
+    "caseus",
+    "lucerna",
+    "olivae"
+   ],
+   "n": [
+    1,
+    2
+   ],
+   "bonus": [
+    4,
+    9
+   ],
+   "rep": 2
+  },
+  {
+   "kind": "activity",
+   "w": 2,
+   "title": "Hilfe gesucht: {act}",
+   "text": "„Helfer gesucht – {act}. {Giver} legt {pay} obendrauf.“",
+   "acts": [
+    "lasten_emporium",
+    "bau_basilica",
+    "bau_forum_iulium",
+    "fischen_insula",
+    "fischen_emporium",
+    "unterricht"
+   ],
+   "pay": [
+    6,
+    14
+   ],
+   "rep": 2
+  }
+ ]
+}

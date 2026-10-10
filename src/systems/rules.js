@@ -9,6 +9,8 @@ import { fmt } from './text.js';
 import { level as skillLevel, addXp } from './skills.js';
 import { addBuff } from './buffs.js';
 import { isRaceDay } from './festivals.js';
+import * as Social from './social.js';
+import * as Estate from './estate.js';
 
 export const STAT_NAMES = {
   dignitas: 'Dignitas', caesariani: 'Caesarianer', optimates: 'Optimaten', fides: 'Vertrauen des Herrn',
@@ -51,6 +53,10 @@ export function checkCond(c) {
       case 'raceDay': if (isRaceDay(s.time.day) !== v) return false; break;
       case 'atHome': if ((G.game.map && G.game.map.id === s.home.map) !== v) return false; break;
       case 'map': if (!G.game.map || G.game.map.id !== v) return false; break;
+      case 'since': if (s.vars[v[0]] !== undefined && s.time.day - s.vars[v[0]] < v[1]) return false; break;
+      case 'hearts': if (Social.hearts(v[0]) < v[1]) return false; break;
+      case 'married': if (!!s.flags.married !== v) return false; break;
+      case 'clients': if (Estate.clients() < v) return false; break;
       case 'any': if (!v.some((x) => checkCond(x))) return false; break;
       case 'not': if (checkCond(v)) return false; break;
       default: console.warn('Unbekannte Bedingung', k);
@@ -88,7 +94,12 @@ export function applyEffects(list, ctx = {}) {
       case 'money': changeMoney(v); break;
       case 'moneyVar': changeMoney(s.vars[v] || 0); break;
       case 'stat': for (const [n, a] of Object.entries(v)) changeStat(n, a); break;
-      case 'rel': for (const [n, a] of Object.entries(v)) s.rel[n] = (s.rel[n] || 0) + a; break;
+      case 'rel': for (const [n, a] of Object.entries(v)) Social.addRel(n, a); break;
+      case 'rep': for (const [n, a] of Object.entries(v)) Social.addRep(n, a); break;
+      case 'stamp': s.vars[v] = s.time.day; break;
+      case 'clients': Estate.addClients(v); break;
+      case 'salutatio': Estate.salutatio(); break;
+      case 'addRent': if (s.rent) { s.rent.amount += v; G.ui.toast(`Deine Miete beträgt jetzt ${formatMoney(s.rent.amount)}.`, 'warn'); } break;
       case 'lex': for (const id of Array.isArray(v) ? v : [v]) unlockLex(id); break;
       case 'need': for (const [n, a] of Object.entries(v)) s.needs[n] = clamp((s.needs[n] || 0) + a, 0, 100); break;
       case 'flag': s.flags[v] = true; break;

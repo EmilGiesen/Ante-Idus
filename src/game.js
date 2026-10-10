@@ -22,6 +22,9 @@ import * as Offer from './systems/offerings.js';
 import { buffFx, addBuff as addBuffDirect } from './systems/buffs.js';
 import { festivalOf, isRaceDay } from './systems/festivals.js';
 import * as Home from './systems/home.js';
+import * as Social from './systems/social.js';
+import * as Tasks from './systems/tasks.js';
+import * as Estate from './systems/estate.js';
 import { level as levelOf } from './systems/skills.js';
 
 const GLYPH = {
@@ -204,6 +207,10 @@ export class Game {
         if (this.lastZone) G.ui.showBanner(z.name, z.sub || '');
         this.lastZone = z;
         if (z.lex) unlockLex(z.lex);
+        if (Social.repOf(z.id) >= 40 && s.flags[`greet_${z.id}`] !== s.time.day) {
+          s.flags[`greet_${z.id}`] = s.time.day;
+          G.ui.toast(`In ${z.name} kennt man dich – ${Social.repTitle(Social.repOf(z.id))}.`, 'stat');
+        }
       }
     }
     M.checkAuto(map.id, tx, ty);
@@ -214,7 +221,7 @@ export class Game {
     this.markerT -= dt;
     if (this.markerT <= 0) {
       this.markerT = 0.5;
-      for (const n of this.npcs.named) if (n.map === map.id) n.marker = M.npcMarker(n.id);
+      for (const n of this.npcs.named) if (n.map === map.id) n.marker = M.npcMarker(n.id) || Tasks.marker(n.id);
     }
     s.x = p.x; s.y = p.y; s.dir = p.dir;
   }
@@ -326,7 +333,7 @@ export class Game {
     if (f.kind === 'npc') {
       const n = f.npc;
       n.dir = { up: 'down', down: 'up', left: 'right', right: 'left' }[this.player.dir];
-      if (n.kind === 'named') dlg.start(n.def.dialogue, n);
+      if (n.kind === 'named') { dlg.start(n.def.dialogue, n); Social.talked(n.id); }
       else dlg.say(n, this.ambientLine(n));
       return;
     }
@@ -343,6 +350,12 @@ export class Game {
       if (it.type === 'travel') { G.ui.panels.show('travel', { from: it.station }); return; }
       if (it.type === 'activity') { Act.offer(it.id); return; }
       if (it.type === 'offer') { Offer.offer(it.id); return; }
+      if (it.type === 'board') { G.ui.panels.show('board', { id: it.id }); unlockLex('dipinti'); return; }
+      if (it.type === 'myshop') {
+        if (this.state.flags.myshop) G.ui.panels.show('myshop');
+        else dlg.say(null, ['Auf die Wand gemalt: „Locantur tabernae“ – Läden zu vermieten. Auskunft beim Verwalter der Insula.', 'So ähnlich stand es tatsächlich an einer Insula in Pompeji.'], 'narr');
+        return;
+      }
       if (it.type === 'slot') { G.ui.panels.show('furnish', { slot: it.slot }); return; }
       if (it.type === 'furniture') { this.useFurniture(it); return; }
       if (it.type === 'plant') { this.usePlant(it.slot); return; }
@@ -361,6 +374,8 @@ export class Game {
   }
 
   ambientLine(n) {
+    const greet = Social.greeting();
+    if (greet) return greet;
     const pools = G.data.dialogues._ambient;
     const night = isNight(this.state.time.hour);
     const pool = [].concat(
@@ -454,6 +469,10 @@ export class Game {
       else if (s.time.day > s.rent.due + 1) { G.ui.toast('Deine Miete ist überfällig! Die Nachbarn reden schon.', 'warn'); changeStat('vicinia', -2); }
     }
     if (s.cls === 'plebs' && Home.comfort() >= 3 && s.time.day % 2 === 0) changeStat('familia', 1, true);
+    Tasks.newDay();
+    Estate.dailyIncome();
+    Estate.dailySales();
+    Social.spouseMorning();
     for (const [id, m] of Object.entries(s.missions)) {
       const def = M.mdef(id);
       if (m.status === 'active' && def.daily) M.abandonMission(id);
@@ -609,6 +628,20 @@ export class Game {
   }
 
   isSlaveFree() { return Act.slaveFreeTime() || M.hasPermit(); }
+
+  // Zusätzliche Antworten bei benannten NPCs: Aufträge, Geschenke, Heiratsantrag
+  npcExtraOpts(npc) {
+    const id = npc.id;
+    const opts = [...Tasks.npcOpts(id)];
+    if (!G.data.social.noRel.includes(id) && !Social.giftedToday(id) && Social.giftable().length) {
+      opts.push({ t: 'Ein Geschenk geben', fn: () => G.ui.panels.show('gift', { npc: id, ent: npc }) });
+    }
+    if (Social.canPropose(id)) {
+      const word = this.state.cls === 'servus' ? 'Um eine Verbindung bitten (contubernium)' : 'Um die Ehe bitten';
+      opts.push({ t: word, fn: () => G.ui.dialog.custom({ text: Social.propose(id) }, npc) });
+    }
+    return opts;
+  }
 
   // ---------- Zuhause ----------
   useFurniture(it) {

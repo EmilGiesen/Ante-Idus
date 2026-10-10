@@ -1,5 +1,6 @@
 // Handel: Preise je Markt, schwankend mit Jahreszeit, Ereignissen, Tageslaune und Sättigung
 import { G } from '../core/ctx.js';
+import { priceFactor } from './social.js';
 import { hash2 } from '../core/rng.js';
 import { dateOfPlayedDay, season } from '../core/calendar.js';
 import * as Inv from './inventory.js';
@@ -60,8 +61,8 @@ function rawPrice(market, id, mode, noSat) {
 
 // Preis im Laden: Märkte bestimmen den Preis, sonst fester Ladenpreis
 export function buyPrice(shop, entry) {
-  if (shop.market && !entry.fixed) return marketPrice(shop.market, entry.id, 'buy');
-  return entry.price ?? Inv.itemDef(entry.id).price;
+  const p = shop.market && !entry.fixed ? marketPrice(shop.market, entry.id, 'buy') : entry.price ?? Inv.itemDef(entry.id).price;
+  return Math.max(1, Math.round(p * priceFactor(shop, 'buy')));
 }
 
 export function sellPrice(shop, id) {
@@ -69,9 +70,12 @@ export function sellPrice(shop, id) {
   if (def.quest || !def.price) return 0;
   const cats = shop.buys || [];
   if (!cats.includes(def.cat) && !cats.includes(id)) return 0;
-  if (shop.market) return marketPrice(shop.market, id, 'sell');
-  const f = (shop.sellFactor ?? 0.5) * (1 + 0.04 * level('handel') + buffFx('handel'));
-  return Math.max(1, Math.round(def.price * f));
+  let p = shop.market ? marketPrice(shop.market, id, 'sell') : def.price * (shop.sellFactor ?? 0.5) * (1 + 0.04 * level('handel') + buffFx('handel'));
+  p = Math.max(1, Math.round(p * priceFactor(shop, 'sell')));
+  // nie teurer verkaufen, als derselbe Händler es anbietet
+  const entry = shop.items.find((e) => e.id === id);
+  if (entry) p = Math.min(p, buyPrice(shop, entry) - 1);
+  return Math.max(1, p);
 }
 
 // Trend gegenüber dem Grundpreis: -1 billig, 0 normal, 1 teuer

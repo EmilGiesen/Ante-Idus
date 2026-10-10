@@ -157,6 +157,22 @@
   "text": "Brauchst du etwas? Ich kenne jeden Namen in Rom, der für dieses Haus wichtig ist – das ist mein Beruf.",
   "opts": [
    {
+    "t": "Die Klienten hereinlassen (salutatio)",
+    "if": {
+     "done": "salutatio_1",
+     "hour": [
+      0,
+      3.5
+     ],
+     "notToday": "salut"
+    },
+    "do": [
+     {
+      "salutatio": true
+     }
+    ]
+   },
+   {
     "t": "Wie ist die Lage in der Stadt?",
     "go": "hermes_news"
    },
@@ -1090,6 +1106,17 @@
   ],
   "opts": [
    {
+    "t": "Ich möchte Geld anlegen.",
+    "if": {
+     "cls": "nobilis"
+    },
+    "do": [
+     {
+      "panel": "invest"
+     }
+    ]
+   },
+   {
     "t": "Wie funktioniert dein Geschäft?",
     "go": "arg_more",
     "do": [
@@ -1455,6 +1482,14 @@
     "if": {
      "cls": "plebs",
      "noFlag": "big_flat"
+    }
+   },
+   {
+    "t": "Ist die Taberna vorne an der Straße frei?",
+    "go": "hil_shop",
+    "if": {
+     "cls": "plebs",
+     "noFlag": "myshop"
     }
    },
    {
@@ -2662,11 +2697,16 @@
   "who": "narr"
  },
  "obj_couch": {
-  "text": "Eine Speiseliege (lectus). Beim Gastmahl liegt man hier – aufgestützt auf den linken Ellbogen.",
-  "who": "narr",
-  "do": [
+  "switch": [
    {
-    "lex": "convivium"
+    "if": {
+     "atHome": true,
+     "cls": "nobilis"
+    },
+    "go": "conv_offer"
+   },
+   {
+    "go": "obj_couch_info"
    }
   ]
  },
@@ -3333,5 +3373,290 @@
  },
  "hil_flat_no": {
   "text": "Wie du willst. Frag wieder, wenn du mehr verdienst."
+ },
+ "obj_couch_info": {
+  "text": "Eine Speiseliege (lectus). Beim Gastmahl liegt man hier – aufgestützt auf den linken Ellbogen.",
+  "who": "narr",
+  "do": [
+   {
+    "lex": "convivium"
+   }
+  ]
+ },
+ "conv_offer": {
+  "text": "Die Speiseliegen im Triclinium. Willst du ein Gastmahl (convivium) geben? Neun Gäste auf drei Liegen – so gehört es sich.",
+  "who": "narr",
+  "opts": [
+   {
+    "t": "Ein schlichtes Mahl geben (6 Denare)",
+    "if": {
+     "money": 96,
+     "since": [
+      "conv",
+      3
+     ]
+    },
+    "go": "conv_guests1",
+    "do": [
+     {
+      "money": -96
+     },
+     {
+      "stamp": "conv"
+     }
+    ]
+   },
+   {
+    "t": "Ein prächtiges Gastmahl geben (24 Denare und ein guter Wein)",
+    "if": {
+     "money": 384,
+     "item": "vinum_bonum",
+     "since": [
+      "conv",
+      3
+     ]
+    },
+    "go": "conv_guests2",
+    "do": [
+     {
+      "money": -384
+     },
+     {
+      "take": "vinum_bonum"
+     },
+     {
+      "stamp": "conv"
+     }
+    ]
+   },
+   {
+    "t": "(Dein letztes Gastmahl ist noch keine drei Tage her.)",
+    "if": {
+     "not": {
+      "since": [
+       "conv",
+       3
+      ]
+     }
+    }
+   },
+   {
+    "t": "Heute nicht."
+   }
+  ]
+ },
+ "conv_guests1": {
+  "text": "Wen lädst du ein? Wer bei dir speist, ist dir verpflichtet – und wird es weitererzählen.",
+  "who": "narr",
+  "opts": [
+   {
+    "t": "Caesarianer – mit Senator Rubrius",
+    "go": "conv_done",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 1,
+       "caesariani": 2
+      }
+     },
+     {
+      "rel": {
+       "rubrius": 6
+      }
+     },
+     {
+      "hours": 3
+     },
+     {
+      "need": {
+       "satiety": 40
+      }
+     }
+    ]
+   },
+   {
+    "t": "Optimaten – mit Senator Atilius",
+    "go": "conv_done",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 1,
+       "optimates": 2
+      }
+     },
+     {
+      "rel": {
+       "atilius": 6
+      }
+     },
+     {
+      "hours": 3
+     },
+     {
+      "need": {
+       "satiety": 40
+      }
+     }
+    ]
+   },
+   {
+    "t": "Freunde und Klienten",
+    "go": "conv_done",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 2
+      }
+     },
+     {
+      "rel": {
+       "cliens_lucius": 4,
+       "cliens_gnaeus": 4,
+       "cliens_aulus": 4
+      }
+     },
+     {
+      "hours": 3
+     },
+     {
+      "need": {
+       "satiety": 40
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "conv_guests2": {
+  "text": "Wen lädst du ein? Wer bei dir speist, ist dir verpflichtet – und wird es weitererzählen.",
+  "who": "narr",
+  "opts": [
+   {
+    "t": "Caesarianer – mit Senator Rubrius",
+    "go": "conv_done",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 2,
+       "caesariani": 4
+      }
+     },
+     {
+      "rel": {
+       "rubrius": 12
+      }
+     },
+     {
+      "hours": 3
+     },
+     {
+      "need": {
+       "satiety": 40
+      }
+     }
+    ]
+   },
+   {
+    "t": "Optimaten – mit Senator Atilius",
+    "go": "conv_done",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 2,
+       "optimates": 4
+      }
+     },
+     {
+      "rel": {
+       "atilius": 12
+      }
+     },
+     {
+      "hours": 3
+     },
+     {
+      "need": {
+       "satiety": 40
+      }
+     }
+    ]
+   },
+   {
+    "t": "Freunde und Klienten",
+    "go": "conv_done",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 4
+      }
+     },
+     {
+      "rel": {
+       "cliens_lucius": 8,
+       "cliens_gnaeus": 8,
+       "cliens_aulus": 8
+      }
+     },
+     {
+      "hours": 3
+     },
+     {
+      "need": {
+       "satiety": 40
+      }
+     },
+     {
+      "clients": 1
+     }
+    ]
+   }
+  ]
+ },
+ "conv_done": {
+  "text": [
+   "Es wird gegessen, getrunken und geredet: Eier, Oliven, Fisch, Braten, Obst – „vom Ei bis zu den Äpfeln“.",
+   "Spät in der Nacht gehen die Gäste. Morgen spricht man in der Stadt von deinem Gastmahl."
+  ],
+  "who": "narr",
+  "do": [
+   {
+    "lex": "convivium"
+   }
+  ]
+ },
+ "hil_shop": {
+  "text": [
+   "Die Taberna im Erdgeschoss, rechts vom Eingang? Ja, die ist frei: Theke, Regal, Klappläden.",
+   "10 Sesterzen mehr Miete im Monat, dazu 4 Denare Sicherheit. Was du darin verkaufst, ist deine Sache – solange es nicht brennt und nicht stinkt."
+  ],
+  "opts": [
+   {
+    "t": "Ich miete sie! (4 Denare)",
+    "if": {
+     "money": 64
+    },
+    "go": "hil_shop_yes",
+    "do": [
+     {
+      "money": -64
+     },
+     {
+      "flag": "myshop"
+     },
+     {
+      "addRent": 40
+     },
+     {
+      "lex": "tabernae"
+     }
+    ]
+   },
+   {
+    "t": "Noch nicht."
+   }
+  ]
+ },
+ "hil_shop_yes": {
+  "text": "Abgemacht. Die Theke steht rechts vom Hauseingang. Viel Glück, Ladenbesitzer!"
  }
 }

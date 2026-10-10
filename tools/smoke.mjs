@@ -177,6 +177,7 @@ try {
     window.__rv.status = (id) => { const m = G.state.missions[id]; return m ? `${m.status}:${m.step}:${m.count}` : 'none'; };
   });
   const runScenario = async (cls, script) => {
+    if (DIST && String(script).includes('import(')) return; // Quellmodule gibt es im Build nicht
     await ev((c) => window.__rv.game.newGame(c, 'm', 'Testus'), cls);
     await sleep(900);
     await closeDialogs();
@@ -445,6 +446,116 @@ try {
     if (Inv.count('lactuca') < 2) return 'Peristylbeet liefert nichts';
     const n = Object.keys(G.state.lex).length;
     return G.state.flags[`lexm_10`] || n < 10 ? true : 'Lexikon-Meilenstein fehlt';
+  });
+  // Teil 8: Freundschaft, Geschenke, Ruf, Wandaufträge, Heirat, eigener Laden
+  await runScenario('plebs', async () => {
+    const { G, game } = window.__rv;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const So = await import('/src/systems/social.js');
+    const Tk = await import('/src/systems/tasks.js');
+    const Es = await import('/src/systems/estate.js');
+    const Inv = await import('/src/systems/inventory.js');
+    const Mk = await import('/src/systems/market.js');
+    const { bus } = await import('/src/core/events.js');
+    // Gespräch & Geschenk
+    So.talked('felix'); So.talked('felix');
+    if (So.relOf('felix') !== 2) return `Tagesgespräch zählt falsch: ${So.relOf('felix')}`;
+    Inv.add('mel', 3);
+    const p0 = Inv.count('panis');
+    if (!So.give('felix', 'mel') || So.knownReaction('felix', 'mel') !== 'loves') return 'Geschenk nicht verarbeitet';
+    if (So.give('felix', 'mel') !== null) return 'Zwei Geschenke am selben Tag möglich';
+    Inv.add('mel', 1); for (let i = 0; i < 3; i++) { G.state.time.day += 1; So.give('felix', 'mel'); }
+    if (So.hearts('felix') < 2 || Inv.count('panis') < p0 + 3) return `Freundschafts-Vorteil fehlt: ${So.relOf('felix')}`;
+    // Zusatzoptionen im Gespräch
+    Inv.add('ficus', 1);
+    const lu = game.npcs.byId.lucrio;
+    G.ui.dialog.start(lu.def.dialogue, lu); await wait(30);
+    const hasGift = G.ui.dialog.optList.some((o) => o.t.includes('Geschenk'));
+    G.ui.dialog.close();
+    if (!hasGift) return 'Geschenk-Option fehlt im Gespräch';
+    // Ruf und Rabatt
+    const shop = G.data.shops.felix, entry = shop.items[0];
+    const b0 = Mk.buyPrice(shop, entry);
+    So.addRep('subura', 75);
+    if (So.repTitle(So.repOf('subura')) !== 'eine Größe im Viertel') return 'Ruftitel falsch';
+    if (!(Mk.buyPrice(shop, entry) < b0 || b0 <= 2)) return `Kein Rabatt: ${b0} -> ${Mk.buyPrice(shop, entry)}`;
+    // Wandaufträge
+    if (Tk.boardTasks('subura').length !== 3) return 'Wand hat nicht drei Aufträge';
+    const m0 = G.state.money;
+    Tk.take({ key: 't1', kind: 'talk', npc: 'ursus', pay: 7, zone: 'subura', rep: 2, title: 'Bote', giver: 'Vibius' });
+    Tk.take({ key: 't2', kind: 'deliver', npc: 'hermeros', item: 'olivae', n: 2, pay: 9, zone: 'emporium', rep: 2, title: 'Oliven', giver: 'Vibius' });
+    Tk.take({ key: 't3', kind: 'activity', act: 'lasten_emporium', pay: 8, zone: 'emporium', rep: 2, title: 'Lasten', giver: 'Vibius' });
+    if (Tk.takeBlock() === null) return 'Mehr als drei Aufträge möglich';
+    if (Tk.marker('ursus') !== '?') return 'Auftragsziel ohne Markierung';
+    Tk.npcOpts('ursus')[0].fn();
+    if (Tk.npcOpts('hermeros').length) return 'Lieferung ohne Ware möglich';
+    Inv.add('olivae', 2); Tk.npcOpts('hermeros')[0].fn();
+    bus.emit('activity', { id: 'lasten_emporium', success: true });
+    if (Tk.active().length || G.state.money !== m0 + 24) return `Aufträge nicht erledigt: ${Tk.active().length}, ${G.state.money - m0}`;
+    Tk.take({ key: 't4', kind: 'talk', npc: 'prima', pay: 5, zone: 'subura', rep: 1, title: 'x', giver: 'y' });
+    G.state.time.day += 3; Tk.newDay();
+    if (Tk.active().length) return 'Abgelaufener Auftrag bleibt bestehen';
+    // Heirat
+    G.state.rel.chloe = 100;
+    if (!So.canPropose('chloe')) return 'Antrag nicht möglich';
+    if (So.canPropose('hermeros')) return 'Antrag beim falschen Geschlecht möglich';
+    Inv.add('anulus_pronubus', 1);
+    const notReady = So.propose('chloe');
+    if (G.state.flags.married || !String(notReady).includes('Wohnung')) return 'Heirat ohne Wohnung möglich';
+    G.state.flags.big_flat = true; G.state.home = { map: 'insula_arria_2', at: [2, 3] };
+    So.propose('chloe');
+    if (G.state.flags.married !== 'chloe' || !G.state.lex.ehe) return 'Heirat fehlgeschlagen';
+    const sch = game.npcs.schedFor(game.npcs.byId.chloe.def, 13);
+    if (!sch || sch.map !== 'insula_arria_2') return 'Ehepartner kommt abends nicht heim';
+    So.spouseMorning();
+    // Eigener Laden
+    G.state.money = 100; G.state.rent.due = G.state.time.day + 3;
+    await window.__rv.talk('hilarus', ['Taberna', 'miete']);
+    if (!G.state.flags.myshop) return 'Laden nicht gemietet';
+    Inv.add('olivae', 6); Inv.add('garum', 1);
+    Es.stock('olivae', 6); Es.stock('garum', 1);
+    Es.dailySales();
+    const sh = Es.shopState();
+    if (!sh.till || sh.sold !== Es.salesCap()) return `Ladenverkauf falsch: ${sh.till}/${sh.sold}`;
+    const m1 = G.state.money; Es.collect();
+    if (G.state.money <= m1) return 'Kasse nicht geleert';
+    G.ui.panels.show('board', { id: 'subura' });
+    return true;
+  });
+  await sleep(300); await shot(page, '67-wandinschriften'); await press('Escape');
+  await ev(() => window.__rv.G.ui.panels.show('char')); await sleep(300); await shot(page, '68-beziehungen'); await press('Escape');
+  await ev(() => window.__rv.G.ui.panels.show('myshop')); await sleep(300); await shot(page, '69-eigener-laden'); await press('Escape');
+  await runScenario('nobilis', async () => {
+    const { G, game } = window.__rv;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const Es = await import('/src/systems/estate.js');
+    G.state.money = 5000;
+    if (!Es.buyInvest('taberna') || !Es.buyInvest('seedarlehen')) return 'Anlage nicht gekauft';
+    const rnd = Math.random; Math.random = () => 0.5;
+    const m0 = G.state.money;
+    G.state.time.day += 5; Es.dailyIncome();
+    Math.random = rnd;
+    if (G.state.money - m0 < 1100) return `Anlagen bringen nichts: ${G.state.money - m0}`;
+    const d0 = G.state.stats.dignitas, m1 = G.state.money;
+    Es.salutatio();
+    if (G.state.stats.dignitas <= d0 || G.state.money !== m1 - 12) return 'Salutatio wirkt nicht';
+    game.debugTeleport('domus_valeria', 12, 12); await wait(200);
+    const c0 = G.state.stats.caesariani || 0;
+    await window.__rv.talk('obj_couch', ['schlicht', 'Caesarianer']);
+    if ((G.state.stats.caesariani || 0) !== c0 + 2 || G.state.rel.rubrius !== 6 || G.state.vars.conv === undefined) return 'Gastmahl wirkt nicht';
+    G.ui.dialog.start('obj_couch'); await wait(30);
+    const again = G.ui.dialog.optList.some((o) => o.t.includes('schlicht'));
+    G.ui.dialog.close();
+    if (again) return 'Gastmahl sofort wiederholbar';
+    G.ui.panels.show('invest');
+    return true;
+  });
+  await sleep(300); await shot(page, '70-anlagen'); await press('Escape');
+  await runScenario('servus', async () => {
+    const { G } = window.__rv;
+    const Tk = await import('/src/systems/tasks.js');
+    G.state.time.hour = 3;
+    return Tk.takeBlock() ? true : 'Sklave kann ohne freie Zeit Aufträge annehmen';
   });
   await runScenario('nobilis', async () => {
     const Act = await import('/src/systems/activities.js');

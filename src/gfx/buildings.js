@@ -655,6 +655,15 @@ Object.assign(KINDS, {
     p('#4a2c18', X + 4, Y + 12, 2, 3); p('#4a2c18', X + W - 6, Y + 12, 2, 3);
   },
 
+  board({ p, X, Y, W }) {
+    // Verputzte Wand mit aufgemalten Inschriften (dipinti)
+    p('rgba(0,0,0,0.22)', X + 1, Y + 14, W - 1, 2);
+    p('#a89a7c', X, Y + 1, W, 14); p('#e8e0c8', X + 1, Y + 2, W - 2, 11); p('#c9bea0', X, Y + 13, W, 2);
+    for (let i = 0; i < W - 6; i += 9) {
+      p('#a3392c', X + 3 + i, Y + 4, 6, 1); p('#3a2a20', X + 3 + i, Y + 6, 5, 1); p('#3a2a20', X + 3 + i, Y + 8, 6, 1); p('#a3392c', X + 3 + i, Y + 10, 4, 1);
+    }
+  },
+
   sign({ p, X, Y }) {
     // Bemalter Hinweisstein (Spielhilfe)
     p('#bdb295', X + 5, Y + 6, 6, 10);

@@ -5,6 +5,7 @@ import { findPath } from '../world/pathfind.js';
 import { mulberry32 } from '../core/rng.js';
 import { G } from '../core/ctx.js';
 import { checkCond } from '../systems/rules.js';
+import { spouseSched } from '../systems/social.js';
 import { isNight } from '../core/time.js';
 
 const tilePx = (t) => ({ x: t.x * 16 + 8, y: t.y * 16 + 13 });
@@ -133,6 +134,8 @@ export class NpcManager {
   }
 
   schedFor(def, hour) {
+    const sp = spouseSched(def);
+    if (sp) return sp;
     for (const s of def.sched || []) {
       const [a, b] = s.h;
       const inRange = a <= b ? hour >= a && hour < b : hour >= a || hour < b;

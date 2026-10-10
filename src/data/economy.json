@@ -1,0 +1,61 @@
+{
+ "investments": [
+  {
+   "id": "taberna",
+   "name": "Ladenlokal (taberna) an der Via Sacra",
+   "short": "Taberna",
+   "price": 960,
+   "income": [
+    18,
+    26
+   ],
+   "max": 3,
+   "desc": "Du kaufst einen Laden und vermietest ihn an einen Händler.",
+   "lex": "tabernae"
+  },
+  {
+   "id": "insula",
+   "name": "Anteil an einer Insula im Argiletum",
+   "short": "Insula",
+   "price": 2400,
+   "income": [
+    48,
+    70
+   ],
+   "fire": 0.04,
+   "repair": 200,
+   "max": 2,
+   "desc": "Mietshäuser bringen viel – solange sie nicht brennen.",
+   "lex": "insula"
+  },
+  {
+   "id": "seedarlehen",
+   "kind": "loan",
+   "name": "Seedarlehen (fenus nauticum) für ein Getreideschiff",
+   "short": "Seedarlehen",
+   "price": 800,
+   "days": 4,
+   "ret": 1.4,
+   "loss": 0.15,
+   "desc": "Hoher Zins, hohes Risiko: Sinkt das Schiff, ist das Geld verloren.",
+   "lex": "seedarlehen"
+  }
+ ],
+ "salutatio": {
+  "start": 3,
+  "costPer": 4,
+  "bigAt": 6,
+  "max": 12
+ },
+ "myshop": {
+  "cats": [
+   "food",
+   "good",
+   "dish",
+   "fish",
+   "ingredient"
+  ],
+  "markup": 1.25,
+  "baseSales": 3
+ }
+}

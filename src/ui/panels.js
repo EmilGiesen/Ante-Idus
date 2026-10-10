@@ -13,6 +13,9 @@ import { activeBuffs, hoursLeft, buffFx } from '../systems/buffs.js';
 import * as Cook from '../systems/cooking.js';
 import * as Home from '../systems/home.js';
 import * as Coll from '../systems/collections.js';
+import * as Social from '../systems/social.js';
+import * as Tasks from '../systems/tasks.js';
+import * as Estate from '../systems/estate.js';
 
 import * as Market from '../systems/market.js';
 import { addXp } from '../systems/skills.js';
@@ -21,6 +24,7 @@ const sellPrice = Market.sellPrice;
 const TITLES = {
   inventory: 'Inventar', log: 'Logbuch', lexicon: 'Schriftrolle des Wissens', menu: 'Menü', shop: 'Laden', help: 'Steuerung',
   map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)', char: 'Charakter', cook: 'Kochen', prices: 'Preistafel', furnish: 'Einrichten',
+  gift: 'Geschenk', board: 'Wandinschriften (dipinti)', invest: 'Geld anlegen', myshop: 'Dein Laden',
 };
 const HOTKEY = { inventory: 'inventory', log: 'log', lexicon: 'lexicon', map: 'map', char: 'char' };
 
@@ -130,6 +134,15 @@ export class Panels {
         d.noAbandon ? null : el('button', { class: 'btn small ghost', onclick: () => { M.abandonMission(id); this.render(); } }, 'Aufgeben'));
       this.body.append(el('div', { class: `quest${tracked ? ' tracked' : ''}` }, el('h4', {}, d.title), el('p', {}, fmt(d.summary)), steps, btns));
       if (!tracked) this.nav.push(() => { s.tracked = id; this.render(); });
+    }
+    const tasks = Tasks.active();
+    if (tasks.length) {
+      this.body.append(el('h3', {}, 'Wandaufträge'));
+      for (const t of tasks) {
+        const left = t.due - s.time.day;
+        this.body.append(el('div', { class: 'quest' }, el('h4', {}, t.title), el('p', {}, Tasks.targetText(t)),
+          el('p', { class: 'muted' }, `Lohn: ${formatMoney(t.pay)} · ${left <= 0 ? 'nur noch heute' : `noch ${left + 1} Tage`}`)));
+      }
     }
     const avail = M.availableList();
     if (avail.length) {
@@ -328,6 +341,30 @@ export class Panels {
     const buffs = activeBuffs();
     if (!buffs.length) this.body.append(el('p', { class: 'muted' }, 'Keine. Opfergaben in Tempeln oder gutes Essen geben zeitlich begrenzte Boni.'));
     for (const b of buffs) this.body.append(el('p', {}, `✦ ${b.name} – noch etwa ${Math.ceil(hoursLeft(b))} Std.`));
+    this.body.append(el('h3', {}, 'Beziehungen'));
+    const rels = Object.keys(s.rel).filter((id) => Social.npcDef(id) && s.rel[id] > 0).sort((a, b) => s.rel[b] - s.rel[a]);
+    if (!rels.length) this.body.append(el('p', { class: 'muted' }, 'Noch niemand. Sprich täglich mit den Leuten und mach ihnen Geschenke.'));
+    if (Social.spouse()) this.body.append(el('p', {}, `${s.cls === 'servus' ? 'Lebensgefährte/-gefährtin' : 'Verheiratet mit'}: ${Social.npcDef(Social.spouse()).name}`));
+    for (const id of rels) {
+      const h = Social.hearts(id);
+      this.body.append(el('div', { class: 'row rel-row' }, el('span', { class: 'grow' }, `${Social.npcDef(id).name} `, el('small', { class: 'muted' }, Social.npcDef(id).role || '')),
+        el('span', { class: 'hearts' }, '♥'.repeat(h) + '♡'.repeat(5 - h)), el('small', {}, ` ${Social.relTitle(id)}`)));
+    }
+    this.body.append(el('h3', {}, 'Ruf in den Vierteln'));
+    const reps = Object.entries(s.rep || {}).filter(([, n]) => n !== 0).sort((a, b) => b[1] - a[1]);
+    if (!reps.length) this.body.append(el('p', { class: 'muted' }, 'Noch kennt dich niemand. Wandaufträge und Arbeit im Viertel machen dich bekannt; ab „geschätzt“ gibt es Rabatt.'));
+    for (const [z, n] of reps) this.body.append(el('div', { class: 'row rel-row' }, el('span', { class: 'grow' }, Social.zoneName(z)), el('small', {}, `${Social.repTitle(n)} (${n})`)));
+    if (s.cls === 'nobilis') {
+      this.body.append(el('h3', {}, 'Klienten & Vermögen'));
+      this.body.append(el('p', {}, `Klienten: ${Estate.clients()} – sie erwarten morgens bei der salutatio ihre Sportula.`));
+      const own = Estate.invDefs().filter((d) => Estate.owned(d.id));
+      this.body.append(el('p', {}, own.length ? `Anlagen: ${own.map((d) => `${Estate.owned(d.id)}× ${d.short}`).join(', ')}` : 'Noch keine Anlagen. Der Bankier Sextus Fadius am Forum berät dich.'));
+      if (Estate.loans().length) this.body.append(el('p', {}, `Seedarlehen unterwegs: ${Estate.loans().length}`));
+    }
+    if (s.flags.myshop) {
+      const sh = Estate.shopState();
+      this.body.append(el('h3', {}, 'Dein Laden'), el('p', {}, `Im Regal: ${Object.values(sh.stock).reduce((a, n) => a + n, 0)} Waren · Kasse: ${formatMoney(sh.till)} · bisher verkauft: ${sh.sold}`));
+    }
     this.body.append(el('h3', {}, 'Zuhause'));
     this.body.append(el('p', {}, `Gemütlichkeit: ${Home.comfort()} – je gemütlicher, desto erholsamer der Schlaf.`));
     this.body.append(el('h3', {}, 'Sammlungen'));
@@ -338,6 +375,93 @@ export class Panels {
         el('small', { class: 'muted' }, set.items.map((it) => (have.includes(it) ? Inv.itemDef(it).name : '? ? ?')).join(' · ')),
         el('small', {}, set.hint || '')));
     }
+  }
+
+  // ---------- Geschenk ----------
+  render_gift() {
+    const id = this.arg.npc;
+    const npc = Social.npcDef(id);
+    this.body.append(el('p', {}, `Was möchtest du ${npc.name} schenken? `, el('span', { class: 'hearts' }, '♥'.repeat(Social.hearts(id)) + '♡'.repeat(5 - Social.hearts(id)))));
+    this.body.append(el('p', { class: 'muted' }, 'Jeder hat Vorlieben. Was ankam, merkst du dir (♥ geliebt, + gemocht, − ungeliebt). An den Saturnalien zählen Geschenke doppelt.'));
+    const list = el('div', { class: 'shop-list' });
+    const MARK = { loves: ' ♥', likes: ' +', dislikes: ' −', neutral: ' ·' };
+    Social.giftable().forEach((x, i) => {
+      const k = Social.knownReaction(id, x.id);
+      const go = () => {
+        this.close();
+        const line = Social.give(id, x.id);
+        if (line) G.ui.dialog.custom({ text: line }, this.arg.ent);
+      };
+      list.append(el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}` }, pixelCanvas(getIcon(x.def), 2),
+        el('div', { class: 'grow' }, el('b', {}, `${x.def.name}${k ? MARK[k] : ''}`), el('small', {}, `${x.n}×`)),
+        el('button', { class: 'btn small', onclick: go }, 'Schenken')));
+      this.nav.push(go);
+    });
+    this.body.append(list);
+  }
+
+  // ---------- Wandinschriften ----------
+  render_board() {
+    const b = G.data.tasks.boards[this.arg.id];
+    this.body.append(el('p', { class: 'muted' }, fmt(b.text)));
+    const why = Tasks.takeBlock();
+    for (const t of Tasks.boardTasks(this.arg.id)) {
+      const taken = Tasks.isTaken(t.key);
+      const take = () => { if (!taken && Tasks.take(t)) this.render(); };
+      this.body.append(el('div', { class: `quest${taken ? ' tracked' : ''}` }, el('h4', {}, t.title), el('p', { class: 'dipinto' }, t.text),
+        el('div', { class: 'row' }, el('span', { class: 'tag' }, formatMoney(t.pay)),
+          taken ? el('span', { class: 'tag' }, '✔ angenommen') : el('button', { class: 'btn small', disabled: !!why, onclick: take }, 'Annehmen'))));
+      if (!taken) this.nav.push(take);
+    }
+    if (why) this.body.append(el('p', { class: 'muted' }, why));
+  }
+
+  // ---------- Geldanlagen (Adel) ----------
+  render_invest() {
+    const s = G.state;
+    this.body.append(el('p', { class: 'muted' }, 'Sextus Fadius vermittelt dir Anlagen. Ein Senator lebt offiziell von seinem Land – doch Mieten und Darlehen bringen das Geld für Spiele und Gastmähler.'),
+      el('p', { class: 'money-line' }, `Dein Vermögen: ${formatMoney(s.money)}`));
+    const list = el('div', { class: 'shop-list' });
+    Estate.invDefs().forEach((d, i) => {
+      const go = () => { if (Estate.buyInvest(d.id)) this.render(); };
+      const info = d.kind === 'loan' ? `Nach ${d.days} Tagen ${Math.round((d.ret - 1) * 100)} % Zins – oder alles verloren (${Math.round(d.loss * 100)} %).`
+        : `Ertrag täglich ${d.income[0]}–${d.income[1]} Asse${d.fire ? ' · Brandgefahr' : ''} · besitzt du: ${Estate.owned(d.id)}${d.max ? `/${d.max}` : ''}`;
+      list.append(el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}` },
+        el('div', { class: 'grow' }, el('b', {}, d.name), el('small', {}, d.desc), el('small', { class: 'muted' }, info)),
+        el('span', { class: 'price' }, shortMoney(d.price)),
+        el('button', { class: 'btn small', disabled: s.money < d.price, onclick: go }, 'Anlegen')));
+      this.nav.push(go);
+    });
+    this.body.append(list);
+  }
+
+  // ---------- Eigener Laden (Plebejer) ----------
+  render_myshop() {
+    const sh = Estate.shopState();
+    this.body.append(el('p', { class: 'muted' }, `Was im Regal liegt, verkauft sich über Nacht – bis zu ${Estate.salesCap()} Stück pro Tag, etwas teurer als beim Händler. Mehr Handelsgeschick und ein guter Ruf in der Subura bringen mehr Kundschaft.`));
+    this.body.append(el('div', { class: 'row' }, el('span', { class: 'grow' }, `Kasse: ${formatMoney(sh.till)}`),
+      el('button', { class: 'btn small', disabled: !sh.till, onclick: () => { Estate.collect(); this.render(); } }, 'Kasse leeren')));
+    this.body.append(el('h3', {}, 'Im Regal'));
+    const ids = Object.keys(sh.stock);
+    if (!ids.length) this.body.append(el('p', { class: 'muted' }, 'Leer.'));
+    for (const id of ids) {
+      const def = Inv.itemDef(id);
+      this.body.append(el('div', { class: 'shop-row' }, pixelCanvas(getIcon(def), 2), el('div', { class: 'grow' }, el('b', {}, `${sh.stock[id]}× ${def.name}`), el('small', {}, `je ${formatMoney(Estate.shopPrice(id))}`)),
+        el('button', { class: 'btn small ghost', onclick: () => { Estate.unstock(id); this.render(); } }, 'Zurücknehmen')));
+    }
+    this.body.append(el('h3', {}, 'Aus deinem Inventar'));
+    const list = el('div', { class: 'shop-list' });
+    const st = Estate.stockable();
+    if (!st.length) this.body.append(el('p', { class: 'muted' }, 'Nichts Verkäufliches dabei: Lebensmittel, Waren, Fisch und Gerichte lassen sich verkaufen.'));
+    st.forEach((x, i) => {
+      const go = () => { Estate.stock(x.id, 1); this.render(); };
+      list.append(el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}` }, pixelCanvas(getIcon(x.def), 2),
+        el('div', { class: 'grow' }, el('b', {}, x.def.name), el('small', {}, `${x.n}× · Ladenpreis ${formatMoney(Estate.shopPrice(x.id))}`)),
+        el('button', { class: 'btn small', onclick: go }, 'Ins Regal'),
+        x.n > 1 ? el('button', { class: 'btn small ghost', onclick: () => { Estate.stock(x.id, x.n); this.render(); } }, 'Alle') : null));
+      this.nav.push(go);
+    });
+    this.body.append(list);
   }
 
   // ---------- Einrichten ----------

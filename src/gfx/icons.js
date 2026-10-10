@@ -88,6 +88,9 @@ export function getIcon(item) {
     case 'stamp':
       p('#b0603a', 3, 4, 10, 9); p('#c97a4a', 3, 4, 10, 2); p('#8a4a2a', 5, 7, 6, 3); p('#e8dcc0', 6, 8, 1, 1); p('#e8dcc0', 8, 8, 1, 1);
       break;
+    case 'ring':
+      p(d, 5, 5, 6, 1); p(d, 5, 11, 6, 1); p(d, 4, 6, 1, 5); p(d, 11, 6, 1, 5); p(col, 5, 6, 1, 1); p(l, 6, 5, 3, 1);
+      break;
     case 'coin':
       p(col, 4, 4, 8, 8); p(l, 5, 4, 6, 1); p(d, 4, 11, 8, 1); p(d, 7, 6, 2, 4);
       break;

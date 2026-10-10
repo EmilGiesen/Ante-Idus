@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { buildExterior, buildInterior } from '../src/world/mapgen.js';
 
 const load = (n) => JSON.parse(readFileSync(new URL(`../src/data/${n}.json`, import.meta.url), 'utf8'));
-const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets', 'offerings', 'rumors', 'festivals', 'collections'].map((n) => [n, load(n)]));
+const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets', 'offerings', 'rumors', 'festivals', 'collections', 'social', 'tasks', 'economy'].map((n) => [n, load(n)]));
 const MINIGAMES = ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice', 'race'];
 const errors = [];
 const warn = [];
@@ -119,6 +119,7 @@ for (const n of D.npcs.list) {
 }
 // ---------- Dialoge ----------
 const lex = D.lexicon.entries;
+const zoneIds = new Set(D.map_rom.zones.map((z) => z.id));
 const checkCond = (c, where) => {
   if (!c) return;
   for (const [k, v] of Object.entries(c)) {
@@ -137,6 +138,8 @@ const checkEff = (list, where) => {
     if ((k === 'give' || k === 'take') && !D.items[Array.isArray(v) ? v[0] : v]) err(`${where}: Gegenstand ${v} fehlt`);
     if (k === 'lex') [].concat(v).forEach((id) => { if (!lex[id]) err(`${where}: Lexikon ${id} fehlt`); });
     if (k === 'shop' && !D.shops[v]) err(`${where}: Laden ${v} fehlt`);
+    if (k === 'rel') for (const n of Object.keys(v)) if (!npcIds.has(n)) err(`${where}: NPC ${n} fehlt`);
+    if (k === 'rep') for (const z of Object.keys(v)) if (!zoneIds.has(z)) err(`${where}: Viertel ${z} fehlt`);
     if (k === 'minigame' && e.then && !D.dialogues[e.then]) err(`${where}: Folgeknoten ${e.then} fehlt`);
   }
 };
@@ -193,6 +196,27 @@ for (const [id, d] of Object.entries(D.interiors)) if (d.temple && !D.offerings[
 for (const [id, o] of Object.entries(D.offerings)) { if (o.lex) { usedLex.add(o.lex); if (!lex[o.lex]) err(`Opfer ${id}: Lexikon ${o.lex} fehlt`); } if (!o.buff?.fx) err(`Opfer ${id}: Bonus fehlt`); }
 for (const r of D.rumors) { checkCond(r.if, `Gerücht ${r.id}`); checkEff(r.do, `Gerücht ${r.id}`); for (const e of r.do || []) if (e.lex) [].concat(e.lex).forEach((x) => usedLex.add(x)); }
 for (const [id, set] of Object.entries(D.collections.sets)) { for (const it of set.items) if (!D.items[it]) err(`Sammlung ${id}: ${it} fehlt`); checkEff(set.reward, `Sammlung ${id}`); for (const e of set.reward) if (e.lex) usedLex.add(e.lex); }
+// Gesellschaft, Wandaufträge, Klassen-Extras
+const itemOrCat = (x, where) => { if (x.startsWith('cat:') ? !Object.values(D.items).some((i) => i.cat === x.slice(4)) : !D.items[x]) err(`${where}: ${x} unbekannt`); };
+for (const [n, g] of Object.entries({ default: D.social.gifts.default, ...D.social.gifts.npcs })) {
+  if (n !== 'default' && !npcIds.has(n)) err(`Geschenke: NPC ${n} fehlt`);
+  for (const k of ['loves', 'likes', 'dislikes']) for (const x of g[k] || []) itemOrCat(x, `Geschenke ${n}`);
+}
+for (const [n, list] of Object.entries(D.social.perks)) { if (!npcIds.has(n)) err(`Vorteile: NPC ${n} fehlt`); for (const p of list) { checkEff(p.do, `Vorteil ${n}`); for (const e of p.do) if (e.lex) usedLex.add(e.lex); } }
+for (const [n, sp] of Object.entries(D.social.spouses)) { if (!npcIds.has(n)) err(`Heirat: NPC ${n} fehlt`); for (const x of sp.gives) if (!D.items[x]) err(`Heirat ${n}: ${x} fehlt`); }
+for (const [c, m] of Object.entries(D.social.marriage)) { if (!D.items[m.item]) err(`Heirat ${c}: Ring fehlt`); checkCond(m.cond, `Heirat ${c}`); checkEff(m.do, `Heirat ${c}`); }
+for (const [id, b] of Object.entries(D.tasks.boards)) {
+  if (!zoneIds.has(b.zone)) err(`Wand ${id}: Viertel ${b.zone} fehlt`);
+  if (!D.map_rom.deco.some((d) => d.interact && d.interact.type === 'board' && d.interact.id === id)) err(`Wand ${id}: steht nicht auf der Karte`);
+}
+for (const t of D.tasks.templates) {
+  for (const n of t.npcs || []) if (!npcIds.has(n)) err(`Auftragsvorlage: NPC ${n} fehlt`);
+  for (const x of t.items || []) if (!D.items[x] || !D.items[x].price) err(`Auftragsvorlage: ${x} fehlt oder ohne Preis`);
+  for (const a of t.acts || []) if (!D.activities[a]) err(`Auftragsvorlage: Aktivität ${a} fehlt`);
+}
+for (const d of D.economy.investments) { if (!lex[d.lex]) err(`Anlage ${d.id}: Lexikon ${d.lex} fehlt`); usedLex.add(d.lex); }
+for (const [id, sh] of Object.entries(D.shops)) { if (sh.zone && !zoneIds.has(sh.zone)) err(`Laden ${id}: Viertel ${sh.zone} fehlt`); if (sh.npc && !npcIds.has(sh.npc)) err(`Laden ${id}: NPC ${sh.npc} fehlt`); }
+for (const [id, def] of Object.entries(D.interiors)) if (def.spouseAt && maps[id].isSolidTile(...def.spouseAt)) err(`${id}: spouseAt blockiert`);
 for (const [id, it] of Object.entries(D.items)) if (it.seed && !D.items[it.seed.out]) err(`Saat ${id}: Ernte ${it.seed.out} fehlt`);
 for (const [id, it] of Object.entries(D.items)) if (it.cat === 'furniture' && !it.prop) err(`Möbel ${id}: prop fehlt`);
 for (const [id, r] of Object.entries(D.recipes)) {
@@ -210,7 +234,7 @@ for (const [id, e] of Object.entries(lex)) {
 for (const z of D.map_rom.zones) if (z.lex) { usedLex.add(z.lex); if (!lex[z.lex]) err(`Zone ${z.id}: Lexikon ${z.lex} fehlt`); }
 for (const b of [...D.map_rom.buildings, ...D.map_rom.deco]) if (b.lex) { usedLex.add(b.lex); if (!lex[b.lex]) err(`Objekt ${b.name || b.kind}: Lexikon ${b.lex} fehlt`); }
 for (const d of Object.values(D.interiors)) if (d.lex) usedLex.add(d.lex);
-['kalender', 'sklaverei', 'nacht', 'preise', 'lectica', 'orientierung', 'opfer', 'handel', 'garten', 'wohnen'].forEach((x) => usedLex.add(x)); // im Code freigeschaltet
+['kalender', 'sklaverei', 'nacht', 'preise', 'lectica', 'orientierung', 'opfer', 'handel', 'garten', 'wohnen', 'amicitia', 'ehe', 'dipinti', 'ruf', 'cliens', 'insula'].forEach((x) => usedLex.add(x)); // im Code freigeschaltet
 for (const id of Object.keys(lex)) if (!usedLex.has(id)) warn.push(`Lexikon ${id} wird nirgends freigeschaltet`);
 
 for (const w of warn) console.log('Hinweis:', w);

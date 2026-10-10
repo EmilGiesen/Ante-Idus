@@ -24,6 +24,7 @@ export class DialogBox {
     if (npc) npc.talking = true;
     this.open = true;
     this.box.classList.remove('hidden');
+    this.rootId = npc && npc.kind === 'named' ? nodeId : null;
     this.openNode(nodeId);
   }
 
@@ -59,6 +60,7 @@ export class DialogBox {
 
   openNode(id) {
     const D = G.data.dialogues;
+    const origId = id;
     let node = D[id];
     for (let guard = 0; node && node.switch && guard < 12; guard++) {
       const br = node.switch.find((b) => checkCond(b.if));
@@ -73,6 +75,17 @@ export class DialogBox {
     this.page = 0;
     this.pending = applyEffects(node.do).after || null;
     this.optList = (node.opts || []).filter((o) => checkCond(o.if));
+    // Beim ersten Knoten eines NPC-Gesprächs: Aufträge, Geschenke usw. anbieten
+    if (this.rootId === origId && this.npc && !this.pending && !node.next) {
+      this.rootId = null;
+      const extra = G.game.npcExtraOpts(this.npc);
+      if (extra.length) {
+        const last = this.optList[this.optList.length - 1];
+        if (!this.optList.length) this.optList = [{ t: 'Leb wohl.' }, ...extra]; // E schließt wie bisher
+        else if (last && !last.go && !last.do && !last.fn) this.optList = [...this.optList.slice(0, -1), ...extra, last];
+        else this.optList = [...this.optList, ...extra];
+      }
+    }
     this.showPage();
   }
 

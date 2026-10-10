@@ -273,3 +273,8 @@ table.prices th, table.prices td { text-align: left; padding: 3px 8px; border-bo
   .dlg-text { font-size: 0.95rem; }
   .toasts { width: calc(100vw - 32px); top: auto; bottom: 200px; }
 }
+
+/* Beziehungen, Wandinschriften */
+.rel-row { gap: 6px; padding: 2px 0; border-bottom: 1px dotted rgba(90, 60, 30, 0.25); }
+.hearts { color: #a3392c; letter-spacing: 1px; }
+.dipinto { font-style: italic; color: #7a2a1e; }

@@ -17,6 +17,9 @@ const FILES = {
   rumors: new URL('../data/rumors.json', import.meta.url),
   festivals: new URL('../data/festivals.json', import.meta.url),
   collections: new URL('../data/collections.json', import.meta.url),
+  social: new URL('../data/social.json', import.meta.url),
+  tasks: new URL('../data/tasks.json', import.meta.url),
+  economy: new URL('../data/economy.json', import.meta.url),
 };
 
 export async function loadData() {

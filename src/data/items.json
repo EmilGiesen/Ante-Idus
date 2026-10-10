@@ -652,5 +652,13 @@
   "cat": "collectible",
   "price": 0,
   "desc": "Ein gestempelter Amphorenhenkel – ein Sammlerstück."
+ },
+ "anulus_pronubus": {
+  "name": "Verlobungsring aus Eisen (anulus pronubus)",
+  "icon": "ring",
+  "c": "#6e6a72",
+  "cat": "gift",
+  "price": 24,
+  "desc": "Ein schlichter Eisenring. Man steckt ihn bei der Verlobung an den Finger neben dem kleinen Finger der linken Hand."
  }
 }

@@ -513,6 +513,18 @@ function priceBoard(x, y, market) {
 }
 priceBoard(72, 129, 'emporium'); priceBoard(140, 74, 'macellum'); priceBoard(70, 71, 'holitorium');
 priceBoard(90, 98, 'boarium'); priceBoard(164, 69, 'subura');
+// Wandinschriften (dipinti) mit kleinen Aufträgen
+function boardAt(x, y, id) {
+  const p = nearFree(x, y, 2, 1, 7);
+  if (!p) { warnings.push(`Wandinschrift ${id}: kein Platz`); return; }
+  D('board', p[0], p[1], 2, 1, { name: 'Wandinschriften (dipinti)', interact: { type: 'board', id } });
+}
+boardAt(160, 66, 'subura'); boardAt(134, 66, 'argiletum'); boardAt(74, 134, 'emporium'); boardAt(40, 90, 'trans_tiberim'); boardAt(110, 150, 'aventin');
+{
+  const p = nearFree(156, 77, 3, 1, 5);
+  if (p) D('stall', p[0], p[1], 3, 1, { name: 'Taberna der Insula Arriana', style: { goods: 'tools', awning: '#4f7a3a' }, interact: { type: 'myshop' } });
+  else warnings.push('Eigener Laden: kein Platz');
+}
 actAt('stall', 114, 121, 3, 1, 'wetten', { name: 'Wetten auf die Gespanne', style: { goods: 'cloth', awning: '#c0392b' } });
 actAt('jetty', 64, 84, 1, 1, 'fischen_insula', { name: 'Angelsteg zwischen den Brücken' });
 actAt('jetty', 47, 30, 1, 1, 'fischen_marsfeld', { name: 'Angelplatz am Marsfeld' });

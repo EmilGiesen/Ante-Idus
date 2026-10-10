@@ -196,6 +196,10 @@
     ],
     "type": "plant"
    }
+  ],
+  "spouseAt": [
+   20,
+   12
   ]
  },
  "insula_arria": {
@@ -267,6 +271,10 @@
     ],
     "type": "plant"
    }
+  ],
+  "spouseAt": [
+   2,
+   2
   ]
  },
  "pistrinum": {
@@ -561,6 +569,10 @@
     ],
     "type": "plant"
    }
+  ],
+  "spouseAt": [
+   10,
+   2
   ]
  }
 }

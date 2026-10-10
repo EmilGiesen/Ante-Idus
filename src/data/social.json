@@ -1,0 +1,818 @@
+{
+ "levels": [
+  "Bekannt",
+  "Vertraut",
+  "Befreundet",
+  "Gute Freunde",
+  "Enge Freunde",
+  "Herzensfreunde"
+ ],
+ "giftPoints": {
+  "loves": 12,
+  "likes": 6,
+  "neutral": 2,
+  "dislikes": -6
+ },
+ "noRel": [
+  "fabius"
+ ],
+ "gifts": {
+  "default": {
+   "loves": [
+    "vinum_bonum",
+    "ostrea"
+   ],
+   "likes": [
+    "cat:dish",
+    "mel",
+    "unguentum",
+    "ficus"
+   ],
+   "dislikes": [
+    "cat:junk",
+    "cat:seed",
+    "posca",
+    "far"
+   ]
+  },
+  "npcs": {
+   "tertia": {
+    "loves": [
+     "moretum",
+     "mel",
+     "lana"
+    ],
+    "likes": [
+     "acetaria",
+     "herbae",
+     "ova"
+    ]
+   },
+   "vettia": {
+    "loves": [
+     "lana",
+     "mulsum"
+    ],
+    "likes": [
+     "olivae",
+     "ficus"
+    ]
+   },
+   "hilarus": {
+    "loves": [
+     "vinum_bonum",
+     "vinum"
+    ],
+    "dislikes": [
+     "cat:fish"
+    ]
+   },
+   "felix": {
+    "loves": [
+     "mel",
+     "sal"
+    ],
+    "likes": [
+     "far",
+     "caseus"
+    ],
+    "dislikes": [
+     "panis"
+    ]
+   },
+   "asellina": {
+    "loves": [
+     "unguentum",
+     "mulsum"
+    ],
+    "likes": [
+     "vinum"
+    ]
+   },
+   "ursus": {
+    "loves": [
+     "garum",
+     "vinum_bonum"
+    ],
+    "likes": [
+     "cat:fish"
+    ]
+   },
+   "primus": {
+    "loves": [
+     "vinum"
+    ],
+    "likes": [
+     "posca",
+     "panis"
+    ],
+    "dislikes": [
+     "cat:ingredient"
+    ]
+   },
+   "hermeros": {
+    "loves": [
+     "lupus_garum",
+     "anguilla_garum",
+     "garum"
+    ],
+    "likes": [
+     "cat:fish",
+     "vinum"
+    ],
+    "dislikes": [
+     "lactuca"
+    ]
+   },
+   "chloe": {
+    "loves": [
+     "mulsum",
+     "ficus",
+     "acetaria"
+    ],
+    "likes": [
+     "cera",
+     "mel"
+    ],
+    "dislikes": [
+     "cat:fish"
+    ]
+   },
+   "prima": {
+    "loves": [
+     "mel",
+     "porri"
+    ],
+    "likes": [
+     "cat:seed",
+     "ficus"
+    ],
+    "dislikes": [
+     "cat:fish"
+    ]
+   },
+   "nicanor": {
+    "loves": [
+     "cat:collectible"
+    ],
+    "likes": [
+     "garum",
+     "vinum"
+    ]
+   },
+   "statius": {
+    "loves": [
+     "mulsum"
+    ],
+    "likes": [
+     "panis",
+     "olivae"
+    ]
+   },
+   "lucrio": {
+    "loves": [
+     "vinum_bonum"
+    ],
+    "likes": [
+     "moretum",
+     "patina"
+    ]
+   },
+   "balneator": {
+    "loves": [
+     "oleum",
+     "unguentum"
+    ],
+    "likes": [
+     "posca"
+    ]
+   },
+   "aedituus": {
+    "loves": [
+     "mel",
+     "cera"
+    ],
+    "likes": [
+     "lucerna",
+     "ficus"
+    ]
+   },
+   "syra": {
+    "loves": [
+     "garum",
+     "herbae"
+    ],
+    "likes": [
+     "allium",
+     "sal"
+    ]
+   },
+   "lyde": {
+    "loves": [
+     "ficus",
+     "mel"
+    ],
+    "likes": [
+     "herbae",
+     "lactuca"
+    ]
+   },
+   "philo": {
+    "loves": [
+     "cera"
+    ],
+    "likes": [
+     "vinum",
+     "lucerna"
+    ]
+   },
+   "eutychus": {
+    "loves": [
+     "puls"
+    ],
+    "likes": [
+     "panis",
+     "posca"
+    ],
+    "dislikes": [
+     "vinum_bonum"
+    ]
+   },
+   "aemilia": {
+    "loves": [
+     "unguentum",
+     "vinum_bonum"
+    ],
+    "likes": [
+     "mulsum"
+    ],
+    "dislikes": [
+     "posca",
+     "puls",
+     "cat:fish",
+     "cat:ingredient"
+    ]
+   },
+   "hermes": {
+    "loves": [
+     "cera",
+     "harundo"
+    ],
+    "likes": [
+     "lucerna"
+    ]
+   },
+   "rubrius": {
+    "loves": [
+     "vinum_bonum",
+     "ostrea"
+    ],
+    "dislikes": [
+     "panis",
+     "puls",
+     "cat:ingredient"
+    ]
+   },
+   "atilius": {
+    "loves": [
+     "vinum_bonum",
+     "cat:collectible"
+    ],
+    "dislikes": [
+     "panis",
+     "puls",
+     "cat:ingredient"
+    ]
+   },
+   "thais": {
+    "loves": [
+     "unguentum"
+    ],
+    "dislikes": [
+     "cat:fish"
+    ]
+   },
+   "mago": {
+    "loves": [
+     "garum"
+    ],
+    "dislikes": [
+     "posca"
+    ]
+   },
+   "praeco": {
+    "loves": [
+     "mulsum",
+     "mel"
+    ],
+    "likes": [
+     "vinum"
+    ]
+   }
+  }
+ },
+ "lines": {
+  "default": {
+   "loves": [
+    "Oh! {item}! Woher weißt du, dass ich das so mag?",
+    "Das ist ja wunderbar – danke dir von Herzen!"
+   ],
+   "likes": [
+    "{item}? Wie aufmerksam, danke!",
+    "Oh, das kann ich gut gebrauchen. Danke!"
+   ],
+   "neutral": [
+    "Danke. Das ist nett von dir.",
+    "Oh – danke."
+   ],
+   "dislikes": [
+    "Ähm … {item}. Na ja. Danke … glaube ich.",
+    "Was soll ich denn damit?"
+   ]
+  },
+  "eutychus": {
+   "loves": [
+    "Puls! Wie früher, als ich noch jung war und die Welt einfach. Danke, Kind."
+   ],
+   "dislikes": [
+    "Teurer Wein? Für einen alten Sklaven? Bring das lieber dem Herrn, sonst gibt's Ärger."
+   ]
+  },
+  "hermeros": {
+   "loves": [
+    "Bei Neptun! {item}! Damit kommt man über jeden Winter."
+   ]
+  },
+  "nicanor": {
+   "loves": [
+    "Zeig her … {item}! Für meine Sammlung! Du hast ein Auge für so etwas."
+   ]
+  }
+ },
+ "perks": {
+  "felix": [
+   {
+    "at": 2,
+    "text": "Felix steckt dir frisches Brot zu.",
+    "do": [
+     {
+      "give": [
+       "panis",
+       3
+      ]
+     }
+    ]
+   },
+   {
+    "at": 4,
+    "text": "Felix zeigt dir Kniffe am Ofen.",
+    "do": [
+     {
+      "xp": {
+       "handwerk": 40
+      }
+     }
+    ]
+   }
+  ],
+  "ursus": [
+   {
+    "at": 3,
+    "text": "Ursus schenkt dir einen Krug Wein.",
+    "do": [
+     {
+      "give": [
+       "vinum",
+       2
+      ]
+     }
+    ]
+   }
+  ],
+  "hermeros": [
+   {
+    "at": 3,
+    "text": "Hermeros verrät dir seine besten Angelplätze.",
+    "do": [
+     {
+      "xp": {
+       "fischen": 40
+      }
+     }
+    ]
+   }
+  ],
+  "chloe": [
+   {
+    "at": 3,
+    "text": "Chloe schenkt dir ein Fläschchen Salböl.",
+    "do": [
+     {
+      "give": [
+       "unguentum",
+       2
+      ]
+     }
+    ]
+   }
+  ],
+  "prima": [
+   {
+    "at": 2,
+    "text": "Prima gibt dir Saatgut für dein Fensterbrett.",
+    "do": [
+     {
+      "give": [
+       "semen_porrum",
+       2
+      ]
+     },
+     {
+      "give": [
+       "semen_lactuca",
+       2
+      ]
+     }
+    ]
+   }
+  ],
+  "nicanor": [
+   {
+    "at": 3,
+    "text": "Nicanor erklärt dir, wie man Händler durchschaut.",
+    "do": [
+     {
+      "xp": {
+       "handel": 50
+      }
+     }
+    ]
+   }
+  ],
+  "tertia": [
+   {
+    "at": 3,
+    "text": "Deine Mutter kocht dir dein Lieblingsessen.",
+    "do": [
+     {
+      "give": [
+       "moretum",
+       2
+      ]
+     },
+     {
+      "stat": {
+       "familia": 3
+      }
+     }
+    ]
+   }
+  ],
+  "hilarus": [
+   {
+    "at": 4,
+    "text": "Hilarus schiebt dir 60 Asse zu: „Für die Miete. Sag's nicht dem Arrius.“",
+    "do": [
+     {
+      "money": 60
+     }
+    ]
+   }
+  ],
+  "lucrio": [
+   {
+    "at": 3,
+    "text": "Lucrio schenkt dir zwei Pflanzkübel.",
+    "do": [
+     {
+      "give": [
+       "vas_plantae",
+       2
+      ]
+     }
+    ]
+   }
+  ],
+  "aemilia": [
+   {
+    "at": 3,
+    "text": "Deine Mutter lobt dich vor den Gästen – das spricht sich herum.",
+    "do": [
+     {
+      "stat": {
+       "dignitas": 3
+      }
+     }
+    ]
+   }
+  ],
+  "hermes": [
+   {
+    "at": 3,
+    "text": "Hermes bringt dir bei, Namen und Gesichter nie zu vergessen.",
+    "do": [
+     {
+      "xp": {
+       "rhetorik": 40
+      }
+     }
+    ]
+   }
+  ],
+  "rubrius": [
+   {
+    "at": 3,
+    "text": "Rubrius empfiehlt dich bei den Caesarianern.",
+    "do": [
+     {
+      "stat": {
+       "caesariani": 3
+      }
+     }
+    ]
+   }
+  ],
+  "atilius": [
+   {
+    "at": 3,
+    "text": "Atilius empfiehlt dich bei den Optimaten.",
+    "do": [
+     {
+      "stat": {
+       "optimates": 3
+      }
+     }
+    ]
+   }
+  ],
+  "philo": [
+   {
+    "at": 3,
+    "text": "Philo legt beim Herrn ein gutes Wort für dich ein.",
+    "do": [
+     {
+      "stat": {
+       "fides": 5
+      }
+     }
+    ]
+   }
+  ],
+  "lyde": [
+   {
+    "at": 3,
+    "text": "Lyde zeigt dir, wie man eine Patina gelingen lässt.",
+    "do": [
+     {
+      "give": [
+       "patina",
+       2
+      ]
+     },
+     {
+      "xp": {
+       "kochen": 30
+      }
+     }
+    ]
+   }
+  ],
+  "eutychus": [
+   {
+    "at": 3,
+    "text": "Eutychus erzählt dir, wie Sklaven freigelassen werden.",
+    "do": [
+     {
+      "lex": "manumissio"
+     },
+     {
+      "xp": {
+       "schreiben": 30
+      }
+     }
+    ]
+   }
+  ],
+  "aedituus": [
+   {
+    "at": 3,
+    "text": "Faustus segnet dich im Namen Saturns.",
+    "do": [
+     {
+      "buff": {
+       "id": "saturn_f",
+       "name": "Segen des Saturn",
+       "hours": 12,
+       "fx": {
+        "luck": 0.1
+       }
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "spouses": {
+  "chloe": {
+   "sex": "f",
+   "cls": [
+    "plebs"
+   ],
+   "gives": [
+    "acetaria",
+    "panis",
+    "mulsum"
+   ],
+   "wait": "Ich mag dich wirklich … aber lass uns nichts überstürzen.",
+   "yes": [
+    "Ja! Ja, ich will deine Frau werden.",
+    "Ein paar Tage später: Ihr steckt euch die Ringe an, opfert und teilt einen Kuchen aus Dinkel – so ist es Brauch. Chloe zieht zu dir."
+   ]
+  },
+  "prima": {
+   "sex": "f",
+   "cls": [
+    "plebs"
+   ],
+   "gives": [
+    "acetaria",
+    "porri",
+    "moretum"
+   ],
+   "wait": "Du bist ein guter Mensch. Aber ich kenne dich noch nicht lange genug.",
+   "yes": [
+    "Ich habe gehofft, dass du fragst!",
+    "Bald darauf führt man Prima feierlich in deine Wohnung. Von nun an lebt ihr zusammen."
+   ]
+  },
+  "vettia": {
+   "sex": "f",
+   "cls": [
+    "plebs"
+   ],
+   "gives": [
+    "puls",
+    "moretum",
+    "panis"
+   ],
+   "wait": "Seit mein Mann tot ist, habe ich nicht mehr an so etwas gedacht. Gib mir Zeit.",
+   "yes": [
+    "Warum eigentlich nicht? Das Leben ist zu kurz, um allein zu sein.",
+    "Die Nachbarn feiern mit euch. Vettia zieht ein Stockwerk tiefer – zu dir."
+   ]
+  },
+  "hermeros": {
+   "sex": "m",
+   "cls": [
+    "plebs"
+   ],
+   "gives": [
+    "piscis_assus",
+    "panis"
+   ],
+   "wait": "Ha! Erst sehen wir, ob du einen Winter mit mir aushältst.",
+   "yes": [
+    "Bei Neptun – ja! Und ich verspreche: Ich bringe jeden Tag Fisch mit.",
+    "Die Hochzeit ist laut, fröhlich und voller Schiffer. Hermeros zieht zu dir."
+   ]
+  },
+  "nicanor": {
+   "sex": "m",
+   "cls": [
+    "plebs"
+   ],
+   "gives": [
+    "olivae",
+    "caseus",
+    "panis"
+   ],
+   "wait": "Ein Händler überlegt lange, bevor er kauft. Ich auch.",
+   "yes": [
+    "Abgemacht – das beste Geschäft meines Lebens.",
+    "Ihr feiert mit Freunden vom Hafen. Nicanor zieht zu dir."
+   ]
+  },
+  "felix": {
+   "sex": "m",
+   "cls": [
+    "plebs"
+   ],
+   "gives": [
+    "panis",
+    "panis",
+    "moretum"
+   ],
+   "wait": "Gut Ding will Weile haben – wie ein guter Sauerteig.",
+   "yes": [
+    "Ja! Bei allen Göttern, ja!",
+    "Felix backt den Hochzeitskuchen selbst. Von nun an lebt ihr zusammen."
+   ]
+  },
+  "lyde": {
+   "sex": "f",
+   "cls": [
+    "servus"
+   ],
+   "gives": [
+    "puls",
+    "panis"
+   ],
+   "wait": "Wir sind beide Sklaven. Lass uns erst sicher sein.",
+   "yes": [
+    "Ja. Auch wenn kein Gesetz uns schützt – ich will mit dir leben.",
+    "Mit Erlaubnis des Herrn lebt ihr nun zusammen: ein contubernium, keine Ehe nach römischem Recht."
+   ]
+  },
+  "philo": {
+   "sex": "m",
+   "cls": [
+    "servus"
+   ],
+   "gives": [
+    "panis",
+    "puls"
+   ],
+   "wait": "Ich verwalte dieses Haus. Ich muss vorsichtig sein – mit allem.",
+   "yes": [
+    "Ja. Ich spreche mit dem Herrn.",
+    "Fabius erlaubt es. Ihr lebt nun zusammen – ein contubernium, keine Ehe nach römischem Recht."
+   ]
+  }
+ },
+ "marriage": {
+  "plebs": {
+   "item": "anulus_pronubus",
+   "cond": {
+    "flag": "big_flat"
+   },
+   "noItem": "Ohne Ring? Ein Verlöbnis braucht einen Ring – so gehört es sich.",
+   "notReady": "Und wo sollen wir wohnen? In deinem Kämmerchen? Erst brauchst du eine größere Wohnung.",
+   "do": [
+    {
+     "stat": {
+      "familia": 10
+     }
+    },
+    {
+     "rep": {
+      "subura": 5
+     }
+    }
+   ]
+  },
+  "servus": {
+   "item": "anulus_pronubus",
+   "cond": {
+    "stat": [
+     "fides",
+     ">=",
+     40
+    ]
+   },
+   "noItem": "Ein kleiner Ring wäre schön – als Zeichen.",
+   "notReady": "Ohne Erlaubnis des Herrn geht es nicht. Und die gibt er nur, wenn er dir vertraut.",
+   "do": [
+    {
+     "stat": {
+      "fides": 2
+     }
+    }
+   ]
+  }
+ },
+ "repLevels": [
+  {
+   "at": -20,
+   "name": "misstrauisch beäugt"
+  },
+  {
+   "at": 0,
+   "name": "unbekannt"
+  },
+  {
+   "at": 15,
+   "name": "bekannt"
+  },
+  {
+   "at": 40,
+   "name": "geschätzt"
+  },
+  {
+   "at": 70,
+   "name": "eine Größe im Viertel"
+  }
+ ],
+ "greet": {
+  "good": [
+   "Salve, {name}! Schön, dich zu sehen.",
+   "Ah, {name}! Wie geht's der Familie?",
+   "Da ist ja {name}! Die Götter mit dir.",
+   "He, {name}! Gut, dass es Leute wie dich gibt."
+  ],
+  "bad": [
+   "Du schon wieder …",
+   "Pass auf, wo du hinläufst.",
+   "Hmpf."
+  ]
+ }
+}

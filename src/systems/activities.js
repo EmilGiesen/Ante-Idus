@@ -11,6 +11,7 @@ import { buffFx } from './buffs.js';
 import { unlockLex } from './lexicon.js';
 import { AUTO_RESULTS } from '../minigames/index.js';
 import * as Coll from './collections.js';
+import { addRep, zoneHere } from './social.js';
 
 export const actDef = (id) => G.data.activities[id];
 
@@ -109,6 +110,7 @@ function finish(id, r) {
   const cnt = s.vars[`act_${id}`];
   s.vars[`act_${id}`] = cnt && cnt.day === s.time.day ? { day: cnt.day, n: cnt.n + 1 } : { day: s.time.day, n: 1 };
   s.vars.actCount = (s.vars.actCount || 0) + 1;
+  if (s.vars[`act_${id}`].n === 1 && r.success) addRep(zoneHere(), 1, true); // fleißig gesehen werden
   bus.emit('activity', { id, score, success: r.success, pay });
   if (!d.pay?.useNet) G.ui.toast(`${d.doneText || `${d.name} – erledigt`}${pay ? ` – Lohn: ${formatMoney(pay)}` : ''}${s.cls === 'servus' && pay ? ' (fürs Peculium)' : ''}.`, 'done');
 }

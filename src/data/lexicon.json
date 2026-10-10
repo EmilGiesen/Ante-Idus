@@ -1130,6 +1130,84 @@
     "E. L. Will, Forschungen zu den Sestius-Amphoren",
     "Moderne Amphorenforschung"
    ]
+  },
+  "amicitia": {
+   "title": "Freundschaft (amicitia)",
+   "cat": "gesellschaft",
+   "text": [
+    "Amicitia ist in Rom mehr als Zuneigung: Freunde schulden einander Hilfe, Rat und Gefälligkeiten – unter Gleichen wie über Standesgrenzen hinweg. Geschenke gehören dazu, besonders an den Saturnalien.",
+    "Cicero hat über die Freundschaft ein ganzes Buch geschrieben (Laelius de amicitia, 44 v. Chr.)."
+   ],
+   "sources": [
+    "Cicero, Laelius de amicitia",
+    "Martial, Epigramme (Buch 13–14: Saturnaliengeschenke)",
+    "Moderne Forschung (z. B. P. A. Brunt, Amicitia in the Late Roman Republic)"
+   ]
+  },
+  "ehe": {
+   "title": "Ehe und contubernium",
+   "cat": "gesellschaft",
+   "text": [
+    "Eine römische Ehe (matrimonium) braucht den Willen beider und das Eherecht (conubium). Zur Verlobung steckt man einen Ring an; meist zieht die Braut feierlich ins Haus des Mannes. In dieser Zeit bleiben Frauen meist rechtlich in ihrer eigenen Familie (Ehe sine manu).",
+    "Sklaven können keine rechtsgültige Ehe schließen. Ihre Verbindung heißt contubernium und hängt vom Willen des Herrn ab – er kann sie jederzeit trennen, etwa durch Verkauf. Beim Adel arrangieren meist die Familien die Ehen; das ist im Spiel noch nicht möglich."
+   ],
+   "sources": [
+    "Gaius, Institutionen 1,56–64",
+    "Plinius, Naturgeschichte 33,12 (Eisenring)",
+    "S. Treggiari, Roman Marriage (1991)"
+   ]
+  },
+  "dipinti": {
+   "title": "Wandinschriften (dipinti)",
+   "cat": "alltag",
+   "text": [
+    "Römische Hauswände sind beschrieben: Wahlaufrufe, Ankündigungen von Spielen, Mietangebote und Verlustanzeigen mit Finderlohn – mit Pinsel in Rot und Schwarz gemalt. Ein Auftragsbrett gab es so nicht; im Spiel stehen dort Gesuche, wie es sie ähnlich gab.",
+    "In Pompeji bot eine Inschrift „tabernae“ in der Insula Arriana Polliana zur Miete an; eine andere versprach 65 Sesterzen für einen gestohlenen Bronzekrug."
+   ],
+   "sources": [
+    "CIL IV 138 (Insula Arriana Polliana)",
+    "CIL IV 64 (Verlustanzeige)",
+    "Moderne Forschung zu Pompejis Inschriften"
+   ]
+  },
+  "ruf": {
+   "title": "Ruf im Viertel",
+   "cat": "gesellschaft",
+   "text": [
+    "Rom besteht aus vielen Nachbarschaften (vici) mit eigenen Wegkreuzschreinen, Festen und Vereinen. Wer im Viertel als ehrlich und hilfsbereit gilt, bekommt Kredit beim Händler und Hilfe, wenn es brennt.",
+    "Ein schlechter Ruf dagegen verbreitet sich schnell – Klatsch ist die schnellste Nachrichtenquelle der Stadt."
+   ],
+   "sources": [
+    "Asconius zu Ciceros Rede In Pisonem 8 (Wegkreuzfeste, Vereine)",
+    "Moderne Forschung (z. B. J. B. Lott, The Neighborhoods of Augustan Rome)"
+   ]
+  },
+  "seedarlehen": {
+   "title": "Seedarlehen (fenus nauticum)",
+   "cat": "wirtschaft",
+   "text": [
+    "Beim Seedarlehen leiht man einem Schiffseigner Geld für eine Fahrt. Kommt das Schiff an, gibt es hohe Zinsen; sinkt es, ist das Geld verloren – der Geldgeber trägt das Risiko.",
+    "Senatoren durften seit der Lex Claudia (218 v. Chr.) keine großen Handelsschiffe besitzen. Viele beteiligten sich trotzdem am Seehandel – über Freigelassene und Mittelsleute."
+   ],
+   "sources": [
+    "Livius 21,63 (Lex Claudia)",
+    "Digesten 22,2 (De nautico faenore)",
+    "Plutarch, Cato der Ältere 21",
+    "Moderne Forschung"
+   ]
+  },
+  "tabernae": {
+   "title": "Läden (tabernae)",
+   "cat": "wirtschaft",
+   "text": [
+    "Im Erdgeschoss fast jedes Hauses liegen Läden: ein Raum zur Straße, mit Theke und Klappläden, oft mit einem Hängeboden zum Schlafen. Der Hauseigentümer vermietet sie – an Bäcker, Schuster, Töpfer, Garküchen.",
+    "Auch Senatoren verdienten an solchen Mieten. Cicero besaß Läden in Puteoli und schrieb, als zwei davon einstürzten, nicht einmal die Mäuse würden dort noch wohnen."
+   ],
+   "sources": [
+    "Cicero, Briefe an Atticus 14,9",
+    "Funde aus Pompeji, Herculaneum und Ostia",
+    "Moderne Forschung"
+   ]
   }
  }
 }

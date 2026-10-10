@@ -42,7 +42,7 @@ Lebenssimulation im Rom Caesars. Start: Kalenden des April 46 v. Chr. (708 a.u.c
 - ✅ Teil 3–4: Fischen am Tiber, Kochen nach Rezepten; Handel mit Preisen nach Jahreszeit, Tagesschwankung und Sättigung
 - ✅ Teil 5–6: Taverne (Tali), Balneum, Opfergaben mit zeitlichen Segen, Gerüchte; Wagenrennen mit Wetten (Rot/Weiß)
 - ✅ Teil 7: Wohnung einrichten (Möbel, Gemütlichkeit), größere Wohnung für Plebejer, Pflanzkübel/Peristylbeete, Sammlungen, Lexikon-Meilensteine, Töpferladen
-- Teil 8: Beziehungen & Geschenke, Wandinschriften als Auftragsbrett, Ruf im Viertel, Klassen-Extras (Investitionen, Gastmahl, eigener Laden)
+- ✅ Teil 8: Freundschaft & Geschenke (Vorlieben, Vorteile), Heirat bzw. contubernium, Wandinschriften als Auftragsbrett, Ruf im Viertel (Rabatte, Grüße), Adel: Anlagen, Gastmahl, Salutatio mit Klienten; Plebejer: eigener Laden
 
 ## Phase 2 – Die ganze Stadt
 - Karte erweitern: Marsfeld, Theater des Pompeius mit Curia Pompeia, Tiberhafen (Emporium/Lagerhallen),
