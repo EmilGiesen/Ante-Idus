@@ -21,8 +21,9 @@ Diese Regeln gelten für **alle** Sitzungen. Den Phasenplan findest du in `PLAN.
   Vigiles (erst 6 n. Chr.), Prätorianergarde in Rom, Aquädukte nach 33 v. Chr. (Aqua Iulia, Virgo, Claudia …),
   Monatsname „Augustus“; „Iulius“ erst ab 44 v. Chr. (vorher Quintilis). Keine Kartoffeln, Tomaten, Mais, Zucker.
 - Erlaubte Aquädukte: Aqua Appia, Anio Vetus, Aqua Marcia, Aqua Tepula.
-- Stand 46 v. Chr.: Forum Iulium im Bau (Weihung 26. Sept. 46), Basilica Iulia im Bau (Weihung 46, unvollendet),
-  Curia im Umbau – der Senat tagt in Tempeln (z. B. Concordia). Theater des Pompeius mit Curia Pompeia existiert (55 v. Chr.).
+- Stand 46 v. Chr.: Forum Iulium im Bau (Weihung 26. Sept. 46), Basilica Iulia im Bau (Weihung 46, unvollendet).
+  Die Curia brannte 52 v. Chr. ab und wurde neu gebaut; 44 v. Chr. wird ein Neubau beschlossen. Der Senat tagt oft auch
+  in Tempeln (z. B. Concordia). Theater des Pompeius mit Curia Pompeia existiert (55 v. Chr.).
 - Kalender: vorjulianisch bis Ende 46 v. Chr. (46 = „Jahr der Verwirrung“, 445 Tage), julianisch ab 1. Jan. 45 v. Chr.
 - Geld: 1 Denar = 4 Sesterzen = 16 Asse. Intern wird **immer in Assen** gerechnet.
 - Sklaverei ernsthaft und respektvoll darstellen: Härte, Abhängigkeit und Unfreiheit zeigen, nichts verharmlosen,
@@ -50,6 +51,7 @@ Diese Regeln gelten für **alle** Sitzungen. Den Phasenplan findest du in `PLAN.
 - Kommentare knapp, auf Deutsch oder Englisch – im Projekt einheitlich Deutsch.
 
 ## 4. Arbeitsweise
-- Nach jeder Phase: `npm run build` muss fehlerfrei laufen, Spiel im Browser ohne Konsolenfehler starten
-  (Smoke-Test `npm run smoke`, falls vorhanden), dann Git-Commit.
+- Nach jeder Phase: `npm run validate` (Datenprüfung), `npm run build` und `npm run smoke` (Headless-Chrome,
+  spielt alle Missionen durch) müssen fehlerfrei laufen, dann Git-Commit.
+- Neue Missionen in `tools/smoke.mjs` (Abschnitt „Alle Missionen …“) mit einem Durchlauf absichern.
 - Steuerung: WASD/Pfeile laufen, Shift sprinten, E interagieren, I Inventar, L Logbuch, K Lexikon, Esc Menü.
