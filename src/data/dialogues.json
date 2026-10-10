@@ -1619,23 +1619,25 @@
    {
     "if": {
      "cls": "plebs",
-     "canStart": "pistor_1",
-     "done": "pistor_1"
-    },
-    "go": "felix_job_again"
-   },
-   {
-    "if": {
-     "cls": "plebs",
      "canStart": "pistor_1"
     },
     "go": "felix_job_first"
    },
    {
     "if": {
-     "cls": "plebs"
+     "cls": [
+      "plebs",
+      "servus"
+     ],
+     "done": "pistor_1"
     },
-    "go": "felix_tired"
+    "go": "felix_job_again"
+   },
+   {
+    "if": {
+     "cls": "servus"
+    },
+    "go": "felix_servus"
    },
    {
     "go": "felix_hello"
@@ -1682,44 +1684,12 @@
   "text": "Wieder da? Gut, der Ofen ist heiß!",
   "opts": [
    {
-    "t": "An den Ofen! (Minispiel)",
+    "t": "An den Ofen",
     "do": [
      {
-      "start": "pistor_1"
-     },
-     {
-      "minigame": "baking",
-      "then": "felix_after",
-      "opts": {
-       "hours": 1,
-       "energy": 10,
-       "dirt": 8
-      }
+      "activity": "baeckerei"
      }
     ]
-   },
-   {
-    "t": "Routiniert arbeiten (ohne Minispiel)",
-    "go": "felix_after",
-    "do": [
-     {
-      "start": "pistor_1"
-     },
-     {
-      "auto": "baking",
-      "opts": {
-       "hours": 1,
-       "energy": 10,
-       "dirt": 8
-      }
-     }
-    ],
-    "if": {
-     "skill": [
-      "baking",
-      3
-     ]
-    }
    },
    {
     "t": "Brot kaufen",
@@ -1777,7 +1747,7 @@
   ]
  },
  "felix_tired": {
-  "text": "Für heute ist genug gebacken – zwei Schichten am Tag reichen. Komm morgen wieder!",
+  "text": "Für heute ist genug gebacken. Komm morgen wieder!",
   "opts": [
    {
     "t": "Brot kaufen",
@@ -2626,8 +2596,21 @@
   "who": "narr"
  },
  "obj_oven": {
-  "text": "Felix' Backofen – heiß wie die Esse des Vulcanus. Ohne Felix fasst du ihn besser nicht an.",
-  "who": "narr"
+  "switch": [
+   {
+    "if": {
+     "done": "pistor_1",
+     "cls": [
+      "plebs",
+      "servus"
+     ]
+    },
+    "go": "oven_work"
+   },
+   {
+    "go": "oven_info"
+   }
+  ]
  },
  "obj_mill": {
   "text": "Mühlsteine aus Basalt. Ein Esel dreht sie im Kreis, den ganzen Tag. Früher mussten das oft Sklaven tun.",
@@ -2755,5 +2738,46 @@
    "Leise … in der Dunkelheit lauern Diebe.",
    "Ohne Laterne siehst du hier nichts."
   ]
+ },
+ "felix_servus": {
+  "text": [
+   "Ein Sklave aus dem Palatin? Wenn du abends frei hast, kannst du bei mir am Ofen aushelfen – das Geld gehört dann dir, fürs Peculium.",
+   "Ich war selbst Sklave. Ich weiß, wie lange man sparen muss."
+  ],
+  "opts": [
+   {
+    "t": "Ich helfe gern.",
+    "do": [
+     {
+      "flag": "felix_knows_servus"
+     },
+     {
+      "start": "pistor_1"
+     },
+     {
+      "complete": "pistor_1"
+     },
+     {
+      "activity": "baeckerei"
+     }
+    ]
+   },
+   {
+    "t": "Vielleicht später."
+   }
+  ]
+ },
+ "oven_work": {
+  "text": "Felix' Ofen. Die nächsten Brote warten schon.",
+  "who": "narr",
+  "do": [
+   {
+    "activity": "baeckerei"
+   }
+  ]
+ },
+ "oven_info": {
+  "text": "Felix' Backofen – heiß wie die Esse des Vulcanus. Ohne Felix fasst du ihn besser nicht an.",
+  "who": "narr"
  }
 }

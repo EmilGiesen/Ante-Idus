@@ -208,14 +208,14 @@
   ]
  },
  "pistor_1": {
-  "title": "Arbeit beim Bäcker",
+  "title": "Die erste Schicht beim Bäcker",
   "cls": [
-   "plebs"
+   "plebs",
+   "servus"
   ],
   "giver": "felix",
-  "repeat": true,
-  "perDay": 2,
-  "summary": "Felix der Bäcker sucht eine Aushilfe. Bezahlt wird nach Leistung – bis zu zwei Schichten am Tag.",
+  "repeat": false,
+  "summary": "Felix der Bäcker sucht eine Aushilfe. Nach der ersten Schicht kannst du jederzeit wiederkommen.",
   "hint": "Felix im Pistrinum sucht Hilfe am Ofen.",
   "steps": [
    {

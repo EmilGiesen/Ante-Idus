@@ -137,7 +137,7 @@ button { font-family: var(--font); }
 .banner b { display: block; font-size: clamp(1.4rem, 5vw, 2.4rem); letter-spacing: 0.1em; }
 .banner span { font-style: italic; font-size: 1rem; }
 .banner.out { opacity: 0; }
-.fade { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none !important; transition: opacity 0.28s; }
+.fade { position: fixed; inset: 0; z-index: 30; background: #000; opacity: 0; pointer-events: none !important; transition: opacity 0.28s; }
 .fade.on { opacity: 1; }
 
 /* ---------- Dialog ---------- */

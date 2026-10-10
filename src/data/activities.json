@@ -71,5 +71,137 @@
   "xp": 20,
   "lex": "rostra",
   "verb": "Zuhören"
+ },
+ "lasten_emporium": {
+  "name": "Lasten tragen am Emporium",
+  "where": "Emporium",
+  "desc": "Am Flusshafen werden Amphoren, Säcke und Ballen von den Schiffen in die Lagerhallen getragen. Bezahlt wird pro Ladung – wer etwas fallen lässt, bekommt nichts.",
+  "cls": [
+   "plebs",
+   "servus"
+  ],
+  "deny": {
+   "nobilis": "Tagelohn? Ein Mitglied deines Hauses arbeitet nicht mit den Händen – das wäre das Ende deiner Dignitas."
+  },
+  "hours": [
+   0,
+   11
+  ],
+  "closed": "Nachts wird nicht entladen.",
+  "minigame": "carry",
+  "duration": 1.5,
+  "energy": 14,
+  "dirt": 12,
+  "perDay": 2,
+  "skill": "handwerk",
+  "xp": 16,
+  "pay": {
+   "base": 3,
+   "perScore": 2,
+   "maxScore": 6,
+   "perLevel": 0.05
+  },
+  "lex": "emporium",
+  "verb": "Ladung aufnehmen"
+ },
+ "bau_basilica": {
+  "name": "Auf der Baustelle der Basilica Iulia helfen",
+  "where": "Forum Romanum",
+  "desc": "Caesars Bauunternehmer (redemptores) suchen Tagelöhner: Steine heben, Mörtel schleppen, Blöcke setzen.",
+  "cls": [
+   "plebs",
+   "servus"
+  ],
+  "deny": {
+   "nobilis": "Tagelohn? Ein Mitglied deines Hauses arbeitet nicht mit den Händen – das wäre das Ende deiner Dignitas."
+  },
+  "hours": [
+   0,
+   10
+  ],
+  "closed": "Die Bauleute haben für heute Feierabend.",
+  "minigame": "build",
+  "duration": 1.5,
+  "energy": 14,
+  "dirt": 10,
+  "perDay": 2,
+  "skill": "handwerk",
+  "xp": 16,
+  "pay": {
+   "base": 4,
+   "perScore": 2,
+   "maxScore": 6,
+   "perLevel": 0.05
+  },
+  "lex": "basilicae",
+  "verb": "Mit anpacken"
+ },
+ "bau_forum_iulium": {
+  "name": "Am Forum Iulium mitbauen",
+  "where": "Forum Iulium",
+  "desc": "Am Tempel der Venus Genetrix wird mit Hochdruck gearbeitet – er soll zu Caesars Triumph fertig werden. Die Aufseher zahlen gut, verlangen aber Präzision.",
+  "cls": [
+   "plebs",
+   "servus"
+  ],
+  "deny": {
+   "nobilis": "Tagelohn? Ein Mitglied deines Hauses arbeitet nicht mit den Händen – das wäre das Ende deiner Dignitas."
+  },
+  "hours": [
+   0,
+   10
+  ],
+  "closed": "Die Baustelle ruht bis morgen früh.",
+  "minigame": "build",
+  "duration": 1.5,
+  "energy": 15,
+  "dirt": 10,
+  "perDay": 2,
+  "skill": "handwerk",
+  "xp": 18,
+  "pay": {
+   "base": 3,
+   "perScore": 3,
+   "maxScore": 6,
+   "perLevel": 0.05
+  },
+  "lex": "forum_iulium",
+  "verb": "Mit anpacken"
+ },
+ "baeckerei": {
+  "name": "In der Bäckerei aushelfen",
+  "where": "Pistrinum des Felix (Subura)",
+  "desc": "Felix braucht immer Hände am Ofen. Bezahlt wird nach Leistung – goldbraune Brote bringen mehr.",
+  "cls": [
+   "plebs",
+   "servus"
+  ],
+  "deny": {
+   "nobilis": "Tagelohn? Ein Mitglied deines Hauses arbeitet nicht mit den Händen – das wäre das Ende deiner Dignitas."
+  },
+  "req": {
+   "done": "pistor_1"
+  },
+  "reqText": "Felix kennt dich noch nicht. Sprich zuerst mit ihm.",
+  "minigame": "baking",
+  "duration": 1,
+  "energy": 10,
+  "dirt": 8,
+  "perDay": 2,
+  "skill": "handwerk",
+  "xp": 14,
+  "pay": {
+   "useMinigamePay": true,
+   "base": 6,
+   "perLevel": 0.05
+  },
+  "gives": [
+   {
+    "id": "panis",
+    "minScore": 8
+   }
+  ],
+  "lex": "brot",
+  "verb": "An den Ofen"
  }
 }

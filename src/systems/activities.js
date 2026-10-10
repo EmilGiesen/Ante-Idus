@@ -27,7 +27,9 @@ export function blockReason(id) {
   if ((d.energy || 0) > 0 && s.needs.energy < d.energy + 3) return 'Du bist zu erschöpft dafür. Iss etwas oder schlaf dich aus.';
   if (d.cost && s.money < d.cost) return `Dafür brauchst du ${formatMoney(d.cost)}.`;
   for (const [it, n] of Object.entries(d.needs || {})) if (Inv.count(it) < n) return `Dafür brauchst du: ${Inv.itemDef(it).name}${n > 1 ? ` (${n}×)` : ''}.`;
-  if (d.daily && s.flags[`act_${id}`] === s.time.day) return d.dailyText || 'Das hast du heute schon gemacht.';
+  const per = d.perDay || (d.daily ? 1 : 0);
+  const done = s.vars[`act_${id}`];
+  if (per && done && done.day === s.time.day && done.n >= per) return d.dailyText || 'Für heute ist genug getan. Komm morgen wieder!';
   return null;
 }
 
@@ -100,7 +102,8 @@ function finish(id, r) {
   }
   if (d.lex) unlockLex(d.lex);
   if (d.do) applyEffects(d.do);
-  if (d.daily) s.flags[`act_${id}`] = s.time.day;
+  const cnt = s.vars[`act_${id}`];
+  s.vars[`act_${id}`] = cnt && cnt.day === s.time.day ? { day: cnt.day, n: cnt.n + 1 } : { day: s.time.day, n: 1 };
   s.vars.actCount = (s.vars.actCount || 0) + 1;
   bus.emit('activity', { id, score, success: r.success, pay });
   G.ui.toast(`${d.name} erledigt${pay ? ` – Lohn: ${formatMoney(pay)}` : ''}${s.cls === 'servus' && pay ? ' (fürs Peculium)' : ''}.`, 'done');

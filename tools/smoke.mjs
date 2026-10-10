@@ -128,7 +128,7 @@ try {
   }
 
   // Minispiele
-  for (const mg of ['baking', 'water', 'haggle']) {
+  for (const mg of ['baking', 'water', 'haggle', 'carry', 'build']) {
     await ev((m) => { window.__rv.mg = null; window.__rv.game.playMinigame(m, { fair: 12, label: 'Testware' }).then((r) => { window.__rv.mg = r; }); }, mg);
     await sleep(600);
     if (mg === 'water') { await hold('Space', 1300); await sleep(900); } else await press('Space', 3, 900);
@@ -198,9 +198,21 @@ try {
     const before = G.state.money;
     await talk('felix', ['Ich fange an']);
     if (status('pistor_1') !== 'done:1:1' || G.state.money <= before) return `pistor_1 ${status('pistor_1')} Geld ${before}->${G.state.money}`;
+    const m1 = G.state.money;
     await talk('felix', ['An den Ofen']);
-    await talk('felix', ['Bis morgen']);
-    if (status('pistor_1') !== 'done:1:2') return `pistor_1 zweite Schicht ${status('pistor_1')}`;
+    await new Promise((r) => setTimeout(r, 300));
+    if (G.state.money <= m1) return `zweite Schicht (Aktivität) ohne Lohn: ${m1} -> ${G.state.money}`;
+    const Act = await import('/src/systems/activities.js');
+    for (const id of ['lasten_emporium', 'bau_basilica', 'bau_forum_iulium']) {
+      G.state.time.hour = 2; G.state.needs.energy = 100;
+      const before = G.state.money;
+      if (Act.blockReason(id)) return `${id} blockiert: ${Act.blockReason(id)}`;
+      Act.run(id, false);
+      for (let i = 0; i < 30 && !G.ui.mini.open; i++) await new Promise((r) => setTimeout(r, 20));
+      G.ui.mini.finished = { done: true, success: true, score: 5, max: 6, text: 'Test' }; G.ui.mini.finish();
+      await new Promise((r) => setTimeout(r, 100));
+      if (G.state.money <= before) return `${id} ohne Lohn`;
+    }
     G.state.time.day = G.state.rent.due;
     G.state.money = 200;
     await talk('hilarus', ['Hier ist das Geld']);

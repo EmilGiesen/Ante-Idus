@@ -36,7 +36,9 @@ export class MinigameModal {
     this.hint.textContent = game.hint;
     clear(this.btns);
     for (const b of game.buttons || []) {
-      this.btns.append(el('button', { class: 'btn small', onpointerdown: (e) => { e.preventDefault(); G.input.press(b.action); } }, b.label));
+      const btn = el('button', { class: 'btn small', onpointerdown: (e) => { e.preventDefault(); G.input.press(b.action); if (b.hold) G.input.down.add(b.action); } }, b.label);
+      if (b.hold) for (const ev of ['pointerup', 'pointerleave', 'pointercancel']) btn.addEventListener(ev, () => G.input.down.delete(b.action));
+      this.btns.append(btn);
     }
     this.result.classList.add('hidden');
     this.back.classList.remove('hidden');

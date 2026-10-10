@@ -283,7 +283,11 @@
     "build": true,
     "stone": "#ece4cc"
    },
-   "info": "Die Basilica Iulia – Caesars neuer Prachtbau, noch eingerüstet."
+   "info": "Die Basilica Iulia – Caesars neuer Prachtbau, noch eingerüstet.",
+   "interact": {
+    "type": "activity",
+    "id": "bau_basilica"
+   }
   },
   {
    "kind": "temple",
@@ -2240,7 +2244,10 @@
    "h": 2,
    "name": "Tretradkran",
    "lex": "forum_iulium",
-   "info": "Ein Tretradkran: Arbeiter laufen im Rad und heben so tonnenschwere Blöcke."
+   "interact": {
+    "type": "activity",
+    "id": "bau_forum_iulium"
+   }
   },
   {
    "kind": "scaffold",
@@ -4151,6 +4158,30 @@
    "interact": {
     "type": "activity",
     "id": "unterricht"
+   }
+  },
+  {
+   "kind": "crates",
+   "x": 66,
+   "y": 129,
+   "w": 1,
+   "h": 1,
+   "name": "Warenstapel am Kai",
+   "interact": {
+    "type": "activity",
+    "id": "lasten_emporium"
+   }
+  },
+  {
+   "kind": "stones",
+   "x": 121,
+   "y": 101,
+   "w": 2,
+   "h": 1,
+   "name": "Steinblöcke für die Basilica Iulia",
+   "interact": {
+    "type": "activity",
+    "id": "bau_basilica"
    }
   },
   {

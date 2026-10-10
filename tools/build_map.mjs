@@ -336,7 +336,7 @@ B('basilica', 128, 77, 16, 7, { name: 'Basilica Aemilia', lex: 'basilicae', info
 B('temple', 106, 88, 6, 7, { name: 'Tempel des Saturn', lex: 'saturn', style: { cols: 4 },
   door: { dx: 3, to: 'tempel_saturn', planned: true, label: 'Tempel des Saturn (Aerarium)' } });
 B('basilica', 113, 94, 17, 5, { name: 'Basilica Iulia (Baustelle)', lex: 'basilicae', style: { build: true, stone: '#ece4cc' },
-  info: 'Die Basilica Iulia – Caesars neuer Prachtbau, noch eingerüstet.' });
+  info: 'Die Basilica Iulia – Caesars neuer Prachtbau, noch eingerüstet.', interact: { type: 'activity', id: 'bau_basilica' } });
 B('temple', 133, 92, 6, 7, { name: 'Tempel von Castor und Pollux', lex: 'forum_romanum', style: { cols: 5 }, info: 'Der Tempel der Dioskuren Castor und Pollux.' });
 B('temple_round', 142, 91, 4, 4, { name: 'Tempel der Vesta', lex: 'vesta', light: [2, 2, 46], info: 'Der runde Vestatempel. Drinnen hüten die Vestalinnen das ewige Feuer Roms.' });
 B('domus', 146, 88, 4, 4, { name: 'Regia', lex: 'vesta', style: { color: '#e8dcc0' }, info: 'Die Regia, uraltes Amtsgebäude des Pontifex maximus – heute ist das Caesar.' });
@@ -350,7 +350,7 @@ D('altar', 126, 90, 2, 1, { name: 'Lacus Curtius', lex: 'forum_romanum', info: '
 // Forum Iulium (Baustelle) und Macellum
 B('temple_build', 113, 57, 8, 8, { name: 'Tempel der Venus Genetrix (im Bau)', lex: 'forum_iulium', style: { cols: 8 },
   info: 'Hier entsteht Caesars neues Forum mit dem Tempel der Venus Genetrix.' });
-D('crane', 121, 58, 2, 2, { name: 'Tretradkran', lex: 'forum_iulium', info: 'Ein Tretradkran: Arbeiter laufen im Rad und heben so tonnenschwere Blöcke.' });
+D('crane', 121, 58, 2, 2, { name: 'Tretradkran', lex: 'forum_iulium', interact: { type: 'activity', id: 'bau_forum_iulium' } });
 D('scaffold', 111, 58, 1, 7); D('scaffold', 123, 61, 1, 4); D('stones', 111, 66, 2, 1); D('drums', 120, 66, 3, 1); D('stones', 116, 69, 2, 1);
 B('temple_round', 139, 67, 4, 4, { name: 'Tholos des Macellum', lex: 'macellum', style: { roof: '#b5532f' }, info: 'Der Rundbau in der Mitte des Macellum, des großen Lebensmittelmarkts.' });
 D('stall', 135, 73, 3, 1, { name: 'Stand des Phileros', style: { goods: 'oil', awning: '#3f7f3f' } });
@@ -501,6 +501,8 @@ function actAt(kind, x, y, w, h, id, extra = {}) {
 }
 actAt('stall', 129, 75, 3, 1, 'abschreiben', { name: 'Buchladen', style: { goods: 'scrolls', awning: '#7a2230' } });
 actAt('bench', 131, 84, 1, 1, 'unterricht', { name: 'Schulbank' });
+actAt('crates', 66, 129, 1, 1, 'lasten_emporium', { name: 'Warenstapel am Kai' });
+actAt('stones', 118, 99, 2, 1, 'bau_basilica', { name: 'Steinblöcke für die Basilica Iulia' });
 
 // =====================================================================
 // 16. Wegweiser, Sänften, Anker, Zonen, Bereiche
