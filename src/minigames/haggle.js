@@ -16,7 +16,7 @@ export const haggle = {
     return {
       fair, item: opts.label || 'Ware', ask: Math.round(fair * 1.6) + 1, min: Math.max(1, Math.round(fair * (0.72 + Math.random() * 0.14))),
       offer: Math.max(1, Math.round(fair * 0.6)), mood: 100, log: [`„${opts.greeting || 'Salve! Beste Ware, ganz frisch!'}“`, `Er verlangt ${shortMoney(Math.round(fair * 1.6) + 1)}.`],
-      complimented: false, bluffed: false, done: false, price: null, t: 0, npcApp: opts.app, endT: 0,
+      complimented: false, bluffed: false, done: false, price: null, t: 0, npcApp: opts.app, endT: 0, patience: opts.patience || 1,
     };
   },
 
@@ -40,7 +40,7 @@ export const haggle = {
       const o = s.offer;
       if (o >= s.ask || s.ask - o <= 1) return deal(s, Math.min(o + (s.ask - o > 0 ? 1 : 0), s.ask), '„Abgemacht!“');
       const ratio = o / s.fair;
-      s.mood -= ratio < 0.5 ? 34 : ratio < 0.7 ? 18 : 9;
+      s.mood -= (ratio < 0.5 ? 34 : ratio < 0.7 ? 18 : 9) * s.patience;
       if (o >= s.min && Math.random() < 0.35 + s.mood / 200) return deal(s, o, '„Na gut – bei Merkur, abgemacht!“');
       s.ask = Math.max(s.min, Math.round(s.ask - (s.ask - o) * 0.35 - 1));
       say(s, `Du bietest ${shortMoney(o)}.`, ratio < 0.5 ? '„Willst du mich ruinieren?!“' : `„${shortMoney(s.ask)}. Weniger geht nicht.“`);

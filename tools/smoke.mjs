@@ -314,6 +314,24 @@ try {
     if (!B.activeBuffs().some((b) => b.id === 'moretum')) return 'Bonus nach Moretum fehlt';
     return true;
   });
+  // Handel: Preise und Sättigung
+  await runScenario('plebs', async () => {
+    const { G } = window.__rv;
+    const Mk = await import('/src/systems/market.js');
+    const cheap = Mk.marketPrice('emporium', 'garum', 'buy'), dear = Mk.marketPrice('macellum', 'garum', 'sell');
+    if (!(cheap < dear)) return `Garum am Emporium (${cheap}) nicht billiger als Verkauf im Macellum (${dear})`;
+    const first = Mk.marketPrice('macellum', 'garum', 'sell');
+    for (let i = 0; i < 5; i++) Mk.noteTrade('macellum', 'garum', 'sell');
+    if (!(Mk.marketPrice('macellum', 'garum', 'sell') < first)) return 'Keine Sättigung beim Verkaufen';
+    for (const m of ['emporium', 'macellum', 'holitorium', 'boarium', 'subura']) for (const g of Mk.marketDef(m).board) {
+      const b = Mk.marketPrice(m, g, 'buy'), se = Mk.marketPrice(m, g, 'sell');
+      if (se > b || (b > 1 && se >= b)) return `${m}/${g}: Verkauf ${se} >= Einkauf ${b}`;
+    }
+    G.ui.panels.show('prices', { market: 'emporium' });
+    await new Promise((r) => setTimeout(r, 200));
+    return true;
+  });
+  await shot(page, '61-preistafel'); await press('Escape');
   await runScenario('nobilis', async () => {
     const Act = await import('/src/systems/activities.js');
     return Act.blockReason('abschreiben') ? true : 'Adel darf nicht abschreiben';

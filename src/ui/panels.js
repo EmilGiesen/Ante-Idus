@@ -12,21 +12,17 @@ import { level, progress, skillDefs } from '../systems/skills.js';
 import { activeBuffs, hoursLeft, buffFx } from '../systems/buffs.js';
 import * as Cook from '../systems/cooking.js';
 
-// Verkaufspreis eines Gegenstands in einem Laden (Handel-Stufe und Boni erhöhen ihn)
-export function sellPrice(shop, id) {
-  const def = Inv.itemDef(id);
-  if (def.quest || !def.price) return 0;
-  const cats = shop.buys || [];
-  if (!cats.includes(def.cat) && !cats.includes(id)) return 0;
-  const f = (shop.sellFactor ?? 0.5) * (1 + 0.04 * level('handel') + buffFx('handel'));
-  return Math.max(1, Math.round(def.price * f));
-}
+import * as Market from '../systems/market.js';
+import { addXp } from '../systems/skills.js';
+const sellPrice = Market.sellPrice;
 
 const TITLES = {
   inventory: 'Inventar', log: 'Logbuch', lexicon: 'Schriftrolle des Wissens', menu: 'Menü', shop: 'Laden', help: 'Steuerung',
-  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)', char: 'Charakter', cook: 'Kochen',
+  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)', char: 'Charakter', cook: 'Kochen', prices: 'Preistafel',
 };
 const HOTKEY = { inventory: 'inventory', log: 'log', lexicon: 'lexicon', map: 'map', char: 'char' };
+
+const trendMark = (t) => (t < 0 ? el('span', { class: 'trend down', title: 'günstig' }, ' ↓') : t > 0 ? el('span', { class: 'trend up', title: 'teuer' }, ' ↑') : null);
 
 export class Panels {
   constructor(root) {
@@ -232,17 +228,18 @@ export class Panels {
     const list = el('div', { class: 'shop-list' });
     shop.items.forEach((entry, i) => {
       const def = Inv.itemDef(entry.id);
-      const price = entry.price ?? def.price;
+      const price = Market.buyPrice(shop, entry);
       const can = s.money >= price;
       const buy = () => {
         if (G.state.money < price) { G.ui.toast('Dafür reicht dein Geld nicht.', 'cost'); return; }
         changeMoney(-price);
         Inv.add(entry.id, 1);
+        if (shop.market) Market.noteTrade(shop.market, entry.id, 'buy');
         this.render();
       };
       const row = el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}` },
         pixelCanvas(getIcon(def), 2), el('div', { class: 'grow' }, el('b', {}, def.name), el('small', {}, def.desc || '')),
-        el('span', { class: 'price' }, shortMoney(price)),
+        el('span', { class: 'price' }, shortMoney(price), shop.market ? trendMark(Market.trend(shop.market, entry.id, 'buy')) : null),
         el('button', { class: 'btn small', disabled: !can, onclick: buy }, 'Kaufen'),
         shop.haggle && price >= 4 ? el('button', { class: 'btn small ghost', onclick: () => { this.close(); G.game.haggleBuy(this.arg.id, entry.id, price, this.arg.npc); } }, 'Feilschen') : null);
       list.append(row);
@@ -262,15 +259,32 @@ export class Panels {
         Inv.remove(it.id, 1);
         changeMoney(price);
         G.state.vars.sold = (G.state.vars.sold || 0) + price;
+        if (shop.market) Market.noteTrade(shop.market, it.id, 'sell');
+        if (it.def.cat === 'good' || it.def.cat === 'fish') addXp('handel', Math.ceil(price / 3));
         this.render();
       };
       list.append(el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}` },
         pixelCanvas(getIcon(it.def), 2), el('div', { class: 'grow' }, el('b', {}, `${it.def.name} (${it.n}×)`), el('small', {}, it.def.desc || '')),
-        el('span', { class: 'price' }, shortMoney(price)),
+        el('span', { class: 'price' }, shortMoney(price), shop.market ? trendMark(Market.trend(shop.market, it.id, 'sell')) : null),
         el('button', { class: 'btn small', onclick: sell }, 'Verkaufen')));
       this.nav.push(sell);
     });
     this.body.append(list);
+  }
+
+  // ---------- Preistafel eines Marktes ----------
+  render_prices() {
+    const m = Market.marketDef(this.arg.market);
+    const goods = m.board || [];
+    this.title.textContent = `Preistafel – ${m.name}`;
+    this.body.append(el('p', { class: 'muted' }, `${m.desc || ''} Jahreszeit: ${Market.currentSeason()}. ↓ günstig, ↑ teuer (verglichen mit üblichen Preisen).`));
+    const t = el('table', { class: 'prices' }, el('tr', {}, el('th', {}, 'Ware'), el('th', {}, 'Hier kaufen'), el('th', {}, 'Hier verkaufen')));
+    for (const id of goods) {
+      t.append(el('tr', {}, el('td', {}, Inv.itemDef(id).name),
+        el('td', {}, shortMoney(Market.marketPrice(this.arg.market, id, 'buy')), trendMark(Market.trend(this.arg.market, id, 'buy'))),
+        el('td', {}, shortMoney(Market.marketPrice(this.arg.market, id, 'sell')), trendMark(Market.trend(this.arg.market, id, 'sell')))));
+    }
+    this.body.append(t, el('p', { class: 'muted small' }, 'Tipp: Am Emporium kauft man im Großhandel günstig ein, im Macellum zahlen die Reichen gut. Wer an einem Tag viel derselben Ware verkauft, drückt den Preis.'));
   }
 
   // ---------- Kochen ----------

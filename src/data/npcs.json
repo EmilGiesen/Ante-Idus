@@ -794,6 +794,32 @@
      "dir": "down"
     }
    ]
+  },
+  {
+   "id": "statius",
+   "name": "Statius",
+   "role": "Woll- und Käsehändler",
+   "where": "Forum Boarium",
+   "dialogue": "statius",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#8a8070",
+    "style": "bald",
+    "dress": "tunic",
+    "color": "#9a8a6a",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      10
+     ],
+     "map": "rom",
+     "at": "@statius",
+     "dir": "down"
+    }
+   ]
   }
  ]
 }

@@ -216,6 +216,10 @@ kbd { background: #fbf3dc; border: 1px solid var(--line); border-bottom-width: 2
 .shop-row.sel { border-color: var(--red); }
 .shop-row .grow { flex: 1; display: flex; flex-direction: column; }
 .shop-row.locked { opacity: 0.6; }
+.trend.down { color: #3f7f3f; font-weight: bold; }
+.trend.up { color: var(--red); font-weight: bold; }
+table.prices { width: 100%; border-collapse: collapse; }
+table.prices th, table.prices td { text-align: left; padding: 3px 8px; border-bottom: 1px solid var(--line); }
 .shop-row small { color: var(--ink2); }
 .price { font-weight: bold; white-space: nowrap; }
 

@@ -1,0 +1,228 @@
+{
+ "goods": {
+  "oleum": {
+   "base": 4,
+   "season": {
+    "Herbst": -0.15,
+    "Winter": -0.1,
+    "Sommer": 0.1
+   }
+  },
+  "vinum": {
+   "base": 2,
+   "season": {
+    "Herbst": -0.2,
+    "Sommer": 0.1
+   }
+  },
+  "vinum_bonum": {
+   "base": 32,
+   "vol": 0.6
+  },
+  "garum": {
+   "base": 12
+  },
+  "mel": {
+   "base": 6,
+   "season": {
+    "Sommer": -0.15,
+    "Winter": 0.15
+   }
+  },
+  "ostrea": {
+   "base": 20,
+   "season": {
+    "Winter": -0.15,
+    "Sommer": 0.2
+   }
+  },
+  "caseus": {
+   "base": 2,
+   "season": {
+    "Frühling": -0.15
+   }
+  },
+  "olivae": {
+   "base": 1,
+   "season": {
+    "Herbst": -0.2
+   }
+  },
+  "ficus": {
+   "base": 1,
+   "season": {
+    "Sommer": -0.2,
+    "Herbst": -0.1,
+    "Winter": 0.2
+   }
+  },
+  "far": {
+   "base": 1,
+   "season": {
+    "Sommer": -0.2,
+    "Frühling": 0.15
+   }
+  },
+  "lana": {
+   "base": 8,
+   "season": {
+    "Frühling": -0.15,
+    "Winter": 0.15
+   }
+  },
+  "sal": {
+   "base": 2
+  },
+  "cera": {
+   "base": 5,
+   "season": {
+    "Sommer": -0.1
+   }
+  },
+  "piscis": {
+   "base": 3
+  },
+  "anguilla": {
+   "base": 6
+  },
+  "lupus": {
+   "base": 24,
+   "vol": 1.5
+  },
+  "allium": {
+   "base": 1
+  },
+  "herbae": {
+   "base": 1,
+   "season": {
+    "Winter": 0.3
+   }
+  },
+  "lens": {
+   "base": 1
+  }
+ },
+ "markets": {
+  "emporium": {
+   "name": "Emporium",
+   "desc": "Großhandel am Hafen: billig einkaufen, aber hier zahlt man wenig für Waren.",
+   "buy": 0.65,
+   "sell": 0.55,
+   "specialty": [
+    "oleum",
+    "vinum",
+    "garum",
+    "sal",
+    "far",
+    "lana",
+    "cera"
+   ],
+   "demand": [
+    "piscis",
+    "anguilla"
+   ],
+   "board": [
+    "oleum",
+    "vinum",
+    "garum",
+    "sal",
+    "far",
+    "lana",
+    "cera",
+    "piscis",
+    "anguilla"
+   ]
+  },
+  "macellum": {
+   "name": "Macellum",
+   "desc": "Feinkostmarkt der Stadt: teuer im Einkauf, gute Preise für Waren, die Reiche begehren.",
+   "buy": 1.15,
+   "sell": 0.9,
+   "demand": [
+    "ostrea",
+    "lupus",
+    "garum",
+    "mel",
+    "vinum_bonum",
+    "anguilla",
+    "oleum",
+    "caseus"
+   ],
+   "board": [
+    "oleum",
+    "vinum",
+    "vinum_bonum",
+    "garum",
+    "mel",
+    "ostrea",
+    "caseus",
+    "lupus",
+    "anguilla"
+   ]
+  },
+  "holitorium": {
+   "name": "Forum Holitorium",
+   "desc": "Gemüsemarkt vor dem Tor.",
+   "buy": 0.95,
+   "sell": 0.7,
+   "specialty": [
+    "allium",
+    "herbae",
+    "lens",
+    "ficus"
+   ],
+   "demand": [
+    "herbae",
+    "allium",
+    "lens",
+    "ficus"
+   ],
+   "board": [
+    "allium",
+    "herbae",
+    "lens",
+    "far",
+    "ficus"
+   ]
+  },
+  "boarium": {
+   "name": "Forum Boarium",
+   "desc": "Viehmarkt am Fluss: Wolle, Käse und Salz.",
+   "buy": 0.9,
+   "sell": 0.75,
+   "specialty": [
+    "lana",
+    "caseus"
+   ],
+   "demand": [
+    "sal",
+    "lana",
+    "cera"
+   ],
+   "board": [
+    "lana",
+    "caseus",
+    "sal",
+    "cera"
+   ]
+  },
+  "subura": {
+   "name": "Subura",
+   "desc": "Garküchen und Kramläden: Essen wird hier gut bezahlt.",
+   "buy": 1.05,
+   "sell": 0.8,
+   "demand": [
+    "piscis",
+    "anguilla",
+    "far"
+   ],
+   "board": [
+    "piscis",
+    "anguilla",
+    "far",
+    "oleum",
+    "vinum"
+   ]
+  }
+ }
+}

@@ -373,5 +373,29 @@
   "price": 16,
   "use": "cook",
   "desc": "Ein kleines Becken für Holzkohle. Zu Hause benutzen: kochen. (Vorsicht mit dem Feuer!)"
+ },
+ "sal": {
+  "name": "Salz",
+  "icon": "sack",
+  "c": "#e8e8e0",
+  "cat": "good",
+  "price": 2,
+  "desc": "Salz aus den Salinen an der Tibermündung – über die Via Salaria seit alters ein Handelsgut."
+ },
+ "lana": {
+  "name": "Wolle (ein Ballen)",
+  "icon": "sack",
+  "c": "#e0d8c0",
+  "cat": "good",
+  "price": 8,
+  "desc": "Rohwolle für Spinnerinnen und Walker."
+ },
+ "cera": {
+  "name": "Bienenwachs",
+  "icon": "jar",
+  "c": "#e8c060",
+  "cat": "good",
+  "price": 5,
+  "desc": "Für Wachstafeln, Kerzen und Salben."
  }
 }

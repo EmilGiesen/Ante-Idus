@@ -4185,6 +4185,66 @@
    }
   },
   {
+   "kind": "sign",
+   "x": 72,
+   "y": 129,
+   "w": 1,
+   "h": 1,
+   "name": "Preistafel",
+   "interact": {
+    "type": "prices",
+    "market": "emporium"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 140,
+   "y": 74,
+   "w": 1,
+   "h": 1,
+   "name": "Preistafel",
+   "interact": {
+    "type": "prices",
+    "market": "macellum"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 70,
+   "y": 71,
+   "w": 1,
+   "h": 1,
+   "name": "Preistafel",
+   "interact": {
+    "type": "prices",
+    "market": "holitorium"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 90,
+   "y": 98,
+   "w": 1,
+   "h": 1,
+   "name": "Preistafel",
+   "interact": {
+    "type": "prices",
+    "market": "boarium"
+   }
+  },
+  {
+   "kind": "sign",
+   "x": 164,
+   "y": 69,
+   "w": 1,
+   "h": 1,
+   "name": "Preistafel",
+   "interact": {
+    "type": "prices",
+    "market": "subura"
+   }
+  },
+  {
    "kind": "jetty",
    "x": 64,
    "y": 84,
@@ -5136,6 +5196,10 @@
   "nicanor": [
    70,
    131
+  ],
+  "statius": [
+   87,
+   95
   ],
   "phileros": [
    136,

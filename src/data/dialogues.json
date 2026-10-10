@@ -2842,6 +2842,10 @@
     ]
    },
    {
+    "t": "Wie funktioniert der Handel hier?",
+    "go": "nicanor_trade"
+   },
+   {
     "t": "Wo fischt man am besten?",
     "go": "nicanor_tip"
    },
@@ -2878,5 +2882,37 @@
  "hearth_busy": {
   "text": "Die Köchin braucht den Herd jetzt für das Essen der Herrschaft. Kochen kannst du in deiner freien Zeit (ab Hora X).",
   "who": "narr"
+ },
+ "statius": {
+  "text": [
+   "Statius aus Reate. Ich bringe Wolle und Käse von den Weiden im Sabinerland – über die Via Salaria, wie meine Väter schon das Salz.",
+   "Wer klug handelt, kauft im Frühling Wolle, wenn geschoren wird, und verkauft im Winter."
+  ],
+  "do": [
+   {
+    "lex": "handel"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "statius"
+     }
+    ]
+   },
+   {
+    "t": "Leb wohl."
+   }
+  ]
+ },
+ "nicanor_trade": {
+  "text": "Ganz einfach: Hier am Hafen kaufst du billig – Öl, Wein, Garum, Salz. Im Macellum oder bei den Garküchen der Subura bekommst du mehr dafür. Aber verkauf nicht alles am selben Tag am selben Ort, sonst drückst du den Preis!",
+  "do": [
+   {
+    "lex": "handel"
+   }
+  ]
  }
 }

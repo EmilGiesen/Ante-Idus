@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { buildExterior, buildInterior } from '../src/world/mapgen.js';
 
 const load = (n) => JSON.parse(readFileSync(new URL(`../src/data/${n}.json`, import.meta.url), 'utf8'));
-const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes'].map((n) => [n, load(n)]));
+const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets'].map((n) => [n, load(n)]));
 const MINIGAMES = ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice', 'race'];
 const errors = [];
 const warn = [];
@@ -181,6 +181,9 @@ for (const o of [...D.map_rom.buildings, ...D.map_rom.deco]) {
   }
 }
 for (const it of Object.values(D.items)) if (!it.cat) err(`Gegenstand ${it.name}: Kategorie fehlt`);
+for (const [id, sh] of Object.entries(D.shops)) if (sh.market && !D.markets.markets[sh.market]) err(`Laden ${id}: Markt ${sh.market} fehlt`);
+for (const [id, m] of Object.entries(D.markets.markets)) for (const g of [...(m.board || []), ...(m.demand || []), ...(m.specialty || [])]) if (!D.items[g]) err(`Markt ${id}: Ware ${g} fehlt`);
+for (const o of D.map_rom.deco) if (o.interact?.type === 'prices' && !D.markets.markets[o.interact.market]) err(`Preistafel: Markt ${o.interact.market} fehlt`);
 for (const [id, r] of Object.entries(D.recipes)) {
   if (!D.items[r.out]) err(`Rezept ${id}: Ergebnis ${r.out} fehlt`);
   for (const it of Object.keys(r.in)) if (!D.items[it]) err(`Rezept ${id}: Zutat ${it} fehlt`);

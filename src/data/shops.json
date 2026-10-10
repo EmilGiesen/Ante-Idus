@@ -16,16 +16,19 @@
   "text": "Heißes Essen für die Straße – man isst im Stehen oder nimmt es mit.",
   "items": [
    {
-    "id": "lentes"
+    "id": "lentes",
+    "fixed": true
    },
    {
-    "id": "puls"
+    "id": "puls",
+    "fixed": true
    },
    {
     "id": "ova"
    },
    {
-    "id": "posca"
+    "id": "posca",
+    "fixed": true
    },
    {
     "id": "vinum"
@@ -35,7 +38,8 @@
    "dish",
    "fish"
   ],
-  "sellFactor": 0.6
+  "sellFactor": 0.6,
+  "market": "subura"
  },
  "phileros": {
   "name": "Stand des Phileros",
@@ -49,20 +53,26 @@
     "id": "oleum"
    },
    {
-    "id": "lucerna"
+    "id": "lucerna",
+    "fixed": true
    },
    {
-    "id": "fax"
+    "id": "fax",
+    "fixed": true
    },
    {
-    "id": "foculus"
+    "id": "foculus",
+    "fixed": true
    }
   ],
   "buys": [
    "good",
-   "olivae"
+   "olivae",
+   "fish",
+   "food"
   ],
-  "sellFactor": 0.55
+  "sellFactor": 0.55,
+  "market": "macellum"
  },
  "verecunda": {
   "name": "Stand der Verecunda",
@@ -88,7 +98,8 @@
   "buys": [
    "food"
   ],
-  "sellFactor": 0.45
+  "sellFactor": 0.45,
+  "market": "macellum"
  },
  "mago": {
   "name": "Weinstand des Mago",
@@ -106,10 +117,10 @@
    }
   ],
   "buys": [
-   "good",
-   "vinum"
+   "good"
   ],
-  "sellFactor": 0.55
+  "sellFactor": 0.55,
+  "market": "macellum"
  },
  "thais": {
   "name": "Fischstand der Thais",
@@ -125,9 +136,11 @@
   ],
   "buys": [
    "fish",
-   "garum"
+   "garum",
+   "ostrea"
   ],
-  "sellFactor": 0.55
+  "sellFactor": 0.55,
+  "market": "macellum"
  },
  "prima": {
   "name": "Gemüsestand der Prima",
@@ -153,7 +166,8 @@
   "buys": [
    "ingredient"
   ],
-  "sellFactor": 0.5
+  "sellFactor": 0.5,
+  "market": "holitorium"
  },
  "nicanor": {
   "name": "Hafenhändler Nicanor",
@@ -161,24 +175,63 @@
   "haggle": true,
   "items": [
    {
-    "id": "harundo"
+    "id": "harundo",
+    "fixed": true,
+    "price": 6
    },
    {
     "id": "far"
    },
    {
-    "id": "oleum",
-    "price": 3
+    "id": "oleum"
    },
    {
     "id": "vinum"
+   },
+   {
+    "id": "garum"
+   },
+   {
+    "id": "sal"
+   },
+   {
+    "id": "lana"
+   },
+   {
+    "id": "cera"
    }
   ],
   "buys": [
    "fish",
    "good",
-   "junk"
+   "junk",
+   "calceus"
   ],
-  "sellFactor": 0.5
+  "sellFactor": 0.5,
+  "market": "emporium"
+ },
+ "statius": {
+  "name": "Stand des Statius",
+  "text": "Wolle, Käse und Salz am Viehmarkt.",
+  "haggle": true,
+  "market": "boarium",
+  "items": [
+   {
+    "id": "lana"
+   },
+   {
+    "id": "caseus"
+   },
+   {
+    "id": "sal"
+   },
+   {
+    "id": "cera"
+   }
+  ],
+  "buys": [
+   "good",
+   "food"
+  ]
  }
 }

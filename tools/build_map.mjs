@@ -503,6 +503,14 @@ actAt('stall', 129, 75, 3, 1, 'abschreiben', { name: 'Buchladen', style: { goods
 actAt('bench', 131, 84, 1, 1, 'unterricht', { name: 'Schulbank' });
 actAt('crates', 66, 129, 1, 1, 'lasten_emporium', { name: 'Warenstapel am Kai' });
 actAt('stones', 118, 99, 2, 1, 'bau_basilica', { name: 'Steinblöcke für die Basilica Iulia' });
+// Preistafeln (album) an den Märkten
+function priceBoard(x, y, market) {
+  const p = nearFree(x, y, 1, 1, 6);
+  if (!p) { warnings.push(`Preistafel ${market}: kein Platz`); return; }
+  D('sign', p[0], p[1], 1, 1, { name: 'Preistafel', interact: { type: 'prices', market } });
+}
+priceBoard(72, 129, 'emporium'); priceBoard(140, 74, 'macellum'); priceBoard(70, 71, 'holitorium');
+priceBoard(90, 98, 'boarium'); priceBoard(164, 69, 'subura');
 actAt('jetty', 64, 84, 1, 1, 'fischen_insula', { name: 'Angelsteg zwischen den Brücken' });
 actAt('jetty', 47, 30, 1, 1, 'fischen_marsfeld', { name: 'Angelplatz am Marsfeld' });
 actAt('jetty', 65, 133, 1, 1, 'fischen_emporium', { name: 'Angelplatz am Kai' });
@@ -546,7 +554,7 @@ for (const [sx, sy] of signsAt) {
 // Anker: feste Positionen für NPCs (werden in npcs.json als "@name" verwendet)
 const anchors = {
   rubrius: [112, 85], atilius: [107, 85], praeco: [119, 88], frumentarius: [121, 90], argentarius: [140, 84], fabius_forum: [127, 89],
-  prima: [68, 68], nicanor: [70, 131],
+  prima: [68, 68], nicanor: [70, 131], statius: [87, 95],
   phileros: [136, 72], verecunda: [144, 72], mago: [144, 68], thais: [136, 68], asellina: [161, 64],
 };
 for (const [n, [x, y]] of Object.entries(anchors)) {

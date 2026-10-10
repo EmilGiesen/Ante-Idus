@@ -1022,6 +1022,21 @@
     "Cato, Über die Landwirtschaft 74–90",
     "Apicius, De re coquinaria (spätere Sammlung)"
    ]
+  },
+  "handel": {
+   "title": "Märkte und Handel",
+   "cat": "wirtschaft",
+   "text": [
+    "Waren kommen über den Tiber zum Emporium und werden von dort an Händler in der Stadt verteilt. Spezialmärkte gibt es für Vieh (Forum Boarium), Gemüse (Forum Holitorium) und Feinkost (Macellum). Alle acht Tage sind Markttage (nundinae), an denen Bauern aus dem Umland in die Stadt kommen.",
+    "Preise schwanken mit Ernte und Jahreszeit – nach der Olivenernte ist Öl billiger. Feste Preislisten gibt es erst viel später (Höchstpreisedikt Diokletians, 301 n. Chr.); im Spiel sind alle Preise vereinfachte Schätzungen."
+   ],
+   "sources": [
+    "Livius 35,10 (Emporium)",
+    "Macrobius, Saturnalia 1,16,34 (nundinae)",
+    "Varro, De re rustica 2,11 (Wolle)",
+    "Moderne Forschung (z. B. P. Temin, The Roman Market Economy)"
+   ],
+   "estimate": true
   }
  }
 }
