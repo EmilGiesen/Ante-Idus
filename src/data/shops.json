@@ -59,10 +59,6 @@
    {
     "id": "fax",
     "fixed": true
-   },
-   {
-    "id": "foculus",
-    "fixed": true
    }
   ],
   "buys": [
@@ -161,6 +157,22 @@
    },
    {
     "id": "ficus"
+   },
+   {
+    "id": "semen_herbae",
+    "fixed": true
+   },
+   {
+    "id": "semen_allium",
+    "fixed": true
+   },
+   {
+    "id": "semen_porrum",
+    "fixed": true
+   },
+   {
+    "id": "semen_lactuca",
+    "fixed": true
    }
   ],
   "buys": [
@@ -258,6 +270,33 @@
   "items": [
    {
     "id": "unguentum"
+   }
+  ]
+ },
+ "lucrio": {
+  "name": "Töpferladen des Lucrio",
+  "text": "Möbel, Töpfe, Kohlebecken – alles für dein Zuhause.",
+  "items": [
+   {
+    "id": "vas_plantae"
+   },
+   {
+    "id": "foculus"
+   },
+   {
+    "id": "lararium_parvum"
+   },
+   {
+    "id": "arca_parva"
+   },
+   {
+    "id": "mensa"
+   },
+   {
+    "id": "candelabrum"
+   },
+   {
+    "id": "lectus"
    }
   ]
  }

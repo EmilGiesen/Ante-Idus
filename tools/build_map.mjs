@@ -431,11 +431,11 @@ D('boat', 55, 100, 3, 1, { onWater: true, solid: true });
 // =====================================================================
 // 12. Subura (eng und dicht; feste Blöcke um den Platz)
 // =====================================================================
-B('insula', 149, 72, 6, 5, { name: 'Insula des Arrius', style: { color: '#d6a56f' }, door: { dx: 3, to: 'insula_arria' } });
+B('insula', 149, 72, 6, 5, { name: 'Insula des Arrius', style: { color: '#d6a56f' }, door: { dx: 3, to: 'insula_arria', alt: [{ if: { flag: 'big_flat' }, to: 'insula_arria_2' }] } });
 B('insula', 156, 72, 6, 5, { name: 'Pistrinum des Felix', style: { color: '#e0c9a0' }, door: { dx: 3, to: 'pistrinum' }, light: [3, 4, 26] });
 B('thermopolium', 158, 60, 7, 4, { name: 'Thermopolium der Asellina', lex: 'thermopolium', style: { color: '#c98a5e' }, light: [3, 4, 40] });
 B('insula', 151, 60, 6, 4, { name: 'Balneum der Subura', lex: 'balneum', style: { color: '#e3cfa8' }, door: { dx: 3, to: 'balneum_subura', label: 'Balneum (Bad)' } });
-B('insula', 163, 72, 5, 5, { name: 'Töpferladen', style: { color: '#c98a5e' }, door: { dx: 2, to: 'laden_subura', planned: true, label: 'Laden des Töpfers' } });
+B('insula', 163, 72, 5, 5, { name: 'Töpferladen', style: { color: '#c98a5e' }, door: { dx: 2, to: 'laden_subura', label: 'Laden des Töpfers' } });
 B('insula', 166, 64, 5, 6, { name: 'Popina (Taverne)', style: { color: '#b8754e' }, light: [2, 5, 36], door: { dx: 2, to: 'taberna_subura', label: 'Taverne' } });
 B('fountain', 156, 65, 2, 2, { name: 'Lacus der Subura', lex: 'aquaedukte', interact: { type: 'fountain', dialogue: 'fountain_subura' } });
 B('shrine', 162, 65, 1, 2, { name: 'Compitum-Schrein', lex: 'lararium', light: [0, 1, 24], info: 'Ein Schrein der Lares Compitales an der Kreuzung.' });

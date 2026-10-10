@@ -625,6 +625,20 @@
       0,
       24
      ],
+     "map": "insula_arria_2",
+     "at": [
+      4,
+      3
+     ],
+     "if": {
+      "flag": "big_flat"
+     }
+    },
+    {
+     "h": [
+      0,
+      24
+     ],
      "map": "insula_arria",
      "at": [
       3,
@@ -987,6 +1001,35 @@
      "at": [
       5,
       4
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "lucrio",
+   "name": "Lucrio",
+   "role": "Töpfer und Möbelhändler",
+   "where": "Töpferladen in der Subura",
+   "dialogue": "lucrio",
+   "app": {
+    "skin": "#c68b5e",
+    "hair": "#3d2817",
+    "style": "short",
+    "dress": "worker",
+    "color": "#a5764b",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      24
+     ],
+     "map": "laden_subura",
+     "at": [
+      4,
+      2
      ],
      "dir": "down"
     }

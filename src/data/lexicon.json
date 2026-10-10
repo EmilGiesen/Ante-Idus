@@ -1078,6 +1078,58 @@
     "Juvenal 11,193–202",
     "Moderne Forschung (z. B. J. H. Humphrey, Roman Circuses)"
    ]
+  },
+  "wohnen": {
+   "title": "Wohnen und Möbel",
+   "cat": "alltag",
+   "text": [
+    "Römische Wohnungen sind spärlich möbliert: Bett (lectus), Tisch, Hocker, Truhen, Lampen. In der Insula wohnt man unten teuer und oben billig – oben ist es eng, heiß und bei Feuer gefährlich.",
+    "Gekocht wird in Mietwohnungen, wenn überhaupt, auf kleinen Kohlebecken – eine ständige Brandgefahr."
+   ],
+   "sources": [
+    "Juvenal, Satiren 3,197–222",
+    "Martial 3,52",
+    "Vitruv 2,8,17",
+    "Funde aus Pompeji und Herculaneum"
+   ]
+  },
+  "garten": {
+   "title": "Gärten und Kräuter",
+   "cat": "alltag",
+   "text": [
+    "Wer kein Land hat, zieht Kräuter und Gemüse in Töpfen. Plinius schreibt, dass das Volk der Stadt sich „an den Fenstern Abbilder von Gärten“ hielt.",
+    "Die Reichen haben Gärten im Peristyl ihrer Häuser – oder ganze Parks wie die Gärten des Lucullus und Caesars."
+   ],
+   "sources": [
+    "Plinius, Naturgeschichte 19,59",
+    "Cato, Über die Landwirtschaft",
+    "Columella, Über die Landwirtschaft 10"
+   ]
+  },
+  "muenzen": {
+   "title": "Alte Münzen",
+   "cat": "wirtschaft",
+   "text": [
+    "Roms erstes Geld war schweres Bronzegeld (aes grave). Im 3. Jh. v. Chr. folgten Silbermünzen wie der Quadrigatus und der Victoriatus, um 211 v. Chr. der Denar.",
+    "In Rom sind auch fremde Münzen im Umlauf, etwa athenische Tetradrachmen mit der Eule."
+   ],
+   "sources": [
+    "Plinius, Naturgeschichte 33,42–47",
+    "M. H. Crawford, Roman Republican Coinage"
+   ]
+  },
+  "amphoren": {
+   "title": "Amphoren und ihre Stempel",
+   "cat": "wirtschaft",
+   "text": [
+    "Wein, Öl und Garum reisen in Amphoren. Viele tragen Stempel auf Henkel oder Hals: Sie verraten Hersteller und Herkunft – etwa „SES“ auf Weinamphoren aus Cosa oder die Henkelstempel aus Rhodos und Knidos.",
+    "Für die Forschung sind diese Stempel ein Schatz: Mit ihnen lassen sich Handelswege rekonstruieren."
+   ],
+   "sources": [
+    "Funde vom Monte Testaccio und aus Schiffswracks",
+    "E. L. Will, Forschungen zu den Sestius-Amphoren",
+    "Moderne Amphorenforschung"
+   ]
   }
  }
 }

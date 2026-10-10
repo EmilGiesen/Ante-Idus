@@ -1,0 +1,102 @@
+{
+ "sets": {
+  "muenzen": {
+   "name": "Alte Münzen",
+   "hint": "Findet man beim Graben auf Baustellen – und manchmal im Tiber.",
+   "items": [
+    "as_libralis",
+    "quadrigatus",
+    "victoriatus",
+    "denarius_roma",
+    "denarius_sulla",
+    "tetradrachme"
+   ],
+   "reward": [
+    {
+     "money": 64
+    },
+    {
+     "xp": {
+      "handel": 40
+     }
+    },
+    {
+     "lex": "muenzen"
+    }
+   ]
+  },
+  "stempel": {
+   "name": "Amphorenstempel",
+   "hint": "Liegen zwischen den Scherben am Emporium.",
+   "items": [
+    "stempel_ses",
+    "stempel_rhodos",
+    "stempel_knidos",
+    "stempel_kos",
+    "stempel_brundisium"
+   ],
+   "reward": [
+    {
+     "money": 48
+    },
+    {
+     "xp": {
+      "schreiben": 30
+     }
+    },
+    {
+     "lex": "amphoren"
+    }
+   ]
+  }
+ },
+ "lexicon": [
+  {
+   "at": 10,
+   "text": "Ein Gönner schenkt dir einen Denar für deine Neugier.",
+   "reward": [
+    {
+     "money": 16
+    }
+   ]
+  },
+  {
+   "at": 25,
+   "text": "Dein Wissen spricht sich herum.",
+   "reward": [
+    {
+     "money": 32
+    },
+    {
+     "xp": {
+      "schreiben": 30
+     }
+    }
+   ]
+  },
+  {
+   "at": 50,
+   "text": "Du kennst Rom besser als mancher Senator.",
+   "reward": [
+    {
+     "money": 64
+    },
+    {
+     "xp": {
+      "schreiben": 60,
+      "rhetorik": 30
+     }
+    }
+   ]
+  },
+  {
+   "at": 75,
+   "text": "Ein wandelndes Lexikon!",
+   "reward": [
+    {
+     "money": 128
+    }
+   ]
+  }
+ ]
+}

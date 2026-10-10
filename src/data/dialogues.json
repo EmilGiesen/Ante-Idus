@@ -1450,6 +1450,14 @@
     "go": "hil_when"
    },
    {
+    "t": "Gibt es eine größere Wohnung?",
+    "go": "hil_flat",
+    "if": {
+     "cls": "plebs",
+     "noFlag": "big_flat"
+    }
+   },
+   {
     "t": "Verstanden."
    }
   ],
@@ -3244,5 +3252,86 @@
     "advance": "nachtladung"
    }
   ]
+ },
+ "lucrio": {
+  "text": "Lucrio, Töpfer. Ein Kohlebecken für die Küche? Ein Pflanzkübel fürs Fenster? Oder gleich ein richtiges Bett?",
+  "do": [
+   {
+    "lex": "wohnen"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "lucrio"
+     }
+    ]
+   },
+   {
+    "t": "Wie richte ich mich ein?",
+    "go": "lucrio_tip"
+   },
+   {
+    "t": "Leb wohl."
+   }
+  ]
+ },
+ "lucrio_tip": {
+  "text": "Zu Hause siehst du kleine goldene Kreuze – dort ist Platz. Stell dich davor, drück E, und stell auf, was du gekauft hast. Ein gutes Bett, und du schläfst wie ein Senator!"
+ },
+ "hil_flat": {
+  "text": [
+   "Im ersten Stock ist ein Cenaculum frei: zwei Zimmer, Platz für Möbel und ein Fenster mit Platz für Pflanzen.",
+   "Weiter unten wohnt man teurer – und sicherer, wenn's brennt. 30 Sesterzen im Monat, dazu 2 Denare Sicherheit."
+  ],
+  "opts": [
+   {
+    "t": "Ich nehme sie! (2 Denare)",
+    "if": {
+     "money": 32
+    },
+    "go": "hil_flat_yes",
+    "do": [
+     {
+      "money": -32
+     },
+     {
+      "flag": "big_flat"
+     },
+     {
+      "setRent": 120
+     },
+     {
+      "setHome": [
+       "insula_arria_2",
+       [
+        2,
+        3
+       ]
+      ]
+     },
+     {
+      "stat": {
+       "familia": 5
+      }
+     },
+     {
+      "lex": "wohnen"
+     }
+    ]
+   },
+   {
+    "t": "Zu teuer für mich.",
+    "go": "hil_flat_no"
+   }
+  ]
+ },
+ "hil_flat_yes": {
+  "text": "Abgemacht. Deine Mutter wird sich freuen. Der Schlüssel – nein, Schlüssel haben wir nicht. Aber die Tür ist ab jetzt deine."
+ },
+ "hil_flat_no": {
+  "text": "Wie du willst. Frag wieder, wenn du mehr verdienst."
  }
 }

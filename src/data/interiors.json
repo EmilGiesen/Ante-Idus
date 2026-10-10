@@ -63,7 +63,61 @@
     7,
     36
    ]
-  ]
+  ],
+  "slots": [
+   {
+    "id": "a",
+    "at": [
+     4,
+     10
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "b",
+    "at": [
+     5,
+     13
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "c",
+    "at": [
+     2,
+     15
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "g1",
+    "at": [
+     3,
+     3
+    ],
+    "type": "plant",
+    "builtin": true
+   },
+   {
+    "id": "g2",
+    "at": [
+     5,
+     3
+    ],
+    "type": "plant",
+    "builtin": true
+   },
+   {
+    "id": "g3",
+    "at": [
+     7,
+     3
+    ],
+    "type": "plant",
+    "builtin": true
+   }
+  ],
+  "comfort": 4
  },
  "domus_fabia": {
   "name": "Domus des Quintus Fabius Rufus",
@@ -124,6 +178,24 @@
     6,
     40
    ]
+  ],
+  "slots": [
+   {
+    "id": "a",
+    "at": [
+     22,
+     14
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "p1",
+    "at": [
+     22,
+     12
+    ],
+    "type": "plant"
+   }
   ]
  },
  "insula_arria": {
@@ -169,6 +241,32 @@
     5,
     26
    ]
+  ],
+  "slots": [
+   {
+    "id": "a",
+    "at": [
+     3,
+     1
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "b",
+    "at": [
+     4,
+     2
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "p1",
+    "at": [
+     4,
+     3
+    ],
+    "type": "plant"
+   }
   ]
  },
  "pistrinum": {
@@ -341,6 +439,128 @@
     5,
     30
    ]
+  ]
+ },
+ "laden_subura": {
+  "name": "Töpferladen des Lucrio",
+  "style": {
+   "wall": "plain"
+  },
+  "lex": "wohnen",
+  "layout": [
+   "############",
+   "#SSSSSSSSSS#",
+   "#__________#",
+   "#__====____#",
+   "#__________#",
+   "#A________A#",
+   "#####XX#####"
+  ],
+  "spawns": {
+   "entry": [
+    5,
+    5
+   ]
+  },
+  "lights": [
+   [
+    5,
+    2,
+    44
+   ]
+  ]
+ },
+ "insula_arria_2": {
+  "name": "Cenaculum im 1. Stock (Insula des Arrius)",
+  "style": {
+   "wall": "ochre"
+  },
+  "lex": "wohnen",
+  "comfort": 1,
+  "layout": [
+   "################",
+   "#m,,,,,#,,,,,,,#",
+   "#m,,,,,#,,,,,,,#",
+   "#,,,,,,,,,,,,,,#",
+   "#,,,,,,#,,,,,,,#",
+   "#,,,,,,,,,,,,,,#",
+   "#######XX#######"
+  ],
+  "spawns": {
+   "entry": [
+    8,
+    5
+   ]
+  },
+  "lights": [
+   [
+    3,
+    3,
+    40
+   ],
+   [
+    11,
+    3,
+    40
+   ]
+  ],
+  "slots": [
+   {
+    "id": "a",
+    "at": [
+     2,
+     4
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "b",
+    "at": [
+     5,
+     1
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "c",
+    "at": [
+     9,
+     1
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "d",
+    "at": [
+     12,
+     1
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "e",
+    "at": [
+     12,
+     4
+    ],
+    "type": "floor"
+   },
+   {
+    "id": "p1",
+    "at": [
+     14,
+     1
+    ],
+    "type": "plant"
+   },
+   {
+    "id": "p2",
+    "at": [
+     14,
+     2
+    ],
+    "type": "plant"
+   }
   ]
  }
 }

@@ -11,6 +11,8 @@ import { changeMoney } from '../systems/rules.js';
 import { level, progress, skillDefs } from '../systems/skills.js';
 import { activeBuffs, hoursLeft, buffFx } from '../systems/buffs.js';
 import * as Cook from '../systems/cooking.js';
+import * as Home from '../systems/home.js';
+import * as Coll from '../systems/collections.js';
 
 import * as Market from '../systems/market.js';
 import { addXp } from '../systems/skills.js';
@@ -18,7 +20,7 @@ const sellPrice = Market.sellPrice;
 
 const TITLES = {
   inventory: 'Inventar', log: 'Logbuch', lexicon: 'Schriftrolle des Wissens', menu: 'Menü', shop: 'Laden', help: 'Steuerung',
-  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)', char: 'Charakter', cook: 'Kochen', prices: 'Preistafel',
+  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)', char: 'Charakter', cook: 'Kochen', prices: 'Preistafel', furnish: 'Einrichten',
 };
 const HOTKEY = { inventory: 'inventory', log: 'log', lexicon: 'lexicon', map: 'map', char: 'char' };
 
@@ -326,7 +328,41 @@ export class Panels {
     const buffs = activeBuffs();
     if (!buffs.length) this.body.append(el('p', { class: 'muted' }, 'Keine. Opfergaben in Tempeln oder gutes Essen geben zeitlich begrenzte Boni.'));
     for (const b of buffs) this.body.append(el('p', {}, `✦ ${b.name} – noch etwa ${Math.ceil(hoursLeft(b))} Std.`));
-    if (this.extraChar) this.extraChar(this.body);
+    this.body.append(el('h3', {}, 'Zuhause'));
+    this.body.append(el('p', {}, `Gemütlichkeit: ${Home.comfort()} – je gemütlicher, desto erholsamer der Schlaf.`));
+    this.body.append(el('h3', {}, 'Sammlungen'));
+    for (const [id, set] of Object.entries(Coll.colDefs())) {
+      const have = Coll.found(id);
+      this.body.append(el('div', { class: 'skill' },
+        el('div', { class: 'row' }, el('b', {}, set.name), el('span', { class: 'tag' }, `${have.length}/${set.items.length}`)),
+        el('small', { class: 'muted' }, set.items.map((it) => (have.includes(it) ? Inv.itemDef(it).name : '? ? ?')).join(' · ')),
+        el('small', {}, set.hint || '')));
+    }
+  }
+
+  // ---------- Einrichten ----------
+  render_furnish() {
+    const map = G.game.map;
+    const sl = Home.slotsOf(map.id).find((x) => x.id === this.arg.slot);
+    const hs = Home.homeState(map.id);
+    const cur = hs.furniture[sl.id];
+    if (cur) {
+      this.body.append(el('p', {}, `Hier steht: ${Inv.itemDef(cur).name}.`),
+        el('button', { class: 'btn', onclick: () => { Home.removeFurniture(sl.id); this.render(); } }, 'Wegräumen (zurück ins Inventar)'));
+      return;
+    }
+    const opts = Inv.list().filter((x) => x.def.cat === 'furniture' && (x.def.slot || 'floor') === sl.type);
+    this.body.append(el('p', { class: 'muted' }, sl.type === 'plant' ? 'Ein Platz am Fenster – ideal für einen Pflanzkübel.' : 'Ein freier Platz in deinem Zuhause.'));
+    if (!opts.length) this.body.append(el('p', {}, 'Du hast nichts Passendes zum Aufstellen. Möbel und Pflanzkübel verkauft der Töpfer Lucrio in der Subura.'));
+    const list = el('div', { class: 'shop-list' });
+    opts.forEach((x, i) => {
+      const go = () => { this.close(); Home.place(sl.id, x.id); };
+      list.append(el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}` }, pixelCanvas(getIcon(x.def), 2),
+        el('div', { class: 'grow' }, el('b', {}, x.def.name), el('small', {}, x.def.desc || '')),
+        el('button', { class: 'btn small', onclick: go }, 'Aufstellen')));
+      this.nav.push(go);
+    });
+    this.body.append(list);
   }
 
   // ---------- Stadtplan ----------

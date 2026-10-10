@@ -91,5 +91,27 @@
   },
   "level": 4,
   "xp": 30
+ },
+ "acetaria": {
+  "name": "Lattich mit Essig und Öl",
+  "out": "acetaria",
+  "n": 2,
+  "in": {
+   "lactuca": 1,
+   "oleum": 1
+  },
+  "level": 0,
+  "xp": 8
+ },
+ "porri": {
+  "name": "Lauch in Öl",
+  "out": "porri",
+  "n": 2,
+  "in": {
+   "porrum": 1,
+   "oleum": 1
+  },
+  "level": 1,
+  "xp": 10
  }
 }

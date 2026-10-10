@@ -397,6 +397,55 @@ try {
     await wait(100);
     return G.state.money === 36 ? true : `Wettgewinn falsch: ${G.state.money}`;
   });
+  // Teil 7: Wohnung einrichten, Garten, größere Wohnung, Sammlungen
+  await runScenario('plebs', async () => {
+    const { G, game } = window.__rv;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const Home = await import('/src/systems/home.js');
+    const Inv = await import('/src/systems/inventory.js');
+    const Coll = await import('/src/systems/collections.js');
+    Inv.add('vas_plantae', 1); Inv.add('lectus', 1); Inv.add('semen_herbae', 1);
+    game.debugTeleport('insula_arria', 2, 3); await wait(200);
+    const c0 = Home.comfort();
+    Home.place('p1', 'vas_plantae'); Home.place('a', 'lectus');
+    if (Home.comfort() !== c0 + 4) return `Gemütlichkeit falsch: ${Home.comfort()}`;
+    const k = game.map.key(3, 1);
+    if (game.map.props.get(k) !== 'goodbed' || !game.map.solid[k]) return 'Bett nicht aufgestellt';
+    Home.sow('p1', 'semen_herbae');
+    const h0 = Inv.count('herbae');
+    for (let d = 0; d < 3; d++) { G.state.time.day += 1; Home.water('p1'); }
+    Home.harvest('p1');
+    if (Inv.count('herbae') < h0 + 3) return `Ernte fehlt: ${Inv.count('herbae')}`;
+    Home.removeFurniture('a');
+    if (Inv.count('lectus') !== 1) return 'Bett nicht zurück ins Inventar';
+    G.state.money = 40;
+    await window.__rv.talk('hilarus', ['größere', 'nehme']);
+    if (!G.state.flags.big_flat || G.state.home.map !== 'insula_arria_2' || G.state.rent.amount !== 120) return 'Größere Wohnung nicht gemietet';
+    game.debugTeleport('rom', 152, 78); await wait(200);
+    const door = [...game.map.doors.values()].find((d) => d.to === 'insula_arria');
+    game.useDoor(door); await wait(900);
+    if (game.map.id !== 'insula_arria_2') return `Tür führt nach ${game.map.id}`;
+    Home.place('b', 'lectus'); await wait(300);
+    for (let i = 0; i < 60; i++) Coll.findFrom('stempel');
+    if (Coll.found('stempel').length !== 5 || !G.state.lex.amphoren) return 'Sammlung Stempel nicht vollständig belohnt';
+    return true;
+  });
+  await shot(page, '65-cenaculum');
+  await ev(() => { const g = window.__rv.game; g.debugTeleport('laden_subura', 5, 5); });
+  await sleep(500); await shot(page, '66-toepferladen');
+  await runScenario('nobilis', async () => {
+    const { G } = window.__rv;
+    const Home = await import('/src/systems/home.js');
+    const Inv = await import('/src/systems/inventory.js');
+    Inv.add('semen_lactuca', 1);
+    window.__rv.game.debugTeleport('domus_valeria', 4, 5); await new Promise((r) => setTimeout(r, 200));
+    Home.sow('g1', 'semen_lactuca');
+    G.state.time.day += 1; Home.water('g1'); G.state.time.day += 1; Home.water('g1');
+    Home.harvest('g1');
+    if (Inv.count('lactuca') < 2) return 'Peristylbeet liefert nichts';
+    const n = Object.keys(G.state.lex).length;
+    return G.state.flags[`lexm_10`] || n < 10 ? true : 'Lexikon-Meilenstein fehlt';
+  });
   await runScenario('nobilis', async () => {
     const Act = await import('/src/systems/activities.js');
     return Act.blockReason('abschreiben') ? true : 'Adel darf nicht abschreiben';

@@ -99,6 +99,8 @@ export function applyEffects(list, ctx = {}) {
       case 'hours': G.game.passHours(v); break;
       case 'toast': G.ui.toast(fmt(v)); break;
       case 'payRent': G.game.payRent(); break;
+      case 'setRent': if (s.rent) s.rent.amount = v; break;
+      case 'setHome': s.home = { map: v[0], at: v[1] }; break;
       case 'xp': for (const [n, a] of Object.entries(v)) addXp(n, a); break;
       case 'buff': addBuff(v.id, v.name, v.hours, v.fx); G.ui.toast(`✦ ${v.name} (${v.hours} Std.)`, 'stat'); break;
       case 'activity': ctx.after = { type: 'activity', id: v }; break;

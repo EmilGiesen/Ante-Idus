@@ -118,6 +118,40 @@ export function drawProp(g, o, map, tx, ty, kind) {
     case 'bench':
       p('#d6ccb2', X + 1, Y + 6, 14, 4); p('#efe9dc', X + 1, Y + 6, 14, 1); p('#bdb295', X + 2, Y + 10, 2, 5); p('#bdb295', X + 12, Y + 10, 2, 5);
       break;
+    case 'goodbed':
+      p('#5a3420', X, Y + 2, 16, 14); p('#e8dcc0', X + 1, Y + 3, 14, 11); p('#f4eedc', X + 2, Y + 4, 5, 4); p('#2e6da4', X + 1, Y + 8, 14, 6); p('#c9a24a', X, Y + 2, 16, 1);
+      break;
+    case 'brazier':
+      p('#3a363c', X + 3, Y + 11, 2, 4); p('#3a363c', X + 11, Y + 11, 2, 4); p('#5a565c', X + 2, Y + 7, 12, 5); p('#6e6a72', X + 2, Y + 7, 12, 1);
+      p('#e8902a', X + 4, Y + 4, 8, 3); p('#f4d24a', X + 6, Y + 3, 4, 2);
+      break;
+    case 'mensa':
+      p('rgba(0,0,0,0.2)', X + 2, Y + 12, 13, 3); p('#8a5a32', X + 1, Y + 4, 14, 7); p('#a8743f', X + 1, Y + 4, 14, 2);
+      p('#6b4426', X + 2, Y + 11, 2, 4); p('#6b4426', X + 12, Y + 11, 2, 4); p('#b0603a', X + 5, Y + 5, 3, 3);
+      break;
+    case 'candelabrum':
+      p('#8a7a4a', X + 7, Y + 2, 2, 13); p('#8a7a4a', X + 4, Y + 14, 8, 2); p('#a8843f', X + 5, Y + 2, 6, 2); p('#f4d24a', X + 7, Y - 1, 2, 3);
+      break;
+    case 'larsmall':
+      p('#cfc6ae', X + 3, Y + 9, 10, 7); p('#e4dcc6', X + 3, Y + 4, 10, 6); p('#a3392c', X + 5, Y + 6, 6, 3); p('#e3c27a', X + 7, Y + 6, 2, 3);
+      for (let i = 0; i < 3; i++) p('#e4dcc6', X + 3 + i, Y + 4 - i, 10 - i * 2, 1);
+      break;
+    case 'pot_0': case 'pot_1': case 'pot_2': case 'pot_3': {
+      const st = Number(kind.slice(4));
+      p('#a0603a', X + 4, Y + 9, 8, 6); p('#c07a4a', X + 4, Y + 9, 8, 1); p('#5a3a22', X + 5, Y + 10, 6, 1);
+      if (st >= 1) p('#5f9a3a', X + 7, Y + 6, 2, 3);
+      if (st >= 2) { p('#4f8a3a', X + 5, Y + 4, 6, 4); }
+      if (st >= 3) { p('#4f8a3a', X + 3, Y + 2, 10, 6); p('#f2d24a', X + 5, Y + 3, 2, 2); p('#e85a5a', X + 9, Y + 4, 2, 2); }
+      break;
+    }
+    case 'bed_0': case 'bed_1': case 'bed_2': case 'bed_3': {
+      const st = Number(kind.slice(4));
+      p('#6e5236', X + 1, Y + 3, 14, 11); p('#5b432c', X + 2, Y + 5, 12, 1); p('#5b432c', X + 2, Y + 9, 12, 1);
+      if (st >= 1) for (let i = 0; i < 3; i++) p('#5f9a3a', X + 3 + i * 4, Y + 6, 2, 3);
+      if (st >= 2) for (let i = 0; i < 3; i++) p('#4f8a3a', X + 2 + i * 4, Y + 4, 4, 5);
+      if (st >= 3) for (let i = 0; i < 3; i++) { p('#4f8a3a', X + 2 + i * 4, Y + 2, 4, 7); p('#f2d24a', X + 3 + i * 4, Y + 3, 1, 1); }
+      break;
+    }
     default:
       p('#ff00ff', X + 4, Y + 4, 8, 8);
   }

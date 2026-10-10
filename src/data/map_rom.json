@@ -850,7 +850,15 @@
    },
    "door": {
     "dx": 3,
-    "to": "insula_arria"
+    "to": "insula_arria",
+    "alt": [
+     {
+      "if": {
+       "flag": "big_flat"
+      },
+      "to": "insula_arria_2"
+     }
+    ]
    }
   },
   {
@@ -920,7 +928,6 @@
    "door": {
     "dx": 2,
     "to": "laden_subura",
-    "planned": true,
     "label": "Laden des Töpfers"
    }
   },

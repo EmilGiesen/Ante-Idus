@@ -106,7 +106,13 @@
   },
   "lex": "emporium",
   "verb": "Ladung aufnehmen",
-  "doneText": "Schicht am Emporium beendet"
+  "doneText": "Schicht am Emporium beendet",
+  "finds": [
+   {
+    "set": "stempel",
+    "chance": 0.3
+   }
+  ]
  },
  "bau_basilica": {
   "name": "Auf der Baustelle der Basilica Iulia helfen",
@@ -139,7 +145,13 @@
   },
   "lex": "basilicae",
   "verb": "Mit anpacken",
-  "doneText": "Schicht auf der Baustelle beendet"
+  "doneText": "Schicht auf der Baustelle beendet",
+  "finds": [
+   {
+    "set": "muenzen",
+    "chance": 0.15
+   }
+  ]
  },
  "bau_forum_iulium": {
   "name": "Am Forum Iulium mitbauen",
@@ -172,7 +184,13 @@
   },
   "lex": "forum_iulium",
   "verb": "Mit anpacken",
-  "doneText": "Schicht am Forum Iulium beendet"
+  "doneText": "Schicht am Forum Iulium beendet",
+  "finds": [
+   {
+    "set": "muenzen",
+    "chance": 0.15
+   }
+  ]
  },
  "baeckerei": {
   "name": "In der Bäckerei aushelfen",
@@ -231,7 +249,13 @@
   "xpPerScore": 8,
   "lex": "fische",
   "verb": "Angel auswerfen",
-  "doneText": "Du packst die Angel ein"
+  "doneText": "Du packst die Angel ein",
+  "finds": [
+   {
+    "set": "muenzen",
+    "chance": 0.06
+   }
+  ]
  },
  "fischen_marsfeld": {
   "name": "Fischen am Marsfeld",
@@ -253,7 +277,13 @@
   "xpPerScore": 8,
   "lex": "fische",
   "verb": "Angel auswerfen",
-  "doneText": "Du packst die Angel ein"
+  "doneText": "Du packst die Angel ein",
+  "finds": [
+   {
+    "set": "muenzen",
+    "chance": 0.06
+   }
+  ]
  },
  "fischen_emporium": {
   "name": "Fischen am Kai des Emporiums",
@@ -275,7 +305,13 @@
   "xpPerScore": 8,
   "lex": "fische",
   "verb": "Angel auswerfen",
-  "doneText": "Du packst die Angel ein"
+  "doneText": "Du packst die Angel ein",
+  "finds": [
+   {
+    "set": "muenzen",
+    "chance": 0.06
+   }
+  ]
  },
  "wuerfeln": {
   "name": "Würfeln mit Tali",

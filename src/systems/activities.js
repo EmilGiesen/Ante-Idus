@@ -10,6 +10,7 @@ import { addXp, level } from './skills.js';
 import { buffFx } from './buffs.js';
 import { unlockLex } from './lexicon.js';
 import { AUTO_RESULTS } from '../minigames/index.js';
+import * as Coll from './collections.js';
 
 export const actDef = (id) => G.data.activities[id];
 
@@ -102,6 +103,7 @@ function finish(id, r) {
   for (const g of d.gives || []) {
     if ((g.minScore || 0) <= score && Math.random() < (g.chance ?? 1)) Inv.add(g.id, g.n || 1);
   }
+  for (const f of d.finds || []) if (Math.random() < f.chance) Coll.findFrom(f.set);
   if (d.lex) unlockLex(d.lex);
   if (d.do) applyEffects(d.do);
   const cnt = s.vars[`act_${id}`];

@@ -19,8 +19,9 @@ import { MINIGAMES, AUTO_RESULTS } from './minigames/index.js';
 import * as Act from './systems/activities.js';
 import * as Rumors from './systems/rumors.js';
 import * as Offer from './systems/offerings.js';
-import { buffFx } from './systems/buffs.js';
+import { buffFx, addBuff as addBuffDirect } from './systems/buffs.js';
 import { festivalOf, isRaceDay } from './systems/festivals.js';
+import * as Home from './systems/home.js';
 import { level as levelOf } from './systems/skills.js';
 
 const GLYPH = {
@@ -68,6 +69,7 @@ export class Game {
     this.player.x = x; this.player.y = y;
     if (dir) this.player.dir = dir;
     this.npcs.enterMap(this.map);
+    Home.applyHome(this.map);
     this.renderer.follow(this.map, x, y, true);
     this.lastZone = null;
     if (this.map.interior) {
@@ -241,7 +243,8 @@ export class Game {
       else G.ui.toast('Die Tür bleibt dir verschlossen.', 'warn');
       return;
     }
-    const target = door.to;
+    const alt = door.alt && door.alt.find((a) => checkCond(a.if));
+    const target = alt ? alt.to : door.to;
     const def = G.data.interiors[target];
     if (door.planned || !def) {
       // Übergang ist vorbereitet, der Innenraum folgt in einem späteren Schritt
@@ -261,7 +264,7 @@ export class Game {
   // Vorplatz der Außentür, die zu einem Innenraum führt
   doorFront(interiorId) {
     const rom = this.mapById('rom');
-    for (const d of rom.doors.values()) if (d.to === interiorId) return { map: 'rom', ...tileToPx(d.x, d.y + 1) };
+    for (const d of rom.doors.values()) if (d.to === interiorId || (d.alt && d.alt.some((a) => a.to === interiorId))) return { map: 'rom', ...tileToPx(d.x, d.y + 1) };
     return null;
   }
 
@@ -340,6 +343,9 @@ export class Game {
       if (it.type === 'travel') { G.ui.panels.show('travel', { from: it.station }); return; }
       if (it.type === 'activity') { Act.offer(it.id); return; }
       if (it.type === 'offer') { Offer.offer(it.id); return; }
+      if (it.type === 'slot') { G.ui.panels.show('furnish', { slot: it.slot }); return; }
+      if (it.type === 'furniture') { this.useFurniture(it); return; }
+      if (it.type === 'plant') { this.usePlant(it.slot); return; }
       if (it.type === 'altar' && G.data.interiors[this.map.id]?.temple) { Offer.offer(G.data.interiors[this.map.id].temple); return; }
       if (it.type === 'prices') { G.ui.panels.show('prices', { market: it.market }); unlockLex('handel'); return; }
       const node = it.dialogue || `obj_${it.type}`;
@@ -447,6 +453,7 @@ export class Game {
       if (s.time.day === s.rent.due) G.ui.toast(`Heute ist die Miete fällig: ${formatMoney(s.rent.amount)}. Zahle beim Verwalter Hilarus in der Insula.`, 'warn');
       else if (s.time.day > s.rent.due + 1) { G.ui.toast('Deine Miete ist überfällig! Die Nachbarn reden schon.', 'warn'); changeStat('vicinia', -2); }
     }
+    if (s.cls === 'plebs' && Home.comfort() >= 3 && s.time.day % 2 === 0) changeStat('familia', 1, true);
     for (const [id, m] of Object.entries(s.missions)) {
       const def = M.mdef(id);
       if (m.status === 'active' && def.daily) M.abandonMission(id);
@@ -459,7 +466,9 @@ export class Game {
       const h = s.time.hour;
       this.passHours(24 - h + 0.3);
       s.needs.energy = 100;
-      s.needs.health = Math.min(100, s.needs.health + 15);
+      const comfort = Home.comfort();
+      s.needs.health = Math.min(100, s.needs.health + 15 + comfort);
+      if (comfort >= 4) addBuffDirect('schlaf', 'Gut geschlafen: weniger müde', 8, { tired: -0.15 });
       s.needs.satiety = Math.max(5, s.needs.satiety - 10);
       s.needs.hygiene = Math.max(0, s.needs.hygiene - 4);
       s.light = null;
@@ -518,7 +527,7 @@ export class Game {
     const s = this.state;
     const map = this.map;
     const light = map.interior ? interiorLight(s.time.hour) : ambientLight(s.time.hour);
-    const lights = [...map.lights];
+    const lights = [...map.lights, ...(map.extraLights || [])];
     const pr = s.light ? (G.data.items[s.light].light || 40) : map.interior ? 34 : 26;
     lights.push({ x: this.player.x, y: this.player.y - 8, r: pr, warm: !!s.light, flicker: !!s.light });
     const ents = [...this.npcs.list(), this.player];
@@ -530,6 +539,15 @@ export class Game {
     for (const n of this.npcs.named) {
       if (n.map !== this.map.id || !n.marker) continue;
       bubble(ctx, n.x - cam.x, n.y - cam.y - 30 + Math.round(Math.sin(t * 4) * 1.5), n.marker, n.marker === '!' ? '#f2c14e' : '#7fd0ff');
+    }
+    if (map_isHome(this)) {
+      for (const sl of Home.slotsOf(this.map.id)) {
+        const hs = Home.homeState(this.map.id);
+        if (hs.furniture[sl.id] || sl.builtin) continue;
+        const sx = sl.at[0] * 16 + 8 - cam.x, sy = sl.at[1] * 16 + 6 - cam.y;
+        ctx.fillStyle = 'rgba(242,193,78,0.55)';
+        ctx.fillRect(sx - 3, sy, 7, 1); ctx.fillRect(sx, sy - 3, 1, 7);
+      }
     }
     if (this.focus) bubble(ctx, this.focus.x - cam.x, this.focus.y - cam.y - (this.focus.kind === 'npc' && this.focus.npc.marker ? 18 : 0), 'E', '#f4eedc');
     this.drawObjectiveArrow(ctx, cam);
@@ -592,12 +610,43 @@ export class Game {
 
   isSlaveFree() { return Act.slaveFreeTime() || M.hasPermit(); }
 
+  // ---------- Zuhause ----------
+  useFurniture(it) {
+    const def = G.data.items[it.item];
+    const opts = [];
+    if (def.special === 'cook') opts.push({ t: 'Kochen', fn: () => G.ui.panels.show('cook') });
+    if (def.special === 'bed') opts.push({ t: 'Schlafen', fn: () => G.ui.dialog.start('obj_bed') });
+    if (def.special === 'lar') opts.push({ t: 'Den Laren opfern', fn: () => G.ui.dialog.start('obj_lararium') });
+    opts.push({ t: 'Umstellen / wegräumen', fn: () => G.ui.panels.show('furnish', { slot: it.slot }) });
+    opts.push({ t: 'Nichts' });
+    G.ui.dialog.custom({ text: def.desc, opts, name: def.name });
+  }
+
+  usePlant(slotId) {
+    const hs = Home.homeState(this.map.id);
+    const p = hs.plants[slotId];
+    if (!p) {
+      const seeds = Inv.list().filter((x) => x.def.seed);
+      if (!seeds.length) { G.ui.dialog.custom({ text: 'Ein leeres Beet. Saatgut gibt es bei der Gemüsehändlerin am Forum Holitorium.', name: 'Pflanzplatz' }); return; }
+      G.ui.dialog.custom({ text: 'Was willst du pflanzen?', name: 'Pflanzplatz',
+        opts: [...seeds.map((x) => ({ t: `${x.def.name} (${x.n}×)`, fn: () => Home.sow(slotId, x.id) })), { t: 'Nichts' }] });
+      return;
+    }
+    const st = Home.plantStage(p);
+    const name = G.data.items[p.seed].name;
+    if (st >= 3) { G.ui.dialog.custom({ text: `${name}: reif!`, name: 'Pflanze', opts: [{ t: 'Ernten', fn: () => Home.harvest(slotId) }, { t: 'Später' }] }); return; }
+    G.ui.dialog.custom({ text: `${name}: ${st === 1 ? 'gerade aufgegangen' : 'wächst kräftig'}.`, name: 'Pflanze',
+      opts: [{ t: 'Gießen', fn: () => Home.water(slotId) }, { t: 'Später' }] });
+  }
+
   // ---------- Debug/Test-Schnittstelle ----------
   debugTeleport(mapId, tx, ty) {
     const p = tileToPx(tx, ty);
     this.enterMap(mapId, p.x, p.y, 'down');
   }
 }
+
+const map_isHome = (g) => g.map && g.map.interior && Home.isHome(g.map.id);
 
 function interiorLight(h) {
   const l = ambientLight(h);

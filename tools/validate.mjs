@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { buildExterior, buildInterior } from '../src/world/mapgen.js';
 
 const load = (n) => JSON.parse(readFileSync(new URL(`../src/data/${n}.json`, import.meta.url), 'utf8'));
-const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets', 'offerings', 'rumors', 'festivals'].map((n) => [n, load(n)]));
+const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets', 'offerings', 'rumors', 'festivals', 'collections'].map((n) => [n, load(n)]));
 const MINIGAMES = ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice', 'race'];
 const errors = [];
 const warn = [];
@@ -81,7 +81,11 @@ for (const b of maps.rom.buildings) {
   }
 }
 for (const [id, def] of Object.entries(D.interiors)) {
-  if (!maps.rom.buildings.some((b) => b.door && b.door.to === id)) err(`${id}: keine Tür auf der Stadtkarte führt hierher`);
+  if (!maps.rom.buildings.some((b) => b.door && (b.door.to === id || (b.door.alt || []).some((a) => a.to === id)))) err(`${id}: keine Tür auf der Stadtkarte führt hierher`);
+  for (const sl of def.slots || []) {
+    const [x, y] = sl.at;
+    if (maps[id].isSolidTile(x, y)) err(`${id}: Stellplatz ${sl.id} liegt auf festem Feld`);
+  }
   const m = maps[id];
   if (![...m.doors.keys()].some((k) => canReachAdj(id, k % m.w, Math.floor(k / m.w)) || reach[id][k])) err(`${id}: Ausgang nicht erreichbar`);
   for (const [k, it] of m.interacts) if (it.type === 'bed' && !canReachAdj(id, k % m.w, Math.floor(k / m.w))) warn.push(`${id}: Bett bei ${k % m.w},${Math.floor(k / m.w)} nicht erreichbar`);
@@ -188,6 +192,9 @@ for (const o of [...D.map_rom.buildings, ...D.map_rom.deco]) if (o.interact?.typ
 for (const [id, d] of Object.entries(D.interiors)) if (d.temple && !D.offerings[d.temple]) err(`Innenraum ${id}: Tempel ${d.temple} fehlt`);
 for (const [id, o] of Object.entries(D.offerings)) { if (o.lex) { usedLex.add(o.lex); if (!lex[o.lex]) err(`Opfer ${id}: Lexikon ${o.lex} fehlt`); } if (!o.buff?.fx) err(`Opfer ${id}: Bonus fehlt`); }
 for (const r of D.rumors) { checkCond(r.if, `Gerücht ${r.id}`); checkEff(r.do, `Gerücht ${r.id}`); for (const e of r.do || []) if (e.lex) [].concat(e.lex).forEach((x) => usedLex.add(x)); }
+for (const [id, set] of Object.entries(D.collections.sets)) { for (const it of set.items) if (!D.items[it]) err(`Sammlung ${id}: ${it} fehlt`); checkEff(set.reward, `Sammlung ${id}`); for (const e of set.reward) if (e.lex) usedLex.add(e.lex); }
+for (const [id, it] of Object.entries(D.items)) if (it.seed && !D.items[it.seed.out]) err(`Saat ${id}: Ernte ${it.seed.out} fehlt`);
+for (const [id, it] of Object.entries(D.items)) if (it.cat === 'furniture' && !it.prop) err(`Möbel ${id}: prop fehlt`);
 for (const [id, r] of Object.entries(D.recipes)) {
   if (!D.items[r.out]) err(`Rezept ${id}: Ergebnis ${r.out} fehlt`);
   for (const it of Object.keys(r.in)) if (!D.items[it]) err(`Rezept ${id}: Zutat ${it} fehlt`);
@@ -203,7 +210,7 @@ for (const [id, e] of Object.entries(lex)) {
 for (const z of D.map_rom.zones) if (z.lex) { usedLex.add(z.lex); if (!lex[z.lex]) err(`Zone ${z.id}: Lexikon ${z.lex} fehlt`); }
 for (const b of [...D.map_rom.buildings, ...D.map_rom.deco]) if (b.lex) { usedLex.add(b.lex); if (!lex[b.lex]) err(`Objekt ${b.name || b.kind}: Lexikon ${b.lex} fehlt`); }
 for (const d of Object.values(D.interiors)) if (d.lex) usedLex.add(d.lex);
-['kalender', 'sklaverei', 'nacht', 'preise', 'lectica', 'orientierung', 'opfer', 'handel'].forEach((x) => usedLex.add(x)); // im Code freigeschaltet
+['kalender', 'sklaverei', 'nacht', 'preise', 'lectica', 'orientierung', 'opfer', 'handel', 'garten', 'wohnen'].forEach((x) => usedLex.add(x)); // im Code freigeschaltet
 for (const id of Object.keys(lex)) if (!usedLex.has(id)) warn.push(`Lexikon ${id} wird nirgends freigeschaltet`);
 
 for (const w of warn) console.log('Hinweis:', w);

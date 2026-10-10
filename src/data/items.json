@@ -369,10 +369,13 @@
  "foculus": {
   "name": "Kohlebecken (foculus)",
   "icon": "brazier",
-  "cat": "tool",
+  "cat": "furniture",
   "price": 16,
   "use": "cook",
-  "desc": "Ein kleines Becken für Holzkohle. Zu Hause benutzen: kochen. (Vorsicht mit dem Feuer!)"
+  "desc": "Ein kleines Becken für Holzkohle. Zu Hause benutzen: kochen. (Vorsicht mit dem Feuer!)",
+  "prop": "brazier",
+  "special": "cook",
+  "comfort": 0
  },
  "sal": {
   "name": "Salz",
@@ -416,5 +419,238 @@
   },
   "eatText": "Du reibst dich mit duftendem Salböl ein.",
   "desc": "Salböl mit Rosenduft."
+ },
+ "lectus": {
+  "name": "Bett mit Wollmatratze (lectus)",
+  "price": 48,
+  "comfort": 3,
+  "prop": "goodbed",
+  "special": "bed",
+  "desc": "Ein Holzbett mit Gurten und einer weichen Wollmatratze.",
+  "icon": "furniture",
+  "c": "#a0603a",
+  "cat": "furniture"
+ },
+ "mensa": {
+  "name": "Tisch mit Hockern",
+  "price": 24,
+  "comfort": 2,
+  "prop": "mensa",
+  "desc": "Ein einfacher Holztisch mit zwei Hockern.",
+  "icon": "furniture",
+  "c": "#a0603a",
+  "cat": "furniture"
+ },
+ "arca_parva": {
+  "name": "Kleine Truhe (arca)",
+  "price": 20,
+  "comfort": 1,
+  "prop": "chest",
+  "desc": "Für Kleidung und Wertsachen.",
+  "icon": "furniture",
+  "c": "#a0603a",
+  "cat": "furniture"
+ },
+ "candelabrum": {
+  "name": "Lampenständer (candelabrum)",
+  "price": 28,
+  "comfort": 1,
+  "prop": "candelabrum",
+  "special": "light",
+  "desc": "Ein Bronzeständer für Öllampen – macht dein Zuhause nachts heller.",
+  "icon": "furniture",
+  "c": "#a0603a",
+  "cat": "furniture"
+ },
+ "lararium_parvum": {
+  "name": "Kleiner Hausschrein",
+  "price": 16,
+  "comfort": 1,
+  "prop": "larsmall",
+  "special": "lar",
+  "desc": "Ein Schrein für deine Laren. Täglich ein kleines Opfer bringt Ruhe.",
+  "icon": "furniture",
+  "c": "#a0603a",
+  "cat": "furniture"
+ },
+ "vas_plantae": {
+  "name": "Pflanzkübel",
+  "price": 4,
+  "comfort": 1,
+  "prop": "pot_0",
+  "slot": "plant",
+  "desc": "Ein Tontopf fürs Fensterbrett. Darin kannst du Kräuter und Gemüse ziehen.",
+  "icon": "bowl",
+  "c": "#a0603a",
+  "cat": "furniture"
+ },
+ "semen_allium": {
+  "name": "Knoblauchzehen zum Setzen",
+  "icon": "seed",
+  "cat": "seed",
+  "price": 1,
+  "seed": {
+   "out": "allium",
+   "days": 2,
+   "yield": 3
+  },
+  "desc": "Wächst in 2 Tagen, wenn du täglich gießt."
+ },
+ "semen_herbae": {
+  "name": "Kräutersamen (Koriander, Raute)",
+  "icon": "seed",
+  "cat": "seed",
+  "price": 1,
+  "seed": {
+   "out": "herbae",
+   "days": 2,
+   "yield": 3
+  },
+  "desc": "Wächst in 2 Tagen, wenn du täglich gießt."
+ },
+ "semen_porrum": {
+  "name": "Lauchsamen",
+  "icon": "seed",
+  "cat": "seed",
+  "price": 1,
+  "seed": {
+   "out": "porrum",
+   "days": 3,
+   "yield": 2
+  },
+  "desc": "Wächst in 3 Tagen, wenn du täglich gießt."
+ },
+ "semen_lactuca": {
+  "name": "Lattichsamen",
+  "icon": "seed",
+  "cat": "seed",
+  "price": 1,
+  "seed": {
+   "out": "lactuca",
+   "days": 2,
+   "yield": 2
+  },
+  "desc": "Wächst in 2 Tagen, wenn du täglich gießt."
+ },
+ "porrum": {
+  "name": "Lauch (porrum)",
+  "icon": "herbs",
+  "cat": "ingredient",
+  "price": 2,
+  "desc": "Frischer Lauch."
+ },
+ "lactuca": {
+  "name": "Lattich (lactuca)",
+  "icon": "herbs",
+  "cat": "ingredient",
+  "price": 1,
+  "desc": "Lattich – man isst ihn zu Beginn der Mahlzeit."
+ },
+ "acetaria": {
+  "name": "Lattich mit Essig und Öl",
+  "icon": "bowl",
+  "c": "#7fae4c",
+  "cat": "dish",
+  "price": 3,
+  "food": {
+   "satiety": 14,
+   "health": 4
+  },
+  "desc": "Ein frischer Salat."
+ },
+ "porri": {
+  "name": "Lauch in Öl",
+  "icon": "bowl",
+  "c": "#9ab85a",
+  "cat": "dish",
+  "price": 4,
+  "food": {
+   "satiety": 22,
+   "health": 2
+  },
+  "desc": "Gedünsteter Lauch – gut für die Stimme, sagt man."
+ },
+ "as_libralis": {
+  "name": "Schweres As (aes grave)",
+  "icon": "coin",
+  "c": "#9a5a2a",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein Sammlerstück."
+ },
+ "quadrigatus": {
+  "name": "Quadrigatus (Silbermünze mit Viergespann)",
+  "icon": "coin",
+  "c": "#a8a8a0",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein Sammlerstück."
+ },
+ "victoriatus": {
+  "name": "Victoriatus (mit Victoria)",
+  "icon": "coin",
+  "c": "#a8a8a0",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein Sammlerstück."
+ },
+ "denarius_roma": {
+  "name": "Alter Denar mit Roma-Kopf",
+  "icon": "coin",
+  "c": "#a8a8a0",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein Sammlerstück."
+ },
+ "denarius_sulla": {
+  "name": "Denar aus Sullas Zeit",
+  "icon": "coin",
+  "c": "#a8a8a0",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein Sammlerstück."
+ },
+ "tetradrachme": {
+  "name": "Tetradrachme aus Athen (mit Eule)",
+  "icon": "coin",
+  "c": "#a8a8a0",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein Sammlerstück."
+ },
+ "stempel_ses": {
+  "name": "Stempel „SES“ (Wein aus Cosa)",
+  "icon": "stamp",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein gestempelter Amphorenhenkel – ein Sammlerstück."
+ },
+ "stempel_rhodos": {
+  "name": "Rhodischer Henkelstempel mit Rose",
+  "icon": "stamp",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein gestempelter Amphorenhenkel – ein Sammlerstück."
+ },
+ "stempel_knidos": {
+  "name": "Knidischer Henkelstempel",
+  "icon": "stamp",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein gestempelter Amphorenhenkel – ein Sammlerstück."
+ },
+ "stempel_kos": {
+  "name": "Stempel einer Weinamphore aus Kos",
+  "icon": "stamp",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein gestempelter Amphorenhenkel – ein Sammlerstück."
+ },
+ "stempel_brundisium": {
+  "name": "Stempel einer Ölamphore aus Brundisium",
+  "icon": "stamp",
+  "cat": "collectible",
+  "price": 0,
+  "desc": "Ein gestempelter Amphorenhenkel – ein Sammlerstück."
  }
 }

@@ -37,13 +37,20 @@ Lebenssimulation im Rom Caesars. Start: Kalenden des April 46 v. Chr. (708 a.u.c
 - Vorbereitete Türen (Innenräume folgen): Taverne, Töpferladen, Balneum (Subura), Tempel des Saturn, Basilica Aemilia, Curia Pompeia
 - Curia Cornelia steht; Phase 4: Ereignis 44 v. Chr. macht sie zur Baustelle der Curia Iulia
 
+## Zwischenschritt – Freie Aktivitäten (Stardew-Prinzip)
+- ✅ Teil 1–2: Fertigkeiten (7) mit Stufen, Abschreiben/Unterricht/Reden hören; Tagelohn am Emporium, auf den Baustellen, in der Bäckerei
+- ✅ Teil 3–4: Fischen am Tiber, Kochen nach Rezepten; Handel mit Preisen nach Jahreszeit, Tagesschwankung und Sättigung
+- ✅ Teil 5–6: Taverne (Tali), Balneum, Opfergaben mit zeitlichen Segen, Gerüchte; Wagenrennen mit Wetten (Rot/Weiß)
+- ✅ Teil 7: Wohnung einrichten (Möbel, Gemütlichkeit), größere Wohnung für Plebejer, Pflanzkübel/Peristylbeete, Sammlungen, Lexikon-Meilensteine, Töpferladen
+- Teil 8: Beziehungen & Geschenke, Wandinschriften als Auftragsbrett, Ruf im Viertel, Klassen-Extras (Investitionen, Gastmahl, eigener Laden)
+
 ## Phase 2 – Die ganze Stadt
 - Karte erweitern: Marsfeld, Theater des Pompeius mit Curia Pompeia, Tiberhafen (Emporium/Lagerhallen),
   Tiberinsel, Kapitol begehbar (Jupitertempel), Carinae/Esquilin
 - Öffentliche Bäder (Balneae), Thermopolia, Tavernen, Lararium/Compitum-Schreine
 - Schnellreise: Sänfte (Adel kostenlos, sonst gegen Geld), Mietsänften an Plätzen
 - Weitere NPC-Typen mit Routinen (Priester, Soldaten, Kinder, Wasserträger), dichtere Menschenmengen
-- Minispiele: Würfelspiel (Tali/Tesserae) in der Taverne, Wagenrennen mit Wetten (vier *factiones*)
+- Minispiele: Würfelspiel (Tali/Tesserae) in der Taverne, Wagenrennen mit Wetten (nur Rot und Weiß – Grün/Blau erst kaiserzeitlich sicher belegt)
 
 ## Phase 3 – Lebenswege vertiefen
 - **Adel:** Salutatio täglich, Senatssitzungen mit Folgen, Convivium ausrichten (Gäste, Sitzordnung, Menü),
