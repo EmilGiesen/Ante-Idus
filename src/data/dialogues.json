@@ -1842,27 +1842,19 @@
   ]
  },
  "asellina": {
-  "text": "Heiße Linsen, Puls, Eier, Wein! Setz dich – oder nimm's mit. Ja, das Geschäft gehört mir – auch Frauen führen in Rom Läden.",
-  "opts": [
+  "switch": [
    {
-    "t": "Was gibt es?",
-    "do": [
-     {
-      "shop": "asellina"
-     }
-    ]
+    "if": {
+     "step": [
+      "ring_asellina",
+      1
+     ],
+     "item": "anulus"
+    },
+    "go": "asellina_ring"
    },
    {
-    "t": "Wer isst bei dir?",
-    "go": "ase_info"
-   },
-   {
-    "t": "Nichts, danke."
-   }
-  ],
-  "do": [
-   {
-    "lex": "frauen"
+    "go": "asellina_main"
    }
   ]
  },
@@ -2313,6 +2305,16 @@
   "text": "Ein öffentlicher Brunnen (lacus). Kühles Wasser fließt Tag und Nacht aus dem Speier – gespeist von einer der Wasserleitungen Roms.",
   "opts": [
    {
+    "t": "Den Brunnenrand nach dem Ring absuchen",
+    "go": "ring_found",
+    "if": {
+     "step": [
+      "ring_asellina",
+      0
+     ]
+    }
+   },
+   {
     "t": "Krug füllen (Minispiel)",
     "do": [
      {
@@ -2746,6 +2748,10 @@
    "Was treibst du dich nachts herum? Geh nach Hause!",
    "Leise … in der Dunkelheit lauern Diebe.",
    "Ohne Laterne siehst du hier nichts."
+  ],
+  "rumor_none": [
+   "„Heute nichts Neues. Rom ist langweilig ohne Caesar.“",
+   "„Frag mich ein andermal wieder, dann weiß ich mehr.“"
   ]
  },
  "felix_servus": {
@@ -2823,34 +2829,31 @@
   ]
  },
  "nicanor": {
-  "text": [
-   "Nicanor, Händler am Emporium. Wenn die Schiffe aus Ostia kommen, kaufe ich billig ein – und verkaufe in der Stadt teurer.",
-   "Brauchst du eine Angel? Zwischen den Lastkähnen beißen die Fische gut."
-  ],
-  "do": [
+  "switch": [
    {
-    "lex": "emporium"
-   }
-  ],
-  "opts": [
-   {
-    "t": "Zeig mir deine Ware.",
-    "do": [
-     {
-      "shop": "nicanor"
-     }
-    ]
+    "if": {
+     "step": [
+      "nachtladung",
+      0
+     ],
+     "hour": [
+      9,
+      12
+     ]
+    },
+    "go": "nacht_go"
    },
    {
-    "t": "Wie funktioniert der Handel hier?",
-    "go": "nicanor_trade"
+    "if": {
+     "step": [
+      "nachtladung",
+      0
+     ]
+    },
+    "go": "nacht_wait"
    },
    {
-    "t": "Wo fischt man am besten?",
-    "go": "nicanor_tip"
-   },
-   {
-    "t": "Leb wohl."
+    "go": "nicanor_main"
    }
   ]
  },
@@ -2912,6 +2915,333 @@
   "do": [
    {
     "lex": "handel"
+   }
+  ]
+ },
+ "ursus": {
+  "text": "Ursus, Wirt dieser Popina. Wein, Posca, heißer Puls – und keine Fragen.",
+  "do": [
+   {
+    "lex": "taverne"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Etwas bestellen",
+    "do": [
+     {
+      "shop": "ursus"
+     }
+    ]
+   },
+   {
+    "t": "Was gibt es Neues?",
+    "do": [
+     {
+      "rumor": "taverne"
+     }
+    ]
+   },
+   {
+    "t": "Wer würfelt hier?",
+    "go": "ursus_dice"
+   },
+   {
+    "t": "Leb wohl."
+   }
+  ]
+ },
+ "ursus_dice": {
+  "text": "Primus dort am Tisch. Spiel nicht mehr, als du verlieren kannst – und wenn die Ädilen kommen, hast du nichts gesehen."
+ },
+ "primus": {
+  "text": "Primus. Lust auf ein Spiel? Tali, vier Knöchel. Venus gewinnt, Hund verliert.",
+  "opts": [
+   {
+    "t": "Ich spiele mit.",
+    "do": [
+     {
+      "activity": "wuerfeln"
+     }
+    ]
+   },
+   {
+    "t": "Wie geht das genau?",
+    "go": "primus_rules"
+   },
+   {
+    "t": "Nein, danke."
+   }
+  ]
+ },
+ "primus_rules": {
+  "text": [
+   "Jeder Knöchel hat vier Seiten: 1, 3, 4 und 6. Wir werfen alle vier.",
+   "Zeigen alle verschiedene Seiten, ist das der Venuswurf – der schlägt alles. Vier Einsen sind der Hund – der verliert immer. Sonst zählt die Summe."
+  ],
+  "opts": [
+   {
+    "t": "Ich spiele mit.",
+    "do": [
+     {
+      "activity": "wuerfeln"
+     }
+    ]
+   },
+   {
+    "t": "Später."
+   }
+  ]
+ },
+ "hermeros": {
+  "text": "Hermeros, Schiffer zwischen Ostia und Rom. In den Häfen hört man alles, was in der Welt passiert.",
+  "opts": [
+   {
+    "t": "Erzähl mir was Neues.",
+    "do": [
+     {
+      "rumor": "taverne"
+     }
+    ]
+   },
+   {
+    "t": "Leb wohl."
+   }
+  ]
+ },
+ "balneator": {
+  "text": "Willkommen im Balneum! Ein Quadrans Eintritt, dann gehört das Bad dir: Umkleide, warmes Becken, kaltes Becken.",
+  "do": [
+   {
+    "lex": "balneum"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Baden",
+    "do": [
+     {
+      "activity": "baden"
+     }
+    ]
+   },
+   {
+    "t": "Gibt es Neuigkeiten?",
+    "do": [
+     {
+      "rumor": "balneum"
+     }
+    ]
+   },
+   {
+    "t": "Später."
+   }
+  ]
+ },
+ "chloe": {
+  "text": "Chloe. Ich verkaufe Salben und Duftöle – und höre im Bad den neuesten Klatsch.",
+  "opts": [
+   {
+    "t": "Erzähl mir den neuesten Klatsch!",
+    "do": [
+     {
+      "rumor": "balneum"
+     }
+    ]
+   },
+   {
+    "t": "Zeig mir deine Salben.",
+    "do": [
+     {
+      "shop": "chloe"
+     }
+    ]
+   },
+   {
+    "t": "Bis bald."
+   }
+  ]
+ },
+ "aedituus": {
+  "text": "Ich hüte den Tempel des Saturn. Unter uns, im Podium, liegt das Aerarium – der Staatsschatz. Kein Zutritt!",
+  "do": [
+   {
+    "lex": "saturn"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Ich möchte ein Opfer bringen.",
+    "do": [
+     {
+      "offer": "saturn"
+     }
+    ]
+   },
+   {
+    "t": "Warum sind Saturns Füße mit Wolle umwickelt?",
+    "go": "aed_wool"
+   },
+   {
+    "t": "Leb wohl."
+   }
+  ]
+ },
+ "aed_wool": {
+  "text": "Damit er Rom nicht verlässt, sagt man. Nur zu den Saturnalien im Dezember werden die Bänder gelöst – dann ist alles erlaubt, sogar das Würfeln."
+ },
+ "asellina_main": {
+  "text": "Heiße Linsen, Puls, Eier, Wein! Setz dich – oder nimm's mit. Ja, das Geschäft gehört mir – auch Frauen führen in Rom Läden.",
+  "opts": [
+   {
+    "t": "Was gibt es?",
+    "do": [
+     {
+      "shop": "asellina"
+     }
+    ]
+   },
+   {
+    "t": "Wer isst bei dir?",
+    "go": "ase_info"
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ],
+  "do": [
+   {
+    "lex": "frauen"
+   }
+  ]
+ },
+ "asellina_ring": {
+  "text": [
+   "Mein Ring! Den hat mir meine Mutter geschenkt. Du bist ein Schatz!",
+   "Hier, wie versprochen – und eine Schale Linsen gibt es obendrauf."
+  ],
+  "do": [
+   {
+    "take": "anulus"
+   },
+   {
+    "give": "lentes"
+   },
+   {
+    "advance": "ring_asellina"
+   }
+  ]
+ },
+ "ring_found": {
+  "text": "Zwischen zwei Steinen am Beckenrand glitzert etwas: ein Bronzering mit einer Taube!",
+  "who": "narr",
+  "do": [
+   {
+    "give": "anulus"
+   },
+   {
+    "advance": "ring_asellina"
+   }
+  ]
+ },
+ "nicanor_main": {
+  "text": [
+   "Nicanor, Händler am Emporium. Wenn die Schiffe aus Ostia kommen, kaufe ich billig ein – und verkaufe in der Stadt teurer.",
+   "Brauchst du eine Angel? Zwischen den Lastkähnen beißen die Fische gut."
+  ],
+  "do": [
+   {
+    "lex": "emporium"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "nicanor"
+     }
+    ]
+   },
+   {
+    "t": "Wie funktioniert der Handel hier?",
+    "go": "nicanor_trade"
+   },
+   {
+    "t": "Wo fischt man am besten?",
+    "go": "nicanor_tip"
+   },
+   {
+    "t": "Leb wohl."
+   }
+  ]
+ },
+ "nacht_wait": {
+  "text": "Das Weinschiff wird erst abends entladen – komm ab Hora IX wieder.",
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "nicanor"
+     }
+    ]
+   },
+   {
+    "t": "Bis später."
+   }
+  ]
+ },
+ "nacht_go": {
+  "text": "Da bist du ja! Amphoren vom Schiff in die Halle, und keine darf zerbrechen. Los!",
+  "do": [
+   {
+    "minigame": "carry",
+    "then": "nacht_done",
+    "opts": {
+     "hours": 1.5,
+     "energy": 15,
+     "dirt": 12
+    }
+   }
+  ]
+ },
+ "nacht_done": {
+  "switch": [
+   {
+    "if": {
+     "var": [
+      "mg_score",
+      ">=",
+      3
+     ]
+    },
+    "go": "nacht_good"
+   },
+   {
+    "go": "nacht_meh"
+   }
+  ]
+ },
+ "nacht_good": {
+  "text": "Gute Arbeit! Hier, doppelter Lohn: drei Sesterzen. Und komm wieder, wenn du Arbeit suchst.",
+  "do": [
+   {
+    "money": 12
+   },
+   {
+    "advance": "nachtladung"
+   }
+  ]
+ },
+ "nacht_meh": {
+  "text": "Na ja, ein paar Amphoren sind hin. Hier trotzdem dein Lohn.",
+  "do": [
+   {
+    "money": 6
+   },
+   {
+    "advance": "nachtladung"
    }
   ]
  }

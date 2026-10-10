@@ -76,7 +76,7 @@ export function run(id, auto) {
   if (d.cost) changeMoney(-d.cost);
   for (const [it, n] of Object.entries(d.consumes || {})) Inv.remove(it, n);
   if (d.minigame && !auto) {
-    G.game.playMinigame(d.minigame, { ...(d.mgOpts || {}), level: d.skill ? level(d.skill) : 0, hours: 0, energy: 0, dirt: 0, actId: id }).then((r) => {
+    G.game.playMinigame(d.minigame, { ...(d.mgOpts || {}), level: d.skill ? level(d.skill) : 0, money: G.state.money, luck: buffFx('luck'), hours: 0, energy: 0, dirt: 0, actId: id }).then((r) => {
       if (!r.aborted) finish(id, r);
       else if (d.cost) changeMoney(d.cost);
     });
@@ -91,13 +91,14 @@ function finish(id, r) {
   const score = r.auto ? Math.round((d.pay?.maxScore || 0) * 0.6) : r.score || 0;
   let pay = d.pay ? Math.round(((d.pay.base || 0) + (d.pay.perScore || 0) * score) * payMul(d)) : 0;
   if (d.pay && r.pay !== undefined && d.pay.useMinigamePay) pay = Math.round(r.pay * payMul(d));
+  if (d.pay && d.pay.useNet) pay = r.net || 0;
   G.game.passHours((d.duration || 1) * (r.auto ? 1.25 : 1));
   s.needs.energy = Math.max(0, s.needs.energy - (d.energy || 0));
   s.needs.hygiene = Math.max(0, s.needs.hygiene - (d.dirt || 0));
   if (d.skill) addXp(d.skill, Math.round(((d.xp || 10) + (d.xpPerScore || 0) * score) * (r.success ? 1 : 0.5) * (r.auto ? 0.5 : 1)));
   for (const it of r.items || []) Inv.add(it, 1);
   for (const [sk, n] of Object.entries(d.xpExtra || {})) addXp(sk, n);
-  if (pay > 0) changeMoney(pay);
+  if (pay) changeMoney(pay);
   for (const g of d.gives || []) {
     if ((g.minScore || 0) <= score && Math.random() < (g.chance ?? 1)) Inv.add(g.id, g.n || 1);
   }
@@ -107,5 +108,5 @@ function finish(id, r) {
   s.vars[`act_${id}`] = cnt && cnt.day === s.time.day ? { day: cnt.day, n: cnt.n + 1 } : { day: s.time.day, n: 1 };
   s.vars.actCount = (s.vars.actCount || 0) + 1;
   bus.emit('activity', { id, score, success: r.success, pay });
-  G.ui.toast(`${d.name} erledigt${pay ? ` – Lohn: ${formatMoney(pay)}` : ''}${s.cls === 'servus' && pay ? ' (fürs Peculium)' : ''}.`, 'done');
+  if (!d.pay?.useNet) G.ui.toast(`${d.doneText || `${d.name} – erledigt`}${pay ? ` – Lohn: ${formatMoney(pay)}` : ''}${s.cls === 'servus' && pay ? ' (fürs Peculium)' : ''}.`, 'done');
 }

@@ -820,6 +820,177 @@
      "dir": "down"
     }
    ]
+  },
+  {
+   "id": "ursus",
+   "name": "Ursus",
+   "role": "Wirt (caupo)",
+   "where": "Popina in der Subura",
+   "dialogue": "ursus",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#2b1d14",
+    "style": "bald",
+    "dress": "worker",
+    "color": "#7a6248",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      24
+     ],
+     "map": "taberna_subura",
+     "at": [
+      5,
+      2
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "primus",
+   "name": "Primus",
+   "role": "Würfelspieler",
+   "where": "Popina in der Subura",
+   "dialogue": "primus",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#a0662e",
+    "style": "curly",
+    "dress": "tunic",
+    "color": "#b5523a"
+   },
+   "sched": [
+    {
+     "h": [
+      3,
+      23.9
+     ],
+     "map": "taberna_subura",
+     "at": [
+      9,
+      6
+     ],
+     "dir": "left"
+    }
+   ]
+  },
+  {
+   "id": "hermeros",
+   "name": "Hermeros",
+   "role": "Schiffer",
+   "where": "Popina in der Subura",
+   "dialogue": "hermeros",
+   "app": {
+    "skin": "#a86f48",
+    "hair": "#1c1410",
+    "style": "short",
+    "dress": "tunic",
+    "color": "#4f7a8a",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      6,
+      23
+     ],
+     "map": "taberna_subura",
+     "at": [
+      4,
+      6
+     ],
+     "dir": "right"
+    }
+   ]
+  },
+  {
+   "id": "balneator",
+   "name": "Silo",
+   "role": "Bademeister (balneator)",
+   "where": "Balneum der Subura",
+   "dialogue": "balneator",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#5a3a1e",
+    "style": "short",
+    "dress": "worker",
+    "color": "#d8cfb4"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      12
+     ],
+     "map": "balneum_subura",
+     "at": [
+      9,
+      7
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "chloe",
+   "name": "Chloe",
+   "role": "Salbenhändlerin, Freigelassene",
+   "where": "Balneum der Subura",
+   "dialogue": "chloe",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#3d2817",
+    "style": "bun",
+    "dress": "dress",
+    "color": "#9a4a6a",
+    "color2": "#e3c27a"
+   },
+   "sched": [
+    {
+     "h": [
+      4,
+      11.5
+     ],
+     "map": "balneum_subura",
+     "at": [
+      8,
+      3
+     ],
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "aedituus",
+   "name": "Faustus",
+   "role": "Tempelwächter (aedituus)",
+   "where": "Tempel des Saturn",
+   "dialogue": "aedituus",
+   "app": {
+    "skin": "#e8b88f",
+    "hair": "#8a8070",
+    "style": "bald",
+    "dress": "tunic",
+    "color": "#e8e0cc"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      12
+     ],
+     "map": "tempel_saturn",
+     "at": [
+      5,
+      4
+     ],
+     "dir": "down"
+    }
+   ]
   }
  ]
 }

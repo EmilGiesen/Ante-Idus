@@ -233,5 +233,32 @@
    "good",
    "food"
   ]
+ },
+ "ursus": {
+  "name": "Popina des Ursus",
+  "text": "Wein, Posca und heißer Puls.",
+  "items": [
+   {
+    "id": "vinum"
+   },
+   {
+    "id": "posca"
+   },
+   {
+    "id": "puls"
+   },
+   {
+    "id": "lentes"
+   }
+  ]
+ },
+ "chloe": {
+  "name": "Salben der Chloe",
+  "text": "Salböle und Duftwässer.",
+  "items": [
+   {
+    "id": "unguentum"
+   }
+  ]
  }
 }

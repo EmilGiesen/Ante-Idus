@@ -1037,6 +1037,33 @@
     "Moderne Forschung (z. B. P. Temin, The Roman Market Economy)"
    ],
    "estimate": true
+  },
+  "taverne": {
+   "title": "Tavernen und Glücksspiel",
+   "cat": "alltag",
+   "text": [
+    "In Popinae und Cauponae gibt es Wein, warmes Essen und Gesellschaft – vornehme Römer meiden sie, zumindest offiziell.",
+    "Würfelspiele um Geld sind verboten (lex alearia), außer an den Saturnalien. Gespielt wird trotzdem: mit Würfeln (tesserae) und Knöcheln (tali). Der beste Wurf mit vier Tali heißt „Venus“, der schlechteste „Hund“."
+   ],
+   "sources": [
+    "Plautus, Curculio 355–360",
+    "Sueton, Augustus 71",
+    "Horaz, Oden 3,24,58",
+    "Funde und Inschriften aus Pompeji"
+   ]
+  },
+  "opfer": {
+   "title": "Opfer und Gebete",
+   "cat": "religion",
+   "text": [
+    "Römer bitten die Götter mit Opfergaben um Hilfe: Weihrauch, Wein, Kuchen (liba) oder Tiere. Das Prinzip heißt „do ut des“ – ich gebe, damit du gibst.",
+    "Viele Götter haben eigene Zuständigkeiten: Merkur für Händler, Ceres für das Getreide, Aesculapius für die Heilung, Fortuna für das Glück. Die Boni im Spiel sind eine spielerische Vereinfachung."
+   ],
+   "sources": [
+    "Cato, Über die Landwirtschaft 75 (Rezept für libum) und 132–141",
+    "Livius 2,27 (Merkurtempel)",
+    "Ovid, Fasti"
+   ]
   }
  }
 }

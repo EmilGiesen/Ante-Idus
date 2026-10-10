@@ -101,6 +101,8 @@ export function applyEffects(list, ctx = {}) {
       case 'buff': addBuff(v.id, v.name, v.hours, v.fx); G.ui.toast(`✦ ${v.name} (${v.hours} Std.)`, 'stat'); break;
       case 'activity': ctx.after = { type: 'activity', id: v }; break;
       case 'panel': ctx.after = { type: 'panel', id: v }; break;
+      case 'rumor': ctx.after = { type: 'rumor', source: v }; break;
+      case 'offer': ctx.after = { type: 'offer', id: v }; break;
       case 'auto': G.game.autoMinigame(v, e.opts || {}); break;
       case 'minigame': ctx.after = { type: 'minigame', game: v, then: e.then, opts: e.opts || {} }; break;
       case 'shop': ctx.after = { type: 'shop', id: v }; break;

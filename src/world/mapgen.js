@@ -67,6 +67,7 @@ const LEGEND = {
   'S': { prop: 'shelf', act: 'shelf' }, 'P': { prop: 'plant' }, 'W': { prop: 'basin', act: 'wash' },
   'R': { prop: 'couch', act: 'couch' }, 'H': { prop: 'chest', act: 'chest' }, 'M': { prop: 'mill', act: 'mill' },
   'O': { prop: 'oven', act: 'oven' }, '=': { prop: 'counter' }, 'A': { prop: 'amphorae', act: 'shelf' },
+  'Q': { prop: 'statue' }, 'Y': { prop: 'altarp', act: 'altar' }, 'U': { prop: 'bench' },
 };
 const FLOOR_CH = new Set(['.', ',', '_', '-', 'g']);
 

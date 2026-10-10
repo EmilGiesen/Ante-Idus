@@ -334,10 +334,10 @@ B('shrine', 122, 80, 1, 2, { name: 'Ianus-Tor', lex: 'ianus', info: 'Der Durchga
 B('basilica', 128, 77, 16, 7, { name: 'Basilica Aemilia', lex: 'basilicae', info: 'Die Basilica Aemilia: Gerichte, Händler und Geldwechsler unter einem Dach.',
   door: { dx: 8, to: 'basilica_aemilia', planned: true, label: 'Basilica Aemilia' } });
 B('temple', 106, 88, 6, 7, { name: 'Tempel des Saturn', lex: 'saturn', style: { cols: 4 },
-  door: { dx: 3, to: 'tempel_saturn', planned: true, label: 'Tempel des Saturn (Aerarium)' } });
+  door: { dx: 3, to: 'tempel_saturn', label: 'Tempel des Saturn (Aerarium)' }, interact: { type: 'offer', id: 'saturn' } });
 B('basilica', 113, 94, 17, 5, { name: 'Basilica Iulia (Baustelle)', lex: 'basilicae', style: { build: true, stone: '#ece4cc' },
   info: 'Die Basilica Iulia – Caesars neuer Prachtbau, noch eingerüstet.', interact: { type: 'activity', id: 'bau_basilica' } });
-B('temple', 133, 92, 6, 7, { name: 'Tempel von Castor und Pollux', lex: 'forum_romanum', style: { cols: 5 }, info: 'Der Tempel der Dioskuren Castor und Pollux.' });
+B('temple', 133, 92, 6, 7, { name: 'Tempel von Castor und Pollux', lex: 'forum_romanum', style: { cols: 5 }, interact: { type: 'offer', id: 'castor' } });
 B('temple_round', 142, 91, 4, 4, { name: 'Tempel der Vesta', lex: 'vesta', light: [2, 2, 46], info: 'Der runde Vestatempel. Drinnen hüten die Vestalinnen das ewige Feuer Roms.' });
 B('domus', 146, 88, 4, 4, { name: 'Regia', lex: 'vesta', style: { color: '#e8dcc0' }, info: 'Die Regia, uraltes Amtsgebäude des Pontifex maximus – heute ist das Caesar.' });
 B('domus', 142, 95, 8, 5, { name: 'Atrium Vestae', lex: 'vesta', style: { color: '#f2ead6', socle: '#7a2f22' }, info: 'Das Haus der Vestalinnen.' });
@@ -365,7 +365,7 @@ D('amphorae', 146, 67); D('crates', 146, 74);
 B('temple', 93, 63, 10, 7, { name: 'Tempel des Iuppiter Optimus Maximus', lex: 'kapitol', style: { cols: 6 }, info: 'Der größte Tempel Roms: Iuppiter, Iuno und Minerva werden hier gemeinsam verehrt.' });
 B('temple', 97, 57, 5, 5, { name: 'Tempel der Iuno Moneta', lex: 'geld', style: { cols: 4 }, info: 'Der Tempel der Iuno Moneta auf der Arx. In der Nähe werden Münzen geprägt.' });
 B('tabularium', 103, 64, 3, 5, { name: 'Tabularium', lex: 'kapitol', info: 'Das Tabularium, das Staatsarchiv. Hier lagern Gesetze und Verträge.' });
-D('altar', 99, 72, 2, 1, { name: 'Altar', light: [1, 0, 30], info: 'Ein Opferaltar vor dem Iuppitertempel.' });
+D('altar', 99, 72, 2, 1, { name: 'Altar des Iuppiter', light: [1, 0, 30], interact: { type: 'offer', id: 'iuppiter' } });
 trees([91, 57, 16, 16], 4, ['olive', 'bush'], 11);
 
 // =====================================================================
@@ -392,7 +392,8 @@ B('circus_n', 108, 124, 16, 3); B('circus_n', 127, 124, 13, 3); B('circus_n', 14
 B('circus_n', 152, 124, 4, 14);
 B('circus_s', 108, 135, 44, 3);
 B('spina', 114, 130, 34, 2, { name: 'Spina mit Metae', lex: 'circus_maximus', info: 'Die Spina, die Mittelbarriere mit den Wendemarken (metae) und den Eiern als Rundenzähler.' });
-B('temple', 88, 121, 6, 6, { name: 'Tempel der Ceres', lex: 'aventin', style: { cols: 4 }, info: 'Der Tempel von Ceres, Liber und Libera – das religiöse Zentrum der Plebejer.' });
+B('temple', 88, 121, 6, 6, { name: 'Tempel der Ceres', lex: 'aventin', style: { cols: 4 }, interact: { type: 'offer', id: 'ceres' } });
+B('temple', 88, 129, 5, 5, { name: 'Tempel des Merkur', lex: 'handel', style: { cols: 4 }, interact: { type: 'offer', id: 'mercurius' } });
 B('temple', 104, 143, 7, 6, { name: 'Tempel der Diana', lex: 'aventin', style: { cols: 6 }, info: 'Der Tempel der Diana auf dem Aventin, ein uraltes Heiligtum.' });
 B('temple', 124, 147, 6, 5, { name: 'Tempel der Iuno Regina', lex: 'aventin', style: { cols: 4 }, info: 'Der Tempel der Iuno Regina, 392 v. Chr. von Camillus aus Veji nach Rom geholt.' });
 lots([88, 147, 46, 15], { seed: 31, kinds: ['insula', 'domus', 'insula'], lotW: [5, 7], lotH: [4, 5], street: 2, base: 'd', chance: 0.8 });
@@ -403,7 +404,8 @@ trees([86, 141, 48, 22], 10, ['pine', 'cypress', 'olive'], 13);
 // =====================================================================
 B('temple', 74, 88, 4, 6, { name: 'Tempel des Portunus', lex: 'velabrum', style: { cols: 4 }, info: 'Der Tempel des Portunus, des Gottes der Häfen.' });
 B('temple_round', 80, 89, 4, 4, { name: 'Rundtempel des Hercules Victor', lex: 'hercules', info: 'Der Rundtempel des Hercules Victor – aus griechischem Marmor.' });
-D('altar', 86, 92, 2, 1, { name: 'Ara Maxima', lex: 'hercules', light: [1, 0, 32], info: 'Die Ara Maxima, der uralte Altar des Hercules.' });
+D('altar', 86, 92, 2, 1, { name: 'Ara Maxima', lex: 'hercules', light: [1, 0, 32], interact: { type: 'offer', id: 'hercules' } });
+B('temple_round', 88, 86, 4, 4, { name: 'Heiligtum der Fortuna', lex: 'opfer', style: { roof: '#b5532f' }, interact: { type: 'offer', id: 'fortuna' } });
 D('fence', 76, 96, 9, 1); D('fence', 76, 100, 9, 1); D('fence', 76, 97, 1, 3); D('fence', 84, 97, 1, 2);
 D('stall', 86, 96, 3, 1, { name: 'Viehhändler', style: { goods: 'veg', awning: '#c0392b' } });
 D('crates', 73, 98); D('amphorae', 89, 99);
@@ -415,7 +417,7 @@ B('temple', 77, 62, 4, 5, { name: 'Tempel der Iuno Sospita', lex: 'forum_holitor
 D('stall', 67, 69, 3, 1, { name: 'Gemüsestand', style: { goods: 'veg', awning: '#3f7f3f' } });
 D('stall', 73, 69, 3, 1, { name: 'Gemüsestand', style: { goods: 'veg', awning: '#d4a017' } });
 D('stall', 77, 69, 3, 1, { name: 'Obststand', style: { goods: 'cheese', awning: '#c0392b' } });
-B('temple', 54, 70, 4, 4, { name: 'Tempel des Aesculapius', lex: 'tiber', style: { cols: 4 }, info: 'Auf der Tiberinsel steht der Tempel des Heilgottes Aesculapius.', onWater: true });
+B('temple', 54, 70, 4, 4, { name: 'Tempel des Aesculapius', lex: 'tiber', style: { cols: 4 }, interact: { type: 'offer', id: 'aesculapius' }, onWater: true });
 
 // =====================================================================
 // 11. Emporium (vor der Porta Trigemina)
@@ -432,9 +434,9 @@ D('boat', 55, 100, 3, 1, { onWater: true, solid: true });
 B('insula', 149, 72, 6, 5, { name: 'Insula des Arrius', style: { color: '#d6a56f' }, door: { dx: 3, to: 'insula_arria' } });
 B('insula', 156, 72, 6, 5, { name: 'Pistrinum des Felix', style: { color: '#e0c9a0' }, door: { dx: 3, to: 'pistrinum' }, light: [3, 4, 26] });
 B('thermopolium', 158, 60, 7, 4, { name: 'Thermopolium der Asellina', lex: 'thermopolium', style: { color: '#c98a5e' }, light: [3, 4, 40] });
-B('insula', 151, 60, 6, 4, { name: 'Balneum der Subura', lex: 'balneum', style: { color: '#e3cfa8' }, door: { dx: 3, to: 'balneum_subura', planned: true, label: 'Balneum (Bad)' } });
+B('insula', 151, 60, 6, 4, { name: 'Balneum der Subura', lex: 'balneum', style: { color: '#e3cfa8' }, door: { dx: 3, to: 'balneum_subura', label: 'Balneum (Bad)' } });
 B('insula', 163, 72, 5, 5, { name: 'Töpferladen', style: { color: '#c98a5e' }, door: { dx: 2, to: 'laden_subura', planned: true, label: 'Laden des Töpfers' } });
-B('insula', 166, 64, 5, 6, { name: 'Popina (Taverne)', style: { color: '#b8754e' }, light: [2, 5, 36], door: { dx: 2, to: 'taberna_subura', planned: true, label: 'Taverne' } });
+B('insula', 166, 64, 5, 6, { name: 'Popina (Taverne)', style: { color: '#b8754e' }, light: [2, 5, 36], door: { dx: 2, to: 'taberna_subura', label: 'Taverne' } });
 B('fountain', 156, 65, 2, 2, { name: 'Lacus der Subura', lex: 'aquaedukte', interact: { type: 'fountain', dialogue: 'fountain_subura' } });
 B('shrine', 162, 65, 1, 2, { name: 'Compitum-Schrein', lex: 'lararium', light: [0, 1, 24], info: 'Ein Schrein der Lares Compitales an der Kreuzung.' });
 reserve(151, 64, 14, 7);

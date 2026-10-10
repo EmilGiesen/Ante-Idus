@@ -267,8 +267,11 @@
    "door": {
     "dx": 3,
     "to": "tempel_saturn",
-    "planned": true,
     "label": "Tempel des Saturn (Aerarium)"
+   },
+   "interact": {
+    "type": "offer",
+    "id": "saturn"
    }
   },
   {
@@ -300,7 +303,10 @@
    "style": {
     "cols": 5
    },
-   "info": "Der Tempel der Dioskuren Castor und Pollux."
+   "interact": {
+    "type": "offer",
+    "id": "castor"
+   }
   },
   {
    "kind": "temple_round",
@@ -622,7 +628,26 @@
    "style": {
     "cols": 4
    },
-   "info": "Der Tempel von Ceres, Liber und Libera – das religiöse Zentrum der Plebejer."
+   "interact": {
+    "type": "offer",
+    "id": "ceres"
+   }
+  },
+  {
+   "kind": "temple",
+   "x": 88,
+   "y": 129,
+   "w": 5,
+   "h": 5,
+   "name": "Tempel des Merkur",
+   "lex": "handel",
+   "style": {
+    "cols": 4
+   },
+   "interact": {
+    "type": "offer",
+    "id": "mercurius"
+   }
   },
   {
    "kind": "temple",
@@ -701,6 +726,22 @@
    "info": "Der Rundtempel des Hercules Victor – aus griechischem Marmor."
   },
   {
+   "kind": "temple_round",
+   "x": 88,
+   "y": 86,
+   "w": 4,
+   "h": 4,
+   "name": "Heiligtum der Fortuna",
+   "lex": "opfer",
+   "style": {
+    "roof": "#b5532f"
+   },
+   "interact": {
+    "type": "offer",
+    "id": "fortuna"
+   }
+  },
+  {
    "kind": "insula",
    "x": 99,
    "y": 88,
@@ -771,7 +812,10 @@
    "style": {
     "cols": 4
    },
-   "info": "Auf der Tiberinsel steht der Tempel des Heilgottes Aesculapius.",
+   "interact": {
+    "type": "offer",
+    "id": "aesculapius"
+   },
    "onWater": true
   },
   {
@@ -860,7 +904,6 @@
    "door": {
     "dx": 3,
     "to": "balneum_subura",
-    "planned": true,
     "label": "Balneum (Bad)"
    }
   },
@@ -899,7 +942,6 @@
    "door": {
     "dx": 2,
     "to": "taberna_subura",
-    "planned": true,
     "label": "Taverne"
    }
   },
@@ -2352,13 +2394,16 @@
    "y": 72,
    "w": 2,
    "h": 1,
-   "name": "Altar",
+   "name": "Altar des Iuppiter",
    "light": [
     1,
     0,
     30
    ],
-   "info": "Ein Opferaltar vor dem Iuppitertempel."
+   "interact": {
+    "type": "offer",
+    "id": "iuppiter"
+   }
   },
   {
    "kind": "olive",
@@ -2573,7 +2618,10 @@
     0,
     32
    ],
-   "info": "Die Ara Maxima, der uralte Altar des Hercules."
+   "interact": {
+    "type": "offer",
+    "id": "hercules"
+   }
   },
   {
    "kind": "fence",

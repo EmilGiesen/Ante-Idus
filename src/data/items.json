@@ -397,5 +397,24 @@
   "cat": "good",
   "price": 5,
   "desc": "Für Wachstafeln, Kerzen und Salben."
+ },
+ "anulus": {
+  "name": "Asellinas Ring",
+  "icon": "coin",
+  "cat": "quest",
+  "quest": true,
+  "desc": "Ein schlichter Bronzering mit einer eingeritzten Taube."
+ },
+ "unguentum": {
+  "name": "Duftendes Salböl",
+  "icon": "jar",
+  "c": "#c9a0c0",
+  "cat": "good",
+  "price": 6,
+  "food": {
+   "hygiene": 25
+  },
+  "eatText": "Du reibst dich mit duftendem Salböl ein.",
+  "desc": "Salböl mit Rosenduft."
  }
 }

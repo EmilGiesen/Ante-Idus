@@ -1,0 +1,122 @@
+[
+ {
+  "id": "r_ring",
+  "where": [
+   "taverne",
+   "balneum"
+  ],
+  "prio": 2,
+  "if": {
+   "notDone": "ring_asellina",
+   "notActive": "ring_asellina"
+  },
+  "text": "„Hast du gehört? Asellina vom Thermopolium hat am Lacus ihren Ring verloren. Sie zahlt Finderlohn!“",
+  "do": [
+   {
+    "start": "ring_asellina"
+   }
+  ]
+ },
+ {
+  "id": "r_nachtladung",
+  "where": [
+   "taverne"
+  ],
+  "prio": 2,
+  "if": {
+   "cls": [
+    "plebs",
+    "servus"
+   ],
+   "notDone": "nachtladung",
+   "notActive": "nachtladung"
+  },
+  "text": "„Nicanor am Emporium sucht heute Abend Träger – ein Weinschiff aus Kampanien ist spät eingelaufen. Er zahlt gut.“",
+  "do": [
+   {
+    "start": "nachtladung"
+   }
+  ]
+ },
+ {
+  "id": "r_cato",
+  "text": "„Cato soll sich in Utica das Leben genommen haben, als er von Thapsus hörte. Caesars Gnade wollte er nicht.“",
+  "do": [
+   {
+    "lex": "thapsus"
+   }
+  ]
+ },
+ {
+  "id": "r_kalender",
+  "text": "„Ein Astronom aus Alexandria – Sosigenes heißt er – soll für Caesar den Kalender neu ordnen. Endlich wieder Ernte im Sommer!“",
+  "do": [
+   {
+    "lex": "kalender"
+   }
+  ]
+ },
+ {
+  "id": "r_kleopatra",
+  "text": "„Man sagt, die ägyptische Königin kommt nach Rom, sobald Caesar zurück ist. Sie soll in seinen Gärten jenseits des Tibers wohnen.“",
+  "do": [
+   {
+    "lex": "horti_caesaris"
+   }
+  ]
+ },
+ {
+  "id": "r_aedilen",
+  "where": [
+   "taverne"
+  ],
+  "text": "„Pass auf beim Würfeln! Glücksspiel um Geld ist eigentlich verboten – nur an den Saturnalien drücken die Ädilen ein Auge zu.“",
+  "do": [
+   {
+    "lex": "taverne"
+   }
+  ]
+ },
+ {
+  "id": "r_lupus",
+  "text": "„Ein Fischer hat zwischen den Brücken einen Wolfsbarsch gefangen, so groß wie ein Kind. Ein Senator hat ein Vermögen dafür bezahlt!“",
+  "do": [
+   {
+    "lex": "fische"
+   }
+  ]
+ },
+ {
+  "id": "r_veteranen",
+  "text": "„Caesars Veteranen warten auf ihr Land. Wenn er zurückkommt, gibt es Spiele, Geschenke und ein riesiges Gelage für das ganze Volk.“",
+  "do": [
+   {
+    "lex": "caesar"
+   }
+  ]
+ },
+ {
+  "id": "r_emporium",
+  "where": [
+   "taverne"
+  ],
+  "text": "„Am Emporium kaufst du Öl und Garum billig ein. Im Macellum zahlen die Köche der Reichen fast das Doppelte.“",
+  "do": [
+   {
+    "lex": "handel"
+   }
+  ]
+ },
+ {
+  "id": "r_felix",
+  "where": [
+   "balneum"
+  ],
+  "text": "„Im Bad hört man alles: Felix der Bäcker hat früher selbst die Mühle gedreht. Heute gehört sie ihm – so kann es gehen.“",
+  "do": [
+   {
+    "lex": "manumissio"
+   }
+  ]
+ }
+]

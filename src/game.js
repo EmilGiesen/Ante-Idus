@@ -17,6 +17,9 @@ import { checkCond, changeMoney, changeStat } from './systems/rules.js';
 import { unlockLex } from './systems/lexicon.js';
 import { MINIGAMES, AUTO_RESULTS } from './minigames/index.js';
 import * as Act from './systems/activities.js';
+import * as Rumors from './systems/rumors.js';
+import * as Offer from './systems/offerings.js';
+import { buffFx } from './systems/buffs.js';
 import { level as levelOf } from './systems/skills.js';
 
 const GLYPH = {
@@ -335,6 +338,8 @@ export class Game {
       if (it.type === 'sign') { dlg.say(null, ['Aufgemalter Hinweis (Spielhilfe – echte Straßenschilder gab es in Rom nicht):', it.text], 'narr'); unlockLex('orientierung'); return; }
       if (it.type === 'travel') { G.ui.panels.show('travel', { from: it.station }); return; }
       if (it.type === 'activity') { Act.offer(it.id); return; }
+      if (it.type === 'offer') { Offer.offer(it.id); return; }
+      if (it.type === 'altar' && G.data.interiors[this.map.id]?.temple) { Offer.offer(G.data.interiors[this.map.id].temple); return; }
       if (it.type === 'prices') { G.ui.panels.show('prices', { market: it.market }); unlockLex('handel'); return; }
       const node = it.dialogue || `obj_${it.type}`;
       if (G.data.dialogues[node]) dlg.start(node);
@@ -367,6 +372,8 @@ export class Game {
     if (after.type === 'sleep') { this.sleep(); return; }
     if (after.type === 'activity') { Act.offer(after.id, npc); return; }
     if (after.type === 'panel') { G.ui.panels.show(after.id); return; }
+    if (after.type === 'rumor') { Rumors.tellRumor(after.source, npc); return; }
+    if (after.type === 'offer') { Offer.offer(after.id); return; }
     if (after.type === 'minigame') {
       const opts = { ...after.opts };
       if (!opts.app && npc) opts.app = npc.app;
@@ -412,7 +419,7 @@ export class Game {
 
   haggleBuy(shopId, itemId, price, npc) {
     const def = Inv.itemDef(itemId);
-    this.playMinigame('haggle', { patience: levelOf('handel') >= 4 ? 0.7 : 1, fair: price, label: def.name, app: npc ? npc.app : null, hours: 0.15, energy: 0, dirt: 0 }).then((r) => {
+    this.playMinigame('haggle', { patience: (levelOf('handel') >= 4 ? 0.7 : 1) * (1 - buffFx('haggle')), fair: price, label: def.name, app: npc ? npc.app : null, hours: 0.15, energy: 0, dirt: 0 }).then((r) => {
       if (r.aborted) return;
       if (this.state.money < r.price) { G.ui.toast('Dafür reicht dein Geld nicht.', 'cost'); return; }
       changeMoney(-r.price);

@@ -32,7 +32,8 @@
    "perLevel": 0.1
   },
   "lex": "buecher",
-  "verb": "Abschreiben"
+  "verb": "Abschreiben",
+  "doneText": "Abschrift fertig"
  },
  "unterricht": {
   "name": "Unterricht beim Grammaticus",
@@ -52,7 +53,8 @@
    "rhetorik": 6
   },
   "lex": "schule",
-  "verb": "Zuhören und lernen"
+  "verb": "Zuhören und lernen",
+  "doneText": "Unterricht beendet"
  },
  "reden_hoeren": {
   "name": "Den Rednern zuhören",
@@ -70,7 +72,8 @@
   "skill": "rhetorik",
   "xp": 20,
   "lex": "rostra",
-  "verb": "Zuhören"
+  "verb": "Zuhören",
+  "doneText": "Du hast den Rednern zugehört"
  },
  "lasten_emporium": {
   "name": "Lasten tragen am Emporium",
@@ -102,7 +105,8 @@
    "perLevel": 0.05
   },
   "lex": "emporium",
-  "verb": "Ladung aufnehmen"
+  "verb": "Ladung aufnehmen",
+  "doneText": "Schicht am Emporium beendet"
  },
  "bau_basilica": {
   "name": "Auf der Baustelle der Basilica Iulia helfen",
@@ -134,7 +138,8 @@
    "perLevel": 0.05
   },
   "lex": "basilicae",
-  "verb": "Mit anpacken"
+  "verb": "Mit anpacken",
+  "doneText": "Schicht auf der Baustelle beendet"
  },
  "bau_forum_iulium": {
   "name": "Am Forum Iulium mitbauen",
@@ -166,7 +171,8 @@
    "perLevel": 0.05
   },
   "lex": "forum_iulium",
-  "verb": "Mit anpacken"
+  "verb": "Mit anpacken",
+  "doneText": "Schicht am Forum Iulium beendet"
  },
  "baeckerei": {
   "name": "In der Bäckerei aushelfen",
@@ -202,7 +208,8 @@
    }
   ],
   "lex": "brot",
-  "verb": "An den Ofen"
+  "verb": "An den Ofen",
+  "doneText": "Schicht in der Bäckerei beendet"
  },
  "fischen_insula": {
   "name": "Fischen zwischen den Brücken",
@@ -223,7 +230,8 @@
   "xp": 6,
   "xpPerScore": 8,
   "lex": "fische",
-  "verb": "Angel auswerfen"
+  "verb": "Angel auswerfen",
+  "doneText": "Du packst die Angel ein"
  },
  "fischen_marsfeld": {
   "name": "Fischen am Marsfeld",
@@ -244,7 +252,8 @@
   "xp": 6,
   "xpPerScore": 8,
   "lex": "fische",
-  "verb": "Angel auswerfen"
+  "verb": "Angel auswerfen",
+  "doneText": "Du packst die Angel ein"
  },
  "fischen_emporium": {
   "name": "Fischen am Kai des Emporiums",
@@ -265,6 +274,56 @@
   "xp": 6,
   "xpPerScore": 8,
   "lex": "fische",
-  "verb": "Angel auswerfen"
+  "verb": "Angel auswerfen",
+  "doneText": "Du packst die Angel ein"
+ },
+ "wuerfeln": {
+  "name": "Würfeln mit Tali",
+  "where": "Popina in der Subura",
+  "desc": "Vier Knöchel, ein Becher, ein Einsatz. Glücksspiel um Geld ist eigentlich verboten – aber wer sieht schon in eine Popina?",
+  "minigame": "dice",
+  "hours": [
+   3,
+   23.9
+  ],
+  "closed": "Gerade spielt niemand.",
+  "duration": 0.75,
+  "energy": 2,
+  "perDay": 3,
+  "req": {
+   "money": 1
+  },
+  "reqText": "Ohne Geld spielt niemand mit dir.",
+  "pay": {
+   "useNet": true
+  },
+  "lex": "taverne",
+  "verb": "Mitspielen"
+ },
+ "baden": {
+  "name": "Ein Bad nehmen",
+  "where": "Balneum der Subura",
+  "desc": "Umkleiden, ins warme Becken, dann ins kalte – und danach fühlt man sich wie neugeboren. Der Eintritt kostet einen Quadrans (im Spiel 1 As).",
+  "cost": 1,
+  "hours": [
+   4,
+   11.5
+  ],
+  "closed": "Das Bad ist geschlossen. Gebadet wird am Nachmittag.",
+  "duration": 1,
+  "energy": 0,
+  "perDay": 2,
+  "do": [
+   {
+    "need": {
+     "hygiene": 100,
+     "energy": 12,
+     "health": 3
+    }
+   }
+  ],
+  "lex": "balneum",
+  "verb": "Baden",
+  "doneText": "Du hast gebadet – frisch wie neu"
  }
 }

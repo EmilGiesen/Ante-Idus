@@ -100,6 +100,24 @@ export function drawProp(g, o, map, tx, ty, kind) {
       p('#e3dccb', X, Y + 3, 16, 13); p('#f2ede0', X, Y + 3, 16, 2);
       p('#a3392c', X + 3, Y + 9, 2, 2); p('#3f6b8a', X + 9, Y + 11, 2, 2);
       break;
+    case 'statue': {
+      // Kultbild (z. B. Saturn mit verhülltem Haupt)
+      const left = !same(-1, 0);
+      p('#d6ccb2', X, Y + 10, 16, 6); p('#efe9dc', X, Y + 9, 16, 2);
+      if (left) {
+        q('#c9b48a', X + 8, Y - 18, 14, 28); q('#e3cfa0', X + 9, Y - 18, 4, 28);
+        q('#d8c08a', X + 10, Y - 26, 10, 9); q('#a8743f', X + 9, Y - 27, 12, 4);
+        q('#e8e0cc', X + 9, Y + 6, 12, 3);
+      }
+      break;
+    }
+    case 'altarp':
+      p('#d6ccb2', X + 2, Y + 4, 12, 12); p('#efe9dc', X + 1, Y + 3, 14, 3); p('#bdb295', X + 1, Y + 14, 14, 2);
+      p('#e8902a', X + 5, Y, 6, 4); p('#f4d24a', X + 7, Y + 1, 2, 2);
+      break;
+    case 'bench':
+      p('#d6ccb2', X + 1, Y + 6, 14, 4); p('#efe9dc', X + 1, Y + 6, 14, 1); p('#bdb295', X + 2, Y + 10, 2, 5); p('#bdb295', X + 12, Y + 10, 2, 5);
+      break;
     default:
       p('#ff00ff', X + 4, Y + 4, 8, 8);
   }

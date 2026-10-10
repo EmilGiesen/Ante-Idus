@@ -13,6 +13,8 @@ const FILES = {
   activities: new URL('../data/activities.json', import.meta.url),
   recipes: new URL('../data/recipes.json', import.meta.url),
   markets: new URL('../data/markets.json', import.meta.url),
+  offerings: new URL('../data/offerings.json', import.meta.url),
+  rumors: new URL('../data/rumors.json', import.meta.url),
 };
 
 export async function loadData() {

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { buildExterior, buildInterior } from '../src/world/mapgen.js';
 
 const load = (n) => JSON.parse(readFileSync(new URL(`../src/data/${n}.json`, import.meta.url), 'utf8'));
-const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets'].map((n) => [n, load(n)]));
+const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes', 'markets', 'offerings', 'rumors'].map((n) => [n, load(n)]));
 const MINIGAMES = ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice', 'race'];
 const errors = [];
 const warn = [];
@@ -184,6 +184,10 @@ for (const it of Object.values(D.items)) if (!it.cat) err(`Gegenstand ${it.name}
 for (const [id, sh] of Object.entries(D.shops)) if (sh.market && !D.markets.markets[sh.market]) err(`Laden ${id}: Markt ${sh.market} fehlt`);
 for (const [id, m] of Object.entries(D.markets.markets)) for (const g of [...(m.board || []), ...(m.demand || []), ...(m.specialty || [])]) if (!D.items[g]) err(`Markt ${id}: Ware ${g} fehlt`);
 for (const o of D.map_rom.deco) if (o.interact?.type === 'prices' && !D.markets.markets[o.interact.market]) err(`Preistafel: Markt ${o.interact.market} fehlt`);
+for (const o of [...D.map_rom.buildings, ...D.map_rom.deco]) if (o.interact?.type === 'offer' && !D.offerings[o.interact.id]) err(`Opferstelle ${o.name}: ${o.interact.id} fehlt`);
+for (const [id, d] of Object.entries(D.interiors)) if (d.temple && !D.offerings[d.temple]) err(`Innenraum ${id}: Tempel ${d.temple} fehlt`);
+for (const [id, o] of Object.entries(D.offerings)) { if (o.lex) { usedLex.add(o.lex); if (!lex[o.lex]) err(`Opfer ${id}: Lexikon ${o.lex} fehlt`); } if (!o.buff?.fx) err(`Opfer ${id}: Bonus fehlt`); }
+for (const r of D.rumors) { checkCond(r.if, `Gerücht ${r.id}`); checkEff(r.do, `Gerücht ${r.id}`); for (const e of r.do || []) if (e.lex) [].concat(e.lex).forEach((x) => usedLex.add(x)); }
 for (const [id, r] of Object.entries(D.recipes)) {
   if (!D.items[r.out]) err(`Rezept ${id}: Ergebnis ${r.out} fehlt`);
   for (const it of Object.keys(r.in)) if (!D.items[it]) err(`Rezept ${id}: Zutat ${it} fehlt`);
@@ -199,7 +203,7 @@ for (const [id, e] of Object.entries(lex)) {
 for (const z of D.map_rom.zones) if (z.lex) { usedLex.add(z.lex); if (!lex[z.lex]) err(`Zone ${z.id}: Lexikon ${z.lex} fehlt`); }
 for (const b of [...D.map_rom.buildings, ...D.map_rom.deco]) if (b.lex) { usedLex.add(b.lex); if (!lex[b.lex]) err(`Objekt ${b.name || b.kind}: Lexikon ${b.lex} fehlt`); }
 for (const d of Object.values(D.interiors)) if (d.lex) usedLex.add(d.lex);
-['kalender', 'sklaverei', 'nacht', 'preise', 'lectica', 'orientierung'].forEach((x) => usedLex.add(x)); // im Code freigeschaltet
+['kalender', 'sklaverei', 'nacht', 'preise', 'lectica', 'orientierung', 'opfer', 'handel'].forEach((x) => usedLex.add(x)); // im Code freigeschaltet
 for (const id of Object.keys(lex)) if (!usedLex.has(id)) warn.push(`Lexikon ${id} wird nirgends freigeschaltet`);
 
 for (const w of warn) console.log('Hinweis:', w);

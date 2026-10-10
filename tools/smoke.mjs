@@ -128,8 +128,8 @@ try {
   }
 
   // Minispiele
-  for (const mg of ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking']) {
-    await ev((m) => { window.__rv.mg = null; window.__rv.game.playMinigame(m, { fair: 12, label: 'Testware' }).then((r) => { window.__rv.mg = r; }); }, mg);
+  for (const mg of ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice']) {
+    await ev((m) => { window.__rv.mg = null; window.__rv.game.playMinigame(m, { fair: 12, label: 'Testware', money: 20 }).then((r) => { window.__rv.mg = r; }); }, mg);
     await sleep(600);
     if (mg === 'water') { await hold('Space', 1300); await sleep(900); } else await press('Space', 3, 900);
     await shot(page, `50-minispiel-${mg}`);
@@ -332,6 +332,52 @@ try {
     return true;
   });
   await shot(page, '61-preistafel'); await press('Escape');
+  // Taverne, Gerüchte, Würfeln, Ring, Bad, Opfer
+  await runScenario('plebs', async () => {
+    const { G, game, talk, status } = window.__rv;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    const Act = await import('/src/systems/activities.js');
+    const B = await import('/src/systems/buffs.js');
+    G.state.time.hour = 5;
+    game.debugTeleport('taberna_subura', 7, 7);
+    await wait(300);
+    await talk('hermeros', ['Erzähl']);
+    if (!(G.state.vars.rumors || []).length) return 'Kein Gerücht gehört';
+    G.state.money = 20;
+    Act.run('wuerfeln', false);
+    for (let i = 0; i < 30 && !G.ui.mini.open; i++) await wait(20);
+    G.ui.mini.finished = { done: true, success: true, net: 3, score: 2, text: 'Test' }; G.ui.mini.finish();
+    await wait(100);
+    if (G.state.money !== 23) return `Würfelgewinn falsch verbucht: ${G.state.money}`;
+    const R = await import('/src/systems/rules.js');
+    if (!G.state.missions.ring_asellina) R.applyEffects([{ start: 'ring_asellina' }]);
+    await talk('fountain_subura', ['Brunnenrand']);
+    await talk('asellina');
+    if (status('ring_asellina') !== 'done:2:1') return `Ring-Auftrag: ${status('ring_asellina')}`;
+    game.debugTeleport('balneum_subura', 8, 7);
+    await wait(300);
+    G.state.needs.hygiene = 10;
+    Act.run('baden', false);
+    await wait(900);
+    if (G.state.needs.hygiene < 99) return `Baden ohne Wirkung: ${G.state.needs.hygiene}`;
+    game.debugTeleport('tempel_saturn', 5, 5);
+    await wait(300);
+    const O = await import('/src/systems/offerings.js');
+    O.offer('saturn');
+    await wait(50);
+    G.ui.dialog.typed = G.ui.dialog.full.length;
+    G.ui.dialog.page = G.ui.dialog.pages.length - 1;
+    G.ui.dialog.choose(0);
+    await wait(900);
+    if (!B.activeBuffs().some((b) => b.id === 'saturn')) return 'Opfer ohne Bonus';
+    return true;
+  });
+  await ev(() => { const g = window.__rv.game; g.state.time.hour = 6; g.debugTeleport('taberna_subura', 7, 7); });
+  await sleep(500); await shot(page, '62-taverne');
+  await ev(() => { const g = window.__rv.game; g.debugTeleport('balneum_subura', 8, 7); });
+  await sleep(500); await shot(page, '63-balneum');
+  await ev(() => { const g = window.__rv.game; g.debugTeleport('tempel_saturn', 5, 5); });
+  await sleep(500); await shot(page, '64-saturntempel');
   await runScenario('nobilis', async () => {
     const Act = await import('/src/systems/activities.js');
     return Act.blockReason('abschreiben') ? true : 'Adel darf nicht abschreiben';

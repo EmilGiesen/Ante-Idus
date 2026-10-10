@@ -1,0 +1,138 @@
+{
+ "saturn": {
+  "name": "Tempel des Saturn",
+  "deity": "Saturn",
+  "gift": "Weihrauch",
+  "cost": 2,
+  "lex": "saturn",
+  "text": "Saturn, Gott der Aussaat und des Goldenen Zeitalters. Sein Tempel hütet den Staatsschatz.",
+  "effect": "Wohlstand – mehr Lohn",
+  "buff": {
+   "id": "saturn",
+   "name": "Gunst des Saturn: +10 % Lohn",
+   "hours": 8,
+   "fx": {
+    "pay": 0.1
+   }
+  }
+ },
+ "castor": {
+  "name": "Tempel von Castor und Pollux",
+  "deity": "Die Dioskuren",
+  "gift": "Weihrauch",
+  "cost": 2,
+  "lex": "forum_romanum",
+  "text": "Die göttlichen Zwillinge halfen Rom einst in der Schlacht am Regillus-See – und tränkten danach ihre Pferde am Forum.",
+  "effect": "Ausdauer – du ermüdest langsamer",
+  "buff": {
+   "id": "castor",
+   "name": "Ausdauer der Dioskuren: weniger müde",
+   "hours": 8,
+   "fx": {
+    "tired": -0.25
+   }
+  }
+ },
+ "hercules": {
+  "name": "Ara Maxima",
+  "deity": "Hercules",
+  "gift": "den Zehnten deines Gewinns",
+  "cost": 6,
+  "lex": "hercules",
+  "text": "Händler weihen Hercules an diesem Altar ein Zehntel ihres Gewinns.",
+  "effect": "Handelsglück – bessere Verkaufspreise",
+  "buff": {
+   "id": "hercules",
+   "name": "Segen des Hercules: bessere Verkaufspreise",
+   "hours": 8,
+   "fx": {
+    "handel": 0.1
+   }
+  }
+ },
+ "ceres": {
+  "name": "Tempel der Ceres",
+  "deity": "Ceres",
+  "gift": "einen Opferkuchen (libum)",
+  "cost": 2,
+  "lex": "aventin",
+  "text": "Ceres, Göttin des Getreides – Schutzherrin der Plebejer.",
+  "effect": "Sättigung – du wirst langsamer hungrig",
+  "buff": {
+   "id": "ceres",
+   "name": "Gabe der Ceres: weniger hungrig",
+   "hours": 8,
+   "fx": {
+    "hunger": -0.25
+   }
+  }
+ },
+ "aesculapius": {
+  "name": "Tempel des Aesculapius",
+  "deity": "Aesculapius",
+  "gift": "einen Hahn",
+  "cost": 4,
+  "lex": "tiber",
+  "text": "Kranke schlafen im Heiligtum und hoffen, dass der Gott ihnen im Traum Heilung schenkt.",
+  "effect": "Heilung – Gesundheit steigt",
+  "buff": {
+   "id": "aesculapius",
+   "name": "Heilschlaf: Gesundheit steigt",
+   "hours": 8,
+   "fx": {
+    "heal": 3
+   }
+  }
+ },
+ "iuppiter": {
+  "name": "Tempel des Iuppiter Optimus Maximus",
+  "deity": "Iuppiter",
+  "gift": "Weihrauch und Wein",
+  "cost": 3,
+  "lex": "kapitol",
+  "text": "Der höchste Gott Roms. Auf seinem Kapitol enden die Triumphzüge.",
+  "effect": "Klarheit – du lernst schneller",
+  "buff": {
+   "id": "iuppiter",
+   "name": "Gunst Iuppiters: +15 % Erfahrung",
+   "hours": 8,
+   "fx": {
+    "xp": 0.15
+   }
+  }
+ },
+ "mercurius": {
+  "name": "Tempel des Merkur",
+  "deity": "Merkur",
+  "gift": "Weihrauch",
+  "cost": 2,
+  "lex": "handel",
+  "text": "Merkur, Gott der Händler und Boten. Sein Tempel steht seit 495 v. Chr. am Circus Maximus.",
+  "effect": "Beredsamkeit – Händler sind beim Feilschen geduldiger",
+  "buff": {
+   "id": "mercurius",
+   "name": "Merkurs Zunge: geduldigere Händler",
+   "hours": 8,
+   "fx": {
+    "haggle": 0.25
+   }
+  }
+ },
+ "fortuna": {
+  "name": "Heiligtum der Fortuna",
+  "deity": "Fortuna",
+  "gift": "eine kleine Münze",
+  "cost": 2,
+  "lex": "opfer",
+  "text": "Fortuna, die launische Göttin des Glücks. Ihr uraltes Heiligtum steht am Forum Boarium neben dem der Mater Matuta.",
+  "effect": "Glück beim Würfeln und Wetten",
+  "buff": {
+   "id": "fortuna",
+   "name": "Fortuna lächelt: Glück im Spiel",
+   "hours": 6,
+   "fx": {
+    "luck": 0.3
+   }
+  }
+ }
+}

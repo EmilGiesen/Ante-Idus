@@ -346,5 +346,63 @@
    "tabellae",
    "tabellae_resp"
   ]
+ },
+ "ring_asellina": {
+  "title": "Asellinas Ring",
+  "giver": "asellina",
+  "hidden": true,
+  "summary": "Asellina vom Thermopolium hat am Lacus der Subura ihren Ring verloren. Sie zahlt Finderlohn.",
+  "steps": [
+   {
+    "text": "Suche am Lacus der Subura nach dem Ring (E am Brunnen)",
+    "target": {
+     "area": "lacus_subura"
+    }
+   },
+   {
+    "text": "Bring den Ring zu Asellina",
+    "target": {
+     "npc": "asellina"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "money": 8
+   },
+   {
+    "rel": {
+     "asellina": 10
+    }
+   }
+  ],
+  "questItems": [
+   "anulus"
+  ]
+ },
+ "nachtladung": {
+  "title": "Die Nachtladung",
+  "giver": "nicanor",
+  "hidden": true,
+  "cls": [
+   "plebs",
+   "servus"
+  ],
+  "summary": "Ein Weinschiff ist spät eingelaufen. Nicanor sucht abends Träger am Emporium.",
+  "steps": [
+   {
+    "text": "Melde dich ab Hora IX bei Nicanor am Emporium",
+    "target": {
+     "npc": "nicanor"
+    }
+   }
+  ],
+  "reward": [
+   {
+    "xp": {
+     "handwerk": 20
+    }
+   }
+  ]
  }
 }
