@@ -2635,8 +2635,17 @@
   ]
  },
  "obj_hearth": {
-  "text": "Die Herdstelle. Gekocht wird auf offenem Feuer – der Rauch zieht durchs ganze Haus.",
-  "who": "narr"
+  "switch": [
+   {
+    "if": {
+     "free": true
+    },
+    "go": "hearth_cook"
+   },
+   {
+    "go": "hearth_busy"
+   }
+  ]
  },
  "obj_table": {
   "text": "Ein Tisch mit Schreibzeug und ein paar Schriftrollen.",
@@ -2778,6 +2787,96 @@
  },
  "oven_info": {
   "text": "Felix' Backofen – heiß wie die Esse des Vulcanus. Ohne Felix fasst du ihn besser nicht an.",
+  "who": "narr"
+ },
+ "prima": {
+  "text": "Kräuter, Knoblauch, Linsen! Alles vom Land, heute früh durchs Tor gebracht.",
+  "do": [
+   {
+    "lex": "forum_holitorium"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "prima"
+     }
+    ]
+   },
+   {
+    "t": "Was kocht man daraus?",
+    "go": "prima_tip"
+   },
+   {
+    "t": "Nichts, danke."
+   }
+  ]
+ },
+ "prima_tip": {
+  "text": "Moretum! Käse, Knoblauch, Koriander und Öl im Mörser zerstoßen, dazu Brot. So frühstücken die Bauern seit jeher.",
+  "do": [
+   {
+    "lex": "kochen"
+   }
+  ]
+ },
+ "nicanor": {
+  "text": [
+   "Nicanor, Händler am Emporium. Wenn die Schiffe aus Ostia kommen, kaufe ich billig ein – und verkaufe in der Stadt teurer.",
+   "Brauchst du eine Angel? Zwischen den Lastkähnen beißen die Fische gut."
+  ],
+  "do": [
+   {
+    "lex": "emporium"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Zeig mir deine Ware.",
+    "do": [
+     {
+      "shop": "nicanor"
+     }
+    ]
+   },
+   {
+    "t": "Wo fischt man am besten?",
+    "go": "nicanor_tip"
+   },
+   {
+    "t": "Leb wohl."
+   }
+  ]
+ },
+ "nicanor_tip": {
+  "text": "Zwischen den beiden Brücken an der Tiberinsel – dort steht der lupus, der Wolfsbarsch. Die Reichen zahlen ein Vermögen dafür. Aber er ist schlau.",
+  "do": [
+   {
+    "lex": "fische"
+   }
+  ]
+ },
+ "hearth_cook": {
+  "text": "Die Herdstelle. Gekocht wird auf offenem Feuer – der Rauch zieht durchs ganze Haus.",
+  "who": "narr",
+  "opts": [
+   {
+    "t": "Kochen",
+    "do": [
+     {
+      "panel": "cook"
+     }
+    ]
+   },
+   {
+    "t": "Weiter"
+   }
+  ]
+ },
+ "hearth_busy": {
+  "text": "Die Köchin braucht den Herd jetzt für das Essen der Herrschaft. Kochen kannst du in deiner freien Zeit (ab Hora X).",
   "who": "narr"
  }
 }

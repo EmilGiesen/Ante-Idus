@@ -996,6 +996,32 @@
     "Quintilian, Ausbildung des Redners 1",
     "Horaz, Satiren 1,6,71–78"
    ]
+  },
+  "fische": {
+   "title": "Fische im Tiber",
+   "cat": "essen",
+   "text": [
+    "Der Tiber liefert Weißfische und Aale. Berühmt ist der Wolfsbarsch (lupus): Am besten soll er sein, wenn er „zwischen den beiden Brücken“ bei der Tiberinsel gefangen wurde – dort, wo auch das Abwasser der Cloaca Maxima mündete.",
+    "Für einen besonders großen lupus zahlten Feinschmecker enorme Summen."
+   ],
+   "sources": [
+    "Horaz, Satiren 2,2,31–33",
+    "Macrobius, Saturnalia 3,16,11–18",
+    "Plinius, Naturgeschichte 9,169"
+   ]
+  },
+  "kochen": {
+   "title": "Die römische Küche",
+   "cat": "essen",
+   "text": [
+    "Einfache Leute essen Puls (Getreidebrei), Brot, Linsen, Gemüse, Käse und Oliven. Fleisch ist teuer. Gewürzt wird mit Garum, Kräutern und Honig – Zucker gibt es nicht.",
+    "Ein Gedicht aus der Zeit beschreibt, wie ein Bauer im Morgengrauen sein Moretum zubereitet: Knoblauch, Kräuter, Käse und Öl im Mörser. Das berühmte Kochbuch des „Apicius“ ist erst Jahrhunderte später zusammengestellt worden."
+   ],
+   "sources": [
+    "Moretum (Appendix Vergiliana)",
+    "Cato, Über die Landwirtschaft 74–90",
+    "Apicius, De re coquinaria (spätere Sammlung)"
+   ]
   }
  }
 }

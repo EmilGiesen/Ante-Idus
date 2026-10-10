@@ -46,6 +46,7 @@ export function checkCond(c) {
       case 'routine': if ((s.mg[v[0]]?.wins || 0) < v[1]) return false; break;
       case 'level': if (skillLevel(v[0]) < v[1]) return false; break;
       case 'rentDue': if (!s.rent || (s.time.day >= s.rent.due) !== v) return false; break;
+      case 'free': if ((s.cls !== 'servus' || s.flags.freed || G.game.isSlaveFree()) !== v) return false; break;
       case 'atHome': if ((G.game.map && G.game.map.id === s.home.map) !== v) return false; break;
       case 'map': if (!G.game.map || G.game.map.id !== v) return false; break;
       case 'any': if (!v.some((x) => checkCond(x))) return false; break;
@@ -99,6 +100,7 @@ export function applyEffects(list, ctx = {}) {
       case 'xp': for (const [n, a] of Object.entries(v)) addXp(n, a); break;
       case 'buff': addBuff(v.id, v.name, v.hours, v.fx); G.ui.toast(`✦ ${v.name} (${v.hours} Std.)`, 'stat'); break;
       case 'activity': ctx.after = { type: 'activity', id: v }; break;
+      case 'panel': ctx.after = { type: 'panel', id: v }; break;
       case 'auto': G.game.autoMinigame(v, e.opts || {}); break;
       case 'minigame': ctx.after = { type: 'minigame', game: v, then: e.then, opts: e.opts || {} }; break;
       case 'shop': ctx.after = { type: 'shop', id: v }; break;

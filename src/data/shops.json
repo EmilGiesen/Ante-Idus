@@ -30,7 +30,12 @@
    {
     "id": "vinum"
    }
-  ]
+  ],
+  "buys": [
+   "dish",
+   "fish"
+  ],
+  "sellFactor": 0.6
  },
  "phileros": {
   "name": "Stand des Phileros",
@@ -48,6 +53,9 @@
    },
    {
     "id": "fax"
+   },
+   {
+    "id": "foculus"
    }
   ],
   "buys": [
@@ -72,6 +80,9 @@
    },
    {
     "id": "mel"
+   },
+   {
+    "id": "far"
    }
   ],
   "buys": [
@@ -117,5 +128,57 @@
    "garum"
   ],
   "sellFactor": 0.55
+ },
+ "prima": {
+  "name": "Gemüsestand der Prima",
+  "text": "Kräuter, Knoblauch, Linsen und Emmer vom Land.",
+  "haggle": true,
+  "items": [
+   {
+    "id": "allium"
+   },
+   {
+    "id": "herbae"
+   },
+   {
+    "id": "lens"
+   },
+   {
+    "id": "far"
+   },
+   {
+    "id": "ficus"
+   }
+  ],
+  "buys": [
+   "ingredient"
+  ],
+  "sellFactor": 0.5
+ },
+ "nicanor": {
+  "name": "Hafenhändler Nicanor",
+  "text": "Was die Schiffe bringen: Öl, Wein, Getreide – und Angelzeug.",
+  "haggle": true,
+  "items": [
+   {
+    "id": "harundo"
+   },
+   {
+    "id": "far"
+   },
+   {
+    "id": "oleum",
+    "price": 3
+   },
+   {
+    "id": "vinum"
+   }
+  ],
+  "buys": [
+   "fish",
+   "good",
+   "junk"
+  ],
+  "sellFactor": 0.5
  }
 }

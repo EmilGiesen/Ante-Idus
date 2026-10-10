@@ -11,6 +11,7 @@ const FILES = {
   interiors: new URL('../data/interiors.json', import.meta.url),
   skills: new URL('../data/skills.json', import.meta.url),
   activities: new URL('../data/activities.json', import.meta.url),
+  recipes: new URL('../data/recipes.json', import.meta.url),
 };
 
 export async function loadData() {

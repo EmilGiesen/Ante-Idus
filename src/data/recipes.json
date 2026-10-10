@@ -1,0 +1,95 @@
+{
+ "puls": {
+  "name": "Puls",
+  "out": "puls",
+  "n": 2,
+  "in": {
+   "far": 1
+  },
+  "level": 0,
+  "xp": 8,
+  "desc": "Getreidebrei – das Alltagsessen."
+ },
+ "lentes": {
+  "name": "Linseneintopf",
+  "out": "lentes",
+  "n": 2,
+  "in": {
+   "lens": 1,
+   "oleum": 1
+  },
+  "level": 0,
+  "xp": 10
+ },
+ "piscis_assus": {
+  "name": "Gebratener Fisch",
+  "out": "piscis_assus",
+  "n": 1,
+  "in": {
+   "piscis": 1,
+   "oleum": 1
+  },
+  "level": 1,
+  "xp": 12
+ },
+ "mulsum": {
+  "name": "Mulsum (Honigwein)",
+  "out": "mulsum",
+  "n": 2,
+  "in": {
+   "vinum": 1,
+   "mel": 1
+  },
+  "level": 1,
+  "xp": 10
+ },
+ "moretum": {
+  "name": "Moretum",
+  "out": "moretum",
+  "n": 2,
+  "in": {
+   "caseus": 1,
+   "allium": 1,
+   "herbae": 1,
+   "oleum": 1
+  },
+  "level": 2,
+  "xp": 16,
+  "desc": "Nach dem Gedicht „Moretum“."
+ },
+ "anguilla_garum": {
+  "name": "Aal in Garum",
+  "out": "anguilla_garum",
+  "n": 1,
+  "in": {
+   "anguilla": 1,
+   "garum": 1
+  },
+  "level": 2,
+  "xp": 18
+ },
+ "patina": {
+  "name": "Patina (Eierspeise)",
+  "out": "patina",
+  "n": 1,
+  "in": {
+   "ova": 1,
+   "caseus": 1,
+   "mel": 1
+  },
+  "level": 3,
+  "xp": 20
+ },
+ "lupus_garum": {
+  "name": "Wolfsbarsch mit Garum",
+  "out": "lupus_garum",
+  "n": 1,
+  "in": {
+   "lupus": 1,
+   "garum": 1,
+   "herbae": 1
+  },
+  "level": 4,
+  "xp": 30
+ }
+}

@@ -2,6 +2,8 @@
 import { G } from '../core/ctx.js';
 import { bus } from '../core/events.js';
 import { clamp } from '../core/util.js';
+import { addBuff } from './buffs.js';
+import { level } from './skills.js';
 
 export const itemDef = (id) => G.data.items[id] || { name: id, icon: 'scroll' };
 export const count = (id) => G.state.inv[id] || 0;
@@ -28,10 +30,17 @@ export function useItem(id) {
   const def = itemDef(id);
   const s = G.state;
   if (def.food) {
-    for (const [k, v] of Object.entries(def.food)) s.needs[k] = clamp((s.needs[k] || 0) + v, 0, 100);
+    const mul = def.cat === 'dish' && level('kochen') >= 5 ? 1.2 : 1;
+    for (const [k, v] of Object.entries(def.food)) s.needs[k] = clamp((s.needs[k] || 0) + Math.round(v * mul), 0, 100);
     remove(id, 1);
     G.ui.toast(def.eatText || `Du verzehrst: ${def.name}.`);
+    if (def.buff) { addBuff(def.buff.id, def.buff.name, def.buff.hours, def.buff.fx); G.ui.toast(`✦ ${def.buff.name} (${def.buff.hours} Std.)`, 'stat'); }
     return true;
+  }
+  if (def.use === 'cook') {
+    if (G.game.map.id !== s.home.map) { G.ui.toast('Das Kohlebecken stellst du nur zu Hause auf.', 'warn'); return false; }
+    G.ui.panels.show('cook');
+    return false;
   }
   if (def.light) {
     s.light = s.light === id ? null : id;

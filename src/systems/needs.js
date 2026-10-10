@@ -2,6 +2,7 @@
 import { G } from '../core/ctx.js';
 import { clamp } from '../core/util.js';
 import { isNight } from '../core/time.js';
+import { buffFx } from './buffs.js';
 
 export const NEED_NAMES = { satiety: 'Sättigung', energy: 'Energie', health: 'Gesundheit', hygiene: 'Hygiene' };
 
@@ -16,8 +17,9 @@ export function updateNeeds(hours, sprinting) {
   const s = G.state;
   const n = s.needs;
   const night = isNight(s.time.hour);
-  n.satiety = clamp(n.satiety - hours * (night ? 2 : 4), 0, 100);
-  n.energy = clamp(n.energy - hours * (sprinting ? 10 : 4.2), 0, 100);
+  n.satiety = clamp(n.satiety - hours * (night ? 2 : 4) * (1 + buffFx('hunger')), 0, 100);
+  n.energy = clamp(n.energy - hours * (sprinting ? 10 : 4.2) * (1 + buffFx('tired')), 0, 100);
+  n.health = clamp(n.health + hours * buffFx('heal'), 0, 100);
   n.hygiene = clamp(n.hygiene - hours * 2.2, 0, 100);
   let dh = 0;
   if (n.satiety < 12) dh -= 3;

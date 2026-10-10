@@ -193,5 +193,185 @@
   "quest": true,
   "desc": "Brot und Öl für den Haushalt des Fabius.",
   "cat": "quest"
+ },
+ "far": {
+  "name": "Emmer (far)",
+  "icon": "sack",
+  "c": "#c9a870",
+  "cat": "ingredient",
+  "price": 1,
+  "desc": "Das älteste Getreide Roms – Grundlage für Puls."
+ },
+ "lens": {
+  "name": "Linsen",
+  "icon": "bowl",
+  "c": "#9a6a3a",
+  "cat": "ingredient",
+  "price": 1,
+  "desc": "Getrocknete Linsen."
+ },
+ "allium": {
+  "name": "Knoblauch",
+  "icon": "garlic",
+  "cat": "ingredient",
+  "price": 1,
+  "desc": "Würzt alles – und vertreibt angeblich Krankheiten."
+ },
+ "herbae": {
+  "name": "Kräuter (Koriander, Raute)",
+  "icon": "herbs",
+  "cat": "ingredient",
+  "price": 1,
+  "desc": "Frische Kräuter vom Gemüsemarkt."
+ },
+ "piscis": {
+  "name": "Weißfisch",
+  "icon": "fish",
+  "c": "#9ab0c0",
+  "cat": "fish",
+  "price": 3,
+  "desc": "Ein kleiner Fisch aus dem Tiber."
+ },
+ "anguilla": {
+  "name": "Aal",
+  "icon": "fish",
+  "c": "#5a5a3a",
+  "cat": "fish",
+  "price": 6,
+  "desc": "Ein fetter Aal aus dem Tiber."
+ },
+ "lupus": {
+  "name": "Wolfsbarsch (lupus Tiberinus)",
+  "icon": "fish",
+  "c": "#c8d8e0",
+  "cat": "fish",
+  "price": 24,
+  "desc": "Der berühmteste Fisch Roms – am besten, wenn er zwischen den beiden Brücken gefangen wurde."
+ },
+ "calceus": {
+  "name": "Alte Sandale",
+  "icon": "sandal",
+  "cat": "junk",
+  "price": 0,
+  "desc": "Nicht jeder Fang ist ein Fisch."
+ },
+ "piscis_assus": {
+  "name": "Gebratener Fisch",
+  "icon": "fish",
+  "c": "#b9783a",
+  "cat": "dish",
+  "price": 6,
+  "food": {
+   "satiety": 30,
+   "health": 2
+  },
+  "desc": "Mit Öl über dem Feuer gebraten."
+ },
+ "moretum": {
+  "name": "Moretum",
+  "icon": "bowl",
+  "c": "#d8e0b0",
+  "cat": "dish",
+  "price": 5,
+  "food": {
+   "satiety": 28,
+   "health": 4
+  },
+  "buff": {
+   "id": "moretum",
+   "name": "Würzig gestärkt: Hunger kommt langsamer",
+   "hours": 6,
+   "fx": {
+    "hunger": -0.3
+   }
+  },
+  "desc": "Käse, Knoblauch, Kräuter und Öl im Mörser zerstoßen – ein Bauernfrühstück."
+ },
+ "patina": {
+  "name": "Patina (Eierspeise)",
+  "icon": "eggs",
+  "cat": "dish",
+  "price": 8,
+  "food": {
+   "satiety": 34,
+   "energy": 8
+  },
+  "buff": {
+   "id": "patina",
+   "name": "Gut gefrühstückt: weniger müde",
+   "hours": 6,
+   "fx": {
+    "tired": -0.3
+   }
+  },
+  "desc": "Ein Auflauf aus Eiern, Käse und Honig."
+ },
+ "anguilla_garum": {
+  "name": "Aal in Garum",
+  "icon": "fish",
+  "c": "#7a5a2a",
+  "cat": "dish",
+  "price": 14,
+  "food": {
+   "satiety": 34,
+   "health": 3
+  },
+  "desc": "Aal, gewürzt mit Fischsauce."
+ },
+ "lupus_garum": {
+  "name": "Wolfsbarsch mit Garum",
+  "icon": "fish",
+  "c": "#e8d8b0",
+  "cat": "dish",
+  "price": 45,
+  "food": {
+   "satiety": 40,
+   "health": 8
+  },
+  "buff": {
+   "id": "festmahl",
+   "name": "Festmahl: schnellere Erholung",
+   "hours": 8,
+   "fx": {
+    "heal": 2,
+    "tired": -0.2
+   }
+  },
+  "desc": "Ein Gericht für die Tische der Reichen."
+ },
+ "mulsum": {
+  "name": "Mulsum (Honigwein)",
+  "icon": "amphora",
+  "c": "#c9903a",
+  "cat": "dish",
+  "price": 6,
+  "food": {
+   "energy": 10,
+   "satiety": 4
+  },
+  "buff": {
+   "id": "mulsum",
+   "name": "Beschwingt: lernst schneller",
+   "hours": 3,
+   "fx": {
+    "xp": 0.15
+   }
+  },
+  "desc": "Wein mit Honig – der Aperitif der Römer."
+ },
+ "harundo": {
+  "name": "Angelrute (harundo)",
+  "icon": "rod",
+  "cat": "tool",
+  "price": 6,
+  "desc": "Rohr, Schnur und Bronzehaken. Damit kannst du am Tiber fischen."
+ },
+ "foculus": {
+  "name": "Kohlebecken (foculus)",
+  "icon": "brazier",
+  "cat": "tool",
+  "price": 16,
+  "use": "cook",
+  "desc": "Ein kleines Becken für Holzkohle. Zu Hause benutzen: kochen. (Vorsicht mit dem Feuer!)"
  }
 }

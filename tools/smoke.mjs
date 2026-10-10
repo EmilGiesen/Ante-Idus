@@ -128,7 +128,7 @@ try {
   }
 
   // Minispiele
-  for (const mg of ['baking', 'water', 'haggle', 'carry', 'build']) {
+  for (const mg of ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking']) {
     await ev((m) => { window.__rv.mg = null; window.__rv.game.playMinigame(m, { fair: 12, label: 'Testware' }).then((r) => { window.__rv.mg = r; }); }, mg);
     await sleep(600);
     if (mg === 'water') { await hold('Space', 1300); await sleep(900); } else await press('Space', 3, 900);
@@ -285,6 +285,33 @@ try {
     if (!G.state.lex.schule) return 'Unterricht hat kein Lexikon freigeschaltet';
     G.state.time.hour = 2; G.state.sk.schreiben = 0;
     if (!Act.blockReason('abschreiben')) return 'Abschreiben trotz fehlender Fertigkeit möglich';
+    return true;
+  });
+  // Fischen und Kochen
+  await runScenario('plebs', async () => {
+    const { G, game } = window.__rv;
+    const Act = await import('/src/systems/activities.js');
+    const Cook = await import('/src/systems/cooking.js');
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    G.state.time.hour = 2;
+    if (!Act.blockReason('fischen_insula')) return 'Fischen ohne Angel möglich';
+    G.state.inv.harundo = 1;
+    Act.run('fischen_insula', false);
+    for (let i = 0; i < 30 && !G.ui.mini.open; i++) await wait(20);
+    G.ui.mini.finished = { done: true, success: true, score: 2, items: ['piscis', 'anguilla'], text: 'Test' }; G.ui.mini.finish();
+    await wait(100);
+    if (!G.state.inv.piscis || !G.state.inv.anguilla) return 'Fang nicht im Inventar';
+    G.state.inv.oleum = 1;
+    G.state.sk.kochen = 30;
+    Cook.cook('piscis_assus');
+    for (let i = 0; i < 30 && !G.ui.mini.open; i++) await wait(20);
+    G.ui.mini.finished = { done: true, success: true, score: 3, quality: 3, text: 'Test' }; G.ui.mini.finish();
+    await wait(100);
+    if ((G.state.inv.piscis_assus || 0) < 2) return `Kochen fehlgeschlagen: ${G.state.inv.piscis_assus}`;
+    const Inv = await import('/src/systems/inventory.js');
+    G.state.inv.moretum = 1; Inv.useItem('moretum');
+    const B = await import('/src/systems/buffs.js');
+    if (!B.activeBuffs().some((b) => b.id === 'moretum')) return 'Bonus nach Moretum fehlt';
     return true;
   });
   await runScenario('nobilis', async () => {

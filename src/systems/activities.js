@@ -76,7 +76,7 @@ export function run(id, auto) {
   if (d.cost) changeMoney(-d.cost);
   for (const [it, n] of Object.entries(d.consumes || {})) Inv.remove(it, n);
   if (d.minigame && !auto) {
-    G.game.playMinigame(d.minigame, { ...(d.mgOpts || {}), hours: 0, energy: 0, dirt: 0, actId: id }).then((r) => {
+    G.game.playMinigame(d.minigame, { ...(d.mgOpts || {}), level: d.skill ? level(d.skill) : 0, hours: 0, energy: 0, dirt: 0, actId: id }).then((r) => {
       if (!r.aborted) finish(id, r);
       else if (d.cost) changeMoney(d.cost);
     });
@@ -94,7 +94,8 @@ function finish(id, r) {
   G.game.passHours((d.duration || 1) * (r.auto ? 1.25 : 1));
   s.needs.energy = Math.max(0, s.needs.energy - (d.energy || 0));
   s.needs.hygiene = Math.max(0, s.needs.hygiene - (d.dirt || 0));
-  if (d.skill) addXp(d.skill, Math.round((d.xp || 10) * (r.success ? 1 : 0.5) * (r.auto ? 0.5 : 1)));
+  if (d.skill) addXp(d.skill, Math.round(((d.xp || 10) + (d.xpPerScore || 0) * score) * (r.success ? 1 : 0.5) * (r.auto ? 0.5 : 1)));
+  for (const it of r.items || []) Inv.add(it, 1);
   for (const [sk, n] of Object.entries(d.xpExtra || {})) addXp(sk, n);
   if (pay > 0) changeMoney(pay);
   for (const g of d.gives || []) {

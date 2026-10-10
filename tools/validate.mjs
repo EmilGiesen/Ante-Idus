@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { buildExterior, buildInterior } from '../src/world/mapgen.js';
 
 const load = (n) => JSON.parse(readFileSync(new URL(`../src/data/${n}.json`, import.meta.url), 'utf8'));
-const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities'].map((n) => [n, load(n)]));
+const D = Object.fromEntries(['classes', 'items', 'npcs', 'dialogues', 'missions', 'lexicon', 'shops', 'map_rom', 'interiors', 'skills', 'activities', 'recipes'].map((n) => [n, load(n)]));
 const MINIGAMES = ['baking', 'water', 'haggle', 'carry', 'build', 'fishing', 'cooking', 'dice', 'race'];
 const errors = [];
 const warn = [];
@@ -181,6 +181,11 @@ for (const o of [...D.map_rom.buildings, ...D.map_rom.deco]) {
   }
 }
 for (const it of Object.values(D.items)) if (!it.cat) err(`Gegenstand ${it.name}: Kategorie fehlt`);
+for (const [id, r] of Object.entries(D.recipes)) {
+  if (!D.items[r.out]) err(`Rezept ${id}: Ergebnis ${r.out} fehlt`);
+  for (const it of Object.keys(r.in)) if (!D.items[it]) err(`Rezept ${id}: Zutat ${it} fehlt`);
+}
+for (const [id, it] of Object.entries(D.items)) if (it.buff && !(it.buff.id && it.buff.hours && it.buff.fx)) err(`Gegenstand ${id}: Bonus unvollständig`);
 
 // Lexikon: Kategorien und Freischaltung
 const cats = new Set(D.lexicon.categories.map((c) => c.id));

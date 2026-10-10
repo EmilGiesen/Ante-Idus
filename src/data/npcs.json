@@ -742,6 +742,58 @@
      "dir": "down"
     }
    ]
+  },
+  {
+   "id": "prima",
+   "name": "Prima",
+   "role": "Gemüsehändlerin",
+   "where": "Forum Holitorium",
+   "dialogue": "prima",
+   "app": {
+    "skin": "#d9a47a",
+    "hair": "#5a3a1e",
+    "style": "bun",
+    "dress": "dress",
+    "color": "#5f8a4a",
+    "color2": "#c9a03a"
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      9
+     ],
+     "map": "rom",
+     "at": "@prima",
+     "dir": "down"
+    }
+   ]
+  },
+  {
+   "id": "nicanor",
+   "name": "Nicanor",
+   "role": "Hafenhändler",
+   "where": "Emporium",
+   "dialogue": "nicanor",
+   "app": {
+    "skin": "#c68b5e",
+    "hair": "#2b1d14",
+    "style": "curly",
+    "dress": "tunic",
+    "color": "#4f7a8a",
+    "beard": true
+   },
+   "sched": [
+    {
+     "h": [
+      0,
+      11
+     ],
+     "map": "rom",
+     "at": "@nicanor",
+     "dir": "down"
+    }
+   ]
   }
  ]
 }

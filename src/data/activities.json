@@ -203,5 +203,68 @@
   ],
   "lex": "brot",
   "verb": "An den Ofen"
+ },
+ "fischen_insula": {
+  "name": "Fischen zwischen den Brücken",
+  "where": "Tiberufer",
+  "desc": "Zwischen Pons Fabricius und Pons Aemilius soll der beste Wolfsbarsch Roms stehen – aber nur erfahrene Angler bekommen ihn an den Haken.",
+  "needs": {
+   "harundo": 1
+  },
+  "minigame": "fishing",
+  "mgOpts": {
+   "spot": "insula"
+  },
+  "duration": 1.5,
+  "energy": 6,
+  "dirt": 3,
+  "perDay": 3,
+  "skill": "fischen",
+  "xp": 6,
+  "xpPerScore": 8,
+  "lex": "fische",
+  "verb": "Angel auswerfen"
+ },
+ "fischen_marsfeld": {
+  "name": "Fischen am Marsfeld",
+  "where": "Tiberufer",
+  "desc": "Ein ruhiges Ufer in der Flussbiegung. Hier beißen Weißfische und Aale.",
+  "needs": {
+   "harundo": 1
+  },
+  "minigame": "fishing",
+  "mgOpts": {
+   "spot": "marsfeld"
+  },
+  "duration": 1.5,
+  "energy": 6,
+  "dirt": 3,
+  "perDay": 3,
+  "skill": "fischen",
+  "xp": 6,
+  "xpPerScore": 8,
+  "lex": "fische",
+  "verb": "Angel auswerfen"
+ },
+ "fischen_emporium": {
+  "name": "Fischen am Kai des Emporiums",
+  "where": "Tiberufer",
+  "desc": "Zwischen den Lastkähnen werfen auch Hafenarbeiter ihre Schnur aus.",
+  "needs": {
+   "harundo": 1
+  },
+  "minigame": "fishing",
+  "mgOpts": {
+   "spot": "emporium"
+  },
+  "duration": 1.5,
+  "energy": 6,
+  "dirt": 3,
+  "perDay": 3,
+  "skill": "fischen",
+  "xp": 6,
+  "xpPerScore": 8,
+  "lex": "fische",
+  "verb": "Angel auswerfen"
  }
 }

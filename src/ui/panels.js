@@ -10,6 +10,7 @@ import { lexCount } from '../systems/lexicon.js';
 import { changeMoney } from '../systems/rules.js';
 import { level, progress, skillDefs } from '../systems/skills.js';
 import { activeBuffs, hoursLeft, buffFx } from '../systems/buffs.js';
+import * as Cook from '../systems/cooking.js';
 
 // Verkaufspreis eines Gegenstands in einem Laden (Handel-Stufe und Boni erhöhen ihn)
 export function sellPrice(shop, id) {
@@ -23,7 +24,7 @@ export function sellPrice(shop, id) {
 
 const TITLES = {
   inventory: 'Inventar', log: 'Logbuch', lexicon: 'Schriftrolle des Wissens', menu: 'Menü', shop: 'Laden', help: 'Steuerung',
-  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)', char: 'Charakter',
+  map: 'Stadtplan von Rom', travel: 'Sänfte (lectica)', char: 'Charakter', cook: 'Kochen',
 };
 const HOTKEY = { inventory: 'inventory', log: 'log', lexicon: 'lexicon', map: 'map', char: 'char' };
 
@@ -270,6 +271,25 @@ export class Panels {
       this.nav.push(sell);
     });
     this.body.append(list);
+  }
+
+  // ---------- Kochen ----------
+  render_cook() {
+    const list = el('div', { class: 'shop-list' });
+    Object.entries(Cook.recipes()).forEach(([id, r], i) => {
+      const lockedLvl = !Cook.unlocked(id);
+      const miss = Cook.missing(id);
+      const can = !lockedLvl && !miss.length;
+      const go = () => { if (!can) return; this.close(); Cook.cook(id); };
+      const need = Object.entries(r.in).map(([it, n]) => `${Inv.itemDef(it).name}${n > 1 ? ` ×${n}` : ''}`).join(', ');
+      list.append(el('div', { class: `shop-row${i === this.sel ? ' sel' : ''}${lockedLvl ? ' locked' : ''}` },
+        pixelCanvas(getIcon(Inv.itemDef(r.out)), 2),
+        el('div', { class: 'grow' }, el('b', {}, lockedLvl ? `${r.name} (ab Kochen ${r.level})` : r.name), el('small', {}, `Zutaten: ${need}`),
+          miss.length && !lockedLvl ? el('small', { class: 'warnline' }, `Es fehlt: ${miss.join(', ')}`) : null, r.desc ? el('small', { class: 'muted' }, r.desc) : null),
+        el('button', { class: 'btn small', disabled: !can, onclick: go }, 'Kochen')));
+      if (can) this.nav.push(go);
+    });
+    this.body.append(el('p', { class: 'muted' }, 'Zutaten kaufst du auf den Märkten; Fische fängst du selbst. Gut gekochte Gerichte geben mehr Portionen.'), list);
   }
 
   // ---------- Charakter ----------

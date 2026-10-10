@@ -698,6 +698,13 @@ Object.assign(KINDS, {
     p('#5a4a3a', X + Math.floor(W / 2) - 3, Y + H - 9, 6, 1);
   },
 
+  jetty({ p, X, Y }) {
+    // kleiner Angelsteg
+    p('#7f5634', X, Y + 6, 16, 8); for (let i = 0; i < 16; i += 4) p('#9a6b42', X + i, Y + 6, 3, 8);
+    p('#5a3a22', X + 2, Y + 13, 2, 3); p('#5a3a22', X + 12, Y + 13, 2, 3);
+    p('#6b4426', X + 11, Y - 6, 2, 13); p('#e8e0cc', X + 12, Y - 6, 1, 1);
+  },
+
   well({ p, X, Y }) {
     ellipseFill(p, '#bdb295', X + 8, Y + 9, 6, 5);
     ellipseFill(p, '#3f6b8a', X + 8, Y + 8, 4, 3);

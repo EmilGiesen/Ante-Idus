@@ -5,8 +5,10 @@ import { water } from './water.js';
 import { haggle } from './haggle.js';
 import { carry } from './carry.js';
 import { build } from './build.js';
+import { fishing } from './fishing.js';
+import { cooking } from './cooking.js';
 
-export const MINIGAMES = { baking, water, haggle, carry, build };
+export const MINIGAMES = { baking, water, haggle, carry, build, fishing, cooking };
 
 // Durchschnittsergebnis für automatisierte Routinearbeit
 export const AUTO_RESULTS = {

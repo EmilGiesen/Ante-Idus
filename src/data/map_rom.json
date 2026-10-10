@@ -4185,6 +4185,42 @@
    }
   },
   {
+   "kind": "jetty",
+   "x": 64,
+   "y": 84,
+   "w": 1,
+   "h": 1,
+   "name": "Angelsteg zwischen den Brücken",
+   "interact": {
+    "type": "activity",
+    "id": "fischen_insula"
+   }
+  },
+  {
+   "kind": "jetty",
+   "x": 49,
+   "y": 30,
+   "w": 1,
+   "h": 1,
+   "name": "Angelplatz am Marsfeld",
+   "interact": {
+    "type": "activity",
+    "id": "fischen_marsfeld"
+   }
+  },
+  {
+   "kind": "jetty",
+   "x": 66,
+   "y": 132,
+   "w": 1,
+   "h": 1,
+   "name": "Angelplatz am Kai",
+   "interact": {
+    "type": "activity",
+    "id": "fischen_emporium"
+   }
+  },
+  {
    "kind": "litter",
    "x": 128,
    "y": 91,
@@ -5092,6 +5128,14 @@
   "fabius_forum": [
    127,
    89
+  ],
+  "prima": [
+   68,
+   68
+  ],
+  "nicanor": [
+   70,
+   131
   ],
   "phileros": [
    136,

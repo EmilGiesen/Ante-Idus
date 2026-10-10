@@ -364,6 +364,7 @@ export class Game {
     if (after.type === 'shop') { G.ui.panels.show('shop', { id: after.id, npc }); return; }
     if (after.type === 'sleep') { this.sleep(); return; }
     if (after.type === 'activity') { Act.offer(after.id, npc); return; }
+    if (after.type === 'panel') { G.ui.panels.show(after.id); return; }
     if (after.type === 'minigame') {
       const opts = { ...after.opts };
       if (!opts.app && npc) opts.app = npc.app;
@@ -576,6 +577,8 @@ export class Game {
     this.renderer.follow(map, x, y, true);
     this.renderer.draw(map, [], ambientLight(10.9), map.lights, this.t, 10.9);
   }
+
+  isSlaveFree() { return Act.slaveFreeTime() || M.hasPermit(); }
 
   // ---------- Debug/Test-Schnittstelle ----------
   debugTeleport(mapId, tx, ty) {
