@@ -1,4 +1,4 @@
-# CLAUDE.md – Projektregeln „Roma Vivit“
+# CLAUDE.md – Projektregeln „Ante Idus“
 
 Browser-Lebenssimulation im Rom Caesars (Frühjahr 46 v. Chr. bis nach den Iden des März 44 v. Chr.).
 Diese Regeln gelten für **alle** Sitzungen. Den Phasenplan findest du in `PLAN.md`.

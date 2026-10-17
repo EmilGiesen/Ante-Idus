@@ -1,4 +1,4 @@
-# PLAN.md – Roma Vivit
+# PLAN.md – Ante Idus
 
 Lebenssimulation im Rom Caesars. Start: Kalenden des April 46 v. Chr. (708 a.u.c.) – Caesar kämpft noch in Afrika
 (Thapsus, April 46), Rom wartet auf seine Rückkehr. Höhepunkt: Iden des März 44 v. Chr. Danach Weiterspielen.

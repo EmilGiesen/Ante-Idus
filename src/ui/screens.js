@@ -24,7 +24,7 @@ export class Screens {
     this.root.className = 'screen title-screen';
     this.root.append(el('div', { class: 'title-card' },
       el('div', { class: 'spqr' }, 'S · P · Q · R'),
-      el('h1', {}, 'ROMA VIVIT'),
+      el('h1', {}, 'ANTE IDUS'),
       el('p', { class: 'sub' }, 'Ein Leben im Rom Caesars · 46 – 44 v. Chr.'),
       el('div', { class: 'title-btns' },
         el('button', { class: 'btn big', onclick: onNew }, 'Neues Leben beginnen'),
