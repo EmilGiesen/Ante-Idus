@@ -70,7 +70,8 @@
   "price": 1,
   "food": {
    "satiety": 10,
-   "energy": 3
+   "energy": 3,
+   "thirst": 4
   },
   "desc": "Süß und lange haltbar.",
   "cat": "food"
@@ -94,7 +95,8 @@
   "price": 2,
   "food": {
    "satiety": 4,
-   "energy": 6
+   "energy": 6,
+   "thirst": 20
   },
   "desc": "Einfacher Wein, mit Wasser verdünnt getrunken.",
   "cat": "food"
@@ -114,7 +116,8 @@
   "price": 1,
   "food": {
    "energy": 5,
-   "satiety": 2
+   "satiety": 2,
+   "thirst": 35
   },
   "desc": "Wasser mit Essig – erfrischend und billig.",
   "cat": "food"
@@ -347,7 +350,8 @@
   "price": 6,
   "food": {
    "energy": 10,
-   "satiety": 4
+   "satiety": 4,
+   "thirst": 20
   },
   "buff": {
    "id": "mulsum",
@@ -554,7 +558,8 @@
   "price": 3,
   "food": {
    "satiety": 14,
-   "health": 4
+   "health": 4,
+   "thirst": 6
   },
   "desc": "Ein frischer Salat."
  },
@@ -660,5 +665,29 @@
   "cat": "gift",
   "price": 24,
   "desc": "Ein schlichter Eisenring. Man steckt ihn bei der Verlobung an den Finger neben dem kleinen Finger der linken Hand."
+ },
+ "calda": {
+  "name": "Calda (warmes Wasser mit Wein)",
+  "icon": "cup",
+  "c": "#c9a07a",
+  "cat": "food",
+  "price": 1,
+  "food": {
+   "thirst": 45,
+   "energy": 2
+  },
+  "desc": "Im Thermopolium bekommt man heißes Wasser, mit etwas Wein gemischt – das Lieblingsgetränk der Garküchen."
+ },
+ "aqua": {
+  "name": "Krug Wasser",
+  "icon": "jug",
+  "c": "#4f8fc0",
+  "cat": "food",
+  "price": 1,
+  "food": {
+   "thirst": 50
+  },
+  "desc": "Frisches Brunnenwasser zum Mitnehmen.",
+  "eatText": "Du trinkst das kühle Wasser."
  }
 }

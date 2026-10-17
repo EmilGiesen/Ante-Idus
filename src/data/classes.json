@@ -13,7 +13,8 @@
    "satiety": 85,
    "energy": 95,
    "health": 100,
-   "hygiene": 90
+   "hygiene": 90,
+   "thirst": 80
   },
   "inventory": {
    "lucerna": 1
@@ -75,7 +76,8 @@
    "satiety": 60,
    "energy": 90,
    "health": 95,
-   "hygiene": 60
+   "hygiene": 60,
+   "thirst": 80
   },
   "inventory": {
    "panis": 1
@@ -135,7 +137,8 @@
    "satiety": 55,
    "energy": 80,
    "health": 90,
-   "hygiene": 55
+   "hygiene": 55,
+   "thirst": 80
   },
   "inventory": {},
   "stats": {

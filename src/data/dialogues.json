@@ -2348,6 +2348,30 @@
   "text": "Ein öffentlicher Brunnen (lacus). Kühles Wasser fließt Tag und Nacht aus dem Speier – gespeist von einer der Wasserleitungen Roms.",
   "opts": [
    {
+    "t": "Trinken",
+    "go": "fountain_drink",
+    "do": [
+     {
+      "need": {
+       "thirst": 70,
+       "energy": 2
+      }
+     },
+     {
+      "hours": 0.05
+     }
+    ]
+   },
+   {
+    "t": "Einen Krug Wasser abfüllen (mitnehmen)",
+    "go": "fountain_fill",
+    "do": [
+     {
+      "give": "aqua"
+     }
+    ]
+   },
+   {
     "t": "Den Brunnenrand nach dem Ring absuchen",
     "go": "ring_found",
     "if": {
@@ -2392,17 +2416,6 @@
     ]
    },
    {
-    "t": "Trinken",
-    "go": "fountain_drink",
-    "do": [
-     {
-      "need": {
-       "energy": 3
-      }
-     }
-    ]
-   },
-   {
     "t": "Weitergehen"
    }
   ],
@@ -2416,6 +2429,30 @@
  "fountain_palatin": {
   "text": "Ein öffentlicher Brunnen (lacus). Kühles Wasser fließt Tag und Nacht aus dem Speier – gespeist von einer der Wasserleitungen Roms.",
   "opts": [
+   {
+    "t": "Trinken",
+    "go": "fountain_drink",
+    "do": [
+     {
+      "need": {
+       "thirst": 70,
+       "energy": 2
+      }
+     },
+     {
+      "hours": 0.05
+     }
+    ]
+   },
+   {
+    "t": "Einen Krug Wasser abfüllen (mitnehmen)",
+    "go": "fountain_fill",
+    "do": [
+     {
+      "give": "aqua"
+     }
+    ]
+   },
    {
     "t": "Krug füllen (Minispiel)",
     "do": [
@@ -2447,17 +2484,6 @@
      },
      {
       "hours": 0.2
-     }
-    ]
-   },
-   {
-    "t": "Trinken",
-    "go": "fountain_drink",
-    "do": [
-     {
-      "need": {
-       "energy": 3
-      }
      }
     ]
    },
@@ -2501,7 +2527,7 @@
   "who": "narr"
  },
  "fountain_drink": {
-  "text": "Das Wasser ist kalt und klar.",
+  "text": "Das Wasser ist kalt und klar. Dein Durst ist gestillt.",
   "who": "narr"
  },
  "obj_bed": {
@@ -2572,6 +2598,17 @@
  "obj_wash": {
   "text": "Ein Brunnenbecken im Peristyl.",
   "opts": [
+   {
+    "t": "Trinken",
+    "go": "fountain_drink",
+    "do": [
+     {
+      "need": {
+       "thirst": 70
+      }
+     }
+    ]
+   },
    {
     "t": "Waschen",
     "go": "wash_done",
@@ -3658,5 +3695,61 @@
  },
  "hil_shop_yes": {
   "text": "Abgemacht. Die Theke steht rechts vom Hauseingang. Viel Glück, Ladenbesitzer!"
+ },
+ "fountain_lacus": {
+  "text": "Ein öffentlicher Brunnen (lacus). Kühles Wasser fließt Tag und Nacht aus dem Speier – jeder darf hier trinken.",
+  "who": "narr",
+  "do": [
+   {
+    "lex": "lacus"
+   }
+  ],
+  "opts": [
+   {
+    "t": "Trinken",
+    "go": "fountain_drink",
+    "do": [
+     {
+      "need": {
+       "thirst": 70,
+       "energy": 2
+      }
+     },
+     {
+      "hours": 0.05
+     }
+    ]
+   },
+   {
+    "t": "Einen Krug Wasser abfüllen (mitnehmen)",
+    "go": "fountain_fill",
+    "do": [
+     {
+      "give": "aqua"
+     }
+    ]
+   },
+   {
+    "t": "Waschen",
+    "go": "fountain_wash",
+    "do": [
+     {
+      "need": {
+       "hygiene": 35
+      }
+     },
+     {
+      "hours": 0.2
+     }
+    ]
+   },
+   {
+    "t": "Weitergehen"
+   }
+  ]
+ },
+ "fountain_fill": {
+  "text": "Du füllst einen Krug mit Wasser – für unterwegs (I → Inventar).",
+  "who": "narr"
  }
 }

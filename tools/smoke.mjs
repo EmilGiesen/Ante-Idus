@@ -398,6 +398,24 @@ try {
     await wait(100);
     return G.state.money === 36 ? true : `Wettgewinn falsch: ${G.state.money}`;
   });
+  // Durst: sinkt mit der Zeit, Brunnen und Getränke stillen ihn
+  await runScenario('plebs', async () => {
+    const { G, game, talk } = window.__rv;
+    const t0 = G.state.needs.thirst;
+    game.passHours(4);
+    if (!(G.state.needs.thirst < t0)) return `Durst sinkt nicht: ${t0} -> ${G.state.needs.thirst}`;
+    G.state.needs.thirst = 10;
+    await talk('fountain_lacus', ['Trinken']);
+    if (G.state.needs.thirst < 75) return `Brunnen stillt Durst nicht: ${G.state.needs.thirst}`;
+    await talk('fountain_lacus', ['Krug']);
+    G.state.needs.thirst = 20;
+    window.__rv.game.state.inv.aqua >= 1 || (() => { throw new Error('Kein Wasserkrug'); })();
+    const Inv = await import('/src/systems/inventory.js');
+    Inv.useItem('aqua');
+    if (G.state.needs.thirst < 65) return 'Wasserkrug stillt Durst nicht';
+    const fountains = G.data.map_rom.deco.filter((d) => d.interact && d.interact.dialogue === 'fountain_lacus').length;
+    return fountains >= 15 ? true : `Zu wenige Brunnen: ${fountains}`;
+  });
   // Teil 7: Wohnung einrichten, Garten, größere Wohnung, Sammlungen
   await runScenario('plebs', async () => {
     const { G, game } = window.__rv;

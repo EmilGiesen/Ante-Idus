@@ -10,7 +10,7 @@ import { prepareMap } from './gfx/maprender.js';
 import { Renderer } from './gfx/renderer.js';
 import { Player } from './entities/player.js';
 import { NpcManager } from './entities/npcs.js';
-import { updateNeeds } from './systems/needs.js';
+import { updateNeeds, faintCause } from './systems/needs.js';
 import * as M from './systems/missions.js';
 import * as Inv from './systems/inventory.js';
 import { checkCond, changeMoney, changeStat } from './systems/rules.js';
@@ -489,6 +489,7 @@ export class Game {
       s.needs.health = Math.min(100, s.needs.health + 15 + comfort);
       if (comfort >= 4) addBuffDirect('schlaf', 'Gut geschlafen: weniger müde', 8, { tired: -0.15 });
       s.needs.satiety = Math.max(5, s.needs.satiety - 10);
+      s.needs.thirst = Math.max(15, (s.needs.thirst ?? 80) - 10);
       s.needs.hygiene = Math.max(0, s.needs.hygiene - 4);
       s.light = null;
       this.npcs.enterMap(this.map);
@@ -499,18 +500,19 @@ export class Game {
   faint() {
     const s = this.state;
     const lost = s.cls === 'servus' ? 0 : Math.floor(s.money * 0.1);
+    const cause = faintCause();
     G.ui.fade(() => {
       const home = s.home;
       const pos = tileToPx(home.at[0], home.at[1]);
       this.passHours(24 - s.time.hour + 0.5);
-      s.needs.energy = 70; s.needs.health = 45; s.needs.satiety = Math.max(s.needs.satiety, 35); s.needs.hygiene = Math.max(s.needs.hygiene, 25);
+      s.needs.energy = 70; s.needs.health = 45; s.needs.satiety = Math.max(s.needs.satiety, 35); s.needs.hygiene = Math.max(s.needs.hygiene, 25); s.needs.thirst = Math.max(s.needs.thirst ?? 0, 50);
       s.money -= lost;
       if (s.cls === 'servus') changeStat('fides', -3, true);
       this.enterMap(home.map, pos.x, pos.y, 'down');
     }, 800).then(() => {
       G.ui.dialog.say(null, [
         'Dir wird schwarz vor Augen …',
-        `Du kommst zu Hause wieder zu dir.${lost ? ` Jemand hat dir ${formatMoney(lost)} abgenommen.` : ''} Achte auf Essen, Schlaf und Gesundheit!`,
+        `Du kommst zu Hause wieder zu dir.${lost ? ` Jemand hat dir ${formatMoney(lost)} abgenommen.` : ''} ${cause}`,
       ], 'narr');
     });
   }

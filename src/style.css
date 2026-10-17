@@ -89,7 +89,10 @@ button { font-family: var(--font); }
 .need b i { display: block; height: 100%; background: var(--ok); transition: width 0.3s; }
 .need-energy b i { background: #d9a441; }
 .need-health b i { background: #c0443a; }
-.need-hygiene b i { background: #4f8fc0; }
+.need-thirst b i { background: #4f8fc0; }
+.need-hygiene b i { background: #8fb8a8; }
+.need.low b { animation: lowpulse 0.9s ease-in-out infinite alternate; }
+@keyframes lowpulse { from { box-shadow: 0 0 0 0 rgba(192, 68, 58, 0); } to { box-shadow: 0 0 0 2px rgba(192, 68, 58, 0.9); } }
 .need.low { animation: pulse 1s infinite; }
 @keyframes pulse { 50% { opacity: 0.45; } }
 .hud-money { display: flex; align-items: center; gap: 3px; font-weight: bold; }

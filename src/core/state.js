@@ -15,6 +15,7 @@ export function migrateState(s, data) {
   s.mg ||= {};
   s.sk ||= startSkills(s.cls, data);
   s.buffs ||= [];
+  if (s.needs && s.needs.thirst === undefined) s.needs.thirst = 80;
   return s;
 }
 

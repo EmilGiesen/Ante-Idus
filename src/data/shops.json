@@ -18,6 +18,10 @@
   "text": "Heißes Essen für die Straße – man isst im Stehen oder nimmt es mit.",
   "items": [
    {
+    "id": "calda",
+    "fixed": true
+   },
+   {
     "id": "lentes",
     "fixed": true
    },
@@ -272,6 +276,10 @@
   "name": "Popina des Ursus",
   "text": "Wein, Posca und heißer Puls.",
   "items": [
+   {
+    "id": "calda",
+    "fixed": true
+   },
    {
     "id": "vinum"
    },

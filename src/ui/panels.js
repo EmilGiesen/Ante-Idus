@@ -97,7 +97,7 @@ export class Panels {
     const cur = items[this.sel];
     if (cur) {
       info.append(el('h3', {}, cur.def.name), el('p', {}, cur.def.desc || ''));
-      if (cur.def.food) info.append(el('p', { class: 'muted' }, 'Stillt: ' + Object.entries(cur.def.food).map(([k, v]) => `${({ satiety: 'Hunger', energy: 'Energie', health: 'Gesundheit', hygiene: 'Hygiene' })[k]} +${v}`).join(', ')));
+      if (cur.def.food) info.append(el('p', { class: 'muted' }, 'Stillt: ' + Object.entries(cur.def.food).map(([k, v]) => `${({ satiety: 'Hunger', thirst: 'Durst', energy: 'Energie', health: 'Gesundheit', hygiene: 'Hygiene' })[k]} +${v}`).join(', ')));
       if (cur.def.food || cur.def.light) {
         const label = cur.def.food ? 'Essen / Trinken (E)' : s.light === cur.id ? 'Löschen (E)' : 'Anzünden (E)';
         info.append(el('button', { class: 'btn', onclick: () => this.useSelected(items) }, label));

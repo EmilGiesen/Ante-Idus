@@ -9,7 +9,7 @@ import { currentStep, mdef, targetOf } from '../systems/missions.js';
 import { fmt } from '../systems/text.js';
 import { festivalOf, isRaceDay } from '../systems/festivals.js';
 
-const ICON = { satiety: '🍞', energy: '⚡', health: '❤', hygiene: '💧' };
+const ICON = { satiety: '🍞', thirst: '💧', energy: '⚡', health: '❤', hygiene: '🛁' };
 
 export class Hud {
   constructor(root) {

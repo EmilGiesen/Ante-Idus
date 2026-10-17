@@ -513,6 +513,19 @@ function priceBoard(x, y, market) {
 }
 priceBoard(72, 129, 'emporium'); priceBoard(140, 74, 'macellum'); priceBoard(70, 71, 'holitorium');
 priceBoard(90, 98, 'boarium'); priceBoard(164, 69, 'subura');
+// Öffentliche Brunnen (lacus) – in jedem Viertel einer, damit man überall trinken kann
+function lacusAt(x, y, name) {
+  const p = nearFree(x, y, 2, 2, 12);
+  if (!p) { warnings.push(`Brunnen ${name}: kein Platz`); return; }
+  D('fountain', p[0], p[1], 2, 2, { name, lex: 'aquaedukte', interact: { type: 'fountain', dialogue: 'fountain_lacus' } });
+}
+lacusAt(124, 92, 'Lacus Iuturnae'); lacusAt(110, 94, 'Lacus Servilius'); lacusAt(118, 64, 'Brunnen am Forum Iulium');
+lacusAt(140, 70, 'Brunnen am Argiletum'); lacusAt(96, 68, 'Brunnen am Kapitolshang'); lacusAt(76, 70, 'Brunnen am Forum Holitorium');
+lacusAt(88, 100, 'Brunnen am Forum Boarium'); lacusAt(98, 92, 'Brunnen im Velabrum'); lacusAt(72, 140, 'Brunnen am Emporium');
+lacusAt(108, 150, 'Brunnen auf dem Aventin'); lacusAt(128, 136, 'Brunnen am Circus'); lacusAt(162, 88, 'Brunnen an der Velia');
+lacusAt(176, 112, 'Brunnen auf dem Caelius'); lacusAt(180, 60, 'Brunnen auf dem Esquilin'); lacusAt(166, 26, 'Brunnen auf dem Viminal');
+lacusAt(124, 36, 'Brunnen auf dem Quirinal'); lacusAt(66, 34, 'Brunnen auf dem Marsfeld'); lacusAt(40, 92, 'Brunnen in Trans Tiberim');
+lacusAt(56, 74, 'Brunnen auf der Tiberinsel'); lacusAt(172, 146, 'Brunnen an der Via Appia');
 // Wandinschriften (dipinti) mit kleinen Aufträgen
 function boardAt(x, y, id) {
   const p = nearFree(x, y, 2, 1, 7);
